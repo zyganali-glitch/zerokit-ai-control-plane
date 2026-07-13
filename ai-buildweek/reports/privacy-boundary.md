@@ -46,4 +46,3 @@ If sensitive material is discovered after submission, stop using the artifact, f
 ## How this differs from “an AI agent reads your SaaS database”
 
 The model sees architecture inputs, not runtime records. It proposes a contract that developers can inspect, test, and reject. It cannot browse a customer database, take actions in a live admin session, or infer business state from production data. The value comes from design consistency and test planning while the data plane stays outside the AI boundary.
-

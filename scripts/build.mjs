@@ -12,4 +12,3 @@ await cp(resolve(root, 'frontend'), resolve(output, 'frontend'), { recursive: tr
 await mkdir(resolve(output, 'ai-buildweek'), { recursive: true });
 await cp(resolve(root, 'ai-buildweek', 'examples'), resolve(output, 'ai-buildweek', 'examples'), { recursive: true });
 console.log('PASS Built static judging demo in dist/.');
-

@@ -45,4 +45,3 @@ test('validator warns about non-root-relative endpoint strategies without reject
   assert.equal(result.valid, true);
   assert.equal(result.warnings.length, 1);
 });
-

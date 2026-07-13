@@ -131,4 +131,3 @@ export function formatValidationReport(result, sourceLabel = 'config') {
   for (const warning of result.warnings) lines.push(`  WARN: ${warning}`);
   return lines.join('\n');
 }
-

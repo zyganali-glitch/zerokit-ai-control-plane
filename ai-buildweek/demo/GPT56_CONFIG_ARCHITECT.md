@@ -55,4 +55,3 @@ The apply tool defaults to `ai-buildweek/demo-config/`, creates a timestamped ba
 - Every enabled endpoint has a separate payload compatibility result.
 - Privacy notes describe allowed and forbidden AI inputs.
 - Unit, config, browser, and adapter gates contain actual evidence.
-

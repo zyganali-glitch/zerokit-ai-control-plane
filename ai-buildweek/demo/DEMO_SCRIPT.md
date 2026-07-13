@@ -58,4 +58,3 @@ node ai-buildweek/scripts/apply-demo-config.mjs ai-buildweek/examples/school-saa
 **On screen:** agency and healthcare scenario cards, then title.
 
 **Narration:** “Describe the SaaS once; get a reviewable control-plane contract, adapter plan, and gates—faster, consistent, and privacy-preserving. That is ZeroKit AI Control Plane.”
-

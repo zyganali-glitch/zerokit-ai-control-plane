@@ -74,4 +74,3 @@ try {
   console.error(`FAIL ${error instanceof Error ? error.message : String(error)}`);
   process.exitCode = 1;
 }
-

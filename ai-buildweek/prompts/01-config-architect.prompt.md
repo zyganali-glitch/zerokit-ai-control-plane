@@ -49,4 +49,3 @@ Sanitized OpenAPI/contract excerpts:
 Brand and locale requirements:
 Explicitly excluded surfaces:
 ```
-

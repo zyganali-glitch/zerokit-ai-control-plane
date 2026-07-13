@@ -19,4 +19,3 @@ Panels: users, roles, plans, invoices, notifications, help, audit, reports. Curr
 ## Sanitized endpoint summary
 
 School backend routes live below `/school-api/v2/admin/`. Users return `{ users: [], total: number }`; invoices return `{ invoices: [], total: number }`; reports return aggregate metrics. No raw classroom activity or student content is exposed to this workflow.
-

@@ -18,4 +18,3 @@ Panels: users, audit, security, notifications, reports, legal/help, uploads. Syn
 ## Sanitized endpoint summary
 
 Routes live below `/clinic-control/v1/`. Reports contain de-identified aggregate counts. The adapter contract must reject any field named `patient_record`, `diagnosis`, or equivalent from the AI configuration workflow.
-

@@ -27,4 +27,3 @@ Adapter report findings:
 Known limitations:
 Submission call to action:
 ```
-

@@ -38,4 +38,3 @@ Sanitized backend route summary:
 Synthetic response examples:
 Known auth envelope (no credentials):
 ```
-

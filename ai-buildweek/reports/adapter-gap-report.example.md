@@ -84,4 +84,3 @@ Enabled judging path: users, roles, plans, invoices, notifications, help, audit,
 ## Risk rating
 
 **Medium.** Route mapping is straightforward, but audit is missing, notification writes are unknown, and three payloads require explicit normalization. Risk becomes low only after adapter tests and authorization review pass. Do not enable unsupported writes merely because the panel is visible.
-
