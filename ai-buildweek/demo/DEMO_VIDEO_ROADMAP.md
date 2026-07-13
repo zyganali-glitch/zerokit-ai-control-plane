@@ -128,10 +128,12 @@ Beklenen sonuç: komut satırının solunda veya başında `zerokit-ai-control-p
 
 Aşağıdaki komutların hepsini birden yapıştırma. Her birini ayrı ayrı yapıştır, `Enter` tuşuna bas, bitmesini bekle, sonra diğerine geç.
 
+> **Windows PowerShell için önemli:** Bu rehberde `npm` yerine `npm.cmd` yazıyoruz. Bazı Windows bilgisayarlarında PowerShell, `npm` komutunu `npm.ps1` dosyasına yönlendirir ve “running scripts is disabled” hatası verir. `npm.cmd`, Node.js ile birlikte gelen resmî Windows komutudur ve PowerShell güvenlik ayarını değiştirmenizi gerektirmez. Bu hata daha önce çıktıysa Terminali kapatmadan aşağıdaki `npm.cmd` komutlarıyla devam edebilirsiniz. `Set-ExecutionPolicy` çalıştırmayın.
+
 #### Komut 1 — kurulum durumunu eşitle
 
 ```powershell
-npm ci
+npm.cmd ci
 ```
 
 Beklenen: kırmızı `ERR!` olmadan komut satırı geri gelir. `0 vulnerabilities` görmen normaldir.
@@ -139,7 +141,7 @@ Beklenen: kırmızı `ERR!` olmadan komut satırı geri gelir. `0 vulnerabilitie
 #### Komut 2 — projeyi oluştur
 
 ```powershell
-npm run build
+npm.cmd run build
 ```
 
 Beklenen: satırlardan birinde `PASS` görürsün.
@@ -147,7 +149,7 @@ Beklenen: satırlardan birinde `PASS` görürsün.
 #### Komut 3 — küçük kod kontrolleri
 
 ```powershell
-npm run test:unit
+npm.cmd run test:unit
 ```
 
 Beklenen: en sonda başarısız test sayısı `0` olur.
@@ -155,7 +157,7 @@ Beklenen: en sonda başarısız test sayısı `0` olur.
 #### Komut 4 — mahremiyet kontrolleri
 
 ```powershell
-npm run test:privacy
+npm.cmd run test:privacy
 ```
 
 Beklenen: testler geçer ve hata sayısı `0` olur.
@@ -163,7 +165,7 @@ Beklenen: testler geçer ve hata sayısı `0` olur.
 #### Komut 5 — İngilizce Codex görevini hazırla
 
 ```powershell
-npm run codex:prepare -- ai-buildweek/examples/school-saas.input.md --force
+npm.cmd run codex:prepare -- ai-buildweek/examples/school-saas.input.md --force
 ```
 
 Beklenen dört önemli satır:
@@ -178,7 +180,7 @@ NEXT: Select GPT-5.6 Sol
 #### Komut 6 — açık kaynak PocketBase adaptör kanıtı
 
 ```powershell
-npm run demo:pocketbase
+npm.cmd run demo:pocketbase
 ```
 
 Beklenen: `PASS` ve PocketBase adaptörünün başarılı olduğuna dair İngilizce satırlar.
@@ -186,7 +188,7 @@ Beklenen: `PASS` ve PocketBase adaptörünün başarılı olduğuna dair İngili
 #### Komut 7 — gerçek tarayıcı kontrolü
 
 ```powershell
-npm run test:browser
+npm.cmd run test:browser
 ```
 
 Beklenen: en sonda `16/16` veya bütün kontrollerin geçtiğini anlatan `PASS` satırı.
@@ -253,7 +255,7 @@ node ai-buildweek/scripts/validate-config.mjs ai-buildweek/evidence/school-saas.
 Hepsi uygunsa Terminalde aşağıdaki komutu **tek satır halinde** çalıştır:
 
 ```powershell
-npm run codex:record -- ai-buildweek/examples/school-saas.input.md ai-buildweek/runs/school-saas.codex-task.md ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed --force
+npm.cmd run codex:record -- ai-buildweek/examples/school-saas.input.md ai-buildweek/runs/school-saas.codex-task.md ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed --force
 ```
 
 Beklenen: `PASS Codex run evidence recorded` ve `operator-confirmed, not cryptographically verified` satırları.
@@ -274,7 +276,7 @@ cd "$env:USERPROFILE\.gemini\antigravity\scratch\zerokit-ai-control-plane"
 3. Şu komutu çalıştır:
 
 ```powershell
-npm run dev
+npm.cmd run dev
 ```
 
 Beklenen: ekranda `http://127.0.0.1:4173` adresi görünür. Bu Terminali kapatma; kapatırsan preview durur.
@@ -444,7 +446,8 @@ Evet, açık kaynak proje gösterimi değerlidir; fakat ana ürün yerine geçme
 
 | Sorun | Yapılacak şey |
 |---|---|
-| `127.0.0.1` açılmıyor | `npm run dev` çalışan Terminali açık tut; adresi `http` ile yeniden yaz |
+| PowerShell “running scripts is disabled” diyor | `npm` yerine `npm.cmd` kullan; `Set-ExecutionPolicy` çalıştırma ve aynı Terminalde komutu yeniden dene |
+| `127.0.0.1` açılmıyor | `npm.cmd run dev` çalışan Terminali açık tut; adresi `http` ile yeniden yaz |
 | GPT-5.6 görünmüyor | Uygulamayı güncelle, doğru hesabı ve plan/rollout erişimini kontrol et; başka modeli GPT-5.6 diye gösterme |
 | `codex:prepare` FAIL | Görevi modele gönderme; bulguyu sentetik girdiden temizle ve komutu yeniden çalıştır |
 | Codex yanlış dosyaya yazdı | İngilizce takip komutuyla tam hedef yolu tekrar belirt |

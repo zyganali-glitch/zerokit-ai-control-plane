@@ -29,7 +29,7 @@ Ekran görüntülerinde konuşma olmadığı için bütün açıklama metinleri 
 
 ## 5. PocketBase adaptör kanıtı
 
-- Sentetik `items/totalItems` fixture'ı ile `npm run demo:pocketbase` PASS sonucunu göster.
+- Sentetik `items/totalItems` fixture'ı ile `npm.cmd run demo:pocketbase` PASS sonucunu göster.
 - İngilizce açıklama: `An open-source backend envelope mapped through a tested, fail-closed adapter.`
 
 ## 6. Test kanıtı
