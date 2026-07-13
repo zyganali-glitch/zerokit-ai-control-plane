@@ -2,7 +2,8 @@
 
 > Generate a privacy-preserving SaaS control-plane config, RBAC model, endpoint map, and adapter report with Codex + GPT-5.6.
 
-Türkçe değerlendirme ve kayıt rehberi: [Jüri/iddia denetimi](ai-buildweek/reports/jury-claim-audit.md) · [Demo video yol haritası](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md)
+Judge-facing notes: [Judging notes](ai-buildweek/reports/judging-notes.md) · [Privacy boundary](ai-buildweek/reports/privacy-boundary.md) · [Claim audit](ai-buildweek/reports/jury-claim-audit.md)<br>
+Operator recording guide, Turkish: [Demo video roadmap](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md)
 
 This Build Week edition is a public competition adaptation of a private commercial ZeroKit codebase. The private donor product remains separate; this repository contains the selected and hardened judging/demo surface, GPT-5.6/Codex workflows, synthetic sample configs, local validation tools, and a runnable privacy-preserving control-plane preview.
 
@@ -61,9 +62,10 @@ See [privacy-boundary.md](ai-buildweek/reports/privacy-boundary.md) for sanitiza
 Prerequisite: Node.js 20 or newer.
 
 ```bash
-npm install
+npm ci
 npm run build
 npm run test:unit
+npm run test:privacy
 npm run test:browser
 ```
 
@@ -133,9 +135,10 @@ Evidence captured on 2026-07-13 is recorded in [codex-build-log.md](ai-buildweek
 
 | Check | Result | Evidence |
 | --- | --- | --- |
-| `npm install` | PASS | 1 package audited, 0 vulnerabilities; lockfile created |
+| `npm ci` | PASS | 1 package audited, 0 vulnerabilities; lockfile reproduced |
 | `npm run build` | PASS | Static judging demo emitted to `dist/` |
 | `npm run test:unit` | PASS | 18/18 Node tests, including school task synchronization, Codex manifest, strict generated-artifact, privacy, and PocketBase adapter tests |
+| `npm run test:privacy` | PASS | 8/8 focused Codex-workflow and privacy-guard tests |
 | School Codex task preflight | PASS | Task file produced, zero blockers/review findings, no model API call |
 | In-app GPT-5.6 run evidence | OPERATOR STEP | Select GPT-5.6 Sol visibly in Codex, execute the prepared task, review output, then record the manifest |
 | School config validation | PASS | 9 panels, 5 roles, 5 field groups, 8 endpoints |
@@ -143,9 +146,14 @@ Evidence captured on 2026-07-13 is recorded in [codex-build-log.md](ai-buildweek
 | Agency config validation | PASS | 8 panels, 4 roles, 7 field groups, 7 endpoints |
 | School Markdown report generation | PASS | `ai-buildweek/reports/generated-demo-report.md` generated locally |
 | PocketBase adapter proof | PASS | 2 synthetic `items` → 2 `users`; `totalItems` → `total`; malformed shapes fail closed in tests |
+| Required config validations | PASS | 3/3 synthetic scenarios |
 | `npm run test:browser` | PASS | 16/16 assertions at 375×812: TR/light/healthcare, overflow, keyboard, privacy, negative JSON, network and runtime errors |
 
 Playwright is intentionally not added to this selected static surface. The dependency-free Chrome DevTools smoke runner uses an installed Chrome/Edge binary (`CHROME_PATH` can override discovery) and does not claim that the private donor product’s broader E2E suite applies to this repository.
+
+## Optional static preview deployment
+
+The static judging surface is emitted to `dist/` with `npm run build`. It can be deployed to GitHub Pages or any static host. The local workflow remains the source of truth for privacy checks, Codex task preparation, validation, and evidence. No live preview URL is claimed until a deployment actually exists.
 
 ## Repository structure
 

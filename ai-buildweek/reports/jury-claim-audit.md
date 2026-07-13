@@ -1,105 +1,117 @@
-# OpenAI Build Week jüri ve iddia denetimi
+# OpenAI Build Week judging and claim audit
 
-- Denetim tarihi: 2026-07-13
-- Kapsam: herkese açık `zerokit-ai-control-plane` reposu
-- İnceleme bakışı: kıdemli ürün mühendisi + OpenAI Build Week jüri vekili
-- Not: Aşağıdaki puanlar resmî OpenAI puanı değil, kanıta dayalı değerlendirme tahminidir.
+- Audit date: 2026-07-13
+- Scope: public `zerokit-ai-control-plane` repository
+- Review perspective: senior product engineer and proxy Build Week judge
+- Note: the scores below are evidence-based estimates, not official OpenAI scores.
 
-## Resmî değerlendirme temeli
+## Judging basis
 
-[OpenAI Build Week sayfası](https://openai.com/build-week/) başvuruların teknik uygulama, tasarım ve kullanıcı deneyimi, potansiyel etki ve fikir kalitesi üzerinden değerlendirildiğini söylüyor. Güçlü başvuruların GPT-5.6 ve Codex'i düşünülmüş şekilde kullanması ve problem–çözüm–yaklaşım zincirini açık anlatması bekleniyor.
+The [OpenAI Build Week page](https://openai.com/build-week/) describes technical implementation, design and user experience, potential impact, and idea quality as the judging dimensions. Strong submissions should use GPT-5.6 and Codex thoughtfully and explain a clear problem–solution–approach chain.
 
-[Devpost yarışma sayfası](https://openai.devpost.com/) ölçütleri daha somut tarif ediyor:
+The [Devpost competition page](https://openai.devpost.com/) makes the dimensions more concrete:
 
-- **Teknolojik uygulama:** GPT-5.6 ne kadar kapsamlı ve ustalıklı kullanılıyor; kod gerçek emek ve çalışan, basit olmayan bir uygulama gösteriyor mu?
-- **Tasarım:** Çalıştırılabilir, tutarlı bir ürün deneyimi var mı; yoksa yalnızca teknik bir kavram kanıtı mı?
-- **Potansiyel etki:** Gerçek bir kitle için gerçek bir problem açık ve inandırıcı şekilde çözülüyor mu?
-- **Fikir kalitesi:** GPT-5.6 kullanımı yaratıcı ve bariz olmayan bir değer sağlıyor mu; ekip problem alanını gerçekten anlıyor mu?
+- **Technical implementation:** Is GPT-5.6 used deeply and skillfully, and does the code demonstrate substantial working software?
+- **Design:** Is there a coherent runnable product experience rather than only a technical concept?
+- **Potential impact:** Does the project address a credible problem for a real audience?
+- **Idea quality:** Does GPT-5.6 create non-obvious value, and does the team understand the problem domain?
 
-## Kısa jüri kararı
+## Executive judge verdict
 
-**Repo şu dar ve dürüst iddiayı karşılıyor:** “Codex uygulamasında seçilen GPT-5.6 ile sansürlenmiş SaaS gereksinimlerini, yerelde doğrulanan bir kontrol düzlemi config'ine ve adaptör/test kanıtına dönüştüren mahremiyet kontrollü geliştirici akışı.”
+**The repository supports this narrow, honest claim:** “A privacy-controlled developer workflow that uses GPT-5.6 selected in the Codex app to turn sanitized SaaS requirements into a locally validated control-plane config plus adapter and test evidence.”
 
-**Repo şu geniş iddiayı karşılamıyor:** “Her backend'e otomatik bağlanan, production-ready bir AI control plane.” Bu geniş ifade kullanılmamalı.
+**The repository does not support this broad claim:** “A production-ready AI control plane that automatically connects to every backend.” That wording should not be used.
 
-API kullanmama kararı ürünün zayıflığı değildir. Build Week'in odağı Codex ile üretmektir; bu repo Codex uygulamasını çalışma yüzeyi, yerel scriptleri ise mahremiyet, görev sınırı, deterministik doğrulama ve kanıt katmanı olarak kullanır. En önemli dürüst sınır şudur: yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, videoda görünür model seçimi ve operatör onaylı manifest ile sağlanır; kriptografik model doğrulaması iddia edilmez.
+Not using a model API is not a product weakness. Codex is the architecture work surface; local scripts provide privacy preflight, task boundaries, deterministic validation, and evidence. The key limitation is explicit: a local script cannot read the model selected in the Codex UI. GPT-5.6 evidence therefore consists of the visible model selection in the video plus an operator-confirmed manifest. No cryptographic model proof is claimed.
 
-[OpenAI'nin GPT-5.6 duyurusu](https://openai.com/index/gpt-5-6/) model ailesinin Codex'te kullanılabildiğini; uygun Plus, Pro, Business ve Enterprise hesaplarında Sol, Terra ve Luna seçenekleri ile efor düzeylerinin seçilebildiğini belirtiyor. Yarışma kaydı öncesinde kendi hesabındaki model seçiciyi görünür şekilde kontrol et.
+OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT-5.6 availability in Codex and selectable model/reasoning options for eligible accounts. The operator must verify the visible choice in their own account before recording.
 
-## Jüri vekili puan kartı
+## Proxy scorecard
 
-| Resmî ölçüt | Güncel puan | Neden daha yüksek değil? |
+| Judging dimension | Current score | Why it is not higher |
 | --- | ---: | --- |
-| Teknolojik uygulama | 7,6/10 | Codex görev paketi, mahremiyet engeli, katı çıktı kapısı, hash manifesti, preview ve PocketBase adaptörü var; GPT-5.6 Sol ile son operatör çalışması ve videosu henüz kaydedilmedi. |
-| Tasarım / UX | 8,1/10 | Bilingual ve responsive preview tutarlı; görev hazırlama → Codex → preview zinciri hâlâ iki uygulama arasında ilerliyor. |
-| Potansiyel etki | 7,7/10 | SaaS özelleştirme problemi gerçek ve üç sektörle anlatılıyor; müşteri görüşmesi, süre ölçümü veya pilot kanıtı yok. |
-| Fikir kalitesi | 8,5/10 | GPT-5.6'yı chatbot yerine config/sözleşme/test eş tasarımcısı olarak konumlamak özgün ve mahremiyet odaklı. |
-| **Eşit ağırlıklı jüri vekili toplamı** | **8,0/10** | Rekabetçi ve inandırıcı; üst seviye derece için görünür GPT-5.6 çalışması, güçlü video ve mümkünse canlı preview bağlantısı gerekir. |
+| Technical implementation | 7.6/10 | The bounded Codex task, privacy guard, strict output gate, manifest, preview, and PocketBase adapter are implemented; the final visible GPT-5.6 operator run and video are not yet recorded. |
+| Design / UX | 8.1/10 | The bilingual responsive preview is coherent; prepare → Codex → preview still spans two applications. |
+| Potential impact | 7.7/10 | SaaS customization is a credible problem demonstrated across three sectors; there is no customer interview, timing study, or pilot evidence. |
+| Idea quality | 8.5/10 | Positioning GPT-5.6 as a config/contract/test co-designer rather than a chatbot is distinctive and privacy-aware. |
+| **Equal-weight proxy total** | **8.0/10** | Competitive and credible; a visible GPT-5.6 run, strong video, and optional live preview would improve placement. |
 
-## İddia bazında sonuç
+## Claim-by-claim result
 
-| İddia | Sonuç | Kanıt | Sınır |
+| Claim | Result | Evidence | Boundary |
 | --- | --- | --- | --- |
-| GPT-5.6/Codex merkezde | **Kod düzeyinde hazır; son operatör kanıtı bekliyor** | Dört prompt, Codex görev üreticisi, model-seçim beyanı, çıktı doğrulayıcı | Videoda GPT-5.6 Sol seçimi ve bu çalışmaya ait manifest gösterilmeli. |
-| Sansürlenmiş gereksinimden config üretir | **Hazır** | Okul girdisi, hazır görev paketi, hedef dosya ve doğrulama komutu | Mevcut örnek config'i yeni Codex çalışmasıymış gibi sunma; yeni çıktı ayrı evidence yoluna yazılmalı. |
-| Mahremiyet korumalı AI akışı | **İş akışı kontrolü olarak destekleniyor** | Yerel engel, `.env`/secret denylist, sentetik fixture, preview'da dış istek yok | Hiçbir pattern taraması bütün hassas verileri garanti edemez; insan onayı zorunlu. |
-| Production verisi modele gitmez | **Repo ve desteklenen akış için doğru** | Dahil girdiler sentetik, görev dosyası özel dosyaları yasaklıyor | Geliştirici kuralları atlayabilir; süreç disiplini yine gerekir. |
-| Backend adaptör uyumluluğu | **Bir gerçek sınırda kanıtlı** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed testler | Her PocketBase koleksiyonu veya herhangi bir backend otomatik uyumlu değildir. |
-| Şema uyumlu config | **Açık yarışma sözleşmesi seviyesinde destekleniyor** | Ortak validator, JSON Schema belgesi, üç senaryo, katı üretilmiş-artifact kapısı | Validator tam bir JSON Schema 2020-12 motoru değildir. |
-| Çalışan ürün | **Çalışan jüri preview'su** | Build, yerel preview, safe apply, rapor, tarayıcı smoke | Production control plane veya özel donor ürünün tamamı değildir. |
-| Sıfır bağımlılık | **Niteliksiz söylenirse yanlış** | Node/npm ve tarayıcı ön koşul | “Sıfır frontend runtime npm bağımlılığı” ifadesi doğrudur. |
+| GPT-5.6/Codex is central | **Code path ready; final operator evidence pending** | Four prompts, task generator, model-selection attestation, output validator | The video must show GPT-5.6 Sol or the documented High selection and the manifest from that run. |
+| Generates config from sanitized requirements | **Ready** | School input, prepared task, target path, validation command | Do not present the checked-in baseline config as a fresh Codex run; write new output to the evidence path. |
+| Privacy-preserving AI workflow | **Supported as a workflow control** | Local guard, `.env`/secret denylist, synthetic fixtures, zero external preview requests | Pattern matching cannot guarantee complete sanitization; human review is mandatory. |
+| Production data stays outside the model | **True for the repository and supported workflow** | Checked-in inputs are synthetic; task rules prohibit private sources | A developer could bypass process rules; operational discipline is still required. |
+| Backend adapter compatibility | **Proved at one concrete boundary** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed tests | This does not prove every PocketBase collection or arbitrary backend is compatible. |
+| Schema-compatible config | **Supported at the public judging-contract level** | Shared validator, JSON Schema document, three scenarios, stricter generated-artifact gate | The validator is not a complete JSON Schema 2020-12 engine. |
+| Working product | **Working judging preview** | Build, local preview, safe apply, report, browser smoke | It is not the full production control plane or private donor product. |
+| Zero dependency | **False if unqualified** | Node/npm and a browser are prerequisites | “Zero frontend runtime npm dependencies” is accurate. |
 
-## Bu turda kabul edilip uygulanan öneriler
+## Final evidence snapshot
 
-1. Model API'si, API anahtarı, kota ve Responses API katmanı tamamen kaldırıldı.
-2. Yerel mahremiyet kontrolünden sonra tekrar üretilebilir Codex görev dosyası hazırlayan `codex:prepare` eklendi.
-3. Codex uygulamasında GPT-5.6 Sol seçimi, görev yürütme ve hedef JSON yolu açık bir operatör akışına bağlandı.
-4. İnsan incelemesinden sonra dosya hash'leri ve validation istatistiklerini kaydeden `codex:record` eklendi.
-5. Manifest, model seçimini “operatör onaylı, kriptografik değil” diye açıkça işaretliyor.
-6. Kök `AGENTS.md`, Codex'in hangi dosyalara dokunamayacağını ve hangi kapıları çalıştıracağını tanımlıyor.
-7. Jüri raporu, demo metni ve video prodüksiyon planı Türkçeleştirildi.
-8. Sentetik okul SaaS için çalıştırılabilir Codex görev paketi hazırlandı.
+| Command | Final recorded result |
+| --- | --- |
+| `npm run test:unit` | PASS, 18/18 |
+| `npm run test:privacy` | PASS, 8/8 |
+| `npm run test:browser` | PASS, 16/16 |
+| `npm run demo:pocketbase` | PASS, 2 synthetic items → 2 users |
+| Three required config validations | PASS, 3/3 |
 
-## Sentetik okul SaaS hazır mı?
+## Implemented recommendations
 
-**Evet, ürün/demonstrasyon senaryosu hazırdır.** Şunlar mevcut ve doğrulanabilir:
+1. Removed the model API, API key, quota, and Responses API execution path.
+2. Added `codex:prepare` to create a reproducible Codex task after local privacy checks.
+3. Connected visible GPT-5.6 selection, task execution, and the target JSON path in one operator workflow.
+4. Added `codex:record` to store file hashes and validation statistics after human review.
+5. Explicitly labels model selection as operator-confirmed and not cryptographically verified.
+6. Added root `AGENTS.md` rules that prohibit private inputs and require completion gates.
+7. Made judge-facing documentation English-first while preserving the Turkish beginner recording guide.
+8. Prepared a runnable synthetic School SaaS task package.
 
-- sansürlenmiş okul gereksinimi;
-- panel, RBAC, alan, endpoint, marka, mahremiyet ve test checklist'i içeren baseline config;
-- okul config'ini yükleyen browser preview;
-- kullanıcı, rol, plan, fatura, bildirim, yardım, audit ve aggregate rapor yüzeyleri;
-- team billing'in kapalı tutulduğu görünür negatif karar;
-- PocketBase sentetik kullanıcı zarfı ve çalışan adaptörü;
-- hazır `school-saas.codex-task.md` görev paketi;
-- yerel config, unit, privacy, browser ve adapter testleri.
+## Is the synthetic School SaaS ready?
 
-Henüz yapılmamış tek yarışma kanıtı: operatörün Codex'te **GPT-5.6 Sol** seçip hazır görevi çalıştırması, yeni output'u incelemesi, manifest oluşturması ve bunu videoda göstermesi. Bu bir kod eksiği değil, kayıt günündeki kontrollü insan adımıdır.
+**Yes, the product/demo scenario is ready.** It includes:
 
-## Başvuru öncesi P0 adımları
+- sanitized school requirements;
+- a baseline config with panels, RBAC, fields, endpoints, branding, privacy notes, and a test checklist;
+- a browser preview that loads the school config;
+- synthetic user, role, plan, invoice, notification, help, audit, and aggregate-report surfaces;
+- an explicit negative decision that keeps team billing disabled;
+- a synthetic PocketBase user envelope and working adapter;
+- a prepared `school-saas.codex-task.md` task;
+- local config, unit, privacy, browser, and adapter tests.
 
-1. Codex uygulamasında bu repoyu proje olarak aç.
-2. Model seçiciden **GPT-5.6 Sol**, efor olarak `high` veya son kayıt için uygunsa `max` seç.
-3. Yeni görevde şunu yaz:
+One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol** or the documented **High** reasoning selection in Codex, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. This is a controlled recording-day step, not a missing code feature.
+
+## Pre-submission P0 steps
+
+1. Open this repository as a project in the Codex app.
+2. Select **GPT-5.6 Sol** or the documented **High** reasoning selection and make it visible in the recording.
+3. Start a new task and paste:
 
    ```text
-   AGENTS.md kurallarına uy. ai-buildweek/runs/school-saas.codex-task.md dosyasını oku ve görevi tamamla.
+   Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Run the required validator, fix every failure, and report the final result and assumptions.
    ```
 
-4. Üretilen `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json` dosyasını insan gözüyle incele.
-5. Validator PASS aldıktan sonra manifest komutunu çalıştır.
-6. Model seçici, görev dosyası, PASS ve manifest hash'ini tek video akışında göster.
+4. Review `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json` manually.
+5. After validator PASS, run the manifest command.
+6. Show the model picker, prepared task, generated target, validator PASS, and manifest hash in the silent video.
 
-## Yerleştirmeyi güçlendiren sonraki öneriler
+## Recommendations that could strengthen placement
 
-- Statik preview'yu HTTPS altında yayınla ve README/Devpost'un ilk ekranına koy.
-- Videoda konuşma veya ses kullanma. Jüri videosunu İngilizce uygulama arayüzü ve kısa, gömülü İngilizce ekran yazılarıyla hazırla; Türkçe yalnızca operatörün hazırlık kılavuzunda kalsın. Devpost açıklaması İngilizce olmalı; kişisel çalışma notlarının Türkçe olması jüriye engel değildir.
-- Özel donör admin panelini ana demo kanıtı olarak gösterme. Jüriye açık repoda gerçekten bulunan, tekrar üretilebilir ZeroKit preview'sunu göster; aksi hâlde kapsam, lisans ve tekrar üretilebilirlik iddiası bulanıklaşır.
-- “Manuel ilk taslak süresi” ile “Codex destekli ilk taslak süresi”ni tek iç deney olarak ölç; bunu genelleştirilmiş verimlilik iddiası gibi sunma.
-- PocketBase kanıtını 10–15 saniye göster; ana hikâyeyi PocketBase kurulumuna dönüştürme.
-- Başvuru sonrası input → preflight → Codex görev → validation → preview akışını tek UI altında birleştir.
+- Optionally deploy the static `dist/` output over HTTPS and place the real URL near the top of README/Devpost; do not claim a URL until it exists.
+- Use no narration or audio. Keep the application and short embedded captions in English; keep Turkish only in the operator guide.
+- Do not show the private donor admin panel as competition evidence. Show the reproducible public preview.
+- Measure manual first-draft time against Codex-assisted first-draft time as one internal experiment; do not generalize it into an unsupported productivity claim.
+- Keep PocketBase evidence to roughly 10–15 seconds so the main story remains GPT-5.6/Codex and ZeroKit.
+- After submission, consider merging input → preflight → Codex task → validation → preview into one interface.
 
-## Jüriye söylenecek tek cümle
+## One-sentence judge pitch
 
-> ZeroKit, Codex uygulamasında seçilen GPT-5.6 ile sansürlenmiş SaaS gereksinimlerini yerelde doğrulanan bir kontrol düzlemi sözleşmesine ve adaptör/test kanıtına dönüştürür; müşteri kayıtları ve çalışma zamanı yetkilendirmesi model sınırının dışında kalır.
+> ZeroKit uses GPT-5.6 selected in the Codex app to turn sanitized SaaS requirements into a locally validated control-plane contract plus adapter and test evidence, while customer records and runtime authorization remain outside the model boundary.
 
-Bu cümle mevcut kod ve sınırlamalarla uyumludur.
+This sentence is consistent with the current implementation and limitations.
+
+Turkish reference: [jury-claim-audit.tr.md](jury-claim-audit.tr.md)

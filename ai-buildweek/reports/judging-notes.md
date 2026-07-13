@@ -1,56 +1,66 @@
-# Build Week jüri notları
+# Build Week judging notes
 
-## Neden Build Week projesi?
+## Why this is a Build Week project
 
-Bu repo, özel ticari ZeroKit kod tabanının yarışmaya odaklanmış açık uyarlamasıdır. SaaS teslimatının zor ve tekrarlanan bölümünü seçer: gereksinim ve backend sözleşmesini tutarlı bir kontrol düzlemi tanımına dönüştürmek. Akışı jüri için incelenebilir, çalıştırılabilir ve test edilebilir yapar.
+This repository is the public, competition-focused adaptation of a separate private commercial ZeroKit codebase. It targets a difficult and repeated part of SaaS delivery: turning product requirements and backend contracts into one coherent control-plane definition. The workflow is intentionally reviewable, runnable, and testable by judges.
 
-## GPT-5.6/Codex neden merkezde?
+## Why GPT-5.6/Codex is central
 
-GPT-5.6/Codex mimari/config/test eş tasarımcısıdır:
+GPT-5.6/Codex acts as an architecture, configuration, and test co-designer:
 
-1. Config mimarı sansürlenmiş ürün niyetini panel, RBAC, alan, endpoint, marka, mahremiyet notu ve test kapılarına dönüştürür.
-2. Adaptör mapper, sansürlenmiş backend sözleşmesini route-flexible/payload-strict beklentiyle karşılaştırır ve uyumluluk uydurmaz.
-3. Gate planner unit, smoke, privacy, i18n, responsive ve evidence kontrolleri üretir.
-4. Demo generator gerçek PASS/FAIL kanıtını kısa jüri anlatısına dönüştürür.
+1. The config architect turns sanitized product intent into panels, RBAC, fields, endpoints, branding, privacy notes, and test gates.
+2. The adapter mapper compares a sanitized backend contract against a route-flexible, payload-strict expectation and does not invent compatibility.
+3. The gate planner proposes unit, smoke, privacy, i18n, responsive, and evidence checks.
+4. The silent-demo workflow turns real PASS/FAIL evidence into a concise judge-facing story.
 
-Bu bir admin verisine eklenmiş chatbot değildir. Modelin mimari reasoning için production veriye ihtiyacı yoktur.
+This is not a chatbot attached to admin data. Architectural reasoning does not require production customer records.
 
-## Codex uygulaması akışı
+## Codex app workflow
 
-- `codex:prepare` sentetik girdiyi yerelde tarar ve sınırlandırılmış görev dosyası üretir.
-- Operatör Codex uygulamasında GPT-5.6 Sol'u görünür şekilde seçer.
-- Codex görev dosyasını çalıştırır ve output'u repo içinde oluşturur.
-- Deterministik validator PASS almayan artifact reddedilir.
-- İnsan review sonrasında hash manifesti oluşturulur.
-- Manifest model seçimini operatör onaylı ve kriptografik olmayan kanıt diye açıkça etiketler.
-- Model API'si ve API anahtarı yoktur.
+- `codex:prepare` scans the synthetic input locally and creates a bounded task file.
+- The operator visibly selects GPT-5.6 Sol, or the documented High reasoning selection, in the Codex app.
+- Codex follows the prepared task and writes the output inside the public repository.
+- A generated artifact is rejected unless the deterministic validator returns PASS.
+- After human review, the operator records a hash manifest.
+- The manifest explicitly labels model selection as operator-confirmed and not cryptographically verified.
+- No model API or model API key is used.
 
-## Açık yarışma sürümü ne içeriyor?
+## What the public competition edition contains
 
-- dört tekrar kullanılabilir GPT-5.6/Codex prompt workflow'u;
-- okul, sağlık ve ajans sentetik input/config senaryoları;
-- Codex görev paketi, privacy preflight ve manifest araçları;
-- CLI, test ve browser preview tarafından paylaşılan sıfır-runtime-package validator;
-- güvenli demo apply ve Markdown rapor üreticileri;
-- TR/EN, light/dark, responsive browser-only preview;
-- sentetik adaptör gap, privacy, build evidence, demo ve screenshot rehberi;
-- testli PocketBase response-envelope adaptörü.
+- four reusable GPT-5.6/Codex prompt workflows;
+- synthetic school, healthcare, and agency input/config scenarios;
+- a Codex task package, local privacy preflight, and evidence-manifest tools;
+- a shared validator used by the CLI, tests, and browser preview;
+- safe demo apply and Markdown report generators;
+- an English/Turkish, light/dark, responsive, browser-only judging preview;
+- adapter-gap, privacy, build-evidence, demo, and screenshot documentation;
+- a tested PocketBase response-envelope adapter using synthetic data.
 
-## Neler ayrı kalıyor?
+## What remains separate
 
-Özel ticari donor kod tabanı, geniş panel envanteri, özel roadmap ve ticari lisansı bu repoya dahil değildir. Repo donor ürünün tüm yüzeyinin tamamlandığını iddia etmez.
+The private commercial donor codebase, its broader panel inventory, private roadmap, and commercial license are not included. This repository does not claim that the donor product's complete surface is submitted or production-ready here.
 
-## Testler neyi kanıtlıyor?
+## What the tests prove
 
-- Üç örnekte required registry'ler vardır ve açık basic type contract'ını karşılar.
-- Codex testleri görev paketinin yalnız yerel dosya sınırını kullandığını, katı generated-artifact alanlarını, model/review beyanını ve secret içermeyen manifesti doğrular.
-- Privacy testleri yüksek güvenli secret ve non-reserved e-postayı modelden önce bloklar; insan sanitization yine gerekir.
-- PocketBase testleri başarılı zarf dönüşümünü ve eksik/yanlış key'de fail-closed davranışı doğrular.
-- Preview projection açık/kapalı panel ile RBAC, field, endpoint, warning ve privacy kanıtını korur.
+- All three examples contain the required registries and satisfy the public basic-type contract.
+- Codex workflow tests cover the bounded local task, strict generated-artifact fields, operator attestations, and content-free manifest hashes.
+- Privacy tests block high-confidence secrets and non-reserved email addresses before model use; human sanitization remains mandatory.
+- PocketBase tests cover successful envelope projection and fail-closed behavior for missing or malformed keys.
+- Preview tests retain enabled/hidden panels, RBAC, fields, endpoints, warnings, and privacy evidence.
 
-Testler müşteri backend payload uyumunu genel olarak kanıtlamaz; her backend için fixture, adaptör ve authorization testi gerekir.
+The tests do not prove arbitrary customer backend compatibility. Each backend still requires a fixture, adapter, authorization review, and integration tests.
 
-## Jüri çalıştırma yolu
+## Final recorded evidence
+
+| Command | Result |
+| --- | --- |
+| `npm run test:unit` | PASS, 18/18 |
+| `npm run test:privacy` | PASS, 8/8 |
+| `npm run test:browser` | PASS, 16/16 |
+| `npm run demo:pocketbase` | PASS |
+| Three config validations | PASS, 3/3 |
+
+## Judge run path
 
 ```bash
 npm ci
@@ -62,4 +72,6 @@ npm run demo:pocketbase
 npm run dev
 ```
 
-`http://127.0.0.1:4173` adresini aç; senaryo/dil/tema değiştir ve adaptör/mahremiyet raporlarını incele. Son GPT-5.6 üretimi Codex uygulamasında hazır görev dosyasıyla yürütülür.
+Open `http://127.0.0.1:4173`, switch scenarios/language/theme, and inspect the adapter and privacy evidence. The final GPT-5.6 generation is an operator step performed in the Codex app with the prepared task file.
+
+Turkish reference: [judging-notes.tr.md](judging-notes.tr.md)

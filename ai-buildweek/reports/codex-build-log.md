@@ -21,7 +21,7 @@ Key claim findings:
 ### Dependency install
 
 ```text
-$ npm install
+$ npm ci
 up to date, audited 1 package
 found 0 vulnerabilities
 PASS
@@ -38,13 +38,23 @@ PASS Built static judging demo in dist/.
 
 ```text
 $ npm run test:unit
+tests 18
+pass 18
+fail 0
+PASS
+```
+
+Current coverage includes the original selected-surface checks plus Codex task/manifest rules, strict generated-artifact validation, privacy guards, and the PocketBase adapter. The original selected-surface baseline was 8/8 before those later additions; the final suite is 18/18.
+
+### Focused privacy tests
+
+```text
+$ npm run test:privacy
 tests 8
 pass 8
 fail 0
 PASS
 ```
-
-Covered: enabled/hidden panel projection, role/permission projection, warning/privacy preservation, allowlisted URL start options, three complete scenario validations, aggregated malformed-config errors, and absolute endpoint strategy warning.
 
 ### Required config validations
 
@@ -66,7 +76,7 @@ $ node ai-buildweek/scripts/generate-demo-report.mjs ai-buildweek/examples/schoo
 PASS Wrote ai-buildweek/reports/generated-demo-report.md
 ```
 
-The generated report is intentionally ignored because it includes a local source path and timestamp; judges reproduce it with the exact command above.
+The generated report is intentionally ignored because it includes a generation timestamp. Its source path is stored relative to the repository so a report does not persist the operator's local Windows user path. Judges reproduce it with the exact command above.
 
 ## Browser evidence
 
@@ -129,22 +139,22 @@ The repeated run proves that an existing demo target is backed up before replace
 
 The public config validator intentionally checks the judging contract’s required sections and basic types without adding a JSON Schema runtime package. Backend payload compatibility still requires per-customer adapter tests; a structural config PASS does not prove backend integration.
 
-## Codex uygulaması iş akışına geçiş — 2026-07-13
+## Codex app workflow transition — 2026-07-13
 
-Kullanıcı tercihiyle model API'si, API anahtarı ve kota gerektiren çalışma yolu tamamen kaldırıldı. Güncel OpenAI kaynakları GPT-5.6'nın Codex uygulamasında kullanılabildiğini doğruladı. Yarışma akışı Codex uygulamasına taşındı.
+At the operator's request, the execution path requiring a model API, API key, and API quota was removed. Current OpenAI documentation confirmed GPT-5.6 availability in the Codex app, and the competition workflow moved to that product surface.
 
-Eklenen kontroller:
+Added controls:
 
-- model çağrısından önce yerel privacy guard;
-- izinli dosya ve hedefi belirleyen tekrar üretilebilir Codex görev paketi;
-- kök `AGENTS.md` ile `.env`, secret, production kayıt ve repo dışı özel dosya denylist'i;
-- generated artifact için version, brand, registry, privacy ve test checklist doğrulaması;
-- insan review ve görünür model seçimi onayı olmadan manifest üretmeme;
-- model seçimini açıkça “operatör onaylı, kriptografik değil” diye kaydetme;
-- input/task/output içerikleri yerine SHA-256 hash'lerini saklama;
-- PocketBase `items/totalItems` → ZeroKit `users/total` adaptör kanıtı.
+- a local privacy guard before model use;
+- a reproducible Codex task package with explicit allowed files and target;
+- root `AGENTS.md` rules denying `.env`, secrets, production records, private donor files, and private files outside the repository;
+- version, brand, registry, privacy-note, and test-checklist validation for generated artifacts;
+- refusal to create a manifest without human review and visible-model confirmation;
+- explicit “operator-confirmed, not cryptographically verified” model evidence;
+- SHA-256 hashes instead of input/task/output contents;
+- PocketBase `items/totalItems` → ZeroKit `users/total` adapter evidence.
 
-Temiz kontrol:
+Clean verification:
 
 ```text
 npm ci                         PASS, 0 vulnerability
@@ -159,4 +169,4 @@ three config validations       PASS, 3/3
 npm run test:browser           PASS, 16/16
 ```
 
-Son yarışma kanıtı operatör adımıdır: Codex uygulamasında GPT-5.6 Sol seçilir, hazır okul görevi çalıştırılır, çıktı insan tarafından incelenir ve manifest kaydedilir. Yerel script uygulama içi modeli okuyamadığı için kriptografik model doğrulaması iddia edilmez.
+The final competition artifact is an operator step: visibly select GPT-5.6 Sol or the documented High reasoning selection in the Codex app, run the prepared school task, review the output, and record the manifest. The local script cannot read the in-app model, so no cryptographic model verification is claimed.
