@@ -1,51 +1,56 @@
-# Devpost / OpenAI screenshot guide
+# Devpost / OpenAI ekran görüntüsü rehberi
 
-Capture at 1440×900 unless a step says mobile. Use only bundled synthetic scenarios. Close unrelated tabs, terminals containing personal paths, notifications, and any credential UI.
+Mobil adım dışında 1440×900 çek. Yalnız repodaki sentetik senaryoları kullan. İlgisiz sekmeleri, kişisel path gösteren terminalleri, bildirimleri ve credential arayüzlerini kapat.
 
-## 1. Hero and privacy promise
+## 1. Hero ve mahremiyet sözü
 
-- Open `http://127.0.0.1:4173` in dark theme and EN.
-- Frame the title, tagline, “Public Build Week judging edition”, and local privacy banner.
-- Caption: “Developer-side GPT-5.6/Codex architecture workflow; no production customer data enters AI.”
+- `http://127.0.0.1:4173` adresini dark tema ve EN ile aç.
+- Başlık, tagline, “Public Build Week judging edition” ve yerel privacy banner kadrajda olsun.
+- Açıklama: “Codex uygulamasında GPT-5.6 ile geliştirici tarafı mimari akışı; production müşteri verisi modele girmez.”
 
-## 2. School config summary
+## 2. Codex görev ve model kanıtı
 
-- Load School SaaS and keep dark theme.
-- Frame PASS status, four metric cards, panel map, and roles.
-- Make the hidden `team_billing` chip visible.
-- Caption: “Generated panel registry and least-privilege RBAC projected locally.”
+- Codex uygulamasında proje adı, GPT-5.6 Sol model seçimi ve `school-saas.codex-task.md` görevini aynı karede göster.
+- API anahtarı, `.env`, kişisel thread veya özel repo görünmesin.
+- Açıklama: “Yerel privacy preflight sonrasında sınırlandırılmış Codex görevi.”
 
-## 3. Endpoint and field contract
+## 3. Okul config özeti
 
-- Scroll to Endpoint map and Fields and options for School SaaS.
-- Include at least users, invoices, reports, currency options, and privacy notes.
-- Caption: “Routes are configurable; payload compatibility is verified separately.”
+- School SaaS yükle ve dark temada kal.
+- PASS, dört metric card, panel map ve roller kadrajda olsun.
+- Kapalı `team_billing` chip'i görünsün.
+- Açıklama: “Yerelde projekte edilen panel registry ve least-privilege RBAC.”
 
-## 4. Healthcare privacy profile
+## 4. Endpoint ve field sözleşmesi
 
-- Open `http://127.0.0.1:4173/?lang=tr&theme=light&scenario=healthcare-saas` for a repeatable state.
-- Frame PASS, hidden impersonation/chat, roles, and privacy notes.
-- Caption: “Sentetik sağlık senaryosu; PHI ve hasta kayıtları AI kapsamı dışında.”
+- School SaaS için Endpoint map ile Fields/options bölümlerine kaydır.
+- users, invoices, reports, currency options ve privacy notes görünsün.
+- Açıklama: “Route'lar yapılandırılabilir; payload uyumu ayrıca doğrulanır.”
 
-## 5. Mobile and accessibility
+## 5. Sağlık mahremiyet profili
 
-- Set viewport to 375×812 and open `http://127.0.0.1:4173/?lang=tr&theme=light&scenario=agency-saas`.
-- Capture the loaded Agency SaaS summary with focus visibly on “Yerelde doğrula”.
-- Caption: “Responsive, keyboard-visible, bilingual judging surface.”
+- Tekrar üretilebilir durum için `http://127.0.0.1:4173/?lang=tr&theme=light&scenario=healthcare-saas` aç.
+- PASS, kapalı impersonation/chat, roller ve privacy notes görünsün.
+- Açıklama: “Sentetik sağlık senaryosu; PHI ve hasta kayıtları model kapsamı dışında.”
 
-## 6. Adapter gap report
+## 6. Mobil ve erişilebilirlik
 
-- Render `ai-buildweek/reports/adapter-gap-report.example.md`.
-- Frame endpoint compatibility, payload mismatch, and Medium risk sections.
-- Caption: “Codex distinguishes compatible, shim-required, missing, and unknown contracts.”
+- Viewport'u 375×812 yap ve `http://127.0.0.1:4173/?lang=tr&theme=light&scenario=agency-saas` aç.
+- Agency SaaS özeti ve “Yerelde doğrula” üzerindeki görünür focus'u çek.
+- Açıklama: “Responsive, keyboard-visible, bilingual jüri yüzeyi.”
 
-## 7. Test evidence
+## 7. PocketBase adaptör kanıtı
 
-- In a clean terminal, run `npm run test:unit` and one config validation.
-- Capture test count, PASS result, and config counts without exposing the full personal filesystem path if the terminal can be cropped.
-- Caption: “Shared validator evidence: unit suite plus scenario contract validation.”
+- Sentetik `items/totalItems` fixture'ını ve `npm run demo:pocketbase` PASS sonucunu göster.
+- Açıklama: “Açık kaynak backend zarfı, testli ve fail-closed ZeroKit sözleşmesine dönüştürülür.”
 
-## 8. Architecture closing frame
+## 8. Test kanıtı
 
-- Capture the README architecture diagram and “Why GPT-5.6/Codex is central”.
-- Caption: “AI designs configuration, adapter, and gates; the data plane stays on user infrastructure.”
+- Temiz terminalde `npm run test:unit`, `npm run test:privacy` ve bir config doğrulaması çalıştır.
+- Test sayısı, PASS ve config sayıları görünsün; kişisel filesystem path'i kırp.
+- Açıklama: “Codex görev/manifest, privacy, adaptör ve senaryo contract testleri.”
+
+## 9. Mimari kapanış karesi
+
+- README mimari diyagramı ve “Why GPT-5.6/Codex is central” bölümünü çek.
+- Açıklama: “AI config, adaptör ve kapıları tasarlar; müşteri veri düzlemi kullanıcı altyapısında kalır.”

@@ -1,57 +1,80 @@
-# GPT-5.6/Codex config architect workflow
+# GPT-5.6/Codex config mimarı çalışma akışı
 
-## Goal
+## Amaç
 
-Turn a non-sensitive SaaS description into a validated ZeroKit control-plane contract, an adapter decision record, and a test gate plan. The model operates on developer artifacts; production customer data stays out of scope.
+Hassas olmayan bir SaaS tarifini doğrulanmış ZeroKit kontrol düzlemi sözleşmesine, adaptör karar kaydına ve test kapısı planına dönüştürmek. Model geliştirici artifact'leri üzerinde çalışır; production müşteri verisi kapsam dışıdır.
 
-## Inputs to prepare
+## Codex uygulaması kurulumu
 
-1. Copy one scenario shape from `ai-buildweek/examples/*.input.md`.
-2. Replace product, roles, panels, synthetic fields, and route names.
-3. Include only sanitized OpenAPI operations or summarized response keys.
-4. Remove real hosts, identifiers, example records, credentials, logs, and free text.
-5. Have a human reviewer approve the prompt input.
+1. Bu repoyu Codex uygulamasında proje olarak aç.
+2. Model seçiciden **GPT-5.6 Sol** seç.
+3. Günlük iterasyonda `high`, son yarışma çalışmasında hesabında varsa `max` efor seç.
+4. Model seçimini scriptin doğrulayamayacağını kabul et; yarışma videosunda model seçiciyi göster.
+5. Model API'si veya API anahtarı kullanma.
 
-## Run the four passes
+## Girdi hazırlığı
 
-### 1. Config architecture
+1. `ai-buildweek/examples/*.input.md` biçiminden bir senaryo seç.
+2. Ürün, rol, panel, sentetik alan ve route adlarını yaz.
+3. Yalnızca sansürlenmiş OpenAPI operation'ları veya response key özetlerini ekle.
+4. Gerçek host, identifier, kayıt, credential, log ve serbest müşteri metnini çıkar.
+5. İnsan reviewer girdiyi onaylasın.
 
-Use `ai-buildweek/prompts/01-config-architect.prompt.md`. Save only the strict JSON object as a new file below `ai-buildweek/examples/` or another reviewed workspace.
+## Yerel preflight ve görev paketi
 
 ```bash
-node ai-buildweek/scripts/validate-config.mjs path/to/generated.config.json
+npm run codex:prepare -- ai-buildweek/examples/school-saas.input.md
 ```
 
-A `FAIL` blocks application. A `PASS` proves basic structure/types, not backend payload compatibility.
+Komut gizli anahtar ve gerçek görünümlü kimlik sinyallerini kontrol eder; ardından `ai-buildweek/runs/school-saas.codex-task.md` üretir. FAIL varsa görevi Codex'e verme.
 
-### 2. Backend mapping
+## Codex görevini çalıştırma
 
-Use `02-backend-adapter-mapper.prompt.md` with the generated config, enabled operations, ZeroKit contract excerpt, and sanitized customer contract. Treat `unknown`, `missing`, and `shim required` as work—not as compatible.
+Yeni Codex görevinde şunu yaz:
 
-### 3. Test gates
+```text
+AGENTS.md kurallarına uy. ai-buildweek/runs/school-saas.codex-task.md dosyasını oku ve görevi tamamla.
+```
 
-Use `03-test-gate-planner.prompt.md` with the actual changed modules and available commands. Keep `NOT_RUN` honest and blocking unless an explicit scope exception explains it.
+Codex hedef config'i `ai-buildweek/evidence/` altında üretir ve validator çalıştırır. Codex'in `.env`, private donor, üretim logu veya repo dışındaki dosyaları okumasına izin verme.
 
-### 4. Demo narrative
+## İnsan review ve manifest
 
-After checks have run, use `04-demo-script-generator.prompt.md` with real evidence. Do not feed it hoped-for PASS results.
+Şunları kontrol et:
 
-## Safe local application
+- bütün paneller bilinçli açık/kapalı ve doğru navigation grubunda;
+- roller least privilege uyguluyor ve slug'lar benzersiz;
+- field/options gerçek kişisel veya production değer içermiyor;
+- endpoint map yalnız route içeriyor; secret ve host yok;
+- uyumluluk kanıtsız uydurulmamış;
+- privacy notes model/runtime sınırını doğru açıklıyor;
+- test checklist gerçek riskleri kapsıyor.
+
+Onaydan sonra:
 
 ```bash
-node ai-buildweek/scripts/apply-demo-config.mjs path/to/generated.config.json
-node ai-buildweek/scripts/generate-demo-report.mjs path/to/generated.config.json
+npm run codex:record -- \
+  ai-buildweek/examples/school-saas.input.md \
+  ai-buildweek/runs/school-saas.codex-task.md \
+  ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json \
+  --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed
+```
+
+Manifest model seçimini “operatör onaylı, kriptografik değil” olarak kaydeder; input/task/output içeriklerini değil hash'lerini içerir.
+
+## Dört düşünme geçişi
+
+1. **Config mimarisi:** `01-config-architect.prompt.md`
+2. **Backend eşleme:** `02-backend-adapter-mapper.prompt.md`; `unknown`, `missing`, `shim required` sonuçlarını uyumlu sayma.
+3. **Test kapıları:** `03-test-gate-planner.prompt.md`; çalıştırılmayan kapıya dürüstçe `NOT_RUN` de.
+4. **Demo anlatısı:** `04-demo-script-generator.prompt.md`; yalnız gerçek PASS/FAIL kanıtını kullan.
+
+## Güvenli yerel uygulama
+
+```bash
+node ai-buildweek/scripts/apply-demo-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json
+node ai-buildweek/scripts/generate-demo-report.mjs ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json
 npm run dev
 ```
 
-The apply tool defaults to `ai-buildweek/demo-config/`, creates a timestamped backup when needed, and refuses the donor config target without an explicit override flag. Manual review remains required.
-
-## Review checklist
-
-- Every panel has an intentional enabled/hidden state and navigation group.
-- Each role follows least privilege and has a unique slug.
-- Fields/options contain no personal or production-derived values.
-- Endpoint map values are routes only; secrets and hosts are absent.
-- Every enabled endpoint has a separate payload compatibility result.
-- Privacy notes describe allowed and forbidden AI inputs.
-- Unit, config, browser, and adapter gates contain actual evidence.
+Apply aracı varsayılan olarak `ai-buildweek/demo-config/` kullanır, mevcut hedefi yedekler ve açık override olmadan donor config hedefini reddeder.

@@ -129,31 +129,34 @@ The repeated run proves that an existing demo target is backed up before replace
 
 The public config validator intentionally checks the judging contract’s required sections and basic types without adding a JSON Schema runtime package. Backend payload compatibility still requires per-customer adapter tests; a structural config PASS does not prove backend integration.
 
-## Jury/claim hardening rerun — 2026-07-13
+## Codex uygulaması iş akışına geçiş — 2026-07-13
 
-The official OpenAI Build Week criteria and current GPT-5.6 model documentation were rechecked. The audit found that the selected surface was runnable but its GPT-5.6 claim relied on prompts and checked-in examples rather than an executable, provenance-producing model path.
+Kullanıcı tercihiyle model API'si, API anahtarı ve kota gerektiren çalışma yolu tamamen kaldırıldı. Güncel OpenAI kaynakları GPT-5.6'nın Codex uygulamasında kullanılabildiğini doğruladı. Yarışma akışı Codex uygulamasına taşındı.
 
-Implemented controls:
+Eklenen kontroller:
 
-- Responses API generation using the official `gpt-5.6` alias, medium reasoning, JSON output mode, and `store: false`;
-- local pre-send privacy guard with blocking and human-review findings;
-- validation-before-write and overwrite refusal;
-- secret-free evidence manifest design with model/response identifiers, usage, hashes, and validation statistics;
-- raw API error-body suppression;
-- executable PocketBase `items/totalItems` to ZeroKit `users/total` adapter proof.
+- model çağrısından önce yerel privacy guard;
+- izinli dosya ve hedefi belirleyen tekrar üretilebilir Codex görev paketi;
+- kök `AGENTS.md` ile `.env`, secret, production kayıt ve repo dışı özel dosya denylist'i;
+- generated artifact için version, brand, registry, privacy ve test checklist doğrulaması;
+- insan review ve görünür model seçimi onayı olmadan manifest üretmeme;
+- model seçimini açıkça “operatör onaylı, kriptografik değil” diye kaydetme;
+- input/task/output içerikleri yerine SHA-256 hash'lerini saklama;
+- PocketBase `items/totalItems` → ZeroKit `users/total` adaptör kanıtı.
 
-Clean rerun:
+Temiz kontrol:
 
 ```text
-npm ci                         PASS, 0 vulnerabilities
+npm ci                         PASS, 0 vulnerability
 npm run build                  PASS
 npm run test:unit              PASS, 18/18
-npm run test:privacy           PASS, 8/8 focused
-npm run ai:generate -- ... --dry-run
-                               PASS, gpt-5.6, store:false, 0 blockers, no network
+npm run test:privacy           PASS, 8/8
+npm run codex:prepare -- school input --force
+                               PASS, 0 blocker, 0 review finding
+school task/input sync         PASS
 npm run demo:pocketbase        PASS, 2 items -> 2 users
 three config validations       PASS, 3/3
 npm run test:browser           PASS, 16/16
 ```
 
-A real sanitized school-scenario request reached the OpenAI Responses API, but inference was rejected with HTTP 429 `insufficient_quota`. The script wrote no config or manifest. This remains a truthful P0 submission blocker: restore API quota, run the documented command, human-review the output, rerun gates, then commit the generated config and manifest before recording.
+Son yarışma kanıtı operatör adımıdır: Codex uygulamasında GPT-5.6 Sol seçilir, hazır okul görevi çalıştırılır, çıktı insan tarafından incelenir ve manifest kaydedilir. Yerel script uygulama içi modeli okuyamadığı için kriptografik model doğrulaması iddia edilmez.

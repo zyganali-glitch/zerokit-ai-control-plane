@@ -1,60 +1,59 @@
-# Three-minute Build Week demo script
+# Üç dakikalık Build Week demo metni
 
-## 0:00–0:20 — The repeated SaaS tax
+## 0:00–0:18 — Tekrarlanan SaaS maliyeti
 
-**On screen:** README title, then the school scenario input.
+**Ekran:** Bitmiş okul preview'su, ardından okul senaryo girdisi.
 
-**Narration:** “Every SaaS admin surface starts with the same expensive questions: which panels exist, who can do what, which fields vary, and how does the customer backend connect? Boilerplate helps once; customer-specific edits create the next layer of debt.”
+**Anlatım:** “Her SaaS yönetim yüzeyi aynı pahalı sorularla başlıyor: hangi paneller var, kim ne yapabilir, hangi alanlar müşteriye göre değişir ve backend gerçekten beklenen sözleşmeyi karşılıyor mu? Boilerplate ilk günü hızlandırıyor; müşteri değişiklikleri sonraki teknik borcu oluşturuyor.”
 
-## 0:20–0:40 — The ZeroKit socket
+## 0:18–0:35 — ZeroKit socket sözleşmesi
 
-**On screen:** README architecture and the four registry names.
+**Ekran:** Dört registry adı ve mimari şema.
 
-**Narration:** “ZeroKit turns those decisions into a socket contract: panel registry, RBAC registry, field registry, and endpoint map. Routes can move; response shapes stay explicit.”
+**Anlatım:** “ZeroKit bu kararları dört parçalı bir socket sözleşmesine çeviriyor: panel registry, RBAC registry, field registry ve endpoint map. Route'lar değişebilir; payload şekli kanıtsız varsayılmaz.”
 
-## 0:40–1:10 — GPT-5.6/Codex as architect
+## 0:35–1:02 — Codex uygulamasında GPT-5.6
 
-**On screen:** `school-saas.input.md`, GPT-5.6 generation terminal PASS, then the generated manifest and JSON.
+**Ekran:** `codex:prepare` PASS, görev dosyası, Codex model seçicide GPT-5.6 Sol, görev başlangıcı.
 
-**Narration:** “A local guard checks the sanitized product brief before GPT-5.6 sees it. The Responses API runs with storage disabled, then deterministic validation gates the generated configuration. The manifest records the model, usage, validation, and hashes—not the key, prompt contents, or reasoning.”
+**Anlatım:** “Yerel guard sansürlenmiş okul brief'ini modelden önce kontrol ediyor. Codex uygulamasında GPT-5.6 Sol'u görünür şekilde seçiyoruz ve sınırlandırılmış görev dosyasını çalıştırıyoruz. Model API'si, API anahtarı veya production kaydı yok.”
 
-## 1:10–1:30 — Validate and apply safely
+## 1:02–1:25 — Doğrulama ve kanıt
 
-**On screen:** terminal.
+**Ekran:** Codex'in config'i yazması, validator PASS, diff review ve manifest.
 
 ```bash
-node ai-buildweek/scripts/validate-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.config.json
-node ai-buildweek/scripts/apply-demo-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.config.json
+node ai-buildweek/scripts/validate-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json
 ```
 
-**Narration:** “The shared validator checks required registries, panel types, role slugs and permissions, and endpoint paths. PASS still requires human review. Application targets a demo-safe directory and backs up existing demo config.”
+**Anlatım:** “Codex sonucu doğrudan repo içinde oluşturuyor. Deterministik validator required registry'leri ve generated-artifact alanlarını kontrol ediyor. İnsan incelemesinden sonra manifest model beyanını, dosya hash'lerini ve PASS istatistiklerini kaydediyor; model doğrulamasını kriptografikmiş gibi göstermiyor.”
 
-## 1:30–1:55 — Local control-plane preview
+## 1:25–1:50 — Yerel kontrol düzlemi preview'su
 
-**On screen:** `http://127.0.0.1:4173`; school summary, hidden team billing, roles, endpoint routes; switch to TR and light theme.
+**Ekran:** Yeni JSON'u preview'ya yükle; okul özeti, kapalı team billing, roller, endpoint'ler; TR/light geçişi.
 
-**Narration:** “The browser-only preview shows configuration intent: enabled and hidden panels, RBAC roles, fields, endpoints, warnings, and privacy notes. It supports Turkish and English, light and dark, desktop and mobile. Pasted config never leaves this tab.”
+**Anlatım:** “Browser-only preview; açık ve kapalı panelleri, RBAC rollerini, alanları, endpoint'leri, uyarıları ve mahremiyet notlarını gösteriyor. Türkçe ve İngilizce, light ve dark, desktop ve mobile çalışıyor. Yapıştırılan config bu tab'dan dışarı çıkmıyor.”
 
-## 1:55–2:20 — Adapter truth, not route optimism
+## 1:50–2:13 — Route iyimserliği yerine adaptör gerçeği
 
-**On screen:** PocketBase synthetic response, then `npm run demo:pocketbase` PASS.
+**Ekran:** PocketBase sentetik response, ardından `npm run demo:pocketbase` PASS.
 
-**Narration:** “PocketBase is an open-source backend whose record list uses items and totalItems. This tested adapter converts that envelope to ZeroKit's strict users and total contract and fails closed when keys are missing. ZeroKit is route-flexible—not payload-shape agnostic.”
+**Anlatım:** “PocketBase açık kaynak backend'inin listesi items ve totalItems döndürüyor. Bu testli adaptör onu ZeroKit'in katı users ve total sözleşmesine çeviriyor ve eksik key'de fail-closed davranıyor. ZeroKit route-flexible; payload-shape agnostic değil.”
 
-## 2:20–2:38 — Privacy boundary
+## 2:13–2:31 — Mahremiyet sınırı
 
-**On screen:** `privacy-boundary.md` allowed/never-send sections and the preview banner.
+**Ekran:** `AGENTS.md` yasakları, privacy boundary ve preview banner.
 
-**Narration:** “This is not an AI agent reading your SaaS database. The model sees requirements, schemas, and synthetic contracts. Runtime records, authorization, and tenant isolation remain on customer infrastructure, and generated config is reviewed before use.”
+**Anlatım:** “Bu, SaaS veritabanını okuyan bir AI agent değil. Model; gereksinimleri, şemaları ve sentetik sözleşmeleri görüyor. Müşteri kayıtları, yetkilendirme ve tenant isolation müşteri altyapısında kalıyor. Pattern guard'ın tek başına yeterli olmadığını kabul ediyor ve insan review'u zorunlu tutuyoruz.”
 
-## 2:38–2:52 — Evidence
+## 2:31–2:48 — Kanıt
 
-**On screen:** build log and terminal PASS lines.
+**Ekran:** Unit, privacy, üç config ve browser PASS satırları.
 
-**Narration:** “The judging edition builds with zero frontend runtime npm dependencies. Sixteen unit tests, three sample validations, the PocketBase proof, report generation, and focused browser checks are recorded with actual PASS or FAIL evidence.”
+**Anlatım:** “Yarışma sürümü sıfır frontend runtime npm bağımlılığıyla build oluyor. Codex görev/manifest testleri, üç config doğrulaması, PocketBase adaptörü ve gerçek browser smoke kontrolleri tekrar üretilebilir PASS/FAIL kanıtı sağlıyor.”
 
-## 2:52–3:00 — Impact
+## 2:48–3:00 — Etki
 
-**On screen:** agency and healthcare scenario cards, then title.
+**Ekran:** Okul, sağlık ve ajans senaryo kartları, ardından repo URL'si.
 
-**Narration:** “Describe the SaaS once; get a reviewable control-plane contract, adapter plan, and gates—faster, consistent, and privacy-preserving. That is ZeroKit AI Control Plane.”
+**Anlatım:** “SaaS'ı bir kez sansürlenmiş şekilde tarif et; incelenebilir bir kontrol düzlemi sözleşmesi, adaptör planı ve test kapıları elde et. Müşteri veri düzlemini modelin dışında tut. ZeroKit AI Control Plane.”

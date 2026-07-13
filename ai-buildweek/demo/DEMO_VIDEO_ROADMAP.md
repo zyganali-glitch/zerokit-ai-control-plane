@@ -1,219 +1,252 @@
-# Demo video production roadmap
+# Demo video prodüksiyon yol haritası
 
-## The strategic decision
+## Stratejik karar
 
-Use **this repository and the bundled synthetic school SaaS scenario as the primary demo**. Do not make an unrelated project the hero. ZeroKit itself is the submitted product; the school scenario is the clearest proof because it combines RBAC, navigation, fields, billing visibility, adapter mapping, localization, and a meaningful privacy boundary without using real student data.
+Ana demoda **bu repo ve hazır sentetik okul SaaS senaryosu** kullanılmalı. Başka bir proje ana ürün yapılmamalı. ZeroKit yarışmaya sunduğumuz üründür; okul senaryosu RBAC, navigasyon, alanlar, faturalandırma görünürlüğü, endpoint eşleme, TR/EN ve mahremiyet sınırını gerçek öğrenci verisi kullanmadan tek akışta gösterir.
 
-Use **PocketBase as a short open-source compatibility proof**, not as the main product. PocketBase is an MIT-licensed open-source backend with a small local footprint and a documented paginated record envelope. Its `items/totalItems` response differs visibly from ZeroKit's `users/total` contract, making the adapter value understandable in seconds.
+**PocketBase yalnızca kısa açık kaynak uyumluluk kanıtı** olmalı. PocketBase, MIT lisanslı ve yerelde kolay çalışan bir backend'dir. Belgelenmiş `items/totalItems` cevabının ZeroKit'in `users/total` sözleşmesinden farklı olması adaptör değerini birkaç saniyede anlatır.
 
-This structure answers two judge questions cleanly:
+Bu kurgu iki jüri sorusunu ayırır:
 
-1. “Does the submitted product work?” — show ZeroKit end to end.
-2. “Does this work beyond a handcrafted JSON file?” — show the tested PocketBase boundary.
+1. “Başvurulan ürün çalışıyor mu?” — ZeroKit'i baştan sona göster.
+2. “Bu yalnızca elle hazırlanmış bir JSON mu?” — Codex görevini, manifesti ve PocketBase adaptörünü göster.
 
-## Can an open-source project be used?
+## API kullanmadan GPT-5.6/Codex akışı
 
-Yes. OpenAI's Build Week page explicitly allows starting from scratch or building on an existing project, and the challenge accepts apps, websites, agents, developer tools, and workflows. Respect the upstream license and attribution, and be precise about what belongs to whom.
+Ürün hiçbir model API'si çağırmaz ve API anahtarı kullanmaz. Akış şudur:
 
-For PocketBase:
+1. Yerel script sentetik girdiyi mahremiyet açısından tarar.
+2. Script, sınırları ve hedef dosyayı içeren tekrar üretilebilir Codex görev dosyası hazırlar.
+3. Operatör Codex uygulamasında **GPT-5.6 Sol** seçer.
+4. Codex görev dosyasını okuyup config'i doğrudan repo içinde oluşturur.
+5. Deterministik validator config'i kontrol eder.
+6. İnsan config'i inceler.
+7. Yerel script model seçimi beyanını, dosya hash'lerini ve validation sonucunu manifest olarak kaydeder.
 
-- Say “PocketBase is the open-source backend used for an adapter proof.”
-- Do not imply PocketBase is part of ZeroKit or endorsed the project.
-- Do not copy its branding into the ZeroKit identity.
-- Link to its repository/docs in the written submission.
-- State that the checked-in fixture mirrors its documented list envelope; it is not a live customer database.
-- PocketBase is pre-1.0 and warns that full backward compatibility is not guaranteed, so pin the version if recording a live local instance.
+Model seçimi arayüzde görünür olmalıdır. Manifest bu seçimi kriptografik doğruladığını iddia etmez; operatör onayı ve video kanıtı kullanır.
 
-## Recommended video format
+## Açık kaynak proje göstermek uygun mu?
 
-- Language: English narration, English UI during the main path, optional Turkish toggle as a two-second proof.
-- Captions: burned-in English captions plus platform captions if available.
-- Target duration: **2:50–2:58** until Devpost publishes a different hard limit.
-- Capture: 1920×1080, 30 fps, H.264, readable 18–22 px terminal/editor text.
-- Audio: external or wired microphone, mono voice centered, peak around -6 dB, light noise reduction only.
-- Cursor: visible, normal size, no rapid circles; move only when the narration reaches the target.
-- Editing: straight cuts, two or three short callouts, no long logo animation, no background music that competes with speech.
+Evet. OpenAI Build Week mevcut bir proje üzerinde geliştirmeye izin veriyor. Ancak lisansa ve atfa dikkat edilmeli.
 
-## P0 readiness gate — do not record before this passes
+PocketBase kullanırken:
 
-The audit machine reached the OpenAI endpoint but received `429 insufficient_quota`. Fix account quota first. A video that skips the actual model generation would preserve the static-demo weakness.
+- “PocketBase, adaptör kanıtında kullanılan açık kaynak backend'dir” de.
+- PocketBase'in ZeroKit'in parçası veya projeyi destekleyen kuruluş olduğunu ima etme.
+- ZeroKit markasını PocketBase markasıyla değiştirme.
+- Yazılı başvuruda PocketBase repo ve dokümantasyon bağlantılarını ver.
+- Dahil fixture'ın belgelenmiş liste zarfını taklit eden sentetik veri olduğunu söyle.
+- Canlı PocketBase kullanırsan sürümü sabitle; proje 1.0 öncesi geriye uyumluluk konusunda uyarı yapıyor.
 
-Run these commands in a fresh terminal:
+## Dil kararı
+
+Yarışma sayfasında İngilizce anlatım zorunluluğu belirtilmiyor. Bu nedenle:
+
+- anlatım dili **Türkçe** olabilir;
+- videoya okunabilir, gömülü **İngilizce altyazı** eklenmeli;
+- Devpost açıklaması kısa Türkçe ve İngilizce özet içermeli;
+- ekrandaki ürün dili ana akışta İngilizce tutulabilir, TR geçişi iki saniyelik kanıt olarak gösterilebilir.
+
+Bu düzen hem anlatanı rahatlatır hem uluslararası jüri erişimini korur.
+
+## Önerilen teknik format
+
+- Hedef süre: Devpost farklı bir üst sınır açıklayana kadar **2:50–2:58**.
+- Çözünürlük: 1920×1080.
+- Kare hızı: 30 fps.
+- Codec: H.264, yüksek kalite.
+- Terminal/editor yazısı: ekranda en az 18–22 px görünmeli.
+- Ses: konuşma tepe seviyesi yaklaşık -6 dB; hafif gürültü azaltma.
+- İmleç: görünür, normal hızda; anlatım hedefe gelmeden hareket ettirme.
+- Kurgu: düz kesmeler, iki veya üç kısa callout; uzun logo animasyonu kullanma.
+
+## Kayıttan önce zorunlu P0 kapısı
+
+Temiz terminalde çalıştır:
 
 ```bash
 npm ci
 npm run build
 npm run test:unit
-npm run test:browser
-npm run ai:generate -- ai-buildweek/examples/school-saas.input.md --dry-run
-npm run ai:generate -- ai-buildweek/examples/school-saas.input.md ai-buildweek/evidence/school-saas.gpt-5.6.config.json
-node ai-buildweek/scripts/validate-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.config.json
+npm run test:privacy
+npm run codex:prepare -- ai-buildweek/examples/school-saas.input.md --force
 npm run demo:pocketbase
+npm run test:browser
 ```
 
-Pass conditions:
+PASS koşulları:
 
-- dry run says `store: false`, zero blockers, and no network call;
-- live run returns PASS and creates config plus manifest;
-- manifest says requested `gpt-5.6`, returned model, `storage_requested: false`, valid config, and zero blocking findings;
-- output has no real identity, host, credential, record, or unsupported compatibility claim;
-- unit/browser/config/PocketBase checks pass;
-- `git status` contains only intentional evidence/doc changes.
+- görev paketi hazırlanır;
+- mahremiyet engeli ve inceleme bulgusu sıfırdır;
+- görev dosyası yalnızca izinli prompt/input/output yollarını içerir;
+- hiçbir model API'si, API anahtarı veya harici model çağrısı yoktur;
+- 18 birim, 8 mahremiyet/Codex, 16 browser kontrolü ve üç config doğrulaması geçer;
+- PocketBase adaptörü `2 items → 2 users` PASS verir;
+- worktree yalnızca bilinçli değişiklikler içerir.
 
-If live generation fails, **do not fake it and do not record an old terminal line as if it were current**. Fix quota or network access, rerun, and record after a real pass.
+Sonra Codex uygulamasında:
 
-## Day-before recording setup
+1. Proje olarak bu repo klasörünü aç.
+2. Model seçiciden **GPT-5.6 Sol** seç.
+3. Eforu önce `high`, son kayıt için hesabında varsa `max` yap.
+4. Yeni görev aç.
+5. Şunu yaz:
 
-### 1. Prepare a clean judge clone
+   ```text
+   AGENTS.md kurallarına uy. ai-buildweek/runs/school-saas.codex-task.md dosyasını oku ve görevi tamamla.
+   ```
 
-Use a new folder so the path and commands match what judges can reproduce. Confirm the remote and commit SHA. Do not record from a workspace containing unrelated private repositories.
+6. Codex'in hedef config'i yazmasını ve validator çalıştırmasını bekle.
+7. Diff'i incele; gerçek veri, fazla yetki, uydurulmuş uyumluluk veya gereksiz dosya olmadığını kontrol et.
+8. Çıktıyı insan gözüyle onayla.
+9. Manifesti kaydet:
 
-### 2. Prepare the API environment safely
+   ```bash
+   npm run codex:record -- \
+     ai-buildweek/examples/school-saas.input.md \
+     ai-buildweek/runs/school-saas.codex-task.md \
+     ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json \
+     --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed \
+     --thread=school-demo-run
+   ```
 
-- Set `OPENAI_API_KEY` before screen recording starts.
-- Clear the terminal after setting it.
-- Do not run environment listing commands.
-- Do not keep `.env` open in the editor.
-- Do not paste a key on camera.
-- Use the exact `gpt-5.6` default unless a challenge rule later requires a snapshot.
+## Kayıttan bir gün önce hazırlık
 
-### 3. Prepare four windows/tabs
+### 1. Temiz jüri klonu
 
-1. Editor: `school-saas.input.md`, generated config, manifest, PocketBase report.
-2. Terminal: repository root, large font, short prompt, no personal shell history.
-3. Browser: `http://127.0.0.1:4173`, English/dark, 100% zoom.
-4. README or one clean architecture slide: four registries and privacy boundary.
+Yeni klasöre klon al. Komutların temiz klonda çalıştığını doğrula. Özel donor repo veya kişisel dosya içeren çalışma alanından kayıt alma.
 
-Order the editor tabs before recording; searching through the tree wastes time and exposes paths.
+### 2. Dört pencere hazırla
 
-### 4. Prepare the local app
+1. Codex uygulaması: repo açık, model seçici görünür.
+2. Editor: okul input, görev dosyası, yeni config ve manifest sekmeleri hazır.
+3. Terminal: repo kökü, büyük font, kısa prompt, temiz geçmiş.
+4. Browser: `http://127.0.0.1:4173`, İngilizce/dark, %100 zoom.
 
-Run `npm run dev` in a separate terminal not shown in the main recording. Load the school scenario once, verify there are no console errors, then reset to the opening view.
+Kayıttan önce sekmeleri sırala; dosya ağacında arama yapmak süre kaybettirir.
 
-### 5. Prepare truthful API timing
+### 3. Yerel preview
 
-Record the real generation separately as one uninterrupted clip. If it takes longer than the allocated video time, use a speed-up or jump cut and overlay “real GPT-5.6 call — elapsed 00:XX.” Keep the first and final terminal states visible. Do not imply the cut is real-time.
+Görünmeyen ayrı terminalde `npm run dev` çalıştır. Okul senaryosunu bir kez yükle, console hatası olmadığını kontrol et, sonra başlangıç ekranına dön.
 
-## Exact 2:55 shot plan
+### 4. Codex çalışma süresi
 
-| Time | Screen | Action | Message the judge must retain |
+Gerçek Codex çalışmasını kesintisiz ayrı klip olarak kaydet. Uzun sürerse videoda hızlandır veya kes; ekrana “Gerçek Codex görevi — geçen süre 00:XX” yaz. Başlangıçtaki GPT-5.6 Sol seçimini ve son PASS'i koru. Kesmenin gerçek zaman olmadığını gizleme.
+
+## Tam 2:55 çekim planı
+
+| Zaman | Ekran | Eylem | Jürinin aklında kalması gereken |
 | --- | --- | --- | --- |
-| 0:00–0:12 | Finished ZeroKit preview | Show enabled panels, roles, endpoint count; one quick school/agency switch | This is a working product outcome, not a prompt demo. |
-| 0:12–0:27 | School input | Highlight roles, panels, synthetic endpoint summary, “no student records” | The input is a sanitized architecture contract. |
-| 0:27–0:52 | Terminal generation clip | Run the live `ai:generate` command; cut/speed honestly; land on PASS | GPT-5.6 is in the executable product workflow. |
-| 0:52–1:07 | Manifest + generated JSON | Highlight returned model, `storage_requested:false`, hashes, local validation | The run is auditable without persisting secrets or reasoning. |
-| 1:07–1:25 | Terminal + preview paste | Validate generated JSON, paste/load it, press Validate | AI output is gated by deterministic code and human review. |
-| 1:25–1:48 | Preview | Show enabled/hidden panel, RBAC, field, endpoint and privacy sections; toggle TR/light briefly | The result is coherent, usable, responsive, and bilingual. |
-| 1:48–2:10 | PocketBase proof | Show fixture keys `items/totalItems`, run `npm run demo:pocketbase`, show `users/total` PASS | Routes can vary, but payload compatibility is explicit and tested. |
-| 2:10–2:28 | Privacy boundary | Show guard dry-run result and “never send” list; mention same-origin browser | Customer records and runtime authorization remain outside the model boundary. |
-| 2:28–2:45 | Test evidence | Show 18 unit tests, browser PASS, three scenario validations | Genuine effort and non-trivial implementation are reproducible. |
-| 2:45–2:55 | Final product screen | School → healthcare → agency cards, then title/URL | One sanitized description becomes a reviewable contract, adapter plan, and gates. |
+| 0:00–0:12 | Bitmiş ZeroKit preview | Panel, rol ve endpoint sayısını göster; okul/ajans arasında hızlı geçiş | Bu çalışan ürün sonucu, yalnızca prompt değil. |
+| 0:12–0:25 | Okul girdisi | Roller, paneller, sentetik endpoint özeti ve “öğrenci kaydı yok” satırını vurgula | Model yalnızca sansürlenmiş mimari sözleşmeyi görür. |
+| 0:25–0:37 | Terminal + görev dosyası | `codex:prepare` PASS ve görev paketini göster | Hassas input modelden önce yerelde kontrol edilir. |
+| 0:37–0:52 | Codex uygulaması | Model seçicide GPT-5.6 Sol ve eforu göster; görevi başlat | GPT-5.6, gerçek Codex ürün akışının merkezindedir. |
+| 0:52–1:12 | Hızlandırılmış Codex klibi | Codex'in config yazıp validator çalıştırmasını göster | Model yalnızca metin üretmiyor; repoda sınırlandırılmış işi tamamlıyor. |
+| 1:12–1:27 | Diff + manifest | İnsan review, model beyanı, output hash ve validation PASS | Sonuç denetlenebilir; model seçimi dürüstçe operatör onaylıdır. |
+| 1:27–1:50 | Preview | Yeni config'i yükle; panel/RBAC/field/endpoint/privacy; TR/light geçişi | Sonuç tutarlı, kullanılabilir, responsive ve bilingual. |
+| 1:50–2:12 | PocketBase kanıtı | `items/totalItems`, ardından `npm run demo:pocketbase` PASS | Route esnek olabilir; payload uyumu açık ve testlidir. |
+| 2:12–2:29 | Mahremiyet sınırı | AGENTS denylist ve preview'daki mahremiyet notlarını göster | Müşteri kayıtları ve runtime authorization model sınırının dışındadır. |
+| 2:29–2:45 | Test kanıtı | Unit, privacy, browser ve üç senaryo PASS | Uygulama basit olmayan ve tekrar üretilebilir mühendislik içerir. |
+| 2:45–2:55 | Kapanış | Okul → sağlık → ajans, repo URL'si ve tek cümle iddia | Bir tarif; incelenebilir config, adaptör planı ve kapılar. |
 
-## Narration spine
+## Türkçe anlatım omurgası
 
-Use conversational delivery, not a feature inventory:
+> “Her özelleştirilmiş SaaS yönetim paneli aynı riskli sorularla başlıyor: hangi yüzeyler var, kim ne yapabilir ve müşteri backend'i gerçekten beklenen sözleşmeye uyuyor mu? ZeroKit önce sentetik gereksinimi yerelde mahremiyet kontrolünden geçiriyor. Sonra Codex uygulamasında seçtiğimiz GPT-5.6 Sol, bu sınırlı görev dosyasından incelenebilir bir kontrol düzlemi config'i üretiyor. Deterministik doğrulama ve insan incelemesi sonucu kapatıyor. Matching URL, matching payload demek olmadığı için PocketBase'in items/totalItems zarfını ZeroKit'in users/total sözleşmesine çeviren adaptör de fail-closed test ediliyor. Böylece mimari ilk taslağı hızlanırken müşteri veri düzlemi model döngüsünün dışında kalıyor.”
 
-> “Every customized SaaS admin starts with the same risky decisions: which surfaces exist, who can do what, and whether the customer backend actually matches. ZeroKit gives GPT-5.6 a sanitized architecture brief—not customer records—and produces a reviewable control-plane contract. Before the call, a local guard blocks common secrets and real-looking emails. After the call, deterministic validation and human review gate the result. The browser preview makes panels, RBAC, fields, routes, and privacy decisions visible. And because matching URLs do not mean matching payloads, this PocketBase proof converts its documented items/totalItems envelope into ZeroKit's strict users/total contract and fails closed on malformed input. The result is faster first-pass architecture without putting the customer data plane inside the model loop.”
+Şunları söyleme: “anında”, “production-ready”, “her backend ile çalışır”, “sıfır bağımlılık”, “hiç veri sızamaz”, “model seçimi script tarafından doğrulandı”.
 
-Do not say “instant,” “production-ready,” “works with every backend,” “zero dependencies,” or “no data can ever leak.”
+## PocketBase için iki gösterim seviyesi
 
-## PocketBase: two demo levels
-
-### Recommended for the three-minute submission: deterministic fixture proof
-
-Use the checked-in synthetic response:
+### Üç dakikalık ana video: deterministik fixture
 
 ```bash
 npm run demo:pocketbase
 ```
 
-Advantages: no download, no network, deterministic output, fast reset, and judges can reproduce it immediately. The limitation is explicit: it proves one documented response boundary, not a live PocketBase deployment.
+Avantajları: indirme yok, ağ yok, deterministik çıktı, hızlı reset ve jüri tarafından hemen tekrar üretilebilir. Sınırı açık söyle: bir belgelenmiş response zarfını kanıtlar; canlı PocketBase deployment'ı değildir.
 
-### Optional longer technical demo: local PocketBase instance
+### İsteğe bağlı uzun teknik video: yerel PocketBase
 
-Only add this to a longer companion video or README GIF:
+1. Resmî repodan sabit bir PocketBase sürümü indir.
+2. `127.0.0.1:8090` üzerinde geçici data klasörüyle başlat.
+3. `school_users` koleksiyonu oluştur.
+4. Alanlar: `display_name`, `role`, `account_status`, `campus`, `department`, `support_status`.
+5. Yalnızca repodaki iki sentetik kaydı ekle.
+6. Collection list/view kurallarını bilinçli yapılandır.
+7. `GET /api/collections/school_users/records?page=1&perPage=30` çağrısını yerelde yap.
+8. Sentetik cevabı adaptör CLI'ına ver.
+9. `items → users`, `totalItems → total` dönüşümünü göster.
+10. Kayıt sonrasında geçici data klasörünü sil.
 
-1. Download a pinned PocketBase release from the official repository.
-2. Run it on `127.0.0.1:8090` with a disposable local data directory.
-3. Create a base collection named `school_users` with `display_name`, `role`, `account_status`, `campus`, `department`, and `support_status`.
-4. Add only the two synthetic records in the checked-in fixture.
-5. Configure collection list/view rules deliberately; never open a real user collection for the demo.
-6. Call `GET /api/collections/school_users/records?page=1&perPage=30`.
-7. Save only the synthetic response and feed it to the adapter CLI.
-8. Show the exact `items → users` and `totalItems → total` mapping.
-9. Delete the disposable data directory after recording.
+Ana videoda PocketBase dashboard kurulumuna zaman harcama; bu, PocketBase'i ürün gibi gösterir ve Codex/GPT-5.6 hikâyesini gömer.
 
-Do not spend the main submission video creating the collection in the dashboard. It makes PocketBase look like the product and hides GPT-5.6.
+## Manifestte gösterilecek alanlar
 
-## What to show in the generated manifest
-
-Zoom only to these fields:
-
-- `response_id`
-- `model_requested`
-- `model_returned`
-- `storage_requested`
-- `hashes.requirements_sha256`
+- `surface`
+- `model_selection.label`
+- `visible_in_app_confirmed_by_operator`
+- `cryptographically_verified: false`
+- `hashes.input_sha256`
+- `hashes.task_sha256`
 - `hashes.output_sha256`
 - `privacy_guard.blocking_findings`
 - `validation.valid`
-- `usage`
+- `human_review.completed`
 
-Do not show the API key, full environment, unrelated request logs, or model reasoning. The manifest intentionally does not contain them.
+Manifest girdi/görev/çıktı içeriğini veya model muhakemesini içermez.
 
-## Failure and recovery plan
+## Hata ve kurtarma planı
 
-| Failure during capture | Recovery |
+| Sorun | Yapılacak |
 | --- | --- |
-| API 429 / quota | Stop. Add quota, wait for account propagation, rerun preflight/live call. Never substitute a fake PASS. |
-| API latency | Keep the real clip, cut or accelerate with elapsed-time overlay. |
-| Model output fails validation | Keep the failure for internal debugging, refine sanitized requirements/prompt, rerun; record only the reviewed passing run. Do not silently edit the model output and call it raw. |
-| Privacy guard blocks input | Treat as success of the guard; replace the artifact with a sanitized version and rerun. Never bypass the guard for the demo. |
-| Browser state is stale | Hard refresh, load school scenario, reset English/dark before restarting the take. |
-| PocketBase proof fails | Revert to the checked-in fixture and rerun unit tests; do not troubleshoot a live database on camera. |
-| Notification/OS popup | Record with notifications and chat clients disabled; restart the take if private content appears. |
+| GPT-5.6 Sol model seçicide yok | Uygulamayı güncelle, hesabın rollout/plan erişimini kontrol et; başka modeli GPT-5.6 diye gösterme. |
+| Codex görev süresi uzun | Gerçek klibi süre etiketiyle hızlandır veya kes. |
+| Model çıktısı validation FAIL | Hatayı saklama; görevi/refine talimatını düzelt, yeniden çalıştır, geçen çıktıyı review et. |
+| Privacy guard input'u blokladı | Guard'ı atlama; girdiyi sansürle ve yeniden hazırla. |
+| Model yanlış dosya okuyor | Görevi durdur; AGENTS/task denylist'ini sıkılaştır; temiz thread aç. |
+| Browser state eski | Hard refresh, okul senaryosunu yükle, English/dark başlangıcına dön. |
+| PocketBase proof bozuk | Canlı DB ile uğraşma; checked-in fixture ve unit teste dön. |
+| Bildirim açıldı | Özel içerik görünürse klibi tamamen yeniden çek. |
 
-## Visual and editing rules
+## Görsel ve kurgu kuralları
 
-- Open with the result, not the README.
-- Keep one idea per shot and one highlighted region at a time.
-- Use two recurring labels: “AI design plane” and “customer data plane.”
-- Use green only for verified PASS, amber for human review, red for blocked/invalid.
-- Crop personal Windows account paths where possible.
-- Blur nothing that should have been removed before capture; blurring keys is not a safe workflow.
-- Add a small persistent repository URL in the lower corner after 0:12.
-- Export once, watch the final file at normal speed, and verify every terminal line is legible on a laptop-sized player.
+- README ile değil sonuç ekranıyla aç.
+- Her sahnede tek fikir ve tek vurgulu bölge olsun.
+- İki kalıcı kavram kullan: “AI tasarım düzlemi” ve “müşteri veri düzlemi”.
+- Yeşili yalnızca doğrulanmış PASS için kullan; amber insan incelemesi; kırmızı block/FAIL.
+- Kişisel Windows hesap yollarını mümkün olduğunca kadraj dışında tut.
+- Önceden kaldırılması gereken özel bilgiyi blur ile kurtarmaya çalışma.
+- 0:12'den sonra alt köşede küçük repo URL'si göster.
+- Export sonrası videoyu normal hızda baştan sona izle ve terminal satırlarının laptop ekranında okunabildiğini doğrula.
 
-## Retake criteria
+## Çekimi iptal edip yeniden alma ölçütleri
 
-Discard and redo the take if any of these occur:
+- Gerçek e-posta, özel repo, müşteri benzeri kayıt veya kişisel bildirim görünür.
+- Ekrandaki çıktı ile manifest hash'i uyuşmaz.
+- Komut FAIL verirken anlatım PASS der.
+- GPT-5.6 seçilmemişken seçilmiş gibi anlatılır.
+- Bir PocketBase adaptöründen genel backend uyumu iddia edilir.
+- İlk 15 saniyede ürün sonucu görünmez.
+- Video Devpost'un yayımladığı süre sınırını aşar.
 
-- key, token, personal email, private repository, or customer-like record appears;
-- generated artifact shown on screen is not the artifact referenced by the manifest hash;
-- a command reports FAIL while narration says PASS;
-- the API generation is represented as live when it was prerecorded without disclosure;
-- the video claims general backend compatibility from the one PocketBase adapter;
-- the main outcome is not visible in the first 15 seconds;
-- total duration exceeds the published Devpost limit.
+## Başvuru paketi kontrol listesi
 
-## Submission package checklist
+- GitHub repo test edilen commit'e işaret ediyor.
+- README quick start temiz klonda çalışıyor.
+- Video giriş yapmadan izlenebiliyor.
+- Türkçe anlatım üzerinde gömülü İngilizce altyazı var.
+- Devpost açıklaması desteklenen dar iddiayı Türkçe ve İngilizce veriyor.
+- Teknolojiler: GPT-5.6, Codex uygulaması, Node.js, browser API'leri; PocketBase yalnız adaptör kanıtı.
+- Repo, video ve Devpost aynı proje adını ve test sayılarını kullanıyor.
+- Lisans ve özel donor sınırı açık.
+- Git geçmişi, video kareleri, altyazı ve açıklamada secret yok.
+- Gönderim günü Devpost'un güncel dosya/süre/alan gereksinimleri tekrar kontrol edilmiş.
 
-- Public GitHub repository points to the exact tested commit.
-- README quick start works in a clean clone.
-- Demo video link is public/unlisted and playable without login.
-- Devpost description uses the narrow supported one-sentence claim.
-- Technologies list includes GPT-5.6, Codex, Responses API, Node.js, browser APIs, and PocketBase only as adapter proof.
-- Repository, video, and Devpost use the same project name and numbers.
-- Live preview URL is included if deployed.
-- License and private-donor boundary remain explicit.
-- No secrets exist in Git history, video frames, captions, or description.
-- Exact Devpost requirements are rechecked on submission day because the challenge page stated that full details would be published when submissions open.
+## Önerilen ek materyaller
 
-## Recommended companion assets
+1. Bu plana göre 2:55 ana jüri videosu.
+2. 20–30 saniyelik sessiz GIF: input → görev → validate → preview.
+3. 5–7 dakikalık isteğe bağlı teknik video: Codex task sınırı, privacy testleri, PocketBase adaptörü, browser smoke.
+4. GPT-5.6 tasarım girdileri ile müşteri runtime verisini kalın çizgiyle ayıran tek mimari görsel.
 
-1. 2:55 main judging video using the shot plan above.
-2. 20–30 second silent GIF: input → validate → preview.
-3. Optional 5–7 minute technical walkthrough: API request design, privacy guard tests, PocketBase adapter, browser smoke architecture.
-4. One architecture image with a hard boundary between GPT-5.6 design inputs and customer runtime data.
-
-The main video should stand alone. Companion assets deepen confidence; they must not carry facts missing from the main submission.
+Ana video tek başına anlaşılmalıdır; ek materyaller güveni derinleştirir.

@@ -1,52 +1,60 @@
-# Privacy boundary
+# Mahremiyet sınırı
 
-ZeroKit AI Control Plane uses GPT-5.6/Codex on the developer side of the architecture boundary. The model helps design configuration and adapter/test artifacts; it is not connected to a customer’s production database or admin session.
+ZeroKit AI Control Plane, GPT-5.6/Codex'i mimari tasarım tarafında kullanır. Model config, adaptör ve test artifact'leri tasarlamaya yardım eder; müşteri production veritabanına veya admin oturumuna bağlanmaz.
 
-## Allowed input
+## İzin verilen girdiler
 
-- product and workflow requirements;
-- role names and permission intent without real identities;
-- panel/navigation requirements;
-- synthetic field names, dropdown values, and table columns;
-- schemas and sample configs with invented values;
-- non-sensitive OpenAPI fragments and route summaries;
-- synthetic request/response payloads;
-- local validation failures with secrets and records removed.
+- ürün ve workflow gereksinimleri;
+- gerçek kimlik içermeyen rol adları ve permission niyeti;
+- panel/navigation gereksinimleri;
+- sentetik alan adları, seçenekler ve table column'ları;
+- uydurma değerli schema ve örnek config'ler;
+- hassas olmayan OpenAPI parçaları ve route özetleri;
+- sentetik request/response payload'ları;
+- secret ve kayıtları çıkarılmış yerel validation hataları.
 
-## Never send
+## Asla gönderilmemesi gerekenler
 
-- production customer or employee records;
-- real names, emails, addresses, identifiers, or behavioral histories;
-- passwords, tokens, session cookies, API keys, private certificates, or connection strings;
-- real invoices, payment details, bank information, or billing exports;
-- medical records, PHI, diagnoses, clinical notes, or patient documents;
-- private messages, uploaded customer documents, support transcripts, or confidential datasets;
-- raw production logs or traffic captures that may contain any of the above.
+- production müşteri veya çalışan kayıtları;
+- gerçek ad, e-posta, adres, identifier veya davranış geçmişi;
+- parola, token, session cookie, API key, private certificate veya connection string;
+- gerçek fatura, ödeme, banka veya billing export'u;
+- sağlık kaydı, PHI, teşhis, klinik not veya hasta belgesi;
+- özel mesaj, yüklenen müşteri belgesi, destek konuşması veya gizli dataset;
+- yukarıdakileri içerebilecek ham production log veya trafik kaydı;
+- `.env`, credential store ve repo dışındaki özel dosyalar.
 
-## Sanitizing a contract
+## Sözleşme sansürleme
 
-1. Export only the operations and schema components needed for enabled panels.
-2. Remove server URLs, credentials, security examples, tenant identifiers, and internal hostnames.
-3. Replace real values with obvious synthetic values such as `usr_demo_01` and `example.test`.
-4. Reduce payloads to key names, types, required/optional status, and nesting.
-5. Search the result for emails, tokens, UUIDs, account numbers, free text, and vendor secrets.
-6. Have a human reviewer approve the sanitized artifact before it enters the prompt.
+1. Yalnızca açık paneller için gereken operation ve schema parçalarını çıkar.
+2. Server URL, credential, security example, tenant identifier ve iç hostname'leri kaldır.
+3. Gerçek değerleri `usr_demo_01` ve `example.test` gibi açıkça sentetik değerlerle değiştir.
+4. Payload'ı key adı, type, required/optional durumu ve nesting seviyesine indir.
+5. E-posta, token, UUID, hesap numarası, serbest metin ve vendor secret ara.
+6. Artifact Codex görevine girmeden önce insan reviewer onayı al.
 
-The supported CLI adds a local preflight before the model call. It blocks high-confidence private/API keys, bearer tokens, JWTs, credential-bearing connection strings, cookie headers, and email addresses outside reserved example domains. UUIDs, public IPs, and production-data language create review findings. A passing pattern scan is not proof that prose, identifiers, or domain-specific sensitive data is safe; steps 1–6 and human approval remain required.
+Desteklenen `codex:prepare` komutu modelden önce yerel kontrol yapar. Private/API key, bearer token, JWT, credential içeren connection string, cookie header ve reserved example domain dışındaki e-posta yüksek güvenle bloklanır. UUID, public IP ve production-data dili inceleme bulgusu oluşturur.
 
-If sensitive material is discovered after submission, stop using the artifact, follow the organization’s incident process, rotate exposed credentials, and rebuild the prompt from a sanitized source.
+PASS olan pattern taraması, metnin veya alan-spesifik hassas verinin güvenli olduğunu kanıtlamaz. İnsan incelemesi zorunludur.
 
-## Runtime and application boundary
+## Codex uygulaması sınırı
 
-- The local preview parses and renders JSON in the browser and uses `textContent` for configuration-derived values.
-- The page fetches only repository-bundled synthetic examples from the same local origin.
-- There is no analytics, telemetry, external API, model call, database connection, or persistence path in the preview.
-- The separate generation CLI is the only supported model-call path. It sends the approved sanitized input to the OpenAI Responses API with `store: false`, then requires local config validation before writing output.
-- Successful generation writes a manifest containing hashes, model/response identifiers, usage, privacy counts, and validation results. It excludes the API key, prompt/input contents, raw API response, and model reasoning.
-- `apply-demo-config.mjs` writes to the isolated `ai-buildweek/demo-config/` location by default and backs up an existing demo target.
-- Customer runtime data, authorization, tenant isolation, and payload enforcement remain on customer infrastructure.
-- Generated configuration requires validation and manual human review before integration.
+- Operatör Codex uygulamasında GPT-5.6 modelini görünür şekilde seçer.
+- Hazırlanmış görev yalnız izinli prompt, sentetik input ve hedef output yollarını içerir.
+- `AGENTS.md`, `.env`, credential, production log, private donor ve repo dışı özel dosya erişimini yasaklar.
+- Model API'si veya API anahtarı kullanılmaz.
+- Codex'in oluşturduğu config deterministik validator PASS almadan uygulanmaz.
+- İnsan review sonrasında manifest yalnız model beyanı, dosya yolları, hash'ler, validation istatistiği ve review durumunu kaydeder.
+- Script Codex'in seçili modelini okuyamaz; manifest bunu açıkça kriptografik olmayan operatör onayı olarak işaretler.
 
-## How this differs from “an AI agent reads your SaaS database”
+## Runtime ve uygulama sınırı
 
-The model sees architecture inputs, not runtime records. It proposes a contract that developers can inspect, test, and reject. It cannot browse a customer database, take actions in a live admin session, or infer business state from production data. The value comes from design consistency and test planning while the data plane stays outside the AI boundary.
+- Yerel preview JSON'u browser içinde parse/render eder ve config değerlerinde `textContent` kullanır.
+- Sayfa yalnız repo içindeki sentetik örnekleri aynı local origin'den çeker.
+- Preview'da analytics, telemetry, external API, model çağrısı, database connection veya persistence yolu yoktur.
+- `apply-demo-config.mjs` varsayılan olarak izole `ai-buildweek/demo-config/` konumuna yazar ve mevcut hedefi yedekler.
+- Customer runtime verisi, authorization, tenant isolation ve payload enforcement müşteri altyapısında kalır.
+
+## “AI agent SaaS veritabanını okuyor” yaklaşımından farkı
+
+Model runtime kayıtlarını değil mimari girdileri görür. Geliştiricinin inceleyebileceği, test edebileceği ve reddedebileceği bir sözleşme önerir. Müşteri veritabanını gezmez, canlı admin oturumunda işlem yapmaz ve production kaydından iş durumu çıkarmaz. Değer; veri düzlemini AI sınırının dışında tutarken tasarım tutarlılığı ve test planı üretmektir.
