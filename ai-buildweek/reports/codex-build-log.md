@@ -117,6 +117,14 @@ The repeated run proves that an existing demo target is backed up before replace
 - Donor isolation: PASS, `../zerokit` remains clean on `master...origin/master`.
 - Claim audit: PASS, donor overclaims/pricing are discussed only as audit findings; public README uses scoped evidence.
 
+## Publication
+
+- Remote: `https://github.com/zyganali-glitch/zerokit-ai-control-plane.git`
+- Branch: `main`
+- Method: native Git push through the existing GridMedic Git Credential Manager session.
+- Result: PASS, the previously empty remote received the complete public judging edition.
+- Pull request: not applicable for the initial empty-repository publication; `main` was established directly at the user’s request.
+
 ## Current risk
 
 The public config validator intentionally checks the judging contract’s required sections and basic types without adding a JSON Schema runtime package. Backend payload compatibility still requires per-customer adapter tests; a structural config PASS does not prove backend integration.

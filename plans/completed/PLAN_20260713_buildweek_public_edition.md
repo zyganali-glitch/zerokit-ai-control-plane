@@ -1,6 +1,6 @@
 # ZeroKit AI Control Plane — Build Week Public Edition Plan
 
-- Status: IN_PROGRESS_PUBLICATION
+- Status: COMPLETE
 - Date: 2026-07-13
 - Mode: KOD-DEGISIKLIGI
 - Owner: main agent (single writer)
@@ -22,7 +22,7 @@ Allowed claims: working Build Week edition, config-driven foundation, zero front
 | R4 | Validation, safe apply, report scripts | CLI PASS/FAIL, backup-safe demo apply, generated markdown report | COMPLETE |
 | R5 | Runnable judging preview | Local-only TR/EN, light/dark/mobile preview with warnings and privacy reminder | COMPLETE |
 | R6 | Reports and demo package | Adapter, privacy, judging, build log, 3-minute script, screenshot guide | COMPLETE |
-| R7 | Evidence and publication | npm/build/unit/config checks recorded; repository published through approved native Git fallback | IN_PROGRESS |
+| R7 | Evidence and publication | npm/build/unit/config checks recorded; repository published through approved native Git fallback | COMPLETE |
 
 ## Allowlist / denylist
 
@@ -38,7 +38,7 @@ Denylist: donor writes/history copy, auth or billing activation, telemetry, exte
 | P2 Core package | Prompts, examples, scripts, preview, unit tests implemented | P1 | COMPLETE |
 | P3 Documentation and evidence | README/reports/demo/evidence complete | P2 | COMPLETE |
 | P4 Verification and closure | Reproducible checks pass; plan archived after publication | P3 | COMPLETE |
-| P5 Publication | Commit and direct initial push to `main` | P4 and Git Credential Manager | IN_PROGRESS |
+| P5 Publication | Commit and direct initial push to `main` | P4 and Git Credential Manager | COMPLETE |
 
 Discovered work must be added here; required failures cannot be deferred as “later”. Browser work found and closed two issues: query parameters were lost by root redirect, and mobile top controls/privacy copy needed wrapping. Remaining discovered item: GitHub CLI is not on PATH; search/install decision is required before P5.
 
@@ -94,7 +94,7 @@ Stats, widget-param, widget-guidance, surface-continuity, new-card, and narrativ
 | P2 | 2.2 | Implement examples, prompts, and bilingual preview | COMPLETE | P2 | main | 2026-07-13 | 2026-07-13 | PASS | 7/7 unit; 3/3 CLI validation; build PASS |
 | P3 | 3.1 | Complete README, reports, demo docs, evidence | COMPLETE | P3 | main | 2026-07-13 | 2026-07-13 | PASS | Required public package complete |
 | P4 | 4.1 | Run checks, manual review, and final integrity audit | COMPLETE | P4 | main | 2026-07-13 | 2026-07-13 | PASS | Required files 22/22; JSON 6/6; links/secrets/claims/donor PASS |
-| P5 | 5.1 | Publish clean initial repository to `main` | IN_PROGRESS | P5 | main | 2026-07-13 | — | OPEN | User approved native Git/GridMedic fallback; GCM 2.6.1 available |
+| P5 | 5.1 | Publish clean initial repository to `main` | COMPLETE | P5 | main | 2026-07-13 | 2026-07-13 | PASS | `main` pushed to `zyganali-glitch/zerokit-ai-control-plane` through GCM 2.6.1 |
 
 ## Risks
 
@@ -107,4 +107,4 @@ Stats, widget-param, widget-guidance, surface-continuity, new-card, and narrativ
 
 ## Handoff / checkpoint
 
-Last complete: P4 final audit. Evidence: Node 24.13.1; npm install PASS/0 vulnerabilities; build PASS; unit 8/8; self-contained browser 16/16 at 375×812 with server cleanup; config validation 3/3; report generation PASS; safe apply + backup PASS; required files 22/22; JSON 6/6; Markdown links/secrets/claims/donor isolation PASS. Next: stage the confirmed all-new scope, commit, and push the empty target repository directly to `main` through Git Credential Manager. No donor files changed. Tech-Debt Delta: 0.
+Closure complete: public judging edition pushed to `https://github.com/zyganali-glitch/zerokit-ai-control-plane` on `main`. Evidence: Node 24.13.1; npm install PASS/0 vulnerabilities; build PASS; unit 8/8; self-contained browser 16/16 at 375×812 with server cleanup; config validation 3/3; report generation PASS; safe apply + backup PASS; required files 22/22; JSON 6/6; Markdown links/secrets/claims/donor isolation PASS. No donor files changed. Tech-Debt Delta: 0.
