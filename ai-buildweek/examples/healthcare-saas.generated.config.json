@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "panel_registry": {
+    "users": { "enabled": true, "visible": true, "order": 10, "group": "users_access" },
+    "security": { "enabled": true, "visible": true, "order": 20, "group": "platform" },
+    "audit": { "enabled": true, "visible": true, "order": 30, "group": "operations" },
+    "notifications": { "enabled": true, "visible": true, "order": 40, "group": "communications" },
+    "reports": { "enabled": true, "visible": true, "order": 50, "group": "operations" },
+    "legal_cms": { "enabled": true, "visible": true, "order": 60, "group": "platform" },
+    "help_cms": { "enabled": true, "visible": true, "order": 70, "group": "platform" },
+    "dropzone": { "enabled": true, "visible": true, "order": 80, "group": "platform" },
+    "impersonation": { "enabled": false, "visible": false, "order": 90, "group": "users_access" },
+    "chat": { "enabled": false, "visible": false, "order": 100, "group": "communications" }
+  },
+  "rbac_registry": {
+    "permissions": [
+      "staff:read:clinic", "staff:update:clinic", "security:manage:clinic",
+      "audit:read:clinic", "notification:manage:clinic", "report:read:aggregate",
+      "billing:read:clinic", "content:read:clinic", "content:update:clinic", "upload_policy:manage:clinic"
+    ],
+    "roles": [
+      {
+        "slug": "clinic_owner",
+        "level": 0,
+        "name": { "tr": "Klinik Sahibi", "en": "Clinic Owner" },
+        "permissions": "*"
+      },
+      {
+        "slug": "physician_admin",
+        "level": 1,
+        "name": { "tr": "Hekim Yöneticisi", "en": "Physician Admin" },
+        "permissions": ["staff:read:clinic", "staff:update:clinic", "security:manage:clinic", "audit:read:clinic", "notification:manage:clinic", "report:read:aggregate", "content:read:clinic", "upload_policy:manage:clinic"]
+      },
+      {
+        "slug": "billing_staff",
+        "level": 2,
+        "name": { "tr": "Faturalama Personeli", "en": "Billing Staff" },
+        "permissions": ["staff:read:clinic", "billing:read:clinic", "report:read:aggregate", "content:read:clinic"]
+      },
+      {
+        "slug": "compliance_viewer",
+        "level": 3,
+        "name": { "tr": "Uyum Görüntüleyicisi", "en": "Compliance Viewer" },
+        "permissions": ["security:manage:clinic", "audit:read:clinic", "report:read:aggregate", "content:read:clinic"]
+      }
+    ],
+    "hierarchy_tree": {
+      "clinic_owner": ["physician_admin", "billing_staff", "compliance_viewer"]
+    }
+  },
+  "field_registry": {
+    "users": {
+      "extra_fields": [
+        { "value": "clinic_unit", "label": { "tr": "Klinik Birimi", "en": "Clinic Unit" }, "type": "select" },
+        { "value": "license_category", "label": { "tr": "Lisans Kategorisi", "en": "License Category" }, "type": "select" },
+        { "value": "account_status", "label": { "tr": "Hesap Durumu", "en": "Account Status" }, "type": "select" }
+      ],
+      "excluded_fields": ["patient_record", "diagnosis", "clinical_note"]
+    },
+    "security": {
+      "pw_complexity_options": [
+        { "value": "strict", "label": { "tr": "Sıkı", "en": "Strict" } },
+        { "value": "regulated", "label": { "tr": "Düzenlemeye Uygun", "en": "Regulated" } }
+      ],
+      "twofa_policy_options": [
+        { "value": "required", "label": { "tr": "Zorunlu", "en": "Required" } }
+      ]
+    },
+    "reports": {
+      "report_type_options": [
+        { "value": "staff_access_summary", "label": { "tr": "Personel Erişim Özeti", "en": "Staff Access Summary" } },
+        { "value": "operations_aggregate", "label": { "tr": "Operasyon Toplamları", "en": "Operations Aggregate" } }
+      ]
+    },
+    "dropzone": {
+      "allowed_policy_types": ["policy-template", "training-certificate", "synthetic-test-file"],
+      "quarantine_options": [
+        { "value": "reject", "label": { "tr": "Reddet", "en": "Reject" } },
+        { "value": "manual_review", "label": { "tr": "Manuel İnceleme", "en": "Manual Review" } }
+      ]
+    },
+    "notifications": {
+      "category_options": ["security", "compliance", "operations"]
+    }
+  },
+  "endpoint_map": {
+    "users": "/clinic-control/v1/staff",
+    "security": "/clinic-control/v1/security-policy",
+    "audit": "/clinic-control/v1/audit-events",
+    "notifications": "/clinic-control/v1/notifications",
+    "reports": "/clinic-control/v1/reports/aggregate",
+    "legal_cms": "/clinic-control/v1/content/legal",
+    "help_cms": "/clinic-control/v1/content/help",
+    "dropzone": "/clinic-control/v1/upload-policy"
+  },
+  "brand_config": {
+    "appName": "Cedar Clinic Control",
+    "colors": { "primary": "#0f766e", "accent": "#0284c7" },
+    "i18n": { "defaultLocale": "en", "supportedLocales": ["en", "tr"] },
+    "features": { "billingEnabled": false, "multiTenancy": false }
+  },
+  "privacy_notes": [
+    "No patient record, diagnosis, clinical note, real identifier, or PHI is provided to GPT-5.6.",
+    "Only synthetic field names, aggregate report contracts, and sanitized route metadata are allowed.",
+    "Uploads and runtime data stay within the clinic infrastructure; the preview never transmits pasted config."
+  ],
+  "test_checklist": [
+    "Reject malformed roles and endpoint paths.",
+    "Verify impersonation and chat remain disabled and hidden.",
+    "Assert excluded PHI-like fields never appear in generated UI fields.",
+    "Test aggregate report payloads with synthetic counts only."
+  ]
+}
+

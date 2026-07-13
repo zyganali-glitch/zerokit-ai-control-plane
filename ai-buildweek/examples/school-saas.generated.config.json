@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "panel_registry": {
+    "users": { "enabled": true, "visible": true, "order": 10, "group": "users_access" },
+    "roles": { "enabled": true, "visible": true, "order": 20, "group": "users_access" },
+    "plans": { "enabled": true, "visible": true, "order": 30, "group": "billing" },
+    "invoices": { "enabled": true, "visible": true, "order": 40, "group": "billing" },
+    "notifications": { "enabled": true, "visible": true, "order": 50, "group": "communications" },
+    "help_cms": { "enabled": true, "visible": true, "order": 60, "group": "platform" },
+    "audit": { "enabled": true, "visible": true, "order": 70, "group": "operations" },
+    "reports": { "enabled": true, "visible": true, "order": 80, "group": "operations" },
+    "team_billing": { "enabled": false, "visible": false, "order": 90, "group": "billing" }
+  },
+  "rbac_registry": {
+    "permissions": [
+      "user:read:school", "user:update:school", "role:manage:school",
+      "plan:read:school", "plan:update:school", "invoice:read:school",
+      "notification:manage:school", "help:read:school", "audit:read:school", "report:read:school"
+    ],
+    "roles": [
+      {
+        "slug": "owner",
+        "level": 0,
+        "name": { "tr": "Sahip", "en": "Owner" },
+        "permissions": "*"
+      },
+      {
+        "slug": "school_admin",
+        "level": 1,
+        "name": { "tr": "Okul Yöneticisi", "en": "School Admin" },
+        "permissions": ["user:read:school", "user:update:school", "role:manage:school", "plan:read:school", "plan:update:school", "invoice:read:school", "notification:manage:school", "help:read:school", "audit:read:school", "report:read:school"]
+      },
+      {
+        "slug": "teacher",
+        "level": 2,
+        "name": { "tr": "Öğretmen", "en": "Teacher" },
+        "permissions": ["user:read:school", "notification:manage:school", "help:read:school", "report:read:school"]
+      },
+      {
+        "slug": "student_support",
+        "level": 2,
+        "name": { "tr": "Öğrenci Desteği", "en": "Student Support" },
+        "permissions": ["user:read:school", "user:update:school", "invoice:read:school", "help:read:school"]
+      },
+      {
+        "slug": "readonly",
+        "level": 3,
+        "name": { "tr": "Salt Okuma", "en": "Read Only" },
+        "permissions": ["user:read:school", "plan:read:school", "invoice:read:school", "help:read:school", "audit:read:school", "report:read:school"]
+      }
+    ],
+    "hierarchy_tree": {
+      "owner": ["school_admin"],
+      "school_admin": ["teacher", "student_support", "readonly"]
+    }
+  },
+  "field_registry": {
+    "users": {
+      "extra_fields": [
+        { "value": "campus", "label": { "tr": "Kampüs", "en": "Campus" }, "type": "select" },
+        { "value": "department", "label": { "tr": "Bölüm", "en": "Department" }, "type": "text" },
+        { "value": "support_status", "label": { "tr": "Destek Durumu", "en": "Support Status" }, "type": "select" }
+      ],
+      "table_columns": ["display_name", "role", "campus", "account_status"]
+    },
+    "plans": {
+      "currency_options": [
+        { "value": "TRY", "label": { "tr": "TRY", "en": "TRY" } },
+        { "value": "EUR", "label": { "tr": "EUR", "en": "EUR" } }
+      ]
+    },
+    "invoices": {
+      "extra_columns": ["school_name", "billing_period", "currency", "status"]
+    },
+    "reports": {
+      "report_type_options": [
+        { "value": "enrollment_summary", "label": { "tr": "Kayıt Özeti", "en": "Enrollment Summary" } },
+        { "value": "billing_summary", "label": { "tr": "Faturalama Özeti", "en": "Billing Summary" } }
+      ]
+    },
+    "notifications": {
+      "category_options": [
+        { "value": "operations", "label": { "tr": "Operasyon", "en": "Operations" } },
+        { "value": "billing", "label": { "tr": "Faturalama", "en": "Billing" } }
+      ]
+    }
+  },
+  "endpoint_map": {
+    "users": "/school-api/v2/admin/users",
+    "roles": "/school-api/v2/admin/roles",
+    "plans": "/school-api/v2/admin/billing/plans",
+    "invoices": "/school-api/v2/admin/billing/invoices",
+    "notifications": "/school-api/v2/admin/notifications",
+    "help_cms": "/school-api/v2/admin/help",
+    "audit": "/school-api/v2/admin/audit",
+    "reports": "/school-api/v2/admin/reports"
+  },
+  "brand_config": {
+    "appName": "Northstar School Control",
+    "colors": { "primary": "#2563eb", "accent": "#14b8a6" },
+    "i18n": { "defaultLocale": "tr", "supportedLocales": ["tr", "en"] },
+    "features": { "billingEnabled": false, "multiTenancy": false }
+  },
+  "privacy_notes": [
+    "GPT-5.6 receives synthetic role, field, and endpoint metadata only.",
+    "Student records, messages, grades, invoices, credentials, and production traffic are excluded.",
+    "The school backend remains responsible for authorization and response-contract enforcement."
+  ],
+  "test_checklist": [
+    "Validate all registry sections and role permissions.",
+    "Verify TRY/EUR options in TR and EN.",
+    "Test route remapping with synthetic users, invoices, and aggregate reports.",
+    "Confirm team billing stays hidden and disabled."
+  ]
+}
+

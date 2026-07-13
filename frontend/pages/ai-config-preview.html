@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="Local-only ZeroKit generated configuration preview">
+    <link rel="stylesheet" href="../styles/ai-config-preview.css">
+    <title>ZeroKit AI Control Plane</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#configInput" data-i18n="skip">Skip to config input</a>
+    <header class="hero">
+      <nav class="topbar" aria-label="Preview controls" data-i18n-aria="controls_nav">
+        <span class="brand">ZeroKit <span>AI Control Plane</span></span>
+        <div class="top-actions">
+          <button id="languageButton" class="quiet" type="button">TR</button>
+          <button id="themeButton" class="quiet" type="button" data-i18n="theme_light">Light theme</button>
+        </div>
+      </nav>
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="edition">Public Build Week judging edition</p>
+        <h1 data-i18n="title">Turn a SaaS idea into a reviewable control-plane contract.</h1>
+        <p class="lede" data-i18n="tagline">Preview panels, roles, fields, and endpoint mappings generated with Codex + GPT-5.6—without sending production customer data to AI.</p>
+        <div class="privacy-banner" role="note">
+          <span aria-hidden="true">◈</span>
+          <p><strong data-i18n="privacy_title">Local privacy boundary</strong><span data-i18n="privacy_body"> Pasted configuration stays in this browser tab. This page makes no external request.</span></p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="workspace" aria-labelledby="inputHeading">
+        <div class="section-heading">
+          <div>
+            <p class="step">01</p>
+            <h2 id="inputHeading" data-i18n="input_heading">Load or paste a generated config</h2>
+          </div>
+          <p data-i18n="input_help">Use a bundled synthetic scenario, choose a local JSON file, or paste JSON. Review before applying.</p>
+        </div>
+
+        <div class="sample-row">
+          <label for="sampleSelect" data-i18n="scenario_label">Synthetic scenario</label>
+          <select id="sampleSelect">
+            <option value="school-saas" data-i18n="scenario_school">School SaaS</option>
+            <option value="healthcare-saas" data-i18n="scenario_healthcare">Healthcare SaaS</option>
+            <option value="agency-saas" data-i18n="scenario_agency">Agency SaaS</option>
+          </select>
+          <button id="loadSampleButton" type="button" data-i18n="load_sample">Load sample</button>
+          <label class="file-button" for="fileInput" data-i18n="choose_file">Choose local JSON</label>
+          <input id="fileInput" type="file" accept="application/json,.json">
+        </div>
+
+        <label for="configInput" data-i18n="config_label">Generated ZeroKit config JSON</label>
+        <textarea id="configInput" spellcheck="false" autocomplete="off" data-i18n-placeholder="config_placeholder" placeholder="Paste generated JSON here"></textarea>
+        <div class="editor-actions">
+          <button id="validateButton" type="button" data-i18n="validate">Validate locally</button>
+          <button id="clearButton" class="quiet" type="button" data-i18n="clear">Clear</button>
+          <span id="status" class="status idle" role="status" aria-live="polite" data-i18n="status_idle">Waiting for a config</span>
+        </div>
+      </section>
+
+      <section id="results" class="results" aria-labelledby="resultsHeading" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="step">02</p>
+            <h2 id="resultsHeading" data-i18n="results_heading">Review the generated control plane</h2>
+          </div>
+          <p data-i18n="results_help">Counts are a projection of configuration intent, not a claim that a customer backend already matches every payload contract.</p>
+        </div>
+
+        <div class="metrics" aria-label="Configuration summary" data-i18n-aria="summary_label">
+          <article><strong id="enabledCount">0</strong><span data-i18n="enabled_panels">Enabled panels</span></article>
+          <article><strong id="hiddenCount">0</strong><span data-i18n="hidden_panels">Hidden panels</span></article>
+          <article><strong id="roleCount">0</strong><span data-i18n="roles">Roles</span></article>
+          <article><strong id="endpointCount">0</strong><span data-i18n="endpoints">Endpoint mappings</span></article>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <h3 data-i18n="panel_map">Panel map</h3>
+            <div id="panelList" class="chip-list"></div>
+          </article>
+          <article class="review-card">
+            <h3 data-i18n="role_model">RBAC roles</h3>
+            <div id="roleList" class="stack-list"></div>
+          </article>
+          <article class="review-card wide">
+            <h3 data-i18n="endpoint_map">Endpoint map</h3>
+            <div id="endpointList" class="endpoint-list"></div>
+          </article>
+          <article class="review-card">
+            <h3 data-i18n="field_map">Fields and options</h3>
+            <div id="fieldList" class="stack-list"></div>
+          </article>
+          <article class="review-card">
+            <h3 data-i18n="warnings">Warnings and privacy notes</h3>
+            <div id="warningList" class="stack-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p data-i18n="footer">Configuration is reviewed before use. Runtime data and authorization remain on your infrastructure.</p>
+    </footer>
+    <script type="module" src="../js/ai-config-preview.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+ai-buildweek/demo-config/
+ai-buildweek/reports/generated-demo-report.md
+*.log
+test-results/
+.DS_Store

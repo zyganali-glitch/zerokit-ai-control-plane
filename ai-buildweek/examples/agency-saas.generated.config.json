@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "panel_registry": {
+    "crm": { "enabled": true, "visible": true, "order": 10, "group": "premium" },
+    "kanban": { "enabled": true, "visible": true, "order": 20, "group": "premium" },
+    "calendar": { "enabled": true, "visible": true, "order": 30, "group": "premium" },
+    "invoices": { "enabled": true, "visible": true, "order": 40, "group": "billing" },
+    "webhooks": { "enabled": true, "visible": true, "order": 50, "group": "developer" },
+    "api_keys": { "enabled": true, "visible": true, "order": 60, "group": "developer" },
+    "reports": { "enabled": true, "visible": true, "order": 70, "group": "operations" },
+    "team_billing": { "enabled": false, "visible": false, "order": 80, "group": "billing" }
+  },
+  "rbac_registry": {
+    "permissions": [
+      "workspace:manage:agency", "crm:read:workspace", "crm:update:workspace",
+      "project:read:workspace", "project:update:workspace", "calendar:manage:workspace",
+      "invoice:read:workspace", "invoice:manage:workspace", "webhook:manage:workspace",
+      "api_key:manage:workspace", "report:read:workspace"
+    ],
+    "roles": [
+      {
+        "slug": "agency_owner",
+        "level": 0,
+        "name": { "tr": "Ajans Sahibi", "en": "Agency Owner" },
+        "permissions": "*"
+      },
+      {
+        "slug": "project_manager",
+        "level": 1,
+        "name": { "tr": "Proje Yöneticisi", "en": "Project Manager" },
+        "permissions": ["crm:read:workspace", "crm:update:workspace", "project:read:workspace", "project:update:workspace", "calendar:manage:workspace", "webhook:manage:workspace", "report:read:workspace"]
+      },
+      {
+        "slug": "client_viewer",
+        "level": 3,
+        "name": { "tr": "Müşteri Görüntüleyicisi", "en": "Client Viewer" },
+        "permissions": ["crm:read:workspace", "project:read:workspace", "invoice:read:workspace", "report:read:workspace"]
+      },
+      {
+        "slug": "finance_admin",
+        "level": 2,
+        "name": { "tr": "Finans Yöneticisi", "en": "Finance Admin" },
+        "permissions": ["invoice:read:workspace", "invoice:manage:workspace", "report:read:workspace"]
+      }
+    ],
+    "hierarchy_tree": {
+      "agency_owner": ["project_manager", "finance_admin"],
+      "project_manager": ["client_viewer"]
+    }
+  },
+  "field_registry": {
+    "crm": {
+      "table_columns": ["company", "workspace", "client_tier", "stage", "owner"],
+      "stage_options": [
+        { "value": "lead", "label": { "tr": "Aday", "en": "Lead" } },
+        { "value": "active", "label": { "tr": "Aktif", "en": "Active" } },
+        { "value": "retained", "label": { "tr": "Devam Eden", "en": "Retained" } }
+      ]
+    },
+    "kanban": {
+      "status_list": [
+        { "value": "brief", "label": { "tr": "Brief", "en": "Brief" } },
+        { "value": "production", "label": { "tr": "Üretim", "en": "Production" } },
+        { "value": "client_review", "label": { "tr": "Müşteri İncelemesi", "en": "Client Review" } },
+        { "value": "delivered", "label": { "tr": "Teslim Edildi", "en": "Delivered" } }
+      ],
+      "card_fields": ["workspace", "due_date", "priority", "delivery_status"]
+    },
+    "calendar": {
+      "category_list": [
+        { "value": "client", "label": { "tr": "Müşteri", "en": "Client" } },
+        { "value": "delivery", "label": { "tr": "Teslimat", "en": "Delivery" } },
+        { "value": "finance", "label": { "tr": "Finans", "en": "Finance" } }
+      ]
+    },
+    "invoices": {
+      "extra_columns": ["workspace", "client_tier", "currency", "approval_status"],
+      "currency_options": ["TRY", "EUR", "USD"]
+    },
+    "webhooks": {
+      "event_types": ["project.created", "project.delivered", "invoice.approved", "client.updated"]
+    },
+    "api_keys": {
+      "scope_options": ["crm:read", "project:read", "webhook:write", "report:read"]
+    },
+    "reports": {
+      "report_type_options": ["delivery_health", "client_profitability", "pipeline_summary"]
+    }
+  },
+  "endpoint_map": {
+    "crm": "/agency-hub/api/workspaces/crm",
+    "kanban": "/agency-hub/api/workspaces/projects/board",
+    "calendar": "/agency-hub/api/workspaces/calendar",
+    "invoices": "/agency-hub/api/workspaces/invoices",
+    "webhooks": "/agency-hub/api/workspaces/webhooks",
+    "api_keys": "/agency-hub/api/workspaces/api-keys",
+    "reports": "/agency-hub/api/workspaces/reports"
+  },
+  "brand_config": {
+    "appName": "Orbit Agency Control",
+    "colors": { "primary": "#7c3aed", "accent": "#f97316" },
+    "i18n": { "defaultLocale": "en", "supportedLocales": ["en", "tr"] },
+    "features": { "billingEnabled": false, "multiTenancy": true }
+  },
+  "privacy_notes": [
+    "GPT-5.6 receives invented workspace, field, and route metadata only.",
+    "Real client names, briefs, API keys, invoices, messages, and production payloads are excluded.",
+    "Workspace authorization and tenant isolation remain customer-backend responsibilities."
+  ],
+  "test_checklist": [
+    "Verify every enabled route is workspace-scoped by the backend adapter.",
+    "Confirm client_viewer cannot mutate projects or invoices.",
+    "Validate webhook events and API-key scopes use synthetic fixtures.",
+    "Confirm team billing stays disabled until explicitly integrated and reviewed."
+  ]
+}
