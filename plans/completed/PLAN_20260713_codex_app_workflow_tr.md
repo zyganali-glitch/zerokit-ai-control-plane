@@ -1,6 +1,6 @@
 # Codex Uygulaması Akışı ve Türkçe Teslim Planı
 
-- Durum: DEVAM_EDIYOR
+- Durum: TAMAM
 - Tarih: 2026-07-13
 - Sahip: ana ajan
 - Yayın hedefi: `origin/main`
@@ -16,7 +16,7 @@ API anahtarı, API kotası ve Responses API çağrısını tamamen kaldır; GPT-
 | R1 | API yerine Codex uygulaması + GPT-5.6 akışı | `codex:prepare` ve `codex:record`; sıfır model API çağrısı | TAMAM |
 | R2 | Jüri/video belgelerini Türkçe yap | Türkçe jüri raporu, video yol haritası ve demo metni | TAMAM |
 | R3 | Okul senaryosunun hazır olduğunu doğrula | Girdi, config, görev paketi, doğrulama, preview ve adaptör kanıtı PASS | TAMAM |
-| R4 | Önerileri uygula ve uzak repoya gönder | Testli commit, `origin/main` SHA eşitliği | DEVAM_EDIYOR |
+| R4 | Önerileri uygula ve uzak repoya gönder | Testli commit, `origin/main` SHA eşitliği | TAMAM |
 
 ## İddia kilidi
 
@@ -32,7 +32,7 @@ API anahtarı, API kotası ve Responses API çağrısını tamamen kaldır; GPT-
 | P2 Kod dönüşümü | API dosyalarını kaldır, Codex görev/kanıt araçlarını ekle | TAMAM |
 | P3 Türkçe içerik | Jüri/video/demo ve ilgili güncel belgeler | TAMAM |
 | P4 Doğrulama | Build, unit, privacy, browser, config, okul görevi, sır/ağ taraması | TAMAM |
-| P5 Yayın | Commit, doğrudan push, uzak SHA doğrulaması | DEVAM_EDIYOR |
+| P5 Yayın | Commit, doğrudan push, uzak SHA doğrulaması | TAMAM |
 
 ## Riskler
 
@@ -45,4 +45,4 @@ API anahtarı, API kotası ve Responses API çağrısını tamamen kaldır; GPT-
 
 ## Kontrol noktası
 
-Yayın öncesi kontrol noktası: model API dosyaları kaldırıldı; Codex task/manifest akışı ve kök AGENTS sınırı eklendi; Türkçe jüri/video/demo/mahremiyet belgeleri tamamlandı. `npm ci` ve build PASS; unit 18/18; focused privacy/Codex 8/8; okul task/input sync PASS; config 3/3; PocketBase PASS; gerçek browser 16/16; demo report/apply PASS; JSON/MJS/Markdown link/secret/model-network/diff bütünlük denetimleri PASS. Kalan: kapsamı commit edip `origin/main` push ve SHA doğrulaması.
+Kapanış: model API dosyaları kaldırıldı; Codex task/manifest akışı ve kök AGENTS sınırı eklendi; Türkçe jüri/video/demo/mahremiyet belgeleri tamamlandı. `npm ci` ve build PASS; unit 18/18; focused privacy/Codex 8/8; okul task/input sync PASS; config 3/3; PocketBase PASS; gerçek browser 16/16; demo report/apply PASS; JSON/MJS/Markdown link/secret/model-network/diff bütünlük denetimleri PASS. Uygulama commit'i `b2fe750` doğrudan `origin/main` dalına GridMedic Git Credential Manager ile gönderildi; yerel ve uzak SHA eşleşti.
