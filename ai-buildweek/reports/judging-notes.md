@@ -18,11 +18,13 @@ This is deliberately not a chatbot bolted onto admin records. The model does not
 ## What the public edition contains
 
 - four reusable GPT-5.6/Codex prompt workflows;
+- a runnable GPT-5.6 Responses API path with `store: false`, privacy preflight, local validation, and secret-free provenance manifests;
 - school, healthcare, and agency scenario inputs with schema-compatible generated configs;
 - one shared zero-runtime-dependency validator used by CLI, tests, and browser preview;
 - safe demo apply and Markdown report generators;
 - an isolated TR/EN, light/dark, responsive, browser-only preview;
 - synthetic adapter-gap, privacy, build-evidence, demo, and screenshot guidance.
+- a tested PocketBase response-envelope adapter using only synthetic records.
 
 ## What remains separate
 
@@ -31,6 +33,8 @@ The full private commercial donor codebase, its broader panel inventory, private
 ## What the tests prove
 
 - Three examples contain the required registries and satisfy the public basic type contract.
+- API integration tests prove the request disables storage, selects GPT-5.6, extracts Responses API output, rejects invalid output, and excludes secrets from evidence; a successful live run still requires funded API quota.
+- Privacy tests prove high-confidence secrets and non-reserved emails fail before a model call; human sanitization is still required.
 - Panel flags/order, role slugs/permissions, field groups, and endpoint strings are validated by shared code.
 - Preview projection separates enabled/hidden panels and preserves RBAC, field, endpoint, warning, and privacy evidence.
 - Build output can be produced using Node built-ins and the frontend adds zero runtime npm packages.

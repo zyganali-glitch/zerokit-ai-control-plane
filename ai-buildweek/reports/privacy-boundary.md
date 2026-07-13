@@ -32,6 +32,8 @@ ZeroKit AI Control Plane uses GPT-5.6/Codex on the developer side of the archite
 5. Search the result for emails, tokens, UUIDs, account numbers, free text, and vendor secrets.
 6. Have a human reviewer approve the sanitized artifact before it enters the prompt.
 
+The supported CLI adds a local preflight before the model call. It blocks high-confidence private/API keys, bearer tokens, JWTs, credential-bearing connection strings, cookie headers, and email addresses outside reserved example domains. UUIDs, public IPs, and production-data language create review findings. A passing pattern scan is not proof that prose, identifiers, or domain-specific sensitive data is safe; steps 1–6 and human approval remain required.
+
 If sensitive material is discovered after submission, stop using the artifact, follow the organization’s incident process, rotate exposed credentials, and rebuild the prompt from a sanitized source.
 
 ## Runtime and application boundary
@@ -39,6 +41,8 @@ If sensitive material is discovered after submission, stop using the artifact, f
 - The local preview parses and renders JSON in the browser and uses `textContent` for configuration-derived values.
 - The page fetches only repository-bundled synthetic examples from the same local origin.
 - There is no analytics, telemetry, external API, model call, database connection, or persistence path in the preview.
+- The separate generation CLI is the only supported model-call path. It sends the approved sanitized input to the OpenAI Responses API with `store: false`, then requires local config validation before writing output.
+- Successful generation writes a manifest containing hashes, model/response identifiers, usage, privacy counts, and validation results. It excludes the API key, prompt/input contents, raw API response, and model reasoning.
 - `apply-demo-config.mjs` writes to the isolated `ai-buildweek/demo-config/` location by default and backs up an existing demo target.
 - Customer runtime data, authorization, tenant isolation, and payload enforcement remain on customer infrastructure.
 - Generated configuration requires validation and manual human review before integration.

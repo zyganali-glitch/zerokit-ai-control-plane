@@ -8,8 +8,11 @@
     "dev": "node scripts/dev-server.mjs",
     "build": "node scripts/build.mjs",
     "test": "npm run test:unit",
-    "test:unit": "node --test tests/unit/config-validator.test.mjs tests/unit/config-preview-model.test.mjs",
-    "test:browser": "node scripts/browser-smoke.mjs"
+    "test:unit": "node --test tests/unit/*.test.mjs",
+    "test:privacy": "node --test tests/unit/privacy-guard.test.mjs tests/unit/gpt56-config-generation.test.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs",
+    "ai:generate": "node ai-buildweek/scripts/generate-with-gpt56.mjs",
+    "demo:pocketbase": "node ai-buildweek/scripts/adapt-pocketbase-users.mjs ai-buildweek/examples/pocketbase-users.response.synthetic.json"
   },
   "dependencies": {},
   "devDependencies": {}

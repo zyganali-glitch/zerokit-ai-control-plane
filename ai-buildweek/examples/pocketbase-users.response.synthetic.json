@@ -1,0 +1,26 @@
+{
+  "page": 1,
+  "perPage": 30,
+  "totalItems": 2,
+  "totalPages": 1,
+  "items": [
+    {
+      "id": "usr_demo_01",
+      "display_name": "Synthetic Teacher",
+      "role": "teacher",
+      "account_status": "active",
+      "campus": "north",
+      "department": "science",
+      "support_status": "standard"
+    },
+    {
+      "id": "usr_demo_02",
+      "display_name": "Synthetic Support",
+      "role": "student_support",
+      "account_status": "active",
+      "campus": "central",
+      "department": "operations",
+      "support_status": "priority"
+    }
+  ]
+}

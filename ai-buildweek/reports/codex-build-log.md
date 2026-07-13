@@ -97,7 +97,7 @@ The repeated run proves that an existing demo target is backed up before replace
 | Gate | Result | Evidence |
 | --- | --- | --- |
 | Build | PASS | Static output generated |
-| Unit/related tests | PASS | 8/8 |
+| Unit/related tests | PASS | 18/18 current suite (8/8 original selected-surface baseline) |
 | Config validation | PASS | 3/3 scenarios |
 | Report generation | PASS | School report generated |
 | Browser smoke | PASS | 16/16 CDP assertions + visual screenshot review |
@@ -128,3 +128,32 @@ The repeated run proves that an existing demo target is backed up before replace
 ## Current risk
 
 The public config validator intentionally checks the judging contract’s required sections and basic types without adding a JSON Schema runtime package. Backend payload compatibility still requires per-customer adapter tests; a structural config PASS does not prove backend integration.
+
+## Jury/claim hardening rerun — 2026-07-13
+
+The official OpenAI Build Week criteria and current GPT-5.6 model documentation were rechecked. The audit found that the selected surface was runnable but its GPT-5.6 claim relied on prompts and checked-in examples rather than an executable, provenance-producing model path.
+
+Implemented controls:
+
+- Responses API generation using the official `gpt-5.6` alias, medium reasoning, JSON output mode, and `store: false`;
+- local pre-send privacy guard with blocking and human-review findings;
+- validation-before-write and overwrite refusal;
+- secret-free evidence manifest design with model/response identifiers, usage, hashes, and validation statistics;
+- raw API error-body suppression;
+- executable PocketBase `items/totalItems` to ZeroKit `users/total` adapter proof.
+
+Clean rerun:
+
+```text
+npm ci                         PASS, 0 vulnerabilities
+npm run build                  PASS
+npm run test:unit              PASS, 18/18
+npm run test:privacy           PASS, 8/8 focused
+npm run ai:generate -- ... --dry-run
+                               PASS, gpt-5.6, store:false, 0 blockers, no network
+npm run demo:pocketbase        PASS, 2 items -> 2 users
+three config validations       PASS, 3/3
+npm run test:browser           PASS, 16/16
+```
+
+A real sanitized school-scenario request reached the OpenAI Responses API, but inference was rejected with HTTP 429 `insufficient_quota`. The script wrote no config or manifest. This remains a truthful P0 submission blocker: restore API quota, run the documented command, human-review the output, rerun gates, then commit the generated config and manifest before recording.
