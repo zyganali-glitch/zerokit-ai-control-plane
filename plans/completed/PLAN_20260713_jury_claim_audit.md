@@ -1,6 +1,6 @@
 # ZeroKit AI Control Plane — Jury and Claim Audit Plan
 
-- Status: IN_PROGRESS
+- Status: COMPLETE
 - Date: 2026-07-13
 - Owner: main agent (single writer)
 - Publication target: `origin/main`
@@ -18,7 +18,7 @@ Allowed claims: GPT-5.6 Responses API workflow with `store: false`; automated pr
 | R1 | Compare competition, repository, and product claim | Official four-part rubric mapped to evidence and gaps | COMPLETE |
 | R2 | Decide whether code meets the claim | Claim-by-claim verdict with honest limitations | COMPLETE |
 | R3 | Fix material findings directly | Executable GPT-5.6 path, privacy guard, provenance, tests, docs | COMPLETE |
-| R4 | Push completed work to GitHub | Clean commit and verified `origin/main` push | IN_PROGRESS |
+| R4 | Push completed work to GitHub | Clean commit and verified `origin/main` push | COMPLETE |
 | R5 | Provide detailed demo video roadmap | Primary scenario, open-source option, timing, setup, recovery, shots | COMPLETE |
 
 ## Allowlist / denylist
@@ -35,7 +35,7 @@ Denylist: private donor writes, production/customer data, secret persistence or 
 | P2 Evidence-path implementation | API runner, privacy guard, manifest, automated tests | COMPLETE |
 | P3 Judge and demo package | Scorecard, claim matrix, PocketBase-aware recording roadmap | COMPLETE |
 | P4 Verification | Build, unit, privacy, browser, config, secret/link audits pass | COMPLETE |
-| P5 Publication | Intentional commit and direct push requested by user | IN_PROGRESS |
+| P5 Publication | Intentional commit and direct push requested by user | COMPLETE |
 
 Required gates: dry-run must make no network call; sensitive fixture must fail closed; API key must never be written or printed; generated output must pass the shared validator before write; manifest must contain hashes/usage rather than prompt contents; existing build/unit/browser/config checks must remain green; Git worktree must be reviewed before commit.
 
@@ -47,8 +47,8 @@ Required gates: dry-run must make no network call; sensitive fixture must fail c
 | Sensitive input reaches model | Blocking local preflight plus explicit human-review boundary | CONTROLLED |
 | API-cost surprise | Dry-run default in documentation; live call is an explicit command | CONTROLLED |
 | Backend compatibility overclaim | Synthetic report remains explicit; PocketBase shown only as adapter proof | CONTROLLED |
-| Publication failure | Existing native Git/GCM GridMedic path; verify remote SHA | PENDING |
+| Publication failure | Existing native Git/GCM GridMedic path; verify remote SHA | CONTROLLED |
 
 ## Handoff checkpoint
 
-Ready for publication: official rubric/model facts verified; build PASS; unit 18/18; focused privacy/API 8/8; browser 16/16; config 3/3; PocketBase proof PASS; dry-run preflight PASS; JSON/syntax/links/secrets/diff checks PASS. A real API request was rejected before inference with `429 insufficient_quota`, so no output or false manifest was written. Live evidence remains a P0 submission action after quota restoration, not an unreported code PASS.
+Publication complete: official rubric/model facts verified; build PASS; unit 18/18; focused privacy/API 8/8; browser 16/16; config 3/3; PocketBase proof PASS; dry-run preflight PASS; JSON/syntax/links/secrets/diff checks PASS. Implementation commit `ad9761a` was pushed to `origin/main`, and the local/remote SHA matched. A real API request was rejected before inference with `429 insufficient_quota`, so no output or false manifest was written. Live evidence remains a P0 submission action after quota restoration, not an unreported code PASS.
