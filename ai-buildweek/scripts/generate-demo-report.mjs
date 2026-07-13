@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { dirname, isAbsolute, relative, resolve } from 'node:path';
 import { createConfigPreview } from '../../frontend/js/config-preview-model.js';
 import { validateConfigFile } from './validate-config.mjs';
 
@@ -51,6 +51,14 @@ ${validation.warnings.map((warning) => `- WARN: ${warning}`).join('\n')}
 `;
 }
 
+function workspacePath(filePath) {
+  const result = relative(process.cwd(), filePath).replaceAll('\\', '/');
+  if (!result || result.startsWith('../') || isAbsolute(result)) {
+    throw new Error(`Report source must stay inside the workspace: ${filePath}`);
+  }
+  return result;
+}
+
 async function main() {
   const sourceArg = process.argv[2];
   const output = resolve(process.argv[3] || 'ai-buildweek/reports/generated-demo-report.md');
@@ -63,8 +71,8 @@ async function main() {
   const { absolutePath, config, result } = await validateConfigFile(sourceArg);
   const preview = createConfigPreview(config, result);
   await mkdir(dirname(output), { recursive: true });
-  await writeFile(output, buildReport(absolutePath, preview, result), 'utf8');
-  console.log(`${result.valid ? 'PASS' : 'FAIL'} Wrote ${output}`);
+  await writeFile(output, buildReport(workspacePath(absolutePath), preview, result), 'utf8');
+  console.log(`${result.valid ? 'PASS' : 'FAIL'} Wrote ${workspacePath(output)}`);
   if (!result.valid) process.exitCode = 1;
 }
 

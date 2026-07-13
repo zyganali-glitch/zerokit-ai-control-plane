@@ -1,6 +1,6 @@
-# GPT-5.6/Codex prompt — 3-minute Build Week demo script
+# GPT-5.6/Codex prompt — silent 3-minute Build Week demo
 
-Write a precise three-minute demo for “ZeroKit AI Control Plane — GPT-5.6/Codex SaaS Architect”. The audience is a technical Build Week judging panel. Do not claim the public edition is the complete private commercial product.
+Write a precise, silent three-minute demo for “ZeroKit AI Control Plane — GPT-5.6/Codex SaaS Architect”. The audience is a technical Build Week judging panel. The video has no narration, voice, music, or ambient audio. Use short English on-screen captions. Do not claim the public edition is the complete private commercial product.
 
 The script must show, in order:
 
@@ -15,7 +15,7 @@ The script must show, in order:
 9. test/gate evidence and honest scope;
 10. the practical impact and closing line.
 
-Return a timestamped shot list with narration, on-screen action, and evidence file/command. Fit within 180 seconds, reserve at least 15 seconds for privacy and at least 15 seconds for test evidence. Use only claims backed by the supplied evidence. Call the repository a public competition adaptation and selected, hardened judging surface.
+Return a timestamped shot list with English on-screen text, on-screen action, and evidence file/command. Do not return narration. Fit within 180 seconds, keep each caption readable for at least three seconds, reserve at least 15 seconds for privacy and at least 15 seconds for test evidence. Use only claims backed by the supplied evidence. Call the repository a public competition adaptation and selected, hardened judging surface. Do not show the separate private donor admin panel as competition evidence.
 
 ## Developer input template
 

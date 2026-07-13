@@ -34,32 +34,32 @@ export function validateGeneratedConfig(config) {
 export function buildCodexTask({ requirements, inputPath, promptPath, outputPath }) {
   const privacy = assertPrivacySafe(requirements, 'scenario requirements');
   const inputHash = sha256(requirements);
-  const text = `# Codex uygulaması görevi — ZeroKit config mimarı
+  const text = `# Codex app task — ZeroKit config architect
 
-## Operatör ön koşulu
+## Operator prerequisite
 
-Bu görevi başlatmadan önce Codex uygulamasındaki model seçiciden **GPT-5.6 Sol** seç. Kalite için \`high\`, son demo kaydı için hesabında varsa \`max\` efor kullan. Script model seçimini doğrulayamaz; kayıt videosunda model seçici görünmelidir.
+Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. Use \`high\` reasoning for quality, or the highest available reasoning level for the final demo run. This script cannot verify the in-app selection, so keep the model picker visible in the recording.
 
-## Kaynaklar
+## Inputs
 
-- Mimari prompt: \`${promptPath}\`
-- Sansürlenmiş senaryo girdisi: \`${inputPath}\`
-- Girdi SHA-256: \`${inputHash}\`
-- Hedef config: \`${outputPath}\`
+- Architecture prompt: \`${promptPath}\`
+- Sanitized scenario input: \`${inputPath}\`
+- Input SHA-256: \`${inputHash}\`
+- Target config: \`${outputPath}\`
 
-## Görev
+## Task
 
-1. \`AGENTS.md\`, mimari prompt ve senaryo girdisini oku.
-2. \`.env\`, kimlik bilgileri, üretim logları, müşteri kayıtları veya repo dışındaki özel dosyaları okuma.
-3. Model API'si veya harici ağ çağrısı kullanma; bu görev Codex uygulamasının kendi oturumunda yürür.
-4. Yalnızca sentetik girdiden ZeroKit config üret ve hedef JSON dosyasına yaz.
-5. Config; \`version\`, \`panel_registry\`, \`rbac_registry\`, \`field_registry\`, \`endpoint_map\`, \`brand_config\`, \`privacy_notes\` ve \`test_checklist\` içermelidir.
-6. Backend uyumluluğunu uydurma; bilinmeyenleri notlarda açık bırak.
-7. Şu komutu çalıştır ve FAIL varsa düzelt:
+1. Read \`AGENTS.md\`, the architecture prompt, and the scenario input.
+2. Do not read \`.env\` files, credentials, production logs, customer records, private donor files, or private files outside this repository.
+3. Do not call a model API or make an external network request. Complete this task inside the current Codex app session.
+4. Generate a ZeroKit config only from the synthetic input and write it to the target JSON file.
+5. The config must include \`version\`, \`panel_registry\`, \`rbac_registry\`, \`field_registry\`, \`endpoint_map\`, \`brand_config\`, \`privacy_notes\`, and \`test_checklist\`.
+6. Do not invent backend compatibility. Record unknowns explicitly in the notes.
+7. Run this command and fix every failure:
 
    \`node ai-buildweek/scripts/validate-config.mjs ${outputPath}\`
 
-8. Değişiklik özetinde varsayımları, doğrulama sonucunu ve insan incelemesi gereğini belirt. Manifesti oluşturma; onu operatör incelemeden sonra kaydedecek.
+8. In the change summary, state the assumptions, validation result, and need for human review. Do not create the manifest; the operator records it after review.
 `;
   return { inputHash, privacy, text };
 }
@@ -102,12 +102,12 @@ export function buildCodexRunManifest({
 
   return {
     evidence_version: 1,
-    surface: 'Codex uygulaması',
+    surface: 'Codex app',
     model_selection: {
       label: modelLabel,
       visible_in_app_confirmed_by_operator: true,
       cryptographically_verified: false,
-      evidence_note: 'Model seçimi Codex arayüzü ve demo videosuyla kanıtlanır; yerel script uygulama içi modeli okuyamaz.',
+      evidence_note: 'The selection is evidenced by the visible Codex UI and demo recording; the local script cannot read the in-app model.',
     },
     thread_reference: threadReference,
     recorded_at: new Date().toISOString(),
@@ -135,7 +135,7 @@ export function buildCodexRunManifest({
       completed: true,
       required_for_application: true,
     },
-    note: 'Manifest; girdi, görev veya çıktı içeriğini, özel dosyaları ya da model muhakemesini içermez.',
+    note: 'The manifest stores hashes, not the input, task, output content, private files, or model reasoning.',
   };
 }
 

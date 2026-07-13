@@ -92,7 +92,8 @@ Henüz yapılmamış tek yarışma kanıtı: operatörün Codex'te **GPT-5.6 Sol
 ## Yerleştirmeyi güçlendiren sonraki öneriler
 
 - Statik preview'yu HTTPS altında yayınla ve README/Devpost'un ilk ekranına koy.
-- Türkçe anlatım kullan; videoya gömülü İngilizce altyazı ekle. Devpost açıklamasında kısa Türkçe + İngilizce özet kullan.
+- Videoda konuşma veya ses kullanma. Jüri videosunu İngilizce uygulama arayüzü ve kısa, gömülü İngilizce ekran yazılarıyla hazırla; Türkçe yalnızca operatörün hazırlık kılavuzunda kalsın. Devpost açıklaması İngilizce olmalı; kişisel çalışma notlarının Türkçe olması jüriye engel değildir.
+- Özel donör admin panelini ana demo kanıtı olarak gösterme. Jüriye açık repoda gerçekten bulunan, tekrar üretilebilir ZeroKit preview'sunu göster; aksi hâlde kapsam, lisans ve tekrar üretilebilirlik iddiası bulanıklaşır.
 - “Manuel ilk taslak süresi” ile “Codex destekli ilk taslak süresi”ni tek iç deney olarak ölç; bunu genelleştirilmiş verimlilik iddiası gibi sunma.
 - PocketBase kanıtını 10–15 saniye göster; ana hikâyeyi PocketBase kurulumuna dönüştürme.
 - Başvuru sonrası input → preflight → Codex görev → validation → preview akışını tek UI altında birleştir.

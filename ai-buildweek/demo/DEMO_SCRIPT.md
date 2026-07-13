@@ -1,59 +1,33 @@
-# Üç dakikalık Build Week demo metni
+# Sessiz üç dakikalık Build Week demo metni
 
-## 0:00–0:18 — Tekrarlanan SaaS maliyeti
+Videoda konuşma, müzik veya ortam sesi kullanılmaz. Ekran İngilizce tutulur. Aşağıdaki `On-screen text` satırları Clipchamp'te videonun üzerine İngilizce olarak eklenir; Türkçe açıklamalar videoya girmez.
 
-**Ekran:** Bitmiş okul preview'su, ardından okul senaryo girdisi.
+| Zaman | Ekran | On-screen text |
+|---|---|---|
+| 0:00–0:08 | İngilizce ZeroKit hero | `ZeroKit AI Control Plane` |
+| 0:08–0:18 | School SaaS preview | `From a sanitized SaaS brief to a reviewable control-plane contract.` |
+| 0:18–0:34 | `codex:prepare` ve sıfır blocker | `Local privacy checks run before the model sees the task.` |
+| 0:34–0:48 | Codex model seçici | `GPT-5.6 works inside the Codex app — no model API key.` |
+| 0:48–1:03 | İngilizce Codex görevi | `Only synthetic roles, panels, fields, and routes are allowed.` |
+| 1:03–1:16 | Üretilen config | `Codex generates the config in the public repository.` |
+| 1:16–1:28 | Validator ve manifest PASS | `Deterministic validation and human review close the loop.` |
+| 1:28–1:42 | Preview sayaçları | `One config controls navigation, roles, fields, and endpoints.` |
+| 1:42–1:57 | Panel map | `Enabled and hidden panels are explicit and reviewable.` |
+| 1:57–2:10 | RBAC roles | `Least-privilege RBAC is visible before integration.` |
+| 2:10–2:23 | Endpoint map | `Routes can change. Payload compatibility must be tested.` |
+| 2:23–2:36 | PocketBase fixture/adaptör PASS | `An open-source PocketBase fixture proves the adapter boundary.` |
+| 2:36–2:48 | Unit, privacy ve browser PASS | `Repeatable local gates produce honest PASS or FAIL evidence.` |
+| 2:48–2:58 | Privacy banner | `Production customer data stays outside the model loop.` |
+| 2:58–3:00 | Repo URL | `github.com/zyganali-glitch/zerokit-ai-control-plane` |
 
-**Anlatım:** “Her SaaS yönetim yüzeyi aynı pahalı sorularla başlıyor: hangi paneller var, kim ne yapabilir, hangi alanlar müşteriye göre değişir ve backend gerçekten beklenen sözleşmeyi karşılıyor mu? Boilerplate ilk günü hızlandırıyor; müşteri değişiklikleri sonraki teknik borcu oluşturuyor.”
+## Codex'e yapıştırılacak İngilizce görev
 
-## 0:18–0:35 — ZeroKit socket sözleşmesi
-
-**Ekran:** Dört registry adı ve mimari şema.
-
-**Anlatım:** “ZeroKit bu kararları dört parçalı bir socket sözleşmesine çeviriyor: panel registry, RBAC registry, field registry ve endpoint map. Route'lar değişebilir; payload şekli kanıtsız varsayılmaz.”
-
-## 0:35–1:02 — Codex uygulamasında GPT-5.6
-
-**Ekran:** `codex:prepare` PASS, görev dosyası, Codex model seçicide GPT-5.6 Sol, görev başlangıcı.
-
-**Anlatım:** “Yerel guard sansürlenmiş okul brief'ini modelden önce kontrol ediyor. Codex uygulamasında GPT-5.6 Sol'u görünür şekilde seçiyoruz ve sınırlandırılmış görev dosyasını çalıştırıyoruz. Model API'si, API anahtarı veya production kaydı yok.”
-
-## 1:02–1:25 — Doğrulama ve kanıt
-
-**Ekran:** Codex'in config'i yazması, validator PASS, diff review ve manifest.
-
-```bash
-node ai-buildweek/scripts/validate-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json
+```text
+Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Do not read any .env file, private donor file, credential, production log, customer record, or private file outside this repository. Run the required local validator, fix every failure, and report the final validation result and assumptions.
 ```
 
-**Anlatım:** “Codex sonucu doğrudan repo içinde oluşturuyor. Deterministik validator required registry'leri ve generated-artifact alanlarını kontrol ediyor. İnsan incelemesinden sonra manifest model beyanını, dosya hash'lerini ve PASS istatistiklerini kaydediyor; model doğrulamasını kriptografikmiş gibi göstermiyor.”
+## Kurgu kuralı
 
-## 1:25–1:50 — Yerel kontrol düzlemi preview'su
+Gerçek Codex çalışması uzunsa bekleme kısmı kesilebilir. Başlangıçtaki görünür GPT-5.6 seçimi, İngilizce görev, oluşturulan hedef dosya ve son PASS kesilmez. Kesilen bölümün üzerine `Codex run shortened for time` yazılır.
 
-**Ekran:** Yeni JSON'u preview'ya yükle; okul özeti, kapalı team billing, roller, endpoint'ler; TR/light geçişi.
-
-**Anlatım:** “Browser-only preview; açık ve kapalı panelleri, RBAC rollerini, alanları, endpoint'leri, uyarıları ve mahremiyet notlarını gösteriyor. Türkçe ve İngilizce, light ve dark, desktop ve mobile çalışıyor. Yapıştırılan config bu tab'dan dışarı çıkmıyor.”
-
-## 1:50–2:13 — Route iyimserliği yerine adaptör gerçeği
-
-**Ekran:** PocketBase sentetik response, ardından `npm run demo:pocketbase` PASS.
-
-**Anlatım:** “PocketBase açık kaynak backend'inin listesi items ve totalItems döndürüyor. Bu testli adaptör onu ZeroKit'in katı users ve total sözleşmesine çeviriyor ve eksik key'de fail-closed davranıyor. ZeroKit route-flexible; payload-shape agnostic değil.”
-
-## 2:13–2:31 — Mahremiyet sınırı
-
-**Ekran:** `AGENTS.md` yasakları, privacy boundary ve preview banner.
-
-**Anlatım:** “Bu, SaaS veritabanını okuyan bir AI agent değil. Model; gereksinimleri, şemaları ve sentetik sözleşmeleri görüyor. Müşteri kayıtları, yetkilendirme ve tenant isolation müşteri altyapısında kalıyor. Pattern guard'ın tek başına yeterli olmadığını kabul ediyor ve insan review'u zorunlu tutuyoruz.”
-
-## 2:31–2:48 — Kanıt
-
-**Ekran:** Unit, privacy, üç config ve browser PASS satırları.
-
-**Anlatım:** “Yarışma sürümü sıfır frontend runtime npm bağımlılığıyla build oluyor. Codex görev/manifest testleri, üç config doğrulaması, PocketBase adaptörü ve gerçek browser smoke kontrolleri tekrar üretilebilir PASS/FAIL kanıtı sağlıyor.”
-
-## 2:48–3:00 — Etki
-
-**Ekran:** Okul, sağlık ve ajans senaryo kartları, ardından repo URL'si.
-
-**Anlatım:** “SaaS'ı bir kez sansürlenmiş şekilde tarif et; incelenebilir bir kontrol düzlemi sözleşmesi, adaptör planı ve test kapıları elde et. Müşteri veri düzlemini modelin dışında tut. ZeroKit AI Control Plane.”
+Tıklama tıklama hazırlık, kayıt ve Clipchamp anlatımı için [DEMO_VIDEO_ROADMAP.md](DEMO_VIDEO_ROADMAP.md) belgesini kullan.

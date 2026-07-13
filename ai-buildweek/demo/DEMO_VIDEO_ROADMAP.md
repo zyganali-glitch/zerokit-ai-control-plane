@@ -1,252 +1,472 @@
-# Demo video prodüksiyon yol haritası
+# Sessiz İngilizce demo videosu — sıfırdan, tıklama tıklama kılavuz
 
-## Stratejik karar
+Bu belge teknik bilgisi ve İngilizcesi olmayan bir kullanıcının bile videoyu tek başına hazırlayabilmesi için yazılmıştır. Videoda **hiç konuşma ve ses olmayacak**. Hazırlık açıklamaları Türkçe, jüriye gösterilecek bütün yazılar İngilizcedir.
 
-Ana demoda **bu repo ve hazır sentetik okul SaaS senaryosu** kullanılmalı. Başka bir proje ana ürün yapılmamalı. ZeroKit yarışmaya sunduğumuz üründür; okul senaryosu RBAC, navigasyon, alanlar, faturalandırma görünürlüğü, endpoint eşleme, TR/EN ve mahremiyet sınırını gerçek öğrenci verisi kullanmadan tek akışta gösterir.
+## En kısa cevaplar
 
-**PocketBase yalnızca kısa açık kaynak uyumluluk kanıtı** olmalı. PocketBase, MIT lisanslı ve yerelde kolay çalışan bir backend'dir. Belgelenmiş `items/totalItems` cevabının ZeroKit'in `users/total` sözleşmesinden farklı olması adaptör değerini birkaç saniyede anlatır.
+- Hazır demo projemiz **sentetik School SaaS** senaryosudur.
+- Ana videoda özel donör admin paneli **gösterilmeyecek**. Açık repodaki çalışan ZeroKit jüri paneli gösterilecek.
+- Ajana yapıştırılacak komut **İngilizce** olacak.
+- `http://127.0.0.1:4173` yalnızca kendi bilgisayarında açılan, ücretsiz yerel adrestir.
+- Demo için ücretli alan adı, hosting, model API'si veya API anahtarı gerekmez.
+- Codex uygulaması internet ve hesabındaki Codex erişimini kullanır; bu bir API faturası değildir ama hesabının plan/kullanım sınırlarına tabidir.
+- Video İngilizce olacak: ekrandaki uygulama dili İngilizce, sonradan eklenen kısa yazılar İngilizce, ses yok.
 
-Bu kurgu iki jüri sorusunu ayırır:
+## Donör admin panelini neden göstermiyoruz?
 
-1. “Başvurulan ürün çalışıyor mu?” — ZeroKit'i baştan sona göster.
-2. “Bu yalnızca elle hazırlanmış bir JSON mu?” — Codex görevini, manifesti ve PocketBase adaptörünü göster.
+Donör proje özel ve ayrı bir üründür. Bu yarışma reposu onun seçilmiş, izole ve açık jüri yüzeyidir. Ana videoda donör panelini göstermek üç sorun çıkarır:
 
-## API kullanmadan GPT-5.6/Codex akışı
+1. Jüri GitHub reposunu açtığında aynı paneli bulup çalıştıramaz.
+2. Özel ürünün tamamı bu yarışma teslimatının parçasıymış gibi yanlış bir izlenim oluşabilir.
+3. Özel kod, müşteri verisi, lisans veya kişisel dosya yanlışlıkla ekrana girebilir.
 
-Ürün hiçbir model API'si çağırmaz ve API anahtarı kullanmaz. Akış şudur:
+Bu nedenle videonun ürünü, repoda gerçekten bulunan ve test edilen `frontend/` preview'sudur. Donör yalnızca geçmiş tasarım tecrübesi ve şema ilhamı olarak açıklanabilir; ekranda ürün kanıtı olarak kullanılmaz. İleride donör görünümünü açık repoya lisanslı ve tekrar üretilebilir biçimde gerçekten taşırsak bu karar yeniden değerlendirilebilir.
 
-1. Yerel script sentetik girdiyi mahremiyet açısından tarar.
-2. Script, sınırları ve hedef dosyayı içeren tekrar üretilebilir Codex görev dosyası hazırlar.
-3. Operatör Codex uygulamasında **GPT-5.6 Sol** seçer.
-4. Codex görev dosyasını okuyup config'i doğrudan repo içinde oluşturur.
-5. Deterministik validator config'i kontrol eder.
-6. İnsan config'i inceler.
-7. Yerel script model seçimi beyanını, dosya hash'lerini ve validation sonucunu manifest olarak kaydeder.
+## Küçük sözlük
 
-Model seçimi arayüzde görünür olmalıdır. Manifest bu seçimi kriptografik doğruladığını iddia etmez; operatör onayı ve video kanıtı kullanır.
+| Kelime | Çok basit anlamı |
+|---|---|
+| Repo / repository | Projenin bütün dosyalarının bulunduğu klasör |
+| Codex | Kod üzerinde çalışan OpenAI masaüstü çalışma alanı |
+| Task / görev | Codex'e verdiğimiz tek iş |
+| Model picker | Codex'te kullanılacak modeli seçtiğimiz açılır menü |
+| Terminal | Yazılı komut verdiğimiz siyah veya koyu pencere |
+| Komut | Terminale yapıştırıp `Enter` tuşuna bastığımız satır |
+| Local / yerel | Yalnızca kendi bilgisayarında çalışan |
+| Preview | Projenin tarayıcıda görünen deneme ekranı |
+| Config | Panelleri, rolleri, alanları ve adresleri tarif eden JSON dosyası |
+| PASS | Kontrol başarıyla geçti |
+| FAIL | Kontrol başarısız; videoya devam etmeden düzeltilmeli |
+| Caption / overlay | Videonun üzerine sonradan eklenen kısa İngilizce yazı |
+| Clip | Videonun küçük bir parçası |
+| Manifest | İncelenen dosyaların özet/hash kanıtı; dosya içeriğini kopyalamaz |
 
-## Açık kaynak proje göstermek uygun mu?
+## Kullanacağımız şeyler ve ücret durumu
 
-Evet. OpenAI Build Week mevcut bir proje üzerinde geliştirmeye izin veriyor. Ancak lisansa ve atfa dikkat edilmeli.
+| Araç | Ne için? | Ücretli şart mı? |
+|---|---|---|
+| Codex masaüstü uygulaması | GPT-5.6 ile okul config'ini üretmek | Ayrı API anahtarı/faturası yok; mevcut OpenAI hesabının Codex erişimi gerekir |
+| Windows Terminal / PowerShell | Hazırlık ve test komutları | Hayır |
+| Chrome veya Edge | Yerel preview'yu göstermek | Hayır |
+| Windows Ekran Alıntısı Aracı | Ekran videosu kaydetmek | Hayır |
+| Microsoft Clipchamp | Klipleri birleştirip İngilizce yazıları eklemek | 1080p için ücretsiz özellikleri kullanabiliriz; elmas simgeli premium öğeleri seçme |
+| GitHub | Açık kaynak kodu göstermek | Bu demo için ücretli alan adı gerektirmez |
 
-PocketBase kullanırken:
+`127.0.0.1`, bilgisayarın kendisini ifade eder. `4173` ise preview'nun kullandığı kapı numarasıdır. Bu adres internette yayınlanmaz; başka biri kendi bilgisayarından senin `127.0.0.1` adresine ulaşamaz. Video kaydı için bu iyidir. Jürinin canlı siteyi açabilmesi istenirse ayrıca bir hosting gerekir; şu anki demo ve repo bunu gerektirmez.
 
-- “PocketBase, adaptör kanıtında kullanılan açık kaynak backend'dir” de.
-- PocketBase'in ZeroKit'in parçası veya projeyi destekleyen kuruluş olduğunu ima etme.
-- ZeroKit markasını PocketBase markasıyla değiştirme.
-- Yazılı başvuruda PocketBase repo ve dokümantasyon bağlantılarını ver.
-- Dahil fixture'ın belgelenmiş liste zarfını taklit eden sentetik veri olduğunu söyle.
-- Canlı PocketBase kullanırsan sürümü sabitle; proje 1.0 öncesi geriye uyumluluk konusunda uyarı yapıyor.
+İnternet yalnız şu işler için gerekebilir: Codex uygulamasının modeli kullanması, GitHub'a gönderim ve ilk npm kontrolü. Preview açıldıktan sonra ürün bir model API'sine, ücretli domaine veya canlı müşteri backend'ine bağlanmaz.
 
-## Dil kararı
+## Bölüm 1 — Kayıttan bir gün önce hazırlık
 
-Yarışma sayfasında İngilizce anlatım zorunluluğu belirtilmiyor. Bu nedenle:
+### 1.1 Kişisel şeyleri kapat
 
-- anlatım dili **Türkçe** olabilir;
-- videoya okunabilir, gömülü **İngilizce altyazı** eklenmeli;
-- Devpost açıklaması kısa Türkçe ve İngilizce özet içermeli;
-- ekrandaki ürün dili ana akışta İngilizce tutulabilir, TR geçişi iki saniyelik kanıt olarak gösterilebilir.
+1. Tarayıcıdaki e-posta, banka, sosyal medya ve özel proje sekmelerini kapat.
+2. Bildirimlerin videoya düşmemesi için Windows'ta sağ alttaki saat bölümüne tıkla.
+3. Görünen panelde **Rahatsız etmeyin** seçeneğini aç. Bu ad yoksa **Odak** seçeneğini aç.
+4. Masaüstünde kişisel dosya adları görünüyorsa bütün kayıt boyunca uygulamaları tam ekran kullan.
+5. Codex'te özel donör repo açık bir görev varsa kapat veya bu yarışma görevine geç.
 
-Bu düzen hem anlatanı rahatlatır hem uluslararası jüri erişimini korur.
+Beklenen sonuç: ekranda yalnız yarışma projesi, Terminal ve preview bulunacak.
 
-## Önerilen teknik format
+### 1.2 Proje klasörünün doğru olduğunu doğrula
 
-- Hedef süre: Devpost farklı bir üst sınır açıklayana kadar **2:50–2:58**.
-- Çözünürlük: 1920×1080.
-- Kare hızı: 30 fps.
-- Codec: H.264, yüksek kalite.
-- Terminal/editor yazısı: ekranda en az 18–22 px görünmeli.
-- Ses: konuşma tepe seviyesi yaklaşık -6 dB; hafif gürültü azaltma.
-- İmleç: görünür, normal hızda; anlatım hedefe gelmeden hareket ettirme.
-- Kurgu: düz kesmeler, iki veya üç kısa callout; uzun logo animasyonu kullanma.
+Kullanacağımız klasör aşağıdadır. `%USERPROFILE%`, Windows'un senin kullanıcı klasörünü kendiliğinden bulması anlamına gelir; bunu değiştirmen gerekmez.
 
-## Kayıttan önce zorunlu P0 kapısı
+```text
+%USERPROFILE%\.gemini\antigravity\scratch\zerokit-ai-control-plane
+```
 
-Temiz terminalde çalıştır:
+1. Klavyede Windows logolu tuşa bas.
+2. `Dosya Gezgini` yaz ve çıkan uygulamaya tıkla.
+3. Pencerenin üstündeki adres çubuğuna bir kez tıkla.
+4. Yukarıdaki klasör yolunu yapıştır.
+5. `Enter` tuşuna bas.
 
-```bash
+Beklenen sonuç: klasörde `README.md`, `package.json`, `frontend` ve `ai-buildweek` adlarını görürsün. Bunlardan biri görünmüyorsa yanlış klasördesin.
+
+### 1.3 Codex'te doğru proje ve modeli aç
+
+OpenAI arayüzü güncellemelerle küçük farklılıklar gösterebilir. Aşağıdaki adlardan biri görünür; anlamı aynıdır.
+
+1. Codex masaüstü uygulamasını aç.
+2. Sol tarafta **New task**, **Yeni görev**, `+` veya kalem simgesi görürsen ona tıkla.
+3. Proje seçili değilse sol üstteki proje/klasör adına tıkla.
+4. **Open folder**, **Add project** veya **Klasör aç** seçeneğini seç.
+5. Bir önceki bölümdeki `zerokit-ai-control-plane` klasörünü seç ve **Klasör Seç** düğmesine bas.
+6. Yeni görevin yazı kutusunun yakınındaki model/efor adına tıkla.
+7. Menüde doğrudan **GPT-5.6 Sol** görünüyorsa onu seç.
+8. Menü yalnızca **Medium**, **High** ve **Extra High** gösteriyorsa **High** seç. OpenAI'nin güncel yardım sayfası bu seviyelerin GPT-5.6 Sol kullandığını belirtir.
+9. Ayrı bir efor seçimi varsa kayıt için **High** veya hesabında bulunan en yüksek düzeyi seç.
+10. Model menüsünü bir kez tekrar açıp seçimin görünür olduğunu kontrol et; henüz görev başlatma.
+
+GPT-5.6 veya High hiç görünmüyorsa:
+
+1. Codex uygulamasında profil/ayar simgesine tıkla.
+2. **Settings / Ayarlar** ve ardından **About / Hakkında** bölümünü ara.
+3. Güncelleme düğmesi varsa güncelle ve uygulamayı yeniden aç.
+4. Hesabının doğru hesap olduğunu kontrol et.
+5. Yine görünmüyorsa başka modeli GPT-5.6 diye göstermeden kaydı ertele. Bu, dürüst kanıt için önemlidir.
+
+Resmî başvuru öncesi kontrol bağlantısı: <https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt>
+
+### 1.4 Hazırlık Terminalini aç
+
+1. Klavyede Windows logolu tuşa bas.
+2. `Terminal` yaz.
+3. Sonuçlarda **Terminal** veya **Windows Terminal** uygulamasına tıkla.
+4. Terminal açılınca aşağıdaki satırı bütünüyle kopyala.
+5. Terminal penceresinin içine bir kez tıkla ve `Ctrl+V` ile yapıştır.
+6. `Enter` tuşuna bas.
+
+```powershell
+cd "$env:USERPROFILE\.gemini\antigravity\scratch\zerokit-ai-control-plane"
+```
+
+Beklenen sonuç: komut satırının solunda veya başında `zerokit-ai-control-plane` klasörü görünür. Kırmızı hata görürsen klasör yolunu tekrar kopyala; tırnak işaretlerini silme.
+
+### 1.5 Komutları tek tek çalıştır
+
+Aşağıdaki komutların hepsini birden yapıştırma. Her birini ayrı ayrı yapıştır, `Enter` tuşuna bas, bitmesini bekle, sonra diğerine geç.
+
+#### Komut 1 — kurulum durumunu eşitle
+
+```powershell
 npm ci
+```
+
+Beklenen: kırmızı `ERR!` olmadan komut satırı geri gelir. `0 vulnerabilities` görmen normaldir.
+
+#### Komut 2 — projeyi oluştur
+
+```powershell
 npm run build
+```
+
+Beklenen: satırlardan birinde `PASS` görürsün.
+
+#### Komut 3 — küçük kod kontrolleri
+
+```powershell
 npm run test:unit
+```
+
+Beklenen: en sonda başarısız test sayısı `0` olur.
+
+#### Komut 4 — mahremiyet kontrolleri
+
+```powershell
 npm run test:privacy
+```
+
+Beklenen: testler geçer ve hata sayısı `0` olur.
+
+#### Komut 5 — İngilizce Codex görevini hazırla
+
+```powershell
 npm run codex:prepare -- ai-buildweek/examples/school-saas.input.md --force
+```
+
+Beklenen dört önemli satır:
+
+```text
+PASS Codex task package ready
+privacy blockers: 0
+human review items: 0
+NEXT: Select GPT-5.6 Sol
+```
+
+#### Komut 6 — açık kaynak PocketBase adaptör kanıtı
+
+```powershell
 npm run demo:pocketbase
+```
+
+Beklenen: `PASS` ve PocketBase adaptörünün başarılı olduğuna dair İngilizce satırlar.
+
+#### Komut 7 — gerçek tarayıcı kontrolü
+
+```powershell
 npm run test:browser
 ```
 
-PASS koşulları:
+Beklenen: en sonda `16/16` veya bütün kontrollerin geçtiğini anlatan `PASS` satırı.
 
-- görev paketi hazırlanır;
-- mahremiyet engeli ve inceleme bulgusu sıfırdır;
-- görev dosyası yalnızca izinli prompt/input/output yollarını içerir;
-- hiçbir model API'si, API anahtarı veya harici model çağrısı yoktur;
-- 18 birim, 8 mahremiyet/Codex, 16 browser kontrolü ve üç config doğrulaması geçer;
-- PocketBase adaptörü `2 items → 2 users` PASS verir;
-- worktree yalnızca bilinçli değişiklikler içerir.
+Bu komutlardan herhangi biri `FAIL`, `ERR!` veya kırmızı hata verirse video kaydına başlama. Hata ekranının fotoğrafını al ve Codex'e şu İngilizce komutu ver:
 
-Sonra Codex uygulamasında:
-
-1. Proje olarak bu repo klasörünü aç.
-2. Model seçiciden **GPT-5.6 Sol** seç.
-3. Eforu önce `high`, son kayıt için hesabında varsa `max` yap.
-4. Yeni görev aç.
-5. Şunu yaz:
-
-   ```text
-   AGENTS.md kurallarına uy. ai-buildweek/runs/school-saas.codex-task.md dosyasını oku ve görevi tamamla.
-   ```
-
-6. Codex'in hedef config'i yazmasını ve validator çalıştırmasını bekle.
-7. Diff'i incele; gerçek veri, fazla yetki, uydurulmuş uyumluluk veya gereksiz dosya olmadığını kontrol et.
-8. Çıktıyı insan gözüyle onayla.
-9. Manifesti kaydet:
-
-   ```bash
-   npm run codex:record -- \
-     ai-buildweek/examples/school-saas.input.md \
-     ai-buildweek/runs/school-saas.codex-task.md \
-     ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json \
-     --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed \
-     --thread=school-demo-run
-   ```
-
-## Kayıttan bir gün önce hazırlık
-
-### 1. Temiz jüri klonu
-
-Yeni klasöre klon al. Komutların temiz klonda çalıştığını doğrula. Özel donor repo veya kişisel dosya içeren çalışma alanından kayıt alma.
-
-### 2. Dört pencere hazırla
-
-1. Codex uygulaması: repo açık, model seçici görünür.
-2. Editor: okul input, görev dosyası, yeni config ve manifest sekmeleri hazır.
-3. Terminal: repo kökü, büyük font, kısa prompt, temiz geçmiş.
-4. Browser: `http://127.0.0.1:4173`, İngilizce/dark, %100 zoom.
-
-Kayıttan önce sekmeleri sırala; dosya ağacında arama yapmak süre kaybettirir.
-
-### 3. Yerel preview
-
-Görünmeyen ayrı terminalde `npm run dev` çalıştır. Okul senaryosunu bir kez yükle, console hatası olmadığını kontrol et, sonra başlangıç ekranına dön.
-
-### 4. Codex çalışma süresi
-
-Gerçek Codex çalışmasını kesintisiz ayrı klip olarak kaydet. Uzun sürerse videoda hızlandır veya kes; ekrana “Gerçek Codex görevi — geçen süre 00:XX” yaz. Başlangıçtaki GPT-5.6 Sol seçimini ve son PASS'i koru. Kesmenin gerçek zaman olmadığını gizleme.
-
-## Tam 2:55 çekim planı
-
-| Zaman | Ekran | Eylem | Jürinin aklında kalması gereken |
-| --- | --- | --- | --- |
-| 0:00–0:12 | Bitmiş ZeroKit preview | Panel, rol ve endpoint sayısını göster; okul/ajans arasında hızlı geçiş | Bu çalışan ürün sonucu, yalnızca prompt değil. |
-| 0:12–0:25 | Okul girdisi | Roller, paneller, sentetik endpoint özeti ve “öğrenci kaydı yok” satırını vurgula | Model yalnızca sansürlenmiş mimari sözleşmeyi görür. |
-| 0:25–0:37 | Terminal + görev dosyası | `codex:prepare` PASS ve görev paketini göster | Hassas input modelden önce yerelde kontrol edilir. |
-| 0:37–0:52 | Codex uygulaması | Model seçicide GPT-5.6 Sol ve eforu göster; görevi başlat | GPT-5.6, gerçek Codex ürün akışının merkezindedir. |
-| 0:52–1:12 | Hızlandırılmış Codex klibi | Codex'in config yazıp validator çalıştırmasını göster | Model yalnızca metin üretmiyor; repoda sınırlandırılmış işi tamamlıyor. |
-| 1:12–1:27 | Diff + manifest | İnsan review, model beyanı, output hash ve validation PASS | Sonuç denetlenebilir; model seçimi dürüstçe operatör onaylıdır. |
-| 1:27–1:50 | Preview | Yeni config'i yükle; panel/RBAC/field/endpoint/privacy; TR/light geçişi | Sonuç tutarlı, kullanılabilir, responsive ve bilingual. |
-| 1:50–2:12 | PocketBase kanıtı | `items/totalItems`, ardından `npm run demo:pocketbase` PASS | Route esnek olabilir; payload uyumu açık ve testlidir. |
-| 2:12–2:29 | Mahremiyet sınırı | AGENTS denylist ve preview'daki mahremiyet notlarını göster | Müşteri kayıtları ve runtime authorization model sınırının dışındadır. |
-| 2:29–2:45 | Test kanıtı | Unit, privacy, browser ve üç senaryo PASS | Uygulama basit olmayan ve tekrar üretilebilir mühendislik içerir. |
-| 2:45–2:55 | Kapanış | Okul → sağlık → ajans, repo URL'si ve tek cümle iddia | Bir tarif; incelenebilir config, adaptör planı ve kapılar. |
-
-## Türkçe anlatım omurgası
-
-> “Her özelleştirilmiş SaaS yönetim paneli aynı riskli sorularla başlıyor: hangi yüzeyler var, kim ne yapabilir ve müşteri backend'i gerçekten beklenen sözleşmeye uyuyor mu? ZeroKit önce sentetik gereksinimi yerelde mahremiyet kontrolünden geçiriyor. Sonra Codex uygulamasında seçtiğimiz GPT-5.6 Sol, bu sınırlı görev dosyasından incelenebilir bir kontrol düzlemi config'i üretiyor. Deterministik doğrulama ve insan incelemesi sonucu kapatıyor. Matching URL, matching payload demek olmadığı için PocketBase'in items/totalItems zarfını ZeroKit'in users/total sözleşmesine çeviren adaptör de fail-closed test ediliyor. Böylece mimari ilk taslağı hızlanırken müşteri veri düzlemi model döngüsünün dışında kalıyor.”
-
-Şunları söyleme: “anında”, “production-ready”, “her backend ile çalışır”, “sıfır bağımlılık”, “hiç veri sızamaz”, “model seçimi script tarafından doğrulandı”.
-
-## PocketBase için iki gösterim seviyesi
-
-### Üç dakikalık ana video: deterministik fixture
-
-```bash
-npm run demo:pocketbase
+```text
+The preparation command shown in the terminal failed. Diagnose the failure using only this public repository, fix it, and rerun the same command. Do not read any .env file, private donor file, credential, production log, or customer record.
 ```
 
-Avantajları: indirme yok, ağ yok, deterministik çıktı, hızlı reset ve jüri tarafından hemen tekrar üretilebilir. Sınırı açık söyle: bir belgelenmiş response zarfını kanıtlar; canlı PocketBase deployment'ı değildir.
+## Bölüm 2 — Sentetik okul görevini Codex'te çalıştır
 
-### İsteğe bağlı uzun teknik video: yerel PocketBase
+Bu bölüm gerçek GPT-5.6 kanıtıdır. Hazır okul senaryomuzda gerçek öğrenci, veli, öğretmen veya okul kaydı yoktur; rol, panel, alan ve route adları uydurmadır.
 
-1. Resmî repodan sabit bir PocketBase sürümü indir.
-2. `127.0.0.1:8090` üzerinde geçici data klasörüyle başlat.
-3. `school_users` koleksiyonu oluştur.
-4. Alanlar: `display_name`, `role`, `account_status`, `campus`, `department`, `support_status`.
-5. Yalnızca repodaki iki sentetik kaydı ekle.
-6. Collection list/view kurallarını bilinçli yapılandır.
-7. `GET /api/collections/school_users/records?page=1&perPage=30` çağrısını yerelde yap.
-8. Sentetik cevabı adaptör CLI'ına ver.
-9. `items → users`, `totalItems → total` dönüşümünü göster.
-10. Kayıt sonrasında geçici data klasörünü sil.
+### 2.1 Codex görevini başlat
 
-Ana videoda PocketBase dashboard kurulumuna zaman harcama; bu, PocketBase'i ürün gibi gösterir ve Codex/GPT-5.6 hikâyesini gömer.
+1. Codex uygulamasına dön.
+2. Proje adının `zerokit-ai-control-plane` olduğunu kontrol et.
+3. **New task / Yeni görev** düğmesine tıkla.
+4. Yazı kutusunun yakınındaki model menüsünü aç.
+5. **GPT-5.6 Sol** veya yukarıda açıklandığı biçimde **High** seçimini yap.
+6. Menüyü kapatmadan önce bu görünümün daha sonra kaydedileceğini aklında tut.
+7. Yazı kutusuna aşağıdaki İngilizce komutu aynen yapıştır:
 
-## Manifestte gösterilecek alanlar
+```text
+Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Do not read any .env file, private donor file, credential, production log, customer record, or private file outside this repository. Run the required local validator, fix every failure, and report the final validation result and assumptions.
+```
 
-- `surface`
-- `model_selection.label`
-- `visible_in_app_confirmed_by_operator`
-- `cryptographically_verified: false`
-- `hashes.input_sha256`
-- `hashes.task_sha256`
-- `hashes.output_sha256`
-- `privacy_guard.blocking_findings`
-- `validation.valid`
-- `human_review.completed`
+8. Gönder düğmesine veya klavyede `Enter` tuşuna bas.
+9. Codex çalışırken başka bir görev başlatma.
+10. İzin sorusu çıkarsa yalnızca bu açık repo içindeki dosyaları okuma/yazma ve yerel test komutlarına izin ver. `.env`, repo dışı klasör, özel donör repo, ağ erişimi veya credential istenirse izin verme.
 
-Manifest girdi/görev/çıktı içeriğini veya model muhakemesini içermez.
+### 2.2 Bittiğini nasıl anlarsın?
 
-## Hata ve kurtarma planı
+Codex'in son mesajında şunları ara:
 
-| Sorun | Yapılacak |
-| --- | --- |
-| GPT-5.6 Sol model seçicide yok | Uygulamayı güncelle, hesabın rollout/plan erişimini kontrol et; başka modeli GPT-5.6 diye gösterme. |
-| Codex görev süresi uzun | Gerçek klibi süre etiketiyle hızlandır veya kes. |
-| Model çıktısı validation FAIL | Hatayı saklama; görevi/refine talimatını düzelt, yeniden çalıştır, geçen çıktıyı review et. |
-| Privacy guard input'u blokladı | Guard'ı atlama; girdiyi sansürle ve yeniden hazırla. |
-| Model yanlış dosya okuyor | Görevi durdur; AGENTS/task denylist'ini sıkılaştır; temiz thread aç. |
-| Browser state eski | Hard refresh, okul senaryosunu yükle, English/dark başlangıcına dön. |
-| PocketBase proof bozuk | Canlı DB ile uğraşma; checked-in fixture ve unit teste dön. |
-| Bildirim açıldı | Özel içerik görünürse klibi tamamen yeniden çek. |
+- hedef dosya: `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json`
+- validation veya validator kelimesinin yanında `PASS` ya da başarılı sonuç
+- assumptions / varsayımlar özeti
+- human review / insan incelemesi uyarısı
 
-## Görsel ve kurgu kuralları
+Dosya oluşmadıysa veya validator başarısızsa şu İngilizce takip komutunu yapıştır:
 
-- README ile değil sonuç ekranıyla aç.
-- Her sahnede tek fikir ve tek vurgulu bölge olsun.
-- İki kalıcı kavram kullan: “AI tasarım düzlemi” ve “müşteri veri düzlemi”.
-- Yeşili yalnızca doğrulanmış PASS için kullan; amber insan incelemesi; kırmızı block/FAIL.
-- Kişisel Windows hesap yollarını mümkün olduğunca kadraj dışında tut.
-- Önceden kaldırılması gereken özel bilgiyi blur ile kurtarmaya çalışma.
-- 0:12'den sonra alt köşede küçük repo URL'si göster.
-- Export sonrası videoyu normal hızda baştan sona izle ve terminal satırlarının laptop ekranında okunabildiğini doğrula.
+```text
+The required output or validation is incomplete. Finish the task exactly as specified in ai-buildweek/runs/school-saas.codex-task.md, write the target JSON file, run the local validator, and fix every failure before reporting completion.
+```
 
-## Çekimi iptal edip yeniden alma ölçütleri
+### 2.3 İnsan incelemesi ve manifest
 
-- Gerçek e-posta, özel repo, müşteri benzeri kayıt veya kişisel bildirim görünür.
-- Ekrandaki çıktı ile manifest hash'i uyuşmaz.
-- Komut FAIL verirken anlatım PASS der.
-- GPT-5.6 seçilmemişken seçilmiş gibi anlatılır.
-- Bir PocketBase adaptöründen genel backend uyumu iddia edilir.
-- İlk 15 saniyede ürün sonucu görünmez.
-- Video Devpost'un yayımladığı süre sınırını aşar.
+Codex başarı bildirdikten sonra Terminale dön ve şu komutu çalıştır:
 
-## Başvuru paketi kontrol listesi
+```powershell
+node ai-buildweek/scripts/validate-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json
+```
 
-- GitHub repo test edilen commit'e işaret ediyor.
-- README quick start temiz klonda çalışıyor.
-- Video giriş yapmadan izlenebiliyor.
-- Türkçe anlatım üzerinde gömülü İngilizce altyazı var.
-- Devpost açıklaması desteklenen dar iddiayı Türkçe ve İngilizce veriyor.
-- Teknolojiler: GPT-5.6, Codex uygulaması, Node.js, browser API'leri; PocketBase yalnız adaptör kanıtı.
-- Repo, video ve Devpost aynı proje adını ve test sayılarını kullanıyor.
-- Lisans ve özel donor sınırı açık.
-- Git geçmişi, video kareleri, altyazı ve açıklamada secret yok.
-- Gönderim günü Devpost'un güncel dosya/süre/alan gereksinimleri tekrar kontrol edilmiş.
+`PASS` görürsen config dosyasını Codex içinde aç. Şunları gözle kontrol et:
 
-## Önerilen ek materyaller
+- Gerçek kişi adı, e-posta, telefon veya okul adı yok.
+- `users`, `invoices`, `reports` gibi panel adları sentetik ve genel.
+- `owner`, `staff`, `viewer` gibi roller bulunuyor.
+- API anahtarı, parola veya gerçek internet adresi yok.
+- `privacy_notes` ve `test_checklist` boş değil.
 
-1. Bu plana göre 2:55 ana jüri videosu.
-2. 20–30 saniyelik sessiz GIF: input → görev → validate → preview.
-3. 5–7 dakikalık isteğe bağlı teknik video: Codex task sınırı, privacy testleri, PocketBase adaptörü, browser smoke.
-4. GPT-5.6 tasarım girdileri ile müşteri runtime verisini kalın çizgiyle ayıran tek mimari görsel.
+Hepsi uygunsa Terminalde aşağıdaki komutu **tek satır halinde** çalıştır:
 
-Ana video tek başına anlaşılmalıdır; ek materyaller güveni derinleştirir.
+```powershell
+npm run codex:record -- ai-buildweek/examples/school-saas.input.md ai-buildweek/runs/school-saas.codex-task.md ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed --force
+```
+
+Beklenen: `PASS Codex run evidence recorded` ve `operator-confirmed, not cryptographically verified` satırları.
+
+## Bölüm 3 — Yerel preview'yu aç
+
+### 3.1 Sunucu Terminalini aç
+
+Hazırlık Terminalini kapatma. İkinci bir Terminal aç:
+
+1. Terminal penceresinin üst tarafındaki `+` işaretine tıkla. Bulamazsan Windows tuşuna basıp yeniden `Terminal` aç.
+2. Şu klasör komutunu yapıştır ve `Enter` tuşuna bas:
+
+```powershell
+cd "$env:USERPROFILE\.gemini\antigravity\scratch\zerokit-ai-control-plane"
+```
+
+3. Şu komutu çalıştır:
+
+```powershell
+npm run dev
+```
+
+Beklenen: ekranda `http://127.0.0.1:4173` adresi görünür. Bu Terminali kapatma; kapatırsan preview durur.
+
+### 3.2 İngilizce okul preview'sunu aç
+
+1. Chrome veya Edge'i aç.
+2. En üstteki adres çubuğuna tıkla.
+3. Aşağıdaki adresi yapıştır ve `Enter` tuşuna bas:
+
+```text
+http://127.0.0.1:4173/?lang=en&theme=dark&scenario=school-saas
+```
+
+Beklenen:
+
+- koyu renkli İngilizce sayfa;
+- `ZeroKit AI Control Plane` adı;
+- `Turn a SaaS idea into a reviewable control-plane contract.` başlığı;
+- üst tarafta `TR` ve `Light theme` düğmeleri;
+- `Synthetic scenario` alanında `School SaaS`;
+- aşağıda doğrulama sonuçları ve panel/rol/endpoint bölümleri.
+
+Sayfa açılmazsa:
+
+1. Sunucu Terminalinin hâlâ açık olduğunu kontrol et.
+2. Terminalde kırmızı hata varsa ekran görüntüsü al.
+3. Adresi `https` değil `http` ile yazdığını kontrol et.
+4. `127.0.0.1` ve `4173` sayılarını değiştirme.
+
+## Bölüm 4 — Sessiz ekran kaydı
+
+Tek seferde kusursuz üç dakika çekmeye çalışma. Aşağıdaki kısa klipleri ayrı ayrı kaydetmek daha kolaydır. Her klipte fareyi yavaş hareket ettir; tıklamadan önce yarım saniye bekle.
+
+### 4.1 Windows kayıt aracını aç
+
+1. Klavyede `Windows + Shift + R` tuşlarına aynı anda bas.
+2. Ekran hafif koyulaşır ve kayıt çubuğu görünür.
+3. Fareyle ekranın kaydedilecek kısmını sol üstten sağ alta doğru çizerek seç. En güvenlisi uygulama penceresinin tamamını seçmektir.
+4. **Start / Başlat** düğmesine tıkla.
+5. Üç saniyelik geri sayım biter; sonra hareket etmeye başla.
+6. Klip bitince üstteki kırmızı kare **Stop / Durdur** düğmesine tıkla.
+7. Açılan Ekran Alıntısı Aracı penceresinde sağ üstteki disket **Kaydet** simgesine tıkla.
+8. Dosyayı `Videolar` klasörüne aşağıdaki adlardan uygun olanıyla kaydet.
+
+Kısayol çalışmazsa Windows tuşuna bas, `Ekran Alıntısı Aracı` veya `Snipping Tool` yaz, uygulamayı aç, video kamera biçimli **Record** düğmesine, sonra **New** düğmesine tıkla.
+
+### 4.2 Kaydedilecek sekiz klip
+
+| Dosya adı | Yaklaşık ham süre | Ekranda yapacağın hareket |
+|---|---:|---|
+| `01-title-preview.mp4` | 12 sn | İngilizce preview'nun en üstünü sabit göster |
+| `02-privacy-preflight.mp4` | 18 sn | Terminalde `codex:prepare` komutunu çalıştır ve PASS'i göster |
+| `03-model-and-task.mp4` | 25 sn | Codex'te model seçimini aç, GPT-5.6 Sol/High'ı göster, İngilizce komutu gönder |
+| `04-codex-result.mp4` | 25 sn | Codex'in bitmiş cevabını ve validator PASS sonucunu yavaşça göster |
+| `05-control-plane.mp4` | 45 sn | Preview'da School SaaS, sayılar, panel map, roller ve endpoint map'e kaydır |
+| `06-language-theme.mp4` | 15 sn | `Light theme`e tıkla, sonra `Dark theme`; `TR`ye tıkla ve hemen `EN`ye dön |
+| `07-pocketbase-tests.mp4` | 28 sn | Terminalde PocketBase PASS ve ardından test PASS satırlarını göster |
+| `08-ending.mp4` | 12 sn | Preview hero veya GitHub repo sayfasını sabit göster |
+
+Codex çalışması uzun sürerse tamamını üç dakikalık videoda bekletme. Başlangıç ve bitişi ayrı kaydet; montajda aradaki bekleme bölümünü kes. Son videoya `Codex run shortened for time` yazısını ekle. Gerçek sonucu göstermeye devam et.
+
+## Bölüm 5 — Üç dakikalık kesin video akışı ve İngilizce yazılar
+
+Videoda ses olmayacağı için kısa yazılar ekranda en az 3–4 saniye kalmalıdır. Aşağıdaki İngilizce metinleri aynen kullan. Türkçe karşılıklar yalnız sen anlayabilesin diye verilmiştir; Türkçe karşılığı videoya yazma.
+
+| Zaman | Görüntü | Videoya eklenecek İngilizce yazı | Türkçe anlamı |
+|---|---|---|---|
+| 0:00–0:08 | Preview hero | `ZeroKit AI Control Plane` | Ürün adı |
+| 0:08–0:18 | School preview | `From a sanitized SaaS brief to a reviewable control-plane contract.` | Temizlenmiş tariften incelenebilir sözleşmeye |
+| 0:18–0:34 | `codex:prepare` PASS | `Local privacy checks run before the model sees the task.` | Modelden önce yerel mahremiyet kontrolü |
+| 0:34–0:48 | Model seçici | `GPT-5.6 works inside the Codex app — no model API key.` | GPT-5.6 Codex uygulamasında; model API anahtarı yok |
+| 0:48–1:03 | İngilizce görev gönderimi | `Only synthetic roles, panels, fields, and routes are allowed.` | Yalnız sentetik metadata izinli |
+| 1:03–1:16 | Codex sonuç ekranı | `Codex generates the config in the public repository.` | Codex config'i açık repoda üretir |
+| 1:16–1:28 | Validator PASS | `Deterministic validation and human review close the loop.` | Doğrulama ve insan incelemesi akışı kapatır |
+| 1:28–1:42 | Preview sayaçları | `One config controls navigation, roles, fields, and endpoints.` | Tek config dört kontrol alanını yönetir |
+| 1:42–1:57 | Panel map | `Enabled and hidden panels are explicit and reviewable.` | Açık/kapalı paneller açıkça incelenir |
+| 1:57–2:10 | Roller | `Least-privilege RBAC is visible before integration.` | En az yetki rolleri entegrasyondan önce görünür |
+| 2:10–2:23 | Endpoint map | `Routes can change. Payload compatibility must be tested.` | Route değişebilir, payload test edilmelidir |
+| 2:23–2:36 | PocketBase PASS | `An open-source PocketBase fixture proves the adapter boundary.` | Açık kaynak fixture adaptör sınırını kanıtlar |
+| 2:36–2:48 | Unit/privacy/browser PASS | `Repeatable local gates produce honest PASS or FAIL evidence.` | Tekrarlanabilir yerel kapılar dürüst kanıt üretir |
+| 2:48–2:58 | Privacy banner | `Production customer data stays outside the model loop.` | Üretim müşteri verisi model dışında kalır |
+| 2:58–3:00 | Son kart | `github.com/zyganali-glitch/zerokit-ai-control-plane` | Açık repo adresi |
+
+## Bölüm 6 — Clipchamp'te yazıları ekle
+
+### 6.1 Yeni video oluştur
+
+1. Windows tuşuna bas.
+2. `Clipchamp` yaz ve Microsoft Clipchamp uygulamasına tıkla.
+3. Microsoft hesabı isterse Windows'ta kullandığın hesapla giriş yap.
+4. Ana ekranda **Create a new video / Yeni video oluştur** düğmesine tıkla.
+5. Sol üstte proje adına tıkla ve `ZeroKit Build Week Demo` yaz.
+
+### 6.2 Klipleri içeri al
+
+1. Sol tarafta **Your media / Medyanız** bölümüne tıkla.
+2. **Import media / Medyayı içeri aktar** düğmesine tıkla.
+3. `Videolar` klasörüne git.
+4. `01-` ile başlayan klipten `08-` ile başlayan klipe kadar hepsini seç.
+5. **Open / Aç** düğmesine tıkla.
+6. İlk klibi tutup en alttaki uzun zaman çizgisine sürükle.
+7. Diğer klipleri numara sırasıyla ilkinin sağına sürükle.
+
+Beklenen: zaman çizgisinde sekiz video kutusu soldan sağa sıralanır.
+
+### 6.3 Gereksiz başlangıç ve bitişleri kes
+
+1. Zaman çizgisindeki ilk klipe tıkla.
+2. Klibin sol ve sağ kenarında tutamaçlar görünür.
+3. Kayıt aracını açtığın gereksiz saniyeleri kaldırmak için sol kenarı sağa sürükle.
+4. Durdurma düğmesine gittiğin son saniyeleri kaldırmak için sağ kenarı sola sürükle.
+5. Ortadaki oynat düğmesine basıp sonucu izle.
+6. Aynı işlemi bütün kliplere uygula.
+
+### 6.4 İngilizce yazı ekle
+
+1. Sol araç çubuğunda **Text / Metin** bölümüne tıkla.
+2. Sade bir başlık seç. Elmas simgesi olan premium seçeneği kullanma.
+3. Seçtiğin metni zaman çizgisinde videonun **üstündeki** satıra sürükle.
+4. Sağ taraftaki metin alanına Bölüm 5'teki ilk İngilizce yazıyı yapıştır.
+5. Metin kutusunun zaman çizgisindeki sağ ve sol kenarlarını sürükleyerek tabloda belirtilen saniyeler boyunca görünmesini sağla.
+6. Yazı rengi beyaz, arka planı koyu ve okunaklı olsun.
+7. Yazıyı uygulamanın önemli düğmelerini kapatmayacak biçimde alt orta veya üst ortaya yerleştir.
+8. Tablodaki bütün İngilizce yazılar için aynı adımları tekrarla.
+
+Bu yazılar konuşma çevirisi olmadığı için Clipchamp'in otomatik altyazı özelliğini kullanma. **Text** aracıyla elle eklenen kısa ekran kartları daha temiz ve doğrudur.
+
+### 6.5 Sesi tamamen kapat
+
+1. Zaman çizgisinde her video klibine ayrı ayrı tıkla.
+2. Sağ tarafta **Audio / Ses** bölümünü aç.
+3. Ses düzeyini `0` yap.
+4. Bütün kliplerde bunu tekrarla.
+5. Videoyu baştan sona oynat; hiçbir Windows bildirimi veya tıklama sesi duyulmamalı.
+
+### 6.6 1080p dışa aktar
+
+1. Sağ üstteki **Export / Dışa aktar** düğmesine tıkla.
+2. **1080p HD** seç.
+3. Elmas/premium uyarısı çıkarsa ödeme yapma; projeye dönüp elmas simgeli öğeyi kaldır ve yeniden dışa aktar.
+4. İşlem bitince MP4 dosyasını `ZeroKit-Build-Week-Demo-English.mp4` adıyla kaydet.
+5. Dosyayı bir kez baştan sona izle.
+
+Son kontrol:
+
+- Süre üç dakikayı geçmiyor.
+- Hiç konuşma veya ses yok.
+- Bütün açıklamalar İngilizce.
+- Yazılar okunmadan kaybolmuyor.
+- GPT-5.6 seçimi gerçekten görünür.
+- Codex komutu İngilizce.
+- En az bir validator PASS, PocketBase PASS ve test PASS görünür.
+- Kişisel dosya, bildirim, API anahtarı, `.env` veya donör panel görünmüyor.
+- Son karede doğru GitHub adresi bulunuyor.
+
+## Bölüm 7 — Açık kaynak proje gösterimi sorusunun cevabı
+
+Evet, açık kaynak proje gösterimi değerlidir; fakat ana ürün yerine geçmemelidir. Bu demoda PocketBase'in kendisini kurup admin dashboard'unu dolaşmayacağız. Repoda bulunan **sentetik PocketBase response fixture'ını** ve onu ZeroKit sözleşmesine çeviren adaptör testini göstereceğiz. Böylece:
+
+- gerçek müşteri verisi kullanılmaz;
+- canlı backend veya ücretli servis gerekmez;
+- route ile payload şeklinin farklı sorunlar olduğu kanıtlanır;
+- ana hikâye GPT-5.6/Codex ve ZeroKit'te kalır.
+
+## Sorun olursa hızlı karar tablosu
+
+| Sorun | Yapılacak şey |
+|---|---|
+| `127.0.0.1` açılmıyor | `npm run dev` çalışan Terminali açık tut; adresi `http` ile yeniden yaz |
+| GPT-5.6 görünmüyor | Uygulamayı güncelle, doğru hesabı ve plan/rollout erişimini kontrol et; başka modeli GPT-5.6 diye gösterme |
+| `codex:prepare` FAIL | Görevi modele gönderme; bulguyu sentetik girdiden temizle ve komutu yeniden çalıştır |
+| Codex yanlış dosyaya yazdı | İngilizce takip komutuyla tam hedef yolu tekrar belirt |
+| Validator FAIL | Codex'e aynı validator komutunu çalıştırıp bütün hataları düzeltmesini söyle |
+| Video çok uzun | Bekleme ve fare hareketlerini kes; PASS/model/ürün kanıtlarını kesme |
+| İngilizce yazı okunmuyor | Daha kısa metin, daha büyük yazı ve en az 3–4 saniye görünme süresi kullan |
+| Clipchamp ödeme istiyor | Elmas simgeli premium metin/stock öğesini kaldır; sade metin ve 1080p kullan |
+| Yanlışlıkla donör panel açıldı | O klibi sil ve yalnız açık repo preview'sunu yeniden kaydet |
+
+## Yarışmaya yüklemeden hemen önce
+
+1. GitHub reposunu gizli pencerede aç ve herkese açık olduğunu doğrula.
+2. README'deki hızlı başlangıç komutlarını temiz bir Terminalde çalıştır.
+3. Son videoyu kulaklıkla izle; gerçekten sessiz olduğunu kontrol et.
+4. İngilizce yazım hatalarını kontrol et.
+5. Repo URL'sinin `zyganali-glitch/zerokit-ai-control-plane` olduğunu kontrol et.
+6. Videoda özel donör repo, gerçek kişi verisi, credential veya API anahtarı olmadığını tekrar kontrol et.
+7. Devpost açıklamasında ürünün “public competition adaptation” olduğunu ve preview'nun local çalıştığını dürüstçe belirt.
+
+## Kaynaklar
+
+- OpenAI GPT-5.6 ve Codex erişimi: <https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt>
+- Windows Ekran Alıntısı Aracı video kaydı: <https://support.microsoft.com/en-us/windows/apps/use-snipping-tool-to-capture-screenshots>
+- Clipchamp'te metin ekleme: <https://support.microsoft.com/en-us/clipchamp/how-to-add-text-and-titles-to-a-video>
+- Clipchamp 1080p dışa aktarma: <https://support.microsoft.com/en-us/clipchamp/exporting-and-saving-a-video-in-clipchamp>

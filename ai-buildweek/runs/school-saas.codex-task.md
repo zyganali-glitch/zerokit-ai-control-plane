@@ -1,26 +1,26 @@
-# Codex uygulaması görevi — ZeroKit config mimarı
+# Codex app task — ZeroKit config architect
 
-## Operatör ön koşulu
+## Operator prerequisite
 
-Bu görevi başlatmadan önce Codex uygulamasındaki model seçiciden **GPT-5.6 Sol** seç. Kalite için `high`, son demo kaydı için hesabında varsa `max` efor kullan. Script model seçimini doğrulayamaz; kayıt videosunda model seçici görünmelidir.
+Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. Use `high` reasoning for quality, or the highest available reasoning level for the final demo run. This script cannot verify the in-app selection, so keep the model picker visible in the recording.
 
-## Kaynaklar
+## Inputs
 
-- Mimari prompt: `ai-buildweek/prompts/01-config-architect.prompt.md`
-- Sansürlenmiş senaryo girdisi: `ai-buildweek/examples/school-saas.input.md`
-- Girdi SHA-256: `399a7ac37cd1d465230476c7457e9e3698a8e4d93a3abdc8c00c7a16b2eed995`
-- Hedef config: `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json`
+- Architecture prompt: `ai-buildweek/prompts/01-config-architect.prompt.md`
+- Sanitized scenario input: `ai-buildweek/examples/school-saas.input.md`
+- Input SHA-256: `399a7ac37cd1d465230476c7457e9e3698a8e4d93a3abdc8c00c7a16b2eed995`
+- Target config: `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json`
 
-## Görev
+## Task
 
-1. `AGENTS.md`, mimari prompt ve senaryo girdisini oku.
-2. `.env`, kimlik bilgileri, üretim logları, müşteri kayıtları veya repo dışındaki özel dosyaları okuma.
-3. Model API'si veya harici ağ çağrısı kullanma; bu görev Codex uygulamasının kendi oturumunda yürür.
-4. Yalnızca sentetik girdiden ZeroKit config üret ve hedef JSON dosyasına yaz.
-5. Config; `version`, `panel_registry`, `rbac_registry`, `field_registry`, `endpoint_map`, `brand_config`, `privacy_notes` ve `test_checklist` içermelidir.
-6. Backend uyumluluğunu uydurma; bilinmeyenleri notlarda açık bırak.
-7. Şu komutu çalıştır ve FAIL varsa düzelt:
+1. Read `AGENTS.md`, the architecture prompt, and the scenario input.
+2. Do not read `.env` files, credentials, production logs, customer records, private donor files, or private files outside this repository.
+3. Do not call a model API or make an external network request. Complete this task inside the current Codex app session.
+4. Generate a ZeroKit config only from the synthetic input and write it to the target JSON file.
+5. The config must include `version`, `panel_registry`, `rbac_registry`, `field_registry`, `endpoint_map`, `brand_config`, `privacy_notes`, and `test_checklist`.
+6. Do not invent backend compatibility. Record unknowns explicitly in the notes.
+7. Run this command and fix every failure:
 
    `node ai-buildweek/scripts/validate-config.mjs ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json`
 
-8. Değişiklik özetinde varsayımları, doğrulama sonucunu ve insan incelemesi gereğini belirt. Manifesti oluşturma; onu operatör incelemeden sonra kaydedecek.
+8. In the change summary, state the assumptions, validation result, and need for human review. Do not create the manifest; the operator records it after review.

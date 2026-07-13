@@ -21,7 +21,7 @@ async function exists(filePath) {
 function assertWorkspacePath(filePath) {
   const candidate = relative(process.cwd(), filePath);
   if (!candidate || candidate.startsWith('..') || isAbsolute(candidate)) {
-    throw new Error(`Kanıt dosyası çalışma alanı içinde olmalıdır: ${filePath}`);
+    throw new Error(`Evidence file must stay inside the workspace: ${filePath}`);
   }
 }
 
@@ -32,7 +32,7 @@ const modelLabel = option(args, 'model');
 const threadReference = option(args, 'thread');
 const force = args.includes('--force');
 if (!inputArg || !taskArg || !outputArg || !modelLabel) {
-  console.error('Kullanım: node ai-buildweek/scripts/record-codex-run.mjs <input.md> <task.md> <output.json> --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed [--thread=...] [--force]');
+  console.error('Usage: node ai-buildweek/scripts/record-codex-run.mjs <input.md> <task.md> <output.json> --model="GPT-5.6 Sol" --confirm-model-visible --confirm-reviewed [--thread=...] [--force]');
   process.exitCode = 2;
 } else {
   try {
@@ -41,9 +41,9 @@ if (!inputArg || !taskArg || !outputArg || !modelLabel) {
     const outputPath = resolve(outputArg);
     for (const filePath of [inputPath, taskPath, outputPath]) assertWorkspacePath(filePath);
     const manifestPath = outputPath.replace(/\.json$/iu, '.manifest.json');
-    if (manifestPath === outputPath) throw new Error('Çıktı yolu .json ile bitmelidir.');
+    if (manifestPath === outputPath) throw new Error('Output path must end with .json.');
     if (!force && await exists(manifestPath)) {
-      throw new Error(`Manifest zaten var: ${manifestPath}. Bilinçli yenileme için --force kullan.`);
+      throw new Error(`Manifest already exists: ${manifestPath}. Use --force to replace it intentionally.`);
     }
     const [inputText, taskText, outputText] = await Promise.all([
       readFile(inputPath, 'utf8'),
@@ -66,9 +66,9 @@ if (!inputArg || !taskArg || !outputArg || !modelLabel) {
     const temporary = `${manifestPath}.tmp`;
     await writeFile(temporary, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
     await rename(temporary, manifestPath);
-    console.log(`PASS Codex çalışma kanıtı kaydedildi: ${manifestPath}`);
-    console.log(`  model: ${manifest.model_selection.label} (operatör onaylı, kriptografik değil)`);
-    console.log(`  çıktı sha256: ${manifest.hashes.output_sha256}`);
+    console.log(`PASS Codex run evidence recorded: ${manifestPath}`);
+    console.log(`  model: ${manifest.model_selection.label} (operator-confirmed, not cryptographically verified)`);
+    console.log(`  output sha256: ${manifest.hashes.output_sha256}`);
   } catch (error) {
     console.error(`FAIL ${error instanceof Error ? error.message : String(error)}`);
     process.exitCode = 1;

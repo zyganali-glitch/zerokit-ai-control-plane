@@ -1,56 +1,44 @@
-# Devpost / OpenAI ekran görüntüsü rehberi
+# İngilizce demo ekran görüntüsü rehberi
 
-Mobil adım dışında 1440×900 çek. Yalnız repodaki sentetik senaryoları kullan. İlgisiz sekmeleri, kişisel path gösteren terminalleri, bildirimleri ve credential arayüzlerini kapat.
+Ekran görüntülerinde konuşma olmadığı için bütün açıklama metinleri İngilizce olmalıdır. Mobil kare dışında 1440×900 kullan. Kişisel sekmeleri, bildirimleri, yerel kullanıcı klasör yolunu, credential ekranlarını ve özel donör panelini gösterme.
 
 ## 1. Hero ve mahremiyet sözü
 
-- `http://127.0.0.1:4173` adresini dark tema ve EN ile aç.
-- Başlık, tagline, “Public Build Week judging edition” ve yerel privacy banner kadrajda olsun.
-- Açıklama: “Codex uygulamasında GPT-5.6 ile geliştirici tarafı mimari akışı; production müşteri verisi modele girmez.”
+- Şu adresi aç: `http://127.0.0.1:4173/?lang=en&theme=dark&scenario=school-saas`
+- Başlık, `Public Build Week judging edition` etiketi ve local privacy banner görünür olsun.
+- İngilizce açıklama: `A local-first Codex workflow; production customer data never enters the model loop.`
 
-## 2. Codex görev ve model kanıtı
+## 2. Codex model ve görev kanıtı
 
-- Codex uygulamasında proje adı, GPT-5.6 Sol model seçimi ve `school-saas.codex-task.md` görevini aynı karede göster.
-- API anahtarı, `.env`, kişisel thread veya özel repo görünmesin.
-- Açıklama: “Yerel privacy preflight sonrasında sınırlandırılmış Codex görevi.”
+- Codex uygulamasında `zerokit-ai-control-plane` proje adı, görünür GPT-5.6 Sol/High seçimi ve İngilizce okul görevi aynı karede olsun.
+- `.env`, özel task veya donör repo görünmesin.
+- İngilizce açıklama: `A bounded Codex task after a local privacy preflight.`
 
-## 3. Okul config özeti
+## 3. School SaaS kontrol düzlemi
 
-- School SaaS yükle ve dark temada kal.
-- PASS, dört metric card, panel map ve roller kadrajda olsun.
-- Kapalı `team_billing` chip'i görünsün.
-- Açıklama: “Yerelde projekte edilen panel registry ve least-privilege RBAC.”
+- School SaaS, dark tema ve English dilde kalsın.
+- PASS, dört sayaç, panel map ve RBAC roles görünür olsun.
+- Kapalı `team_billing` etiketi kadrajda olsun.
+- İngilizce açıklama: `Reviewable navigation and least-privilege RBAC from one config.`
 
 ## 4. Endpoint ve field sözleşmesi
 
-- School SaaS için Endpoint map ile Fields/options bölümlerine kaydır.
-- users, invoices, reports, currency options ve privacy notes görünsün.
-- Açıklama: “Route'lar yapılandırılabilir; payload uyumu ayrıca doğrulanır.”
+- Endpoint map ve Fields/options bölümlerine kaydır.
+- `users`, `invoices`, `reports`, currency options ve privacy notes görünsün.
+- İngilizce açıklama: `Routes are configurable; payload compatibility is tested separately.`
 
-## 5. Sağlık mahremiyet profili
+## 5. PocketBase adaptör kanıtı
 
-- Tekrar üretilebilir durum için `http://127.0.0.1:4173/?lang=tr&theme=light&scenario=healthcare-saas` aç.
-- PASS, kapalı impersonation/chat, roller ve privacy notes görünsün.
-- Açıklama: “Sentetik sağlık senaryosu; PHI ve hasta kayıtları model kapsamı dışında.”
+- Sentetik `items/totalItems` fixture'ı ile `npm run demo:pocketbase` PASS sonucunu göster.
+- İngilizce açıklama: `An open-source backend envelope mapped through a tested, fail-closed adapter.`
 
-## 6. Mobil ve erişilebilirlik
+## 6. Test kanıtı
 
-- Viewport'u 375×812 yap ve `http://127.0.0.1:4173/?lang=tr&theme=light&scenario=agency-saas` aç.
-- Agency SaaS özeti ve “Yerelde doğrula” üzerindeki görünür focus'u çek.
-- Açıklama: “Responsive, keyboard-visible, bilingual jüri yüzeyi.”
+- Temiz Terminalde unit, privacy ve browser PASS sonuçlarını göster.
+- Kişisel klasör yolunu kadrajdan kırp.
+- İngilizce açıklama: `Repeatable local gates for config, privacy, adapter, and browser behavior.`
 
-## 7. PocketBase adaptör kanıtı
+## 7. Son kare
 
-- Sentetik `items/totalItems` fixture'ını ve `npm run demo:pocketbase` PASS sonucunu göster.
-- Açıklama: “Açık kaynak backend zarfı, testli ve fail-closed ZeroKit sözleşmesine dönüştürülür.”
-
-## 8. Test kanıtı
-
-- Temiz terminalde `npm run test:unit`, `npm run test:privacy` ve bir config doğrulaması çalıştır.
-- Test sayısı, PASS ve config sayıları görünsün; kişisel filesystem path'i kırp.
-- Açıklama: “Codex görev/manifest, privacy, adaptör ve senaryo contract testleri.”
-
-## 9. Mimari kapanış karesi
-
-- README mimari diyagramı ve “Why GPT-5.6/Codex is central” bölümünü çek.
-- Açıklama: “AI config, adaptör ve kapıları tasarlar; müşteri veri düzlemi kullanıcı altyapısında kalır.”
+- İngilizce preview hero veya herkese açık GitHub repo sayfasını göster.
+- İngilizce açıklama: `github.com/zyganali-glitch/zerokit-ai-control-plane`

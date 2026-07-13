@@ -1,5 +1,7 @@
 # GPT-5.6/Codex config mimarı çalışma akışı
 
+> Bu belge teknik ayrıntı kaynağıdır. İlk kez video hazırlayan kullanıcı doğrudan [tıklama tıklama sessiz demo kılavuzunu](DEMO_VIDEO_ROADMAP.md) izlemelidir.
+
 ## Amaç
 
 Hassas olmayan bir SaaS tarifini doğrulanmış ZeroKit kontrol düzlemi sözleşmesine, adaptör karar kaydına ve test kapısı planına dönüştürmek. Model geliştirici artifact'leri üzerinde çalışır; production müşteri verisi kapsam dışıdır.
@@ -30,10 +32,10 @@ Komut gizli anahtar ve gerçek görünümlü kimlik sinyallerini kontrol eder; a
 
 ## Codex görevini çalıştırma
 
-Yeni Codex görevinde şunu yaz:
+Yeni Codex görevinde şu **İngilizce** komutu aynen yapıştır:
 
 ```text
-AGENTS.md kurallarına uy. ai-buildweek/runs/school-saas.codex-task.md dosyasını oku ve görevi tamamla.
+Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Do not read any .env file, private donor file, credential, production log, customer record, or private file outside this repository. Run the required local validator, fix every failure, and report the final validation result and assumptions.
 ```
 
 Codex hedef config'i `ai-buildweek/evidence/` altında üretir ve validator çalıştırır. Codex'in `.env`, private donor, üretim logu veya repo dışındaki dosyaları okumasına izin verme.

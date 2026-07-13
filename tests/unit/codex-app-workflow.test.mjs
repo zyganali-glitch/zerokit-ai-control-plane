@@ -29,7 +29,7 @@ test('Codex task package is local-only and carries the sanitized input hash', ()
   assert.equal(result.privacy.safeToSend, true);
   assert.equal(result.inputHash.length, 64);
   assert.match(result.text, /GPT-5\.6 Sol/u);
-  assert.match(result.text, /Model API'si veya harici ağ çağrısı kullanma/u);
+  assert.match(result.text, /Do not call a model API or make an external network request/u);
   assert.doesNotMatch(result.text, /OPENAI_API_KEY|api\.openai\.com/u);
 });
 

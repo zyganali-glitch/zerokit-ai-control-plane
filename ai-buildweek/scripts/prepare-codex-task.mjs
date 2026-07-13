@@ -16,7 +16,7 @@ async function exists(filePath) {
 function workspacePath(filePath) {
   const result = relative(process.cwd(), filePath).replaceAll('\\', '/');
   if (!result || result.startsWith('../') || isAbsolute(result)) {
-    throw new Error(`Dosya çalışma alanı içinde olmalıdır: ${filePath}`);
+    throw new Error(`File must stay inside the workspace: ${filePath}`);
   }
   return result;
 }
@@ -25,7 +25,7 @@ const args = process.argv.slice(2);
 const positional = args.filter((arg) => !arg.startsWith('--'));
 const force = args.includes('--force');
 if (!positional[0]) {
-  console.error('Kullanım: node ai-buildweek/scripts/prepare-codex-task.mjs <scenario.input.md> [task.md] [output.json] [--force]');
+  console.error('Usage: node ai-buildweek/scripts/prepare-codex-task.mjs <scenario.input.md> [task.md] [output.json] [--force]');
   process.exitCode = 2;
 } else {
   try {
@@ -34,7 +34,7 @@ if (!positional[0]) {
     const taskPath = resolve(positional[1] || `ai-buildweek/runs/${scenario}.codex-task.md`);
     const outputPath = resolve(positional[2] || `ai-buildweek/evidence/${scenario}.gpt-5.6.codex.config.json`);
     if (!force && await exists(taskPath)) {
-      throw new Error(`Görev dosyası zaten var: ${taskPath}. Bilinçli yenileme için --force kullan.`);
+      throw new Error(`Task file already exists: ${taskPath}. Use --force to replace it intentionally.`);
     }
     const requirements = await readFile(inputPath, 'utf8');
     const promptPath = 'ai-buildweek/prompts/01-config-architect.prompt.md';
@@ -49,11 +49,11 @@ if (!positional[0]) {
     });
     await mkdir(dirname(taskPath), { recursive: true });
     await writeFile(taskPath, prepared.text, 'utf8');
-    console.log(`PASS Codex görev paketi hazır: ${relativeTask}`);
-    console.log(`  girdi sha256: ${prepared.inputHash}`);
-    console.log(`  mahremiyet engeli: ${prepared.privacy.blockers.length}`);
-    console.log(`  insan incelemesi: ${prepared.privacy.reviewItems.length}`);
-    console.log('SONRAKI: Codex uygulamasında GPT-5.6 Sol seç, yeni görev aç ve bu görev dosyasını çalıştır.');
+    console.log(`PASS Codex task package ready: ${relativeTask}`);
+    console.log(`  input sha256: ${prepared.inputHash}`);
+    console.log(`  privacy blockers: ${prepared.privacy.blockers.length}`);
+    console.log(`  human review items: ${prepared.privacy.reviewItems.length}`);
+    console.log('NEXT: Select GPT-5.6 Sol in the Codex app, open a new task, and run this task file.');
   } catch (error) {
     console.error(`FAIL ${error instanceof Error ? error.message : String(error)}`);
     process.exitCode = 1;

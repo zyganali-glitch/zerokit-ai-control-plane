@@ -125,7 +125,7 @@ The checked-in synthetic fixture mirrors PocketBase's documented `items`/`totalI
 7. Generate a Markdown report and show build/test evidence.
 8. Close on the privacy boundary and required human review.
 
-The narration is in [DEMO_SCRIPT.md](ai-buildweek/demo/DEMO_SCRIPT.md); the full production, open-source-project, failure-recovery, and submission plan is in [DEMO_VIDEO_ROADMAP.md](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md).
+The silent English storyboard is in [DEMO_SCRIPT.md](ai-buildweek/demo/DEMO_SCRIPT.md); the Turkish, click-by-click beginner production, recording, editing, open-source-project, failure-recovery, and submission guide is in [DEMO_VIDEO_ROADMAP.md](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md). The competition video uses no narration or audio.
 
 ## Evidence
 
