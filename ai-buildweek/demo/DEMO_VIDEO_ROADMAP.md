@@ -292,12 +292,14 @@ http://127.0.0.1:4173/?lang=en&theme=dark&scenario=school-saas
 
 Beklenen:
 
-- koyu renkli İngilizce sayfa;
-- `ZeroKit AI Control Plane` adı;
-- `Turn a SaaS idea into a reviewable control-plane contract.` başlığı;
-- üst tarafta `TR` ve `Light theme` düğmeleri;
+- koyu renkli, kurumsal kontrol paneli görünümü;
+- solda `ZEROKIT / AI CONTROL PLANE` adı ve üç bölümlü menü;
+- `A reviewable control plane, before runtime.` başlığı;
+- üst tarafta `TR`, `Light theme` ve `No external requests` göstergesi;
 - `Synthetic scenario` alanında `School SaaS`;
-- aşağıda doğrulama sonuçları ve panel/rol/endpoint bölümleri.
+- aşağıda üç aşamalı kanıt akışı, config çalışma alanı ve panel/rol/endpoint doğrulama kartları.
+
+Pencere dar olduğu için soldaki menü görünmüyorsa bu hata değildir. Sol üstteki üç çizgili düğmeye tıkladığında menü açılır; ekran genişletildiğinde menü kendiliğinden solda sabit görünür.
 
 Sayfa açılmazsa:
 

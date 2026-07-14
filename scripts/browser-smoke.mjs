@@ -8,6 +8,7 @@ import { dirname, join, resolve, sep } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const TARGET = process.env.BROWSER_TARGET || 'http://127.0.0.1:4173/?lang=tr&theme=light&scenario=healthcare-saas';
 const SCREENSHOT = resolve(ROOT, 'test-results', 'browser-smoke-mobile.png');
+const DESKTOP_SCREENSHOT = resolve(ROOT, 'test-results', 'browser-smoke-desktop.png');
 
 const sleep = (milliseconds) => new Promise((resolvePromise) => setTimeout(resolvePromise, milliseconds));
 
@@ -211,10 +212,31 @@ async function main() {
       privacyNotes: document.querySelectorAll('#warningList .privacy').length
     }))()`);
 
+    const menuProof = await evaluate(`(() => {
+      const button = document.querySelector('#menuButton');
+      button.click();
+      const opened = document.body.classList.contains('nav-open') && button.getAttribute('aria-expanded') === 'true';
+      document.querySelector('#sidebarBackdrop').click();
+      const closed = !document.body.classList.contains('nav-open') && button.getAttribute('aria-expanded') === 'false';
+      return { opened, closed };
+    })()`);
+
     const screenshot = await cdp.send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false });
     if (!SCREENSHOT.startsWith(`${ROOT}${sep}`)) throw new Error('Unsafe screenshot output path.');
     await mkdir(dirname(SCREENSHOT), { recursive: true });
     await writeFile(SCREENSHOT, Buffer.from(screenshot.data, 'base64'));
+
+    await cdp.send('Emulation.setDeviceMetricsOverride', {
+      width: 1440,
+      height: 1000,
+      deviceScaleFactor: 1,
+      mobile: false,
+      screenWidth: 1440,
+      screenHeight: 1000,
+    });
+    const desktopScreenshot = await cdp.send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: true });
+    if (!DESKTOP_SCREENSHOT.startsWith(`${ROOT}${sep}`)) throw new Error('Unsafe desktop screenshot output path.');
+    await writeFile(DESKTOP_SCREENSHOT, Buffer.from(desktopScreenshot.data, 'base64'));
 
     const invalidProof = await evaluate(`(() => {
       const input = document.querySelector('#configInput');
@@ -254,7 +276,7 @@ async function main() {
       ['metrics 8/2/4/8', JSON.stringify(passProof.metrics) === JSON.stringify([8, 2, 4, 8])],
       ['375px viewport', passProof.viewport[0] === 375],
       ['no horizontal overflow', passProof.horizontalOverflow === false && passProof.scrollWidth <= 375],
-      ['44px controls', passProof.shortButtons.length === 0],
+      ['44px controls and mobile menu', passProof.shortButtons.length === 0 && menuProof.opened && menuProof.closed],
       ['no raw i18n keys', passProof.rawI18nKeys === 0],
       ['hidden panels', passProof.hiddenPanels.includes('impersonation') && passProof.hiddenPanels.includes('chat')],
       ['privacy notes visible', passProof.privacyNotes === 3],
@@ -268,7 +290,9 @@ async function main() {
     console.log(JSON.stringify({
       browser: chrome,
       screenshot: SCREENSHOT,
+      desktopScreenshot: DESKTOP_SCREENSHOT,
       passProof,
+      menuProof,
       invalidProof,
       tabProof,
       keyboardProof,

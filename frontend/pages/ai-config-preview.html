@@ -10,110 +10,205 @@
   </head>
   <body>
     <a class="skip-link" href="#configInput" data-i18n="skip">Skip to config input</a>
-    <header class="hero">
-      <nav class="topbar" aria-label="Preview controls" data-i18n-aria="controls_nav">
-        <span class="brand">ZeroKit <span>AI Control Plane</span></span>
-        <div class="top-actions">
-          <button id="languageButton" class="quiet" type="button">TR</button>
-          <button id="themeButton" class="quiet" type="button" data-i18n="theme_light">Light theme</button>
-        </div>
-      </nav>
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="edition">Public Build Week judging edition</p>
-        <h1 data-i18n="title">Turn a SaaS idea into a reviewable control-plane contract.</h1>
-        <p class="lede" data-i18n="tagline">Preview panels, roles, fields, and endpoint mappings generated with Codex + GPT-5.6—without sending production customer data to AI.</p>
-        <div class="privacy-banner" role="note">
-          <span aria-hidden="true">◈</span>
-          <p><strong data-i18n="privacy_title">Local privacy boundary</strong><span data-i18n="privacy_body"> Pasted configuration stays in this browser tab. This page makes no external request.</span></p>
-        </div>
-      </div>
-    </header>
 
-    <main>
-      <section class="proof-strip" aria-label="Build Week evidence path">
-        <article><strong data-i18n="proof_preflight">1 · Local preflight</strong><span data-i18n="proof_preflight_body">Sensitive patterns are blocked before a bounded Codex task is prepared.</span></article>
-        <article><strong data-i18n="proof_model">2 · GPT-5.6 in Codex</strong><span data-i18n="proof_model_body">The selected model turns synthetic requirements into a reviewable JSON contract.</span></article>
-        <article><strong data-i18n="proof_validation">3 · Deterministic gates</strong><span data-i18n="proof_validation_body">Schema, privacy, adapter, and browser checks report honest PASS or FAIL evidence.</span></article>
-      </section>
-      <aside class="evidence-boundary" role="note">
-        <strong data-i18n="evidence_boundary">Evidence boundary</strong>
-        <span data-i18n="evidence_boundary_body">Bundled scenarios are synthetic examples. Final competition evidence requires a fresh visible GPT-5.6 Codex run, human review, validation, and a hash manifest.</span>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar" aria-label="Workspace navigation" data-i18n-aria="workspace_nav">
+        <div class="brand-block">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div>
+            <strong>ZEROKIT</strong>
+            <span>AI CONTROL PLANE</span>
+          </div>
+        </div>
+
+        <nav class="side-nav">
+          <p data-i18n="nav_workspace">Workspace</p>
+          <a class="active" href="#overview">
+            <span class="nav-icon" aria-hidden="true">⌂</span><span data-i18n="nav_overview">Overview</span>
+          </a>
+          <a href="#workspace">
+            <span class="nav-icon" aria-hidden="true">⌘</span><span data-i18n="nav_contract">Contract workspace</span>
+          </a>
+          <a href="#results">
+            <span class="nav-icon" aria-hidden="true">✓</span><span data-i18n="nav_evidence">Validation evidence</span>
+          </a>
+        </nav>
+
+        <div class="environment-card">
+          <div class="environment-heading">
+            <span class="live-dot" aria-hidden="true"></span>
+            <strong data-i18n="environment">Local environment</strong>
+          </div>
+          <dl>
+            <div><dt data-i18n="network">Network</dt><dd data-i18n="local_only">Local only</dd></div>
+            <div><dt data-i18n="data">Data</dt><dd data-i18n="synthetic">Synthetic</dd></div>
+            <div><dt data-i18n="mode">Mode</dt><dd data-i18n="review_mode">Review</dd></div>
+          </dl>
+        </div>
+
+        <div class="sidebar-foot">
+          <span class="shield" aria-hidden="true">◇</span>
+          <p><strong data-i18n="privacy_title">Local privacy boundary</strong><span data-i18n="sidebar_privacy">No credentials. No customer data. No model API.</span></p>
+        </div>
       </aside>
 
-      <section class="workspace" aria-labelledby="inputHeading">
-        <div class="section-heading">
-          <div>
-            <p class="step">01</p>
-            <h2 id="inputHeading" data-i18n="input_heading">Load or paste a generated config</h2>
+      <div id="sidebarBackdrop" class="sidebar-backdrop" hidden></div>
+
+      <div class="app-main">
+        <div class="disclosure" role="note">
+          <span class="disclosure-tag" data-i18n="synthetic_sample">Synthetic sample</span>
+          <p data-i18n="disclosure_body">Bundled configs demonstrate the workflow. Competition evidence comes from a fresh, visible Codex run and deterministic validation.</p>
+        </div>
+
+        <header class="topbar">
+          <div class="topbar-context">
+            <button id="menuButton" class="icon-button menu-button" type="button" aria-controls="sidebar" aria-expanded="false" data-i18n-aria="open_menu"><span aria-hidden="true">☰</span></button>
+            <div>
+              <span data-i18n="active_workspace">Active workspace</span>
+              <strong>ZeroKit / <span id="activeScenario">School SaaS</span></strong>
+            </div>
           </div>
-          <p data-i18n="input_help">Use a bundled synthetic scenario, choose a local JSON file, or paste JSON. Review before applying.</p>
-        </div>
-
-        <div class="sample-row">
-          <label for="sampleSelect" data-i18n="scenario_label">Synthetic scenario</label>
-          <select id="sampleSelect">
-            <option value="school-saas" data-i18n="scenario_school">School SaaS</option>
-            <option value="healthcare-saas" data-i18n="scenario_healthcare">Healthcare SaaS</option>
-            <option value="agency-saas" data-i18n="scenario_agency">Agency SaaS</option>
-          </select>
-          <button id="loadSampleButton" type="button" data-i18n="load_sample">Load sample</button>
-          <label class="file-button" for="fileInput" data-i18n="choose_file">Choose local JSON</label>
-          <input id="fileInput" type="file" accept="application/json,.json">
-        </div>
-
-        <label for="configInput" data-i18n="config_label">Generated ZeroKit config JSON</label>
-        <textarea id="configInput" spellcheck="false" autocomplete="off" data-i18n-placeholder="config_placeholder" placeholder="Paste generated JSON here"></textarea>
-        <div class="editor-actions">
-          <button id="validateButton" type="button" data-i18n="validate">Validate locally</button>
-          <button id="clearButton" class="quiet" type="button" data-i18n="clear">Clear</button>
-          <span id="status" class="status idle" role="status" aria-live="polite" data-i18n="status_idle">Waiting for a config</span>
-        </div>
-      </section>
-
-      <section id="results" class="results" aria-labelledby="resultsHeading" hidden>
-        <div class="section-heading">
-          <div>
-            <p class="step">02</p>
-            <h2 id="resultsHeading" data-i18n="results_heading">Review the generated control plane</h2>
+          <div class="top-actions" aria-label="Preview controls" data-i18n-aria="controls_nav">
+            <span class="privacy-state"><i aria-hidden="true"></i><span data-i18n="no_external_requests">No external requests</span></span>
+            <button id="languageButton" class="quiet compact" type="button">TR</button>
+            <button id="themeButton" class="quiet compact" type="button" data-i18n="theme_light">Light theme</button>
           </div>
-          <p data-i18n="results_help">Counts are a projection of configuration intent, not a claim that a customer backend already matches every payload contract.</p>
-        </div>
+        </header>
 
-        <div class="metrics" aria-label="Configuration summary" data-i18n-aria="summary_label">
-          <article><strong id="enabledCount">0</strong><span data-i18n="enabled_panels">Enabled panels</span></article>
-          <article><strong id="hiddenCount">0</strong><span data-i18n="hidden_panels">Hidden panels</span></article>
-          <article><strong id="roleCount">0</strong><span data-i18n="roles">Roles</span></article>
-          <article><strong id="endpointCount">0</strong><span data-i18n="endpoints">Endpoint mappings</span></article>
-        </div>
+        <main>
+          <section id="overview" class="hero" aria-labelledby="pageTitle">
+            <div class="hero-copy">
+              <p class="eyebrow"><span></span><span data-i18n="edition">OpenAI Build Week · Developer Tools entry</span></p>
+              <h1 id="pageTitle" data-i18n="title">A reviewable control plane, before runtime.</h1>
+              <p class="lede" data-i18n="tagline">Transform synthetic SaaS requirements into a bounded configuration contract with GPT-5.6 in Codex, then verify every claim locally.</p>
+              <div class="hero-actions">
+                <a class="primary-action" href="#workspace" data-i18n="inspect_contract">Inspect contract</a>
+                <a class="secondary-action" href="#evidencePath" data-i18n="view_evidence">View evidence path</a>
+              </div>
+            </div>
 
-        <div class="review-grid">
-          <article class="review-card">
-            <h3 data-i18n="panel_map">Panel map</h3>
-            <div id="panelList" class="chip-list"></div>
-          </article>
-          <article class="review-card">
-            <h3 data-i18n="role_model">RBAC roles</h3>
-            <div id="roleList" class="stack-list"></div>
-          </article>
-          <article class="review-card wide">
-            <h3 data-i18n="endpoint_map">Endpoint map</h3>
-            <div id="endpointList" class="endpoint-list"></div>
-          </article>
-          <article class="review-card">
-            <h3 data-i18n="field_map">Fields and options</h3>
-            <div id="fieldList" class="stack-list"></div>
-          </article>
-          <article class="review-card">
-            <h3 data-i18n="warnings">Warnings and privacy notes</h3>
-            <div id="warningList" class="stack-list"></div>
-          </article>
-        </div>
-      </section>
-    </main>
+            <aside class="assurance-card" aria-label="Assurance summary" data-i18n-aria="assurance_summary">
+              <div class="assurance-top">
+                <div class="score-ring"><span>3/3</span></div>
+                <div><span data-i18n="assurance_label">Control assurance</span><strong data-i18n="ready_review">Ready for review</strong></div>
+              </div>
+              <ul>
+                <li><span aria-hidden="true">✓</span><span data-i18n="assurance_privacy">Privacy preflight defined</span></li>
+                <li><span aria-hidden="true">✓</span><span data-i18n="assurance_schema">Schema gate active</span></li>
+                <li><span aria-hidden="true">✓</span><span data-i18n="assurance_human">Human approval required</span></li>
+              </ul>
+              <p data-i18n="assurance_note">Workflow controls are present; this is not a backend compatibility claim.</p>
+            </aside>
+          </section>
 
-    <footer>
-      <p data-i18n="footer">Configuration is reviewed before use. Runtime data and authorization remain on your infrastructure.</p>
-    </footer>
+          <section id="evidencePath" class="evidence-section" aria-labelledby="evidenceHeading">
+            <div class="section-kicker">
+              <div><span class="section-index">01</span><div><p data-i18n="workflow_label">Evidence workflow</p><h2 id="evidenceHeading" data-i18n="workflow_heading">From idea to auditable contract</h2></div></div>
+              <span class="section-state"><i aria-hidden="true"></i><span data-i18n="three_gates">3 controlled gates</span></span>
+            </div>
+            <div class="proof-strip" aria-label="Build Week evidence path" data-i18n-aria="evidence_path_label">
+              <article><span class="proof-number">01</span><div><strong data-i18n="proof_preflight">Local preflight</strong><span data-i18n="proof_preflight_body">Sensitive patterns are blocked before a bounded Codex task is prepared.</span></div></article>
+              <article><span class="proof-number">02</span><div><strong data-i18n="proof_model">GPT-5.6 in Codex</strong><span data-i18n="proof_model_body">The selected model turns synthetic requirements into a reviewable JSON contract.</span></div></article>
+              <article><span class="proof-number">03</span><div><strong data-i18n="proof_validation">Deterministic gates</strong><span data-i18n="proof_validation_body">Schema, privacy, adapter, and browser checks report honest PASS or FAIL evidence.</span></div></article>
+            </div>
+            <aside class="evidence-boundary" role="note">
+              <span class="boundary-icon" aria-hidden="true">!</span>
+              <p><strong data-i18n="evidence_boundary">Evidence boundary</strong><span data-i18n="evidence_boundary_body">Bundled scenarios are synthetic examples. Final competition evidence requires a fresh visible GPT-5.6 Codex run, human review, validation, and a hash manifest.</span></p>
+            </aside>
+          </section>
+
+          <section id="workspace" class="workspace" aria-labelledby="inputHeading">
+            <div class="section-kicker">
+              <div><span class="section-index">02</span><div><p data-i18n="contract_label">Contract workspace</p><h2 id="inputHeading" data-i18n="input_heading">Inspect the generated configuration</h2></div></div>
+              <span class="section-state private"><i aria-hidden="true"></i><span data-i18n="browser_memory">Browser memory only</span></span>
+            </div>
+
+            <div class="workspace-grid">
+              <div class="editor-pane">
+                <div class="editor-toolbar">
+                  <div class="scenario-control">
+                    <label for="sampleSelect" data-i18n="scenario_label">Synthetic scenario</label>
+                    <select id="sampleSelect">
+                      <option value="school-saas" data-i18n="scenario_school">School SaaS</option>
+                      <option value="healthcare-saas" data-i18n="scenario_healthcare">Healthcare SaaS</option>
+                      <option value="agency-saas" data-i18n="scenario_agency">Agency SaaS</option>
+                    </select>
+                  </div>
+                  <button id="loadSampleButton" type="button" data-i18n="load_sample">Load sample</button>
+                  <label class="file-button" for="fileInput" data-i18n="choose_file">Choose local JSON</label>
+                  <input id="fileInput" type="file" accept="application/json,.json">
+                </div>
+                <div class="code-label">
+                  <label for="configInput" data-i18n="config_label">Generated ZeroKit config JSON</label>
+                  <span>JSON</span>
+                </div>
+                <textarea id="configInput" spellcheck="false" autocomplete="off" data-i18n-placeholder="config_placeholder" placeholder="Paste generated JSON here"></textarea>
+                <div class="editor-actions">
+                  <button id="validateButton" type="button" data-i18n="validate">Validate locally</button>
+                  <button id="clearButton" class="quiet" type="button" data-i18n="clear">Clear</button>
+                </div>
+              </div>
+
+              <aside class="validation-rail">
+                <p class="rail-label" data-i18n="validation_state">Validation state</p>
+                <div id="statusVisual" class="status-visual idle" aria-hidden="true"><span id="statusIcon">…</span></div>
+                <span id="status" class="status idle" role="status" aria-live="polite" data-i18n="status_idle">Waiting for a config</span>
+                <p data-i18n="input_help">Use a bundled synthetic scenario, choose a local JSON file, or paste JSON. Review before applying.</p>
+                <dl>
+                  <div><dt data-i18n="execution">Execution</dt><dd data-i18n="client_side">Client-side</dd></div>
+                  <div><dt data-i18n="retention">Retention</dt><dd data-i18n="none">None</dd></div>
+                  <div><dt data-i18n="apply_state">Apply state</dt><dd data-i18n="not_applied">Not applied</dd></div>
+                </dl>
+              </aside>
+            </div>
+          </section>
+
+          <section id="results" class="results" aria-labelledby="resultsHeading" hidden>
+            <div class="section-kicker">
+              <div><span class="section-index">03</span><div><p data-i18n="evidence_label">Validation evidence</p><h2 id="resultsHeading" data-i18n="results_heading">Review the projected control plane</h2></div></div>
+              <span id="resultsState" class="section-state validated"><i aria-hidden="true"></i><span id="resultsStateText" data-i18n="structure_valid">Structure valid</span></span>
+            </div>
+            <p class="section-description" data-i18n="results_help">Counts are a projection of configuration intent, not a claim that a customer backend already matches every payload contract.</p>
+
+            <div class="metrics" aria-label="Configuration summary" data-i18n-aria="summary_label">
+              <article><div><span class="metric-icon" aria-hidden="true">▦</span><span data-i18n="enabled_panels">Enabled panels</span></div><strong id="enabledCount">0</strong></article>
+              <article><div><span class="metric-icon" aria-hidden="true">⊘</span><span data-i18n="hidden_panels">Hidden panels</span></div><strong id="hiddenCount">0</strong></article>
+              <article><div><span class="metric-icon" aria-hidden="true">♙</span><span data-i18n="roles">Roles</span></div><strong id="roleCount">0</strong></article>
+              <article><div><span class="metric-icon" aria-hidden="true">↗</span><span data-i18n="endpoints">Endpoint mappings</span></div><strong id="endpointCount">0</strong></article>
+            </div>
+
+            <div class="review-grid">
+              <article class="review-card">
+                <div class="card-heading"><span class="card-icon" aria-hidden="true">▦</span><div><p data-i18n="registry">Registry</p><h3 data-i18n="panel_map">Panel map</h3></div></div>
+                <div id="panelList" class="chip-list"></div>
+              </article>
+              <article class="review-card">
+                <div class="card-heading"><span class="card-icon" aria-hidden="true">♙</span><div><p data-i18n="access_control">Access control</p><h3 data-i18n="role_model">RBAC roles</h3></div></div>
+                <div id="roleList" class="stack-list"></div>
+              </article>
+              <article class="review-card wide">
+                <div class="card-heading"><span class="card-icon" aria-hidden="true">↗</span><div><p data-i18n="adapter_contract">Adapter contract</p><h3 data-i18n="endpoint_map">Endpoint map</h3></div></div>
+                <div id="endpointList" class="endpoint-list"></div>
+              </article>
+              <article class="review-card">
+                <div class="card-heading"><span class="card-icon" aria-hidden="true">⌗</span><div><p data-i18n="configuration">Configuration</p><h3 data-i18n="field_map">Fields and options</h3></div></div>
+                <div id="fieldList" class="stack-list"></div>
+              </article>
+              <article class="review-card">
+                <div class="card-heading"><span class="card-icon" aria-hidden="true">◇</span><div><p data-i18n="review_notes">Review notes</p><h3 data-i18n="warnings">Warnings and privacy notes</h3></div></div>
+                <div id="warningList" class="stack-list"></div>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <footer>
+          <span class="footer-brand">ZEROKIT</span>
+          <p data-i18n="footer">Configuration is reviewed before use. Runtime data and authorization remain on your infrastructure.</p>
+          <span data-i18n="buildweek_edition">Build Week judging edition</span>
+        </footer>
+      </div>
+    </div>
     <script type="module" src="../js/ai-config-preview.js"></script>
   </body>
 </html>
