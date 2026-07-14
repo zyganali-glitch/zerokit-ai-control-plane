@@ -24,6 +24,8 @@ The meaningful in-period extension begins on 2026-07-14 and is intentionally mor
 
 The first timestamped commit in this in-period extension is [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**. It proves the start of the extension; it is not labeled as the final evidence commit. The final submission/evidence SHA remains pending until the fresh GPT-5.6 artifact, review, manifest, and final gates are complete.
 
+The later technical-hardening commit [`f870814b274bd554a9218715caa98cbe650fe1a7`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/f870814b274bd554a9218715caa98cbe650fe1a7), created on **2026-07-14 11:39:57 UTC+03:00**, records the strict eight-section generated-artifact gate, schema alignment, Node 22 completion-gate CI, validator and adapter boundary reports, the nine-point browser evidence map, the theme/language status fix, and the final beginner recording/submission workflow. This is the code-ready submission baseline, not a substitute for the still-pending fresh GPT-5.6 output and manifest.
+
 ## Codex/GPT-5.6 contribution
 
 Codex is the development environment and GPT-5.6 is the reasoning model used to extend and polish the submitted project. In the product workflow, GPT-5.6 also turns a bounded synthetic SaaS brief into a reviewable config while deterministic local code validates the result. Meaningful use is evidenced by the visible model selection, the primary Codex session, in-period commits, a fresh generated target, validator PASS, human review, and hash manifest.
@@ -40,6 +42,7 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 ## Evidence checklist
 
 - [x] First in-period extension commit SHA is recorded above.
+- [x] Technical-hardening baseline commit SHA is recorded above.
 - [ ] Final submission/evidence commit SHA is recorded after the fresh artifact, manifest, and gates are complete.
 - [x] GitHub Pages is enabled; build/deploy succeeded and the live URL was verified anonymously and with real Chrome.
 - [ ] GPT-5.6 Sol and the selected reasoning level are visible in Codex.
