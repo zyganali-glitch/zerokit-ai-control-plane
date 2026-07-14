@@ -40,7 +40,7 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 ## Evidence checklist
 
 - [x] Final in-period feature commit SHA is recorded above.
-- [ ] GitHub Pages is enabled and the anonymous live URL is verified.
+- [x] GitHub Pages is enabled; build/deploy succeeded and the live URL was verified anonymously and with real Chrome.
 - [ ] GPT-5.6 Sol and the selected reasoning level are visible in Codex.
 - [ ] Fresh School SaaS target is generated from the prepared task.
 - [ ] Validator returns PASS.

@@ -2,13 +2,13 @@
 
 The browser preview is a static site built into `dist/`. GitHub Pages can host it for free, so judges can inspect scenarios, validation, panels, RBAC, fields, endpoints, language, and theme without cloning or rebuilding the repository.
 
-Target URL after the repository owner enables **GitHub Actions** as the Pages source:
+Verified live URL:
 
 <https://zyganali-glitch.github.io/zerokit-ai-control-plane/>
 
-Do not call that URL live until an anonymous browser check succeeds. The repository workflow at `.github/workflows/pages.yml` builds and deploys `dist/` on every push to `main`.
+The repository workflow at `.github/workflows/pages.yml` builds and deploys `dist/` on every push to `main`. [Deployment attempt 2](https://github.com/zyganali-glitch/zerokit-ai-control-plane/actions/runs/29309883746/attempts/2) completed with successful `build` and `deploy` jobs. Anonymous checks returned HTTP 200 for the root, preview page, browser module, and School SaaS JSON; a real-Chrome live smoke returned 16/16 PASS with no external requests or runtime exceptions.
 
-## Owner setup — one-time GitHub click path
+## Owner setup — completed one-time GitHub click path
 
 1. Open <https://github.com/zyganali-glitch/zerokit-ai-control-plane> while signed in.
 2. Click **Settings** in the repository's top navigation. If it is hidden, open the `…` menu and choose **Settings**.
@@ -19,6 +19,8 @@ Do not call that URL live until an anonymous browser check succeeds. The reposit
 7. Open **Deploy static judging demo to GitHub Pages** and wait for both `build` and `deploy` to show green check marks.
 8. Open the target URL in a private/incognito browser window.
 9. Confirm that School SaaS loads with a visible PASS state, then test one language or theme switch.
+
+The final deployment was verified anonymously with HTTP 200 responses for the root page, preview module, and School SaaS sample. The repository browser smoke can also target the live URL by setting `BROWSER_TARGET` for one command; its normal default remains the local preview.
 
 If GitHub shows no workflow yet, first push `.github/workflows/pages.yml` to `main`. If the workflow initially failed because Pages was not enabled, complete the steps above and use **Run workflow** from its Actions page.
 

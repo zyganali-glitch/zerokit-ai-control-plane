@@ -1,7 +1,7 @@
 # Build Week judging notes
 
 - Recommended track: **Developer Tools**
-- No-rebuild preview target: `https://zyganali-glitch.github.io/zerokit-ai-control-plane/` after Pages is enabled and anonymously verified
+- Verified no-rebuild preview: `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
 - Private submission evidence: `/feedback` Session ID from the primary Codex task; never commit it publicly
 - Timing disclosure: [build-week-delta.md](build-week-delta.md)
 

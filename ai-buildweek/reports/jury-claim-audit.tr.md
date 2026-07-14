@@ -21,7 +21,7 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 | Tasarım / UX | 8,2/10 koşullu | İki dilli responsive preview ve kanıt zinciri tutarlı; görev hazırlama → Codex → preview hâlâ iki uygulamada ilerliyor. |
 | Potansiyel etki | 7,7/10 | SaaS özelleştirme problemi gerçek ve üç sektörle anlatılıyor; müşteri görüşmesi, süre ölçümü veya pilot kanıtı yok. |
 | Fikir kalitesi | 8,5/10 | GPT-5.6'yı chatbot yerine config/sözleşme/test eş tasarımcısı olarak konumlamak özgün ve mahremiyet odaklı. |
-| **Eşit ağırlıklı jüri vekili toplamı** | **8,1/10 koşullu** | Rekabetçi ve inandırıcı; görünür GPT-5.6 çalışması, sesli video, Session ID ve doğrulanmış Pages bağlantısı gerekir. |
+| **Eşit ağırlıklı jüri vekili toplamı** | **8,1/10 koşullu** | Pages doğrulandı; kalan koşullar görünür GPT-5.6 çalışması, sesli video ve özel Session ID'dir. |
 
 ## İddia bazında sonuç
 
@@ -48,7 +48,7 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 
 **Evet.** Sansürlenmiş okul gereksinimi, baseline config, browser preview, PocketBase sentetik adaptörü, hazır Codex görev paketi ve yerel testler mevcuttur.
 
-Kod ve belge tarafı hazırdır; kalan yarışma kapıları operatör işlemleridir: model olarak görünür GPT-5.6 Sol ve reasoning olarak High ile görevi çalıştırmak, yeni output'u incelemek, manifest oluşturmak, Pages'i etkinleştirip anonim doğrulamak, ana Codex görevinde `/feedback` çalıştırmak ve İngilizce sesli videoyu yayımlamak.
+Kod, belge ve Pages tarafı hazırdır. Kalan yarışma kapıları: model olarak görünür GPT-5.6 Sol ve reasoning olarak High ile görevi çalıştırmak, yeni output'u incelemek, manifest oluşturmak, ana Codex görevinde `/feedback` çalıştırmak ve İngilizce sesli videoyu yayımlamaktır.
 
 ## Jüriye söylenecek tek cümle
 

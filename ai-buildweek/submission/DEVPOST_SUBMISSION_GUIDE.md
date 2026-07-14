@@ -36,7 +36,7 @@ For the demonstrated workflow, the operator visibly selects GPT-5.6 Sol with hig
 ## 5. URLs and private Codex evidence
 
 - **Repository:** <https://github.com/zyganali-glitch/zerokit-ai-control-plane>
-- **Live demo:** <https://zyganali-glitch.github.io/zerokit-ai-control-plane/> — paste only after anonymous verification
+- **Live demo:** <https://zyganali-glitch.github.io/zerokit-ai-control-plane/> — verified live
 - **YouTube:** `PASTE_PUBLIC_YOUTUBE_URL_HERE`
 - **Codex Session ID:** Paste the Session ID produced by `/feedback` in the primary Codex task into the Devpost field. Do not paste it into the public README, video, issue, or repository.
 
@@ -61,7 +61,7 @@ Full disclosure: [build-week-delta.md](../reports/build-week-delta.md).
 - [ ] Developer Tools is the only selected track for this project.
 - [ ] Title, tagline, description, and Codex/GPT-5.6 explanation are in English.
 - [ ] Repository is public and opens in a private browser window.
-- [ ] Pages URL is pasted only after the live School SaaS PASS state is verified anonymously.
+- [x] Pages URL is live; deployment, anonymous HTTP assets, and a real-Chrome scenario smoke are verified.
 - [ ] YouTube video is public, English, under three minutes, and has English audio plus readable captions.
 - [ ] Video explains both what was built and how Codex plus GPT-5.6 were used.
 - [ ] Final visible model selection, generated target, validator PASS, review, manifest, and tests are real.

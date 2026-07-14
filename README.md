@@ -24,7 +24,7 @@ The optional Devpost Hackathons plugin can help prepare a submission, but it is 
 
 ## Live demo / no-rebuild judge path
 
-Live preview target: <https://zyganali-glitch.github.io/zerokit-ai-control-plane/> once GitHub Pages is enabled and anonymously verified for this repository. Until then, judges can run the local preview with `npm ci`, `npm run build`, and `npm run dev`. Do not treat the target URL as active until the verification in [LIVE_DEMO.md](LIVE_DEMO.md) succeeds.
+**Live preview:** <https://zyganali-glitch.github.io/zerokit-ai-control-plane/>. The deployed project-subpath build was verified with anonymous HTTP checks and the repository's real-Chrome smoke suite. Judges can use it without cloning or rebuilding the repository.
 
 ## The problem
 
@@ -169,12 +169,14 @@ Evidence captured on 2026-07-13 is recorded in [codex-build-log.md](ai-buildweek
 | PocketBase adapter proof | PASS | 2 synthetic `items` → 2 `users`; `totalItems` → `total`; malformed shapes fail closed in tests |
 | Required config validations | PASS | 3/3 synthetic scenarios |
 | `npm run test:browser` | PASS | 16/16 assertions at 375×812: TR/light/healthcare, overflow, keyboard, privacy, negative JSON, network and runtime errors |
+| GitHub Pages deployment | PASS | GitHub Actions `build` and `deploy` jobs completed successfully |
+| Live Pages browser smoke | PASS | 16/16 real-Chrome assertions against the project-subpath URL; no external requests or runtime exceptions |
 
 Playwright is intentionally not added to this selected static surface. The dependency-free Chrome DevTools smoke runner uses an installed Chrome/Edge binary (`CHROME_PATH` can override discovery) and does not claim that the private donor product’s broader E2E suite applies to this repository.
 
 ## Static preview deployment
 
-The static judging surface is emitted to `dist/` with `npm run build`. The checked-in GitHub Actions workflow deploys it to GitHub Pages after the owner enables Pages with **GitHub Actions** as its source. The local workflow remains the source of truth for privacy checks, Codex task preparation, validation, and evidence. See [LIVE_DEMO.md](LIVE_DEMO.md); no live URL is claimed until an anonymous check succeeds.
+The static judging surface is emitted to `dist/` with `npm run build` and deployed by the checked-in GitHub Actions workflow. The live Pages URL has been anonymously verified. The local workflow remains the source of truth for privacy checks, Codex task preparation, validation, and evidence. See [LIVE_DEMO.md](LIVE_DEMO.md).
 
 ## Repository structure
 

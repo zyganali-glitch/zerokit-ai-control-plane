@@ -34,7 +34,7 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 | Design / UX | 8.2/10 conditional | The bilingual responsive preview and visible evidence chain are coherent; prepare → Codex → preview still spans two applications. |
 | Potential impact | 7.7/10 | SaaS customization is a credible problem demonstrated across three sectors; there is no customer interview, timing study, or pilot evidence. |
 | Idea quality | 8.5/10 | Positioning GPT-5.6 as a config/contract/test co-designer rather than a chatbot is distinctive and privacy-aware. |
-| **Equal-weight proxy total** | **8.1/10 conditional** | Competitive and credible if the visible GPT-5.6 run, English-audio video, Session ID, and verified Pages URL are completed. |
+| **Equal-weight proxy total** | **8.1/10 conditional** | Pages is verified; the remaining conditions are the visible GPT-5.6 run, English-audio video, and private Session ID. |
 
 ## Claim-by-claim result
 
@@ -101,7 +101,7 @@ One competition artifact is still manual: the operator must visibly select **GPT
 
 ## Recommendations that could strengthen placement
 
-- Enable the checked-in GitHub Pages workflow, verify the live URL anonymously, then place the verified URL in README/Devpost; do not claim it before that check.
+- Keep the verified GitHub Pages URL in README/Devpost and recheck it before final submission.
 - Use simple English voiceover or English text-to-speech plus readable English captions. Captions alone do not satisfy the official audio requirement.
 - Do not show the private donor admin panel as competition evidence. Show the reproducible public preview.
 - Measure manual first-draft time against Codex-assisted first-draft time as one internal experiment; do not generalize it into an unsupported productivity claim.

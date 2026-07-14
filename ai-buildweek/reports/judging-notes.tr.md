@@ -1,7 +1,7 @@
 # Build Week jüri notları
 
 - Önerilen track: **Developer Tools**
-- Yeniden build gerektirmeyen hedef: Pages etkinleştirilip gizli pencerede doğrulandıktan sonra `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
+- Doğrulanmış, yeniden build gerektirmeyen preview: `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
 - Özel Devpost kanıtı: ana Codex görevindeki `/feedback` Session ID; repoya yazılmaz
 - Zaman/delta açıklaması: [build-week-delta.md](build-week-delta.md)
 

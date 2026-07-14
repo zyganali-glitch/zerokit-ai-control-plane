@@ -23,7 +23,7 @@ Proje iddiasının dar ve dürüst hâli kod tarafından karşılanıyor:
 | Üç dakikadan kısa, sesli YouTube | Plan ve 2:57 metin hazır | TTS sesli videoyu üret ve public yükle |
 | Açık repo ve kurulum | Hazır | Gizli pencerede doğrula |
 | `/feedback` Session ID | Rehber hazır | Ana Codex görevinde üret, yalnız Devpost'a yapıştır |
-| Yeniden build gerektirmeyen test | Altyapı hazır | Pages'i Settings'ten etkinleştir ve anonim doğrula |
+| Yeniden build gerektirmeyen test | **Tamamlandı** | Pages build/deploy başarılı; canlı URL anonim HTTP ve gerçek Chrome ile doğrulandı |
 | Başvuru dönemi içi anlamlı geliştirme | Kod ve açıklama hazırlanıyor | Son commit SHA'sını delta belgesine işle |
 | Çalıştığı gibi gösterme | Test zinciri hazır | Videoda yalnız gerçek PASS sonuçlarını göster |
 
@@ -63,14 +63,13 @@ En büyük ödül riski kod kalitesi değil, anlatıdır: jüri üç dakikada GP
 
 ## Ödül ihtimalini en çok artıracak sıra
 
-1. Pages'i aç ve anonim canlı URL'yi doğrula.
-2. Bu ana Codex görevinde GPT-5.6 Sol + High görünürken final School SaaS görevini çalıştır.
-3. Validator PASS sonrası insan incelemesi ve manifesti kaydet.
-4. Son in-period commit SHA'sını delta belgesine işle ve gönder.
-5. 2:57 İngilizce TTS videoda ilk 29 saniyede problem, ürün ve GPT-5.6 değerini kur.
-6. Teknik kanıtı gerçek PASS sonuçlarıyla göster; bekleme sürelerini kes ama sonucu kurgu ile üretme.
-7. `/feedback` Session ID'yi yalnız Devpost formuna koy.
-8. İngilizce Devpost metni, repo, Pages ve YouTube bağlantılarını gizli pencerede son kez aç.
+1. Bu ana Codex görevinde GPT-5.6 Sol + High görünürken final School SaaS görevini çalıştır.
+2. Validator PASS sonrası insan incelemesi ve manifesti kaydet.
+3. Son in-period kanıt commit'ini gönder.
+4. 2:57 İngilizce TTS videoda ilk 29 saniyede problem, ürün ve GPT-5.6 değerini kur.
+5. Teknik kanıtı gerçek PASS sonuçlarıyla göster; bekleme sürelerini kes ama sonucu kurgu ile üretme.
+6. `/feedback` Session ID'yi yalnız Devpost formuna koy.
+7. İngilizce Devpost metni, repo, Pages ve YouTube bağlantılarını gizli pencerede son kez aç.
 
 ## Diğer başvurudan yararlanma sınırı
 

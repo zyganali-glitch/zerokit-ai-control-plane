@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve, sep } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const TARGET = 'http://127.0.0.1:4173/?lang=tr&theme=light&scenario=healthcare-saas';
+const TARGET = process.env.BROWSER_TARGET || 'http://127.0.0.1:4173/?lang=tr&theme=light&scenario=healthcare-saas';
 const SCREENSHOT = resolve(ROOT, 'test-results', 'browser-smoke-mobile.png');
 
 const sleep = (milliseconds) => new Promise((resolvePromise) => setTimeout(resolvePromise, milliseconds));
