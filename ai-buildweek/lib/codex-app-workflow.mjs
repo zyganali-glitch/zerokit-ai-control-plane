@@ -3,7 +3,7 @@ import { isAbsolute, relative } from 'node:path';
 import { validateZeroKitConfig } from '../../frontend/js/config-validator.js';
 import { assertPrivacySafe, PRIVACY_GUARD_VERSION } from './privacy-guard.mjs';
 
-const ALLOWED_MODELS = new Set(['GPT-5.6 Sol', 'GPT-5.6 Terra', 'GPT-5.6 Luna']);
+const ALLOWED_MODELS = new Set(['GPT-5.6 Sol']);
 
 export function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
@@ -12,6 +12,14 @@ export function sha256(value) {
 export function validateGeneratedConfig(config) {
   const base = validateZeroKitConfig(config);
   const errors = [...base.errors];
+  for (const section of ['panel_registry', 'field_registry', 'endpoint_map']) {
+    if (config?.[section]
+      && typeof config[section] === 'object'
+      && !Array.isArray(config[section])
+      && Object.keys(config[section]).length === 0) {
+      errors.push(`${section} must not be empty for a generated artifact.`);
+    }
+  }
   if (!Number.isInteger(config?.version) || config.version < 1) {
     errors.push('version must be a positive integer for a generated artifact.');
   }
@@ -38,7 +46,7 @@ export function buildCodexTask({ requirements, inputPath, promptPath, outputPath
 
 ## Operator prerequisite
 
-Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. Use \`high\` reasoning for quality, or the highest available reasoning level for the final demo run. This script cannot verify the in-app selection, so keep the model picker visible in the recording.
+Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. For this single bounded task, use **Max** when it is available; otherwise use the highest visible single-task reasoning effort such as **Extra High** or **High**. Ultra is a parallel subagent mode, not a reasoning level. This script cannot verify the in-app selection, so keep the actual model, mode, and effort visible in the recording.
 
 ## Inputs
 

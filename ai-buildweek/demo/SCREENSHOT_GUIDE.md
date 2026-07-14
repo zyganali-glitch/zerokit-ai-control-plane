@@ -5,12 +5,12 @@ Ekran görüntülerinde konuşma olmadığı için bütün açıklama metinleri 
 ## 1. Hero ve mahremiyet sözü
 
 - Şu adresi aç: `http://127.0.0.1:4173/?lang=en&theme=dark&scenario=school-saas`
-- Başlık, `Public Build Week judging edition` etiketi ve local privacy banner görünür olsun.
-- İngilizce açıklama: `A local-first Codex workflow; production customer data never enters the model loop.`
+- Başlık, `OpenAI Build Week · Developer Tools entry` etiketi ve browser-only privacy sınırı görünür olsun.
+- İngilizce açıklama: `A browser-only review surface; production customer data stays outside the model loop, with no third-party or model requests.`
 
 ## 2. Codex model ve görev kanıtı
 
-- Codex uygulamasında `zerokit-ai-control-plane` proje adı, model olarak görünür GPT-5.6 Sol, reasoning olarak High ve İngilizce okul görevi aynı karede olsun.
+- Codex uygulamasında `zerokit-ai-control-plane` proje adı, görünür GPT-5.6 Sol seçimi, gerçekten seçili mod/efor ve İngilizce okul görevi aynı karede olsun.
 - `.env`, özel task veya donör repo görünmesin.
 - İngilizce açıklama: `A bounded Codex task after a local privacy preflight.`
 

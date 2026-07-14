@@ -4,14 +4,14 @@ import { buildSampleUrl } from './static-paths.js';
 
 const COPY = {
   en: {
-    page_title: 'ZeroKit AI Control Plane — Local Preview', skip: 'Skip to config input', controls_nav: 'Preview controls', theme_light: 'Light theme', theme_dark: 'Dark theme',
+    page_title: 'ZeroKit AI Control Plane — Browser Preview', skip: 'Skip to config input', controls_nav: 'Preview controls', theme_light: 'Light theme', theme_dark: 'Dark theme',
     workspace_nav: 'Workspace navigation', open_menu: 'Open navigation menu', nav_workspace: 'Workspace', nav_overview: 'Overview', nav_contract: 'Contract workspace', nav_evidence: 'Validation evidence',
-    environment: 'Local environment', network: 'Network', local_only: 'Local only', data: 'Data', synthetic: 'Synthetic', mode: 'Mode', review_mode: 'Review', sidebar_privacy: 'No credentials. No customer data. No model API.',
-    synthetic_sample: 'Synthetic sample', disclosure_body: 'Bundled configs demonstrate the workflow. Competition evidence comes from a fresh, visible Codex run and deterministic validation.', active_workspace: 'Active workspace', no_external_requests: 'No external requests',
+    environment: 'Browser boundary', network: 'Processing', local_only: 'Browser only', data: 'Data', synthetic: 'Synthetic', mode: 'Workflow', review_mode: 'Display & review', sidebar_privacy: 'Bundled data is synthetic. No third-party or model request.',
+    synthetic_sample: 'Synthetic sample', disclosure_body: 'Bundled configs demonstrate the workflow. Competition evidence comes from a fresh, visible Codex run and deterministic validation.', active_workspace: 'Active workspace', no_third_party_requests: 'No third-party or model requests',
     edition: 'OpenAI Build Week · Developer Tools entry', title: 'A reviewable control plane, before runtime.',
     tagline: 'Transform synthetic SaaS requirements into a bounded configuration contract with GPT-5.6 in Codex, then verify every claim locally.', inspect_contract: 'Inspect contract', view_evidence: 'View evidence path',
-    assurance_summary: 'Assurance summary', assurance_label: 'Control assurance', ready_review: 'Ready for review', assurance_privacy: 'Privacy preflight defined', assurance_schema: 'Schema gate active', assurance_human: 'Human approval required', assurance_note: 'Workflow controls are present; this is not a backend compatibility claim.',
-    privacy_title: 'Local privacy boundary', privacy_body: ' Pasted configuration stays in this browser tab. This page makes no external request.',
+    assurance_summary: 'Assurance summary', assurance_label: 'Workflow controls', ready_review: 'Mapped for review', three_stages: '3 stages', assurance_privacy: 'Privacy preflight defined', assurance_schema: 'Contract checks defined', assurance_human: 'Human approval required', assurance_note: 'These are workflow requirements, not completed-run evidence or a backend compatibility claim.',
+    privacy_title: 'Browser privacy boundary', privacy_body: ' Pasted configuration stays in this browser tab and is not transmitted to a third party or model.',
     workflow_label: 'Evidence workflow', workflow_heading: 'From idea to auditable contract', three_gates: '3 controlled gates', evidence_path_label: 'Build Week evidence path',
     contract_label: 'Contract workspace', input_heading: 'Inspect the generated configuration', input_help: 'Use a bundled synthetic scenario, choose a local JSON file, or paste JSON. Review before applying.', browser_memory: 'Browser memory only',
     scenario_label: 'Synthetic scenario', scenario_school: 'School SaaS', scenario_healthcare: 'Healthcare SaaS', scenario_agency: 'Agency SaaS',
@@ -24,21 +24,21 @@ const COPY = {
     panel_map: 'Panel map', role_model: 'RBAC roles', endpoint_map: 'Endpoint map', field_map: 'Fields and options', warnings: 'Warnings and privacy notes',
     registry: 'Registry', access_control: 'Access control', adapter_contract: 'Adapter contract', configuration: 'Configuration', review_notes: 'Review notes',
     permission_all: 'all permissions', permission_count: 'permissions', option_count: 'entries/options', no_items: 'None configured',
-    proof_preflight: 'Local preflight', proof_preflight_body: 'Sensitive patterns are blocked before a bounded Codex task is prepared.',
-    proof_model: 'GPT-5.6 in Codex', proof_model_body: 'The selected model turns synthetic requirements into a reviewable JSON contract.',
-    proof_validation: 'Deterministic gates', proof_validation_body: 'Schema, privacy, adapter, and browser checks report honest PASS or FAIL evidence.',
-    evidence_boundary: 'Evidence boundary', evidence_boundary_body: 'Bundled scenarios are synthetic examples. Final competition evidence requires a fresh visible GPT-5.6 Codex run, human review, validation, and a hash manifest.',
+    stage_prepare: 'Prepare safely', stage_prepare_body: 'Sanitize requirements and bound the Codex work surface.', evidence_privacy_preflight: 'Local privacy preflight', evidence_bounded_task: 'Bounded Codex task', evidence_model_visible: 'Operator visibly selects GPT-5.6 Sol',
+    stage_generate: 'Generate and review', stage_generate_body: 'Create one artifact, validate it, then require human review.', evidence_generated_artifact: 'Codex writes the bounded config artifact', evidence_strict_pass: 'Strict generated-artifact validator must PASS', evidence_review_manifest: 'Human review precedes the hash manifest',
+    stage_verify: 'Verify locally', stage_verify_body: 'Inspect the artifact and expose reproducible evidence.', evidence_browser_preview: 'Browser-only preview inspects the chosen JSON', evidence_pocketbase: 'PocketBase fixture proves one adapter boundary', evidence_test_gates: 'Unit, privacy, and browser gates report PASS or FAIL',
+    evidence_boundary: 'Evidence boundary', evidence_boundary_body: 'Bundled scenarios are synthetic examples. Final competition evidence requires a fresh visible GPT-5.6 Codex run, human review, validation, and a hash manifest.', display_only_note: 'Display-only workflow map — this browser does not run Codex or shell commands.',
     footer: 'Configuration is reviewed before use. Runtime data and authorization remain on your infrastructure.', buildweek_edition: 'Build Week judging edition', local_file_error: 'The local file could not be read.', sample_error: 'The bundled sample could not be loaded.',
   },
   tr: {
-    page_title: 'ZeroKit AI Control Plane — Yerel Önizleme', skip: 'Config girişine geç', controls_nav: 'Önizleme kontrolleri', theme_light: 'Açık tema', theme_dark: 'Koyu tema',
+    page_title: 'ZeroKit AI Control Plane — Tarayıcı Önizlemesi', skip: 'Config girişine geç', controls_nav: 'Önizleme kontrolleri', theme_light: 'Açık tema', theme_dark: 'Koyu tema',
     workspace_nav: 'Çalışma alanı menüsü', open_menu: 'Gezinme menüsünü aç', nav_workspace: 'Çalışma alanı', nav_overview: 'Genel bakış', nav_contract: 'Sözleşme alanı', nav_evidence: 'Doğrulama kanıtı',
-    environment: 'Yerel ortam', network: 'Ağ', local_only: 'Yalnızca yerel', data: 'Veri', synthetic: 'Sentetik', mode: 'Mod', review_mode: 'İnceleme', sidebar_privacy: 'Kimlik bilgisi yok. Müşteri verisi yok. Model API’si yok.',
-    synthetic_sample: 'Sentetik örnek', disclosure_body: 'Paketli config’ler iş akışını gösterir. Yarışma kanıtı görünür ve taze bir Codex çalışmasıyla belirlenimci doğrulamadan gelir.', active_workspace: 'Etkin çalışma alanı', no_external_requests: 'Harici istek yok',
+    environment: 'Tarayıcı sınırı', network: 'İşleme', local_only: 'Yalnızca tarayıcıda', data: 'Veri', synthetic: 'Sentetik', mode: 'İş akışı', review_mode: 'Gösterim ve inceleme', sidebar_privacy: 'Paketli veri sentetiktir. Üçüncü taraf veya model isteği yoktur.',
+    synthetic_sample: 'Sentetik örnek', disclosure_body: 'Paketli config’ler iş akışını gösterir. Yarışma kanıtı görünür ve taze bir Codex çalışmasıyla belirlenimci doğrulamadan gelir.', active_workspace: 'Etkin çalışma alanı', no_third_party_requests: 'Üçüncü taraf veya model isteği yok',
     edition: 'OpenAI Build Week · Geliştirici Araçları başvurusu', title: 'Çalışma zamanından önce, incelenebilir bir kontrol düzlemi.',
     tagline: 'Sentetik SaaS gereksinimlerini Codex içindeki GPT-5.6 ile sınırlandırılmış bir config sözleşmesine dönüştür; ardından her iddiayı yerelde doğrula.', inspect_contract: 'Sözleşmeyi incele', view_evidence: 'Kanıt akışını gör',
-    assurance_summary: 'Güvence özeti', assurance_label: 'Kontrol güvencesi', ready_review: 'İncelemeye hazır', assurance_privacy: 'Gizlilik ön kontrolü tanımlı', assurance_schema: 'Şema kapısı etkin', assurance_human: 'İnsan onayı zorunlu', assurance_note: 'İş akışı kontrolleri mevcut; bu, backend uyumluluğu iddiası değildir.',
-    privacy_title: 'Yerel gizlilik sınırı', privacy_body: ' Yapıştırılan config bu tarayıcı sekmesinde kalır. Bu sayfa harici istek yapmaz.',
+    assurance_summary: 'Güvence özeti', assurance_label: 'İş akışı kontrolleri', ready_review: 'İnceleme için haritalandı', three_stages: '3 aşama', assurance_privacy: 'Gizlilik ön kontrolü tanımlı', assurance_schema: 'Sözleşme kontrolleri tanımlı', assurance_human: 'İnsan onayı zorunlu', assurance_note: 'Bunlar iş akışı gereksinimleridir; tamamlanmış çalışma kanıtı veya backend uyumluluğu iddiası değildir.',
+    privacy_title: 'Tarayıcı gizlilik sınırı', privacy_body: ' Yapıştırılan config bu tarayıcı sekmesinde kalır; üçüncü tarafa veya modele iletilmez.',
     workflow_label: 'Kanıt iş akışı', workflow_heading: 'Fikirden denetlenebilir sözleşmeye', three_gates: '3 kontrollü kapı', evidence_path_label: 'Build Week kanıt akışı',
     contract_label: 'Sözleşme çalışma alanı', input_heading: 'Üretilen config’i incele', input_help: 'Paketli sentetik bir senaryo, yerel JSON dosyası veya yapıştırılmış JSON kullan. Uygulamadan önce incele.', browser_memory: 'Yalnızca tarayıcı belleği',
     scenario_label: 'Sentetik senaryo', scenario_school: 'Okul SaaS', scenario_healthcare: 'Sağlık SaaS', scenario_agency: 'Ajans SaaS',
@@ -51,10 +51,10 @@ const COPY = {
     panel_map: 'Panel haritası', role_model: 'RBAC rolleri', endpoint_map: 'Endpoint haritası', field_map: 'Alanlar ve seçenekler', warnings: 'Uyarılar ve gizlilik notları',
     registry: 'Kayıt dizini', access_control: 'Erişim kontrolü', adapter_contract: 'Adaptör sözleşmesi', configuration: 'Yapılandırma', review_notes: 'İnceleme notları',
     permission_all: 'tüm izinler', permission_count: 'izin', option_count: 'kayıt/seçenek', no_items: 'Yapılandırılmadı',
-    proof_preflight: 'Yerel ön kontrol', proof_preflight_body: 'Sınırlandırılmış Codex görevi hazırlanmadan önce hassas veri kalıpları engellenir.',
-    proof_model: 'Codex içinde GPT-5.6', proof_model_body: 'Seçilen model sentetik gereksinimleri incelenebilir JSON sözleşmesine dönüştürür.',
-    proof_validation: 'Belirlenimci kapılar', proof_validation_body: 'Şema, gizlilik, adaptör ve tarayıcı kontrolleri dürüst PASS veya FAIL kanıtı üretir.',
-    evidence_boundary: 'Kanıt sınırı', evidence_boundary_body: 'Paketli senaryolar sentetik örneklerdir. Nihai yarışma kanıtı; görünür, taze bir GPT-5.6 Codex çalışması, insan incelemesi, doğrulama ve hash manifesti gerektirir.',
+    stage_prepare: 'Güvenli hazırlık', stage_prepare_body: 'Gereksinimleri temizle ve Codex çalışma yüzeyini sınırla.', evidence_privacy_preflight: 'Yerel gizlilik ön kontrolü', evidence_bounded_task: 'Sınırlandırılmış Codex görevi', evidence_model_visible: 'Operatör GPT-5.6 Sol’u görünür biçimde seçer',
+    stage_generate: 'Üret ve incele', stage_generate_body: 'Tek artifact üret, doğrula ve insan incelemesini zorunlu kıl.', evidence_generated_artifact: 'Codex sınırlandırılmış config artifact’ini yazar', evidence_strict_pass: 'Katı generated-artifact doğrulayıcı PASS vermelidir', evidence_review_manifest: 'İnsan incelemesi hash manifestinden önce gelir',
+    stage_verify: 'Yerelde doğrula', stage_verify_body: 'Artifact’i incele ve tekrar üretilebilir kanıtı görünür kıl.', evidence_browser_preview: 'Yalnızca tarayıcıda çalışan önizleme seçilen JSON’u inceler', evidence_pocketbase: 'PocketBase fixture’ı tek adaptör sınırını kanıtlar', evidence_test_gates: 'Birim, gizlilik ve tarayıcı kapıları PASS veya FAIL bildirir',
+    evidence_boundary: 'Kanıt sınırı', evidence_boundary_body: 'Paketli senaryolar sentetik örneklerdir. Nihai yarışma kanıtı; görünür, taze bir GPT-5.6 Codex çalışması, insan incelemesi, doğrulama ve hash manifesti gerektirir.', display_only_note: 'Bu yalnızca görüntülenen bir iş akışı haritasıdır; tarayıcı Codex veya kabuk komutu çalıştırmaz.',
     footer: 'Config kullanımdan önce incelenir. Runtime verisi ve yetkilendirme kendi altyapınızda kalır.', buildweek_edition: 'Build Week jüri sürümü', local_file_error: 'Yerel dosya okunamadı.', sample_error: 'Paketli örnek yüklenemedi.',
   },
 };
@@ -68,6 +68,7 @@ const initialOptions = resolvePreviewOptions(window.location.search);
 let locale = initialOptions.locale;
 let lastPreview = null;
 let currentValidationState = 'idle';
+let currentStatusKey = 'status_idle';
 
 function t(key) { return COPY[locale][key] || COPY.en[key] || key; }
 
@@ -80,6 +81,7 @@ function applyCopy() {
   elements.languageButton.textContent = locale === 'en' ? 'TR' : 'EN';
   elements.themeButton.textContent = t(document.documentElement.dataset.theme === 'dark' ? 'theme_light' : 'theme_dark');
   updateScenarioLabel();
+  elements.status.textContent = t(currentStatusKey);
   setValidationState(currentValidationState);
   if (lastPreview) renderPreview(lastPreview);
 }
@@ -103,6 +105,13 @@ function setValidationState(state) {
     elements.resultsState.className = `section-state ${state === 'pass' ? 'validated' : 'invalid'}`;
     elements.resultsStateText.textContent = t(state === 'pass' ? 'structure_valid' : 'structure_invalid');
   }
+}
+
+function setStatus(state, copyKey) {
+  currentStatusKey = copyKey;
+  elements.status.className = `status ${state}`;
+  elements.status.textContent = t(copyKey);
+  setValidationState(state);
 }
 
 function clearNode(node) { node.replaceChildren(); }
@@ -165,21 +174,16 @@ function validateInput() {
     const config = JSON.parse(elements.configInput.value);
     const validation = validateZeroKitConfig(config);
     renderPreview(createConfigPreview(config, validation));
-    elements.status.className = `status ${validation.valid ? 'pass' : 'fail'}`;
-    elements.status.textContent = t(validation.valid ? 'status_pass' : 'status_fail');
-    setValidationState(validation.valid ? 'pass' : 'fail');
+    setStatus(validation.valid ? 'pass' : 'fail', validation.valid ? 'status_pass' : 'status_fail');
   } catch (error) {
     const validation = { valid: false, errors: [error instanceof Error ? error.message : String(error)], warnings: [] };
     renderPreview(createConfigPreview({}, validation));
-    elements.status.className = 'status fail';
-    elements.status.textContent = t('status_parse');
-    setValidationState('fail');
+    setStatus('fail', 'status_parse');
   }
 }
 
 async function loadSample() {
-  elements.status.className = 'status idle'; elements.status.textContent = t('status_loading');
-  setValidationState('idle');
+  setStatus('idle', 'status_loading');
   try {
     const scenario = elements.sampleSelect.value;
     updateScenarioLabel();
@@ -188,7 +192,7 @@ async function loadSample() {
     elements.configInput.value = JSON.stringify(await response.json(), null, 2);
     validateInput();
   } catch (_) {
-    elements.status.className = 'status fail'; elements.status.textContent = t('sample_error'); setValidationState('fail');
+    setStatus('fail', 'sample_error');
   }
 }
 
@@ -215,13 +219,13 @@ document.querySelectorAll('#overview, #workspace, #results').forEach((section) =
 elements.validateButton.addEventListener('click', validateInput);
 elements.clearButton.addEventListener('click', () => {
   elements.configInput.value = ''; elements.results.hidden = true; lastPreview = null;
-  elements.status.className = 'status idle'; elements.status.textContent = t('status_idle'); setValidationState('idle'); elements.configInput.focus();
+  setStatus('idle', 'status_idle'); elements.configInput.focus();
 });
 elements.fileInput.addEventListener('change', async () => {
   const [file] = elements.fileInput.files || [];
   if (!file) return;
   try { elements.configInput.value = await file.text(); validateInput(); }
-  catch (_) { elements.status.className = 'status fail'; elements.status.textContent = t('local_file_error'); setValidationState('fail'); }
+  catch (_) { setStatus('fail', 'local_file_error'); }
 });
 
 document.documentElement.dataset.theme = initialOptions.theme;

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark light">
-    <meta name="description" content="Local-only ZeroKit generated configuration preview">
+    <meta name="description" content="Browser-only ZeroKit generated configuration preview">
     <link rel="stylesheet" href="../styles/ai-config-preview.css">
     <title>ZeroKit AI Control Plane</title>
   </head>
@@ -37,18 +37,18 @@
         <div class="environment-card">
           <div class="environment-heading">
             <span class="live-dot" aria-hidden="true"></span>
-            <strong data-i18n="environment">Local environment</strong>
+            <strong data-i18n="environment">Browser boundary</strong>
           </div>
           <dl>
-            <div><dt data-i18n="network">Network</dt><dd data-i18n="local_only">Local only</dd></div>
+            <div><dt data-i18n="network">Processing</dt><dd data-i18n="local_only">Browser only</dd></div>
             <div><dt data-i18n="data">Data</dt><dd data-i18n="synthetic">Synthetic</dd></div>
-            <div><dt data-i18n="mode">Mode</dt><dd data-i18n="review_mode">Review</dd></div>
+            <div><dt data-i18n="mode">Workflow</dt><dd data-i18n="review_mode">Display &amp; review</dd></div>
           </dl>
         </div>
 
         <div class="sidebar-foot">
           <span class="shield" aria-hidden="true">◇</span>
-          <p><strong data-i18n="privacy_title">Local privacy boundary</strong><span data-i18n="sidebar_privacy">No credentials. No customer data. No model API.</span></p>
+          <p><strong data-i18n="privacy_title">Browser privacy boundary</strong><span data-i18n="sidebar_privacy">Bundled data is synthetic. No third-party or model request.</span></p>
         </div>
       </aside>
 
@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="top-actions" aria-label="Preview controls" data-i18n-aria="controls_nav">
-            <span class="privacy-state"><i aria-hidden="true"></i><span data-i18n="no_external_requests">No external requests</span></span>
+            <span class="privacy-state"><i aria-hidden="true"></i><span data-i18n="no_third_party_requests">No third-party or model requests</span></span>
             <button id="languageButton" class="quiet compact" type="button">TR</button>
             <button id="themeButton" class="quiet compact" type="button" data-i18n="theme_light">Light theme</button>
           </div>
@@ -89,15 +89,15 @@
 
             <aside class="assurance-card" aria-label="Assurance summary" data-i18n-aria="assurance_summary">
               <div class="assurance-top">
-                <div class="score-ring"><span>3/3</span></div>
-                <div><span data-i18n="assurance_label">Control assurance</span><strong data-i18n="ready_review">Ready for review</strong></div>
+                <div class="score-ring"><span data-i18n="three_stages">3 stages</span></div>
+                <div><span data-i18n="assurance_label">Workflow controls</span><strong data-i18n="ready_review">Mapped for review</strong></div>
               </div>
               <ul>
-                <li><span aria-hidden="true">✓</span><span data-i18n="assurance_privacy">Privacy preflight defined</span></li>
-                <li><span aria-hidden="true">✓</span><span data-i18n="assurance_schema">Schema gate active</span></li>
-                <li><span aria-hidden="true">✓</span><span data-i18n="assurance_human">Human approval required</span></li>
+                <li><span aria-hidden="true">•</span><span data-i18n="assurance_privacy">Privacy preflight defined</span></li>
+                <li><span aria-hidden="true">•</span><span data-i18n="assurance_schema">Contract checks defined</span></li>
+                <li><span aria-hidden="true">•</span><span data-i18n="assurance_human">Human approval required</span></li>
               </ul>
-              <p data-i18n="assurance_note">Workflow controls are present; this is not a backend compatibility claim.</p>
+              <p data-i18n="assurance_note">These are workflow requirements, not completed-run evidence or a backend compatibility claim.</p>
             </aside>
           </section>
 
@@ -107,13 +107,46 @@
               <span class="section-state"><i aria-hidden="true"></i><span data-i18n="three_gates">3 controlled gates</span></span>
             </div>
             <div class="proof-strip" aria-label="Build Week evidence path" data-i18n-aria="evidence_path_label">
-              <article><span class="proof-number">01</span><div><strong data-i18n="proof_preflight">Local preflight</strong><span data-i18n="proof_preflight_body">Sensitive patterns are blocked before a bounded Codex task is prepared.</span></div></article>
-              <article><span class="proof-number">02</span><div><strong data-i18n="proof_model">GPT-5.6 in Codex</strong><span data-i18n="proof_model_body">The selected model turns synthetic requirements into a reviewable JSON contract.</span></div></article>
-              <article><span class="proof-number">03</span><div><strong data-i18n="proof_validation">Deterministic gates</strong><span data-i18n="proof_validation_body">Schema, privacy, adapter, and browser checks report honest PASS or FAIL evidence.</span></div></article>
+              <article>
+                <span class="proof-number">01</span>
+                <div>
+                  <strong data-i18n="stage_prepare">Prepare safely</strong>
+                  <span data-i18n="stage_prepare_body">Sanitize requirements and bound the Codex work surface.</span>
+                  <ol class="proof-list">
+                    <li data-evidence-point><span aria-hidden="true">01</span><span data-i18n="evidence_privacy_preflight">Local privacy preflight</span></li>
+                    <li data-evidence-point><span aria-hidden="true">02</span><span data-i18n="evidence_bounded_task">Bounded Codex task</span></li>
+                    <li data-evidence-point><span aria-hidden="true">03</span><span data-i18n="evidence_model_visible">Operator visibly selects GPT-5.6 Sol</span></li>
+                  </ol>
+                </div>
+              </article>
+              <article>
+                <span class="proof-number">02</span>
+                <div>
+                  <strong data-i18n="stage_generate">Generate and review</strong>
+                  <span data-i18n="stage_generate_body">Create one artifact, validate it, then require human review.</span>
+                  <ol class="proof-list" start="4">
+                    <li data-evidence-point><span aria-hidden="true">04</span><span data-i18n="evidence_generated_artifact">Codex writes the bounded config artifact</span></li>
+                    <li data-evidence-point><span aria-hidden="true">05</span><span data-i18n="evidence_strict_pass">Strict generated-artifact validator must PASS</span></li>
+                    <li data-evidence-point><span aria-hidden="true">06</span><span data-i18n="evidence_review_manifest">Human review precedes the hash manifest</span></li>
+                  </ol>
+                </div>
+              </article>
+              <article>
+                <span class="proof-number">03</span>
+                <div>
+                  <strong data-i18n="stage_verify">Verify locally</strong>
+                  <span data-i18n="stage_verify_body">Inspect the artifact and expose reproducible evidence.</span>
+                  <ol class="proof-list" start="7">
+                    <li data-evidence-point><span aria-hidden="true">07</span><span data-i18n="evidence_browser_preview">Browser-only preview inspects the chosen JSON</span></li>
+                    <li data-evidence-point><span aria-hidden="true">08</span><span data-i18n="evidence_pocketbase">PocketBase fixture proves one adapter boundary</span></li>
+                    <li data-evidence-point><span aria-hidden="true">09</span><span data-i18n="evidence_test_gates">Unit, privacy, and browser gates report PASS or FAIL</span></li>
+                  </ol>
+                </div>
+              </article>
             </div>
             <aside class="evidence-boundary" role="note">
               <span class="boundary-icon" aria-hidden="true">!</span>
-              <p><strong data-i18n="evidence_boundary">Evidence boundary</strong><span data-i18n="evidence_boundary_body">Bundled scenarios are synthetic examples. Final competition evidence requires a fresh visible GPT-5.6 Codex run, human review, validation, and a hash manifest.</span></p>
+              <p><strong data-i18n="evidence_boundary">Evidence boundary</strong><span data-i18n="evidence_boundary_body">Bundled scenarios are synthetic examples. Final competition evidence requires a fresh visible GPT-5.6 Codex run, human review, validation, and a hash manifest.</span><span class="display-only-note" data-i18n="display_only_note">Display-only workflow map — this browser does not run Codex or shell commands.</span></p>
             </aside>
           </section>
 
@@ -152,7 +185,7 @@
               <aside class="validation-rail">
                 <p class="rail-label" data-i18n="validation_state">Validation state</p>
                 <div id="statusVisual" class="status-visual idle" aria-hidden="true"><span id="statusIcon">…</span></div>
-                <span id="status" class="status idle" role="status" aria-live="polite" data-i18n="status_idle">Waiting for a config</span>
+                <span id="status" class="status idle" role="status" aria-live="polite">Waiting for a config</span>
                 <p data-i18n="input_help">Use a bundled synthetic scenario, choose a local JSON file, or paste JSON. Review before applying.</p>
                 <dl>
                   <div><dt data-i18n="execution">Execution</dt><dd data-i18n="client_side">Client-side</dd></div>

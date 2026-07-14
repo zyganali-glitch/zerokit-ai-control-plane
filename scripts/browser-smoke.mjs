@@ -127,6 +127,9 @@ function createCdpClient(socket) {
 }
 
 async function main() {
+  if (typeof WebSocket === 'undefined') {
+    throw new Error('Browser smoke requires Node.js 22 or newer because it uses the built-in WebSocket client.');
+  }
   const chrome = await firstExisting([
     process.env.CHROME_PATH,
     'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
@@ -208,6 +211,8 @@ async function main() {
       horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
       shortButtons: [...document.querySelectorAll('button')].filter((node) => node.getBoundingClientRect().height < 44).map((node) => node.id),
       rawI18nKeys: [...document.querySelectorAll('[data-i18n]')].filter((node) => node.textContent === node.dataset.i18n).length,
+      evidencePoints: document.querySelectorAll('[data-evidence-point]').length,
+      displayOnlyMap: Boolean(document.querySelector('[data-i18n="display_only_note"]')),
       hiddenPanels: [...document.querySelectorAll('.chip.hidden')].map((node) => node.textContent),
       privacyNotes: document.querySelectorAll('#warningList .privacy').length
     }))()`);
@@ -219,6 +224,29 @@ async function main() {
       document.querySelector('#sidebarBackdrop').click();
       const closed = !document.body.classList.contains('nav-open') && button.getAttribute('aria-expanded') === 'false';
       return { opened, closed };
+    })()`);
+
+    const stateToggleProof = await evaluate(`(() => {
+      const status = document.querySelector('#status');
+      const theme = document.querySelector('#themeButton');
+      const language = document.querySelector('#languageButton');
+      const originalTheme = document.documentElement.dataset.theme;
+      const originalLanguage = document.documentElement.lang;
+      const before = status?.textContent;
+      theme.click();
+      const afterTheme = status?.textContent;
+      language.click();
+      const afterLanguage = status?.textContent;
+      language.click();
+      theme.click();
+      return {
+        before,
+        afterTheme,
+        afterLanguage,
+        restoredTheme: document.documentElement.dataset.theme === originalTheme,
+        restoredLanguage: document.documentElement.lang === originalLanguage,
+        preserved: before?.startsWith('PASS') && afterTheme?.startsWith('PASS') && afterLanguage?.startsWith('PASS')
+      };
     })()`);
 
     const screenshot = await cdp.send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false });
@@ -277,13 +305,13 @@ async function main() {
       ['375px viewport', passProof.viewport[0] === 375],
       ['no horizontal overflow', passProof.horizontalOverflow === false && passProof.scrollWidth <= 375],
       ['44px controls and mobile menu', passProof.shortButtons.length === 0 && menuProof.opened && menuProof.closed],
-      ['no raw i18n keys', passProof.rawI18nKeys === 0],
+      ['i18n state and 9-step evidence map', passProof.rawI18nKeys === 0 && passProof.evidencePoints === 9 && passProof.displayOnlyMap && stateToggleProof.preserved && stateToggleProof.restoredTheme && stateToggleProof.restoredLanguage],
       ['hidden panels', passProof.hiddenPanels.includes('impersonation') && passProof.hiddenPanels.includes('chat')],
       ['privacy notes visible', passProof.privacyNotes === 3],
       ['invalid JSON fails visibly', invalidProof.status?.startsWith('FAIL') && invalidProof.errorVisible],
       ['skip link receives first focus', String(tabProof.className).includes('skip-link')],
       ['skip link reaches config input', keyboardProof.activeId === 'configInput' && keyboardProof.hash === '#configInput'],
-      ['no external requests', externalRequests.length === 0],
+      ['no third-party requests', externalRequests.length === 0],
       ['no runtime exceptions', exceptions.length === 0],
     ];
     const failed = assertions.filter(([, passed]) => !passed);
@@ -293,6 +321,7 @@ async function main() {
       desktopScreenshot: DESKTOP_SCREENSHOT,
       passProof,
       menuProof,
+      stateToggleProof,
       invalidProof,
       tabProof,
       keyboardProof,

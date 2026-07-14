@@ -33,7 +33,7 @@ test('Codex task package is local-only and carries the sanitized input hash', ()
   assert.doesNotMatch(result.text, /OPENAI_API_KEY|api\.openai\.com/u);
 });
 
-test('generated artifact gate requires version, brand, privacy, and checklist', () => {
+test('generated artifact gate requires non-empty registries, version, brand, privacy, and checklist', () => {
   const invalid = validateGeneratedConfig({
     panel_registry: {},
     rbac_registry: { roles: [{ slug: 'owner', permissions: '*' }] },
@@ -41,7 +41,7 @@ test('generated artifact gate requires version, brand, privacy, and checklist', 
     endpoint_map: {},
   });
   assert.equal(invalid.valid, false);
-  for (const prefix of ['version', 'brand_config', 'privacy_notes', 'test_checklist']) {
+  for (const prefix of ['panel_registry', 'field_registry', 'endpoint_map', 'version', 'brand_config', 'privacy_notes', 'test_checklist']) {
     assert.ok(invalid.errors.some((error) => error.startsWith(prefix)));
   }
 });
@@ -81,7 +81,7 @@ test('Codex manifest refuses missing operator confirmations and unsupported mode
   };
   assert.throws(() => buildCodexRunManifest({ ...base, modelVisibleConfirmed: false }), /model selection/u);
   assert.throws(() => buildCodexRunManifest({ ...base, humanReviewConfirmed: false }), /Human review/u);
-  assert.throws(() => buildCodexRunManifest({ ...base, modelLabel: 'Unknown Model' }), /Model label/u);
+  assert.throws(() => buildCodexRunManifest({ ...base, modelLabel: 'GPT-5.6 Terra' }), /Model label/u);
 });
 
 test('school SaaS baseline and committed Codex task are ready and synchronized', async () => {

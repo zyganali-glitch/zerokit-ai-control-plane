@@ -6,7 +6,7 @@ Verified live URL:
 
 <https://zyganali-glitch.github.io/zerokit-ai-control-plane/>
 
-The repository workflow at `.github/workflows/pages.yml` builds and deploys `dist/` on every push to `main`. [Deployment attempt 2](https://github.com/zyganali-glitch/zerokit-ai-control-plane/actions/runs/29309883746/attempts/2) completed with successful `build` and `deploy` jobs. Anonymous checks returned HTTP 200 for the root, preview page, browser module, and School SaaS JSON; a real-Chrome live smoke returned 16/16 PASS with no external requests or runtime exceptions.
+The repository workflow at `.github/workflows/pages.yml` builds and deploys `dist/` on every push to `main`. The [Pages workflow history](https://github.com/zyganali-glitch/zerokit-ai-control-plane/actions/workflows/pages.yml) records successful `build` and `deploy` jobs. Anonymous checks returned HTTP 200 for the root, preview page, browser module, and School SaaS JSON; a real-Chrome live smoke returned 16/16 PASS with no third-party or model requests and no runtime exceptions.
 
 ## Owner setup — completed one-time GitHub click path
 
@@ -26,7 +26,9 @@ If GitHub shows no workflow yet, first push `.github/workflows/pages.yml` to `ma
 
 ## Local fallback
 
-The local workflow remains the source of truth for Codex task preparation, validation, manifest creation, adapter evidence, and completion tests. Judges can also use:
+The local workflow remains the source of truth for Codex task preparation, validation, manifest creation, adapter evidence, and completion tests. The browser performs a basic client-side contract check; the CLI and manifest path enforce the stricter generated-artifact gate. See [validator coverage and limits](ai-buildweek/reports/validator-coverage.md) and the [adapter compatibility matrix](ai-buildweek/reports/adapter-compatibility-matrix.md).
+
+The full local path requires Node.js 22 or newer. Judges can use:
 
 ```bash
 npm ci

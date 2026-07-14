@@ -7,7 +7,7 @@ Produce a risk-ranked plan with:
 - unit tests for config rules, normalization, RBAC, endpoint resolution, and report projection;
 - an end-to-end smoke plan for paste/load, validation, enabled/hidden panels, roles, endpoints, and warnings;
 - config checks for required sections, types, duplicate role slugs, empty routes, and schema compatibility;
-- privacy boundary checks proving no external request and no persistent production data path;
+- privacy boundary checks proving no third-party or model request from the preview and no persistent production data path;
 - i18n checks for TR/EN completeness, language switching, overflow, and fallback behavior;
 - dark/light/mobile checks at 375px and desktop widths, including keyboard focus and readable contrast;
 - a no-new-debt gate covering dependencies, modularity, telemetry, auth/billing defaults, secrets, documentation, and lockfile reproducibility;

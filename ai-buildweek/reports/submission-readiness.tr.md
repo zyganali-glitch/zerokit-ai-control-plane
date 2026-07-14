@@ -17,10 +17,10 @@ Proje iddiasının dar ve dürüst hâli kod tarafından karşılanıyor:
 
 | Şart | Repo durumu | Başvuru öncesi gereken |
 | --- | --- | --- |
-| Codex + GPT-5.6 ile çalışan proje | Kod yolu hazır | Model olarak görünür GPT-5.6 Sol, reasoning olarak High ile taze son çalışmayı yap |
+| Codex + GPT-5.6 ile çalışan proje | Kod yolu hazır | Görünür GPT-5.6 Sol ve gerçekten seçili mod/efor ile taze son çalışmayı yap |
 | Tek track | Hazır | Developer Tools seç |
 | İngilizce açıklama | Taslak hazır | Devpost alanlarına yapıştır ve son kez oku |
-| Üç dakikadan kısa, sesli YouTube | Plan ve 2:57 metin hazır | TTS sesli videoyu üret ve public yükle |
+| Üç dakikadan kısa, sesli YouTube | Plan ve 2:54 metin hazır | TTS sesli videoyu üret ve public yükle |
 | Açık repo ve kurulum | Hazır | Gizli pencerede doğrula |
 | `/feedback` Session ID | Rehber hazır | Ana Codex görevinde üret, yalnız Devpost'a yapıştır |
 | Yeniden build gerektirmeyen test | **Tamamlandı** | Pages build/deploy başarılı; canlı URL anonim HTTP ve gerçek Chrome ile doğrulandı |
@@ -63,14 +63,10 @@ En büyük ödül riski kod kalitesi değil, anlatıdır: jüri üç dakikada GP
 
 ## Ödül ihtimalini en çok artıracak sıra
 
-1. Bu ana Codex görevinde GPT-5.6 Sol + High görünürken final School SaaS görevini çalıştır.
+1. GPT-5.6 Sol ile gerçekten seçili mod/efor etiketleri görünürken final School SaaS görevini çalıştır; bu tek bounded görevde Max varsa tercih et, Ultra'yı reasoning düzeyi diye sunma.
 2. Validator PASS sonrası insan incelemesi ve manifesti kaydet.
 3. Son in-period kanıt commit'ini gönder.
-4. 2:57 İngilizce TTS videoda ilk 29 saniyede problem, ürün ve GPT-5.6 değerini kur.
+4. 2:54 İngilizce TTS videoda ilk 27 saniyede problem, ürün ve GPT-5.6 değerini kur.
 5. Teknik kanıtı gerçek PASS sonuçlarıyla göster; bekleme sürelerini kes ama sonucu kurgu ile üretme.
 6. `/feedback` Session ID'yi yalnız Devpost formuna koy.
 7. İngilizce Devpost metni, repo, Pages ve YouTube bağlantılarını gizli pencerede son kez aç.
-
-## Diğer başvurudan yararlanma sınırı
-
-`codex-control-tower` yalnız read-only karşılaştırma kaynağı olarak incelendi; değiştirilmedi. Buraya taşınan fikirler genel kanıt tasarımı ilkeleridir: statik no-install exhibit ile yerel yürütme arasındaki sınır, `SIMULATED`/`NOT_RUN` dürüstlüğü, anonim Pages doğrulaması ve açık Build Week delta anlatımı. İki proje başvurusunun problemi, ürünü, kodu ve ana demosu ayrı kalmalıdır.

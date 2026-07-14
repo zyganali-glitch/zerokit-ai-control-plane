@@ -14,12 +14,12 @@ Enabled judging path: users, roles, plans, invoices, notifications, help, audit,
 
 | Panel | ZeroKit key | Expected operation/shape | Synthetic customer route | Status |
 | --- | --- | --- | --- | --- |
-| Users | `users` | `GET` → `{ users: [], total: number }` | `/school-api/v2/admin/users` | Compatible |
+| Users | `users` | `GET` → `{ users: [], total: number }` | `/school-api/v2/admin/users` | Contract-shaped; fixture required |
 | Roles | `roles` | `GET` → role array/envelope with slug and permissions | `/school-api/v2/admin/roles` | Shim required |
-| Plans | `plans` | `GET` → plan collection with currency and billing interval | `/school-api/v2/admin/billing/plans` | Compatible |
+| Plans | `plans` | `GET` → plan collection with currency and billing interval | `/school-api/v2/admin/billing/plans` | Contract-shaped; fixture required |
 | Invoices | `invoices` | `GET` → `{ invoices: [], total: number }` | `/school-api/v2/admin/billing/invoices` | Shim required |
 | Notifications | `notifications` | list/write operations and stable notification keys | `/school-api/v2/admin/notifications` | Unknown |
-| Help | `help_cms` | article list/content envelope | `/school-api/v2/admin/help` | Compatible |
+| Help | `help_cms` | article list/content envelope | `/school-api/v2/admin/help` | Contract-shaped; fixture required |
 | Audit | `audit` | paged events with actor/action/time keys | `/school-api/v2/admin/audit` | Missing |
 | Reports | `reports` | aggregate overview/revenue-style metrics | `/school-api/v2/admin/reports` | Shim required |
 

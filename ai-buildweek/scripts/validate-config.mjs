@@ -2,13 +2,14 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
-import { formatValidationReport, validateZeroKitConfig } from '../../frontend/js/config-validator.js';
+import { formatValidationReport } from '../../frontend/js/config-validator.js';
+import { validateGeneratedConfig } from '../lib/codex-app-workflow.mjs';
 
 export async function validateConfigFile(filePath) {
   const absolutePath = resolve(filePath);
   const raw = await readFile(absolutePath, 'utf8');
   const config = JSON.parse(raw);
-  const result = validateZeroKitConfig(config);
+  const result = validateGeneratedConfig(config);
   return { absolutePath, config, result };
 }
 

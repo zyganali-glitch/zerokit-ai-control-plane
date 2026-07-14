@@ -42,10 +42,10 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 | --- | --- | --- | --- |
 | GPT-5.6/Codex is central | **Code path ready; final operator evidence pending** | Four prompts, task generator, model-selection attestation, output validator | The video must show GPT-5.6 Sol as the model, the chosen reasoning level, and the manifest from that run. |
 | Generates config from sanitized requirements | **Ready** | School input, prepared task, target path, validation command | Do not present the checked-in baseline config as a fresh Codex run; write new output to the evidence path. |
-| Privacy-preserving AI workflow | **Supported as a workflow control** | Local guard, `.env`/secret denylist, synthetic fixtures, zero external preview requests | Pattern matching cannot guarantee complete sanitization; human review is mandatory. |
+| Privacy-controlled AI workflow | **Supported as a workflow control** | Local guard, `.env`/secret denylist, synthetic fixtures, zero third-party/model preview requests | Pattern matching cannot guarantee complete sanitization; human review is mandatory. |
 | Production data stays outside the model | **True for the repository and supported workflow** | Checked-in inputs are synthetic; task rules prohibit private sources | A developer could bypass process rules; operational discipline is still required. |
-| Backend adapter compatibility | **Proved at one concrete boundary** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed tests | This does not prove every PocketBase collection or arbitrary backend is compatible. |
-| Schema-compatible config | **Supported at the public judging-contract level** | Shared validator, JSON Schema document, three scenarios, stricter generated-artifact gate | The validator is not a complete JSON Schema 2020-12 engine. |
+| Backend adapter compatibility | **Proved at one concrete boundary** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed tests | See the [adapter matrix](adapter-compatibility-matrix.md); this does not prove every PocketBase collection or arbitrary backend is compatible. |
+| Judging-contract validation | **Supported with two explicit gates** | Browser structural review, strict CLI/manifest gate, JSON Schema reference, three scenarios | See [validator coverage](validator-coverage.md); the validator is not a complete JSON Schema 2020-12 engine. |
 | Working product | **Working judging preview** | Build, local preview, safe apply, report, browser smoke | It is not the full production control plane or private donor product. |
 | Zero dependency | **False if unqualified** | Node/npm and a browser are prerequisites | “Zero frontend runtime npm dependencies” is accurate. |
 
@@ -58,6 +58,8 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 | `npm run test:browser` | PASS, 16/16 |
 | `npm run demo:pocketbase` | PASS, 2 synthetic items → 2 users |
 | Three required config validations | PASS, 3/3 |
+
+The browser preview performs the fast structural gate. The CLI and manifest path enforce the stricter generated-artifact requirements; neither gate proves backend payload compatibility or business correctness.
 
 ## Implemented recommendations
 
@@ -83,12 +85,12 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 - a prepared `school-saas.codex-task.md` task;
 - local config, unit, privacy, browser, and adapter tests.
 
-One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol** as the model and **High** or a higher available reasoning level in Codex, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. A `High` label alone is not proof of the model. This is a controlled recording-day step, not a missing code feature.
+One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol**, show the actual selected mode and effort, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. For this single bounded task, Max is preferred when available; Ultra is a parallel subagent mode, not a reasoning level. A mode or effort label alone is not proof of the model. This is a controlled recording-day step, not a missing code feature.
 
 ## Pre-submission P0 steps
 
 1. Open this repository as a project in the Codex app.
-2. Select **GPT-5.6 Sol** as the model and **High** or a higher available reasoning level; make both visible in the recording.
+2. Select **GPT-5.6 Sol**, choose the actual single-task mode/effort available to the account, and make the model plus those real labels visible in the recording.
 3. Start a new task and paste:
 
    ```text

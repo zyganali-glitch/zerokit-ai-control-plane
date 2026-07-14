@@ -21,16 +21,22 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - name: Install exact dependencies
         run: npm ci
-      - name: Run deterministic tests
+      - name: Run deterministic contract gates
         run: |
           npm run test:unit
           npm run test:privacy
+          npm run demo:pocketbase
+          node ai-buildweek/scripts/validate-config.mjs ai-buildweek/examples/school-saas.generated.config.json
+          node ai-buildweek/scripts/validate-config.mjs ai-buildweek/examples/healthcare-saas.generated.config.json
+          node ai-buildweek/scripts/validate-config.mjs ai-buildweek/examples/agency-saas.generated.config.json
       - name: Build static demo
         run: npm run build
+      - name: Run real-browser smoke
+        run: npm run test:browser
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact

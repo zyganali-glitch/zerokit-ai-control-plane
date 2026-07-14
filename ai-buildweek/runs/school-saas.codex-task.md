@@ -2,7 +2,7 @@
 
 ## Operator prerequisite
 
-Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. Use `high` reasoning for quality, or the highest available reasoning level for the final demo run. This script cannot verify the in-app selection, so keep the model picker visible in the recording.
+Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. For this single bounded task, use **Max** when it is available; otherwise use the highest visible single-task reasoning effort such as **Extra High** or **High**. Ultra is a parallel subagent mode, not a reasoning level. This script cannot verify the in-app selection, so keep the actual model, mode, and effort visible in the recording.
 
 ## Inputs
 

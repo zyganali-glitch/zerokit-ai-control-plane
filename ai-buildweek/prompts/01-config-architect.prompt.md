@@ -35,7 +35,7 @@ Return, in this order:
 
 Keep routes flexible, but do not claim payload compatibility without a backend contract comparison. Prefer least privilege. Mark unused or risky panels disabled. Include TR/EN labels for user-visible configurable options. Do not add executable code, secrets, or network calls to the JSON.
 
-Before finishing, self-check that all four required registries exist, every panel entry is an object, every role has `slug` and `permissions`, all endpoint values are non-empty strings, and the privacy notes prohibit production data from entering the AI workflow.
+Before finishing, self-check that all eight required top-level sections exist; the panel, field, and endpoint registries are non-empty; every panel entry is an object; every role has `slug` and `permissions`; all endpoint values are non-empty strings; and the privacy notes and test checklist are non-empty string arrays. This self-check does not replace the repository validator or human review.
 
 ## Developer input template
 

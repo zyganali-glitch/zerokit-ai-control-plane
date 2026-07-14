@@ -4,6 +4,8 @@
 - Verified no-rebuild preview: `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
 - Private submission evidence: `/feedback` Session ID from the primary Codex task; never commit it publicly
 - Timing disclosure: [build-week-delta.md](build-week-delta.md)
+- Validator scope: [validator-coverage.md](validator-coverage.md)
+- Adapter claims: [adapter-compatibility-matrix.md](adapter-compatibility-matrix.md)
 
 ## Why this is a Build Week project
 
@@ -23,9 +25,9 @@ This is not a chatbot attached to admin data. Architectural reasoning does not r
 ## Codex app workflow
 
 - `codex:prepare` scans the synthetic input locally and creates a bounded task file.
-- The operator visibly selects **GPT-5.6 Sol** as the model and **High** or a higher available reasoning level in the Codex app. A reasoning label alone is not model evidence.
+- The operator visibly selects **GPT-5.6 Sol** and shows the actual selected mode and effort in the Codex app. For this single bounded task, use Max when available; Ultra is a parallel subagent mode, not a reasoning level. A mode or effort label alone is not model evidence.
 - Codex follows the prepared task and writes the output inside the public repository.
-- A generated artifact is rejected unless the deterministic validator returns PASS.
+- A generated artifact is rejected unless the strict deterministic CLI gate returns PASS.
 - After human review, the operator records a hash manifest.
 - The manifest explicitly labels model selection as operator-confirmed and not cryptographically verified.
 - No model API or model API key is used.
@@ -35,7 +37,7 @@ This is not a chatbot attached to admin data. Architectural reasoning does not r
 - four reusable GPT-5.6/Codex prompt workflows;
 - synthetic school, healthcare, and agency input/config scenarios;
 - a Codex task package, local privacy preflight, and evidence-manifest tools;
-- a shared validator used by the CLI, tests, and browser preview;
+- a browser-safe structural validator plus a stricter generated-artifact CLI/manifest gate;
 - safe demo apply and Markdown report generators;
 - an English/Turkish, light/dark, responsive, browser-only judging preview;
 - adapter-gap, privacy, build-evidence, demo, and screenshot documentation;
@@ -53,7 +55,9 @@ The private commercial donor codebase, its broader panel inventory, private road
 - PocketBase tests cover successful envelope projection and fail-closed behavior for missing or malformed keys.
 - Preview tests retain enabled/hidden panels, RBAC, fields, endpoints, warnings, and privacy evidence.
 
-The tests do not prove arbitrary customer backend compatibility. Each backend still requires a fixture, adapter, authorization review, and integration tests.
+The browser PASS is a fast structural review, not approval to apply a generated artifact. The CLI and manifest gate additionally require `version`, non-empty registries, `brand_config`, privacy evidence, and a test checklist. The exact checks and deliberate JSON Schema limits are documented in [validator-coverage.md](validator-coverage.md).
+
+The tests do not prove arbitrary customer backend compatibility. Each backend still requires a fixture, adapter, authorization review, and integration tests. The proven PocketBase boundary and the status of broader adapter patterns are documented in [adapter-compatibility-matrix.md](adapter-compatibility-matrix.md).
 
 ## Final recorded evidence
 
@@ -67,6 +71,8 @@ The tests do not prove arbitrary customer backend compatibility. Each backend st
 
 ## Judge run path
 
+Prerequisite for the full local path: Node.js 22 or newer and Chrome or Edge for the browser smoke.
+
 ```bash
 npm ci
 npm run build
@@ -74,6 +80,7 @@ npm run test:unit
 npm run test:privacy
 npm run codex:prepare -- ai-buildweek/examples/school-saas.input.md --force
 npm run demo:pocketbase
+npm run test:browser
 npm run dev
 ```
 

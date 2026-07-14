@@ -100,7 +100,7 @@
     "appName": "Orbit Agency Control",
     "colors": { "primary": "#7c3aed", "accent": "#f97316" },
     "i18n": { "defaultLocale": "en", "supportedLocales": ["en", "tr"] },
-    "features": { "billingEnabled": false, "multiTenancy": true }
+    "features": { "billingEnabled": true, "multiTenancy": true }
   },
   "privacy_notes": [
     "GPT-5.6 receives invented workspace, field, and route metadata only.",

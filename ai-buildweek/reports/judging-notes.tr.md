@@ -4,6 +4,8 @@
 - Doğrulanmış, yeniden build gerektirmeyen preview: `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
 - Özel Devpost kanıtı: ana Codex görevindeki `/feedback` Session ID; repoya yazılmaz
 - Zaman/delta açıklaması: [build-week-delta.md](build-week-delta.md)
+- Validator kapsamı: [validator-coverage.md](validator-coverage.md)
+- Adaptör iddiaları: [adapter-compatibility-matrix.md](adapter-compatibility-matrix.md)
 
 ## Neden Build Week projesi?
 
@@ -25,7 +27,7 @@ Bu bir admin verisine eklenmiş chatbot değildir. Modelin mimari reasoning içi
 - `codex:prepare` sentetik girdiyi yerelde tarar ve sınırlandırılmış görev dosyası üretir.
 - Operatör Codex uygulamasında GPT-5.6 Sol'u görünür şekilde seçer.
 - Codex görev dosyasını çalıştırır ve output'u repo içinde oluşturur.
-- Deterministik validator PASS almayan artifact reddedilir.
+- Katı deterministik CLI kapısından PASS almayan üretilmiş artifact reddedilir.
 - İnsan review sonrasında hash manifesti oluşturulur.
 - Manifest model seçimini operatör onaylı ve kriptografik olmayan kanıt diye açıkça etiketler.
 - Model API'si ve API anahtarı yoktur.
@@ -35,7 +37,7 @@ Bu bir admin verisine eklenmiş chatbot değildir. Modelin mimari reasoning içi
 - dört tekrar kullanılabilir GPT-5.6/Codex prompt workflow'u;
 - okul, sağlık ve ajans sentetik input/config senaryoları;
 - Codex görev paketi, privacy preflight ve manifest araçları;
-- CLI, test ve browser preview tarafından paylaşılan sıfır-runtime-package validator;
+- browser-safe yapısal validator ile daha katı generated-artifact CLI/manifest kapısı;
 - güvenli demo apply ve Markdown rapor üreticileri;
 - TR/EN, light/dark, responsive browser-only preview;
 - sentetik adaptör gap, privacy, build evidence, demo ve screenshot rehberi;
@@ -53,9 +55,13 @@ Bu bir admin verisine eklenmiş chatbot değildir. Modelin mimari reasoning içi
 - PocketBase testleri başarılı zarf dönüşümünü ve eksik/yanlış key'de fail-closed davranışı doğrular.
 - Preview projection açık/kapalı panel ile RBAC, field, endpoint, warning ve privacy kanıtını korur.
 
-Testler müşteri backend payload uyumunu genel olarak kanıtlamaz; her backend için fixture, adaptör ve authorization testi gerekir.
+Browser PASS hızlı bir yapısal incelemedir; üretilmiş artifact'i uygulama onayı değildir. CLI ve manifest kapısı ayrıca `version`, dolu registry'ler, `brand_config`, mahremiyet kanıtı ve test checklist'i ister. Kesin kapsam ve bilinçli JSON Schema sınırı [validator-coverage.md](validator-coverage.md) belgesindedir.
+
+Testler müşteri backend payload uyumunu genel olarak kanıtlamaz; her backend için fixture, adaptör, authorization incelemesi ve integration test gerekir. Kanıtlı PocketBase sınırı ile diğer adaptör durumları [adapter-compatibility-matrix.md](adapter-compatibility-matrix.md) belgesinde ayrılır.
 
 ## Jüri çalıştırma yolu
+
+Tam yerel yol için Node.js 22 veya üzeri; browser smoke için Chrome ya da Edge gerekir.
 
 ```bash
 npm ci
@@ -64,6 +70,7 @@ npm run test:unit
 npm run test:privacy
 npm run codex:prepare -- ai-buildweek/examples/school-saas.input.md --force
 npm run demo:pocketbase
+npm run test:browser
 npm run dev
 ```
 

@@ -53,7 +53,8 @@ async function main() {
   }
   await copyFile(source, target);
   console.log(`PASS Applied validated demo config to ${target}`);
-  console.log('NEXT Run npm run dev, open the preview, and review the config before runtime integration.');
+  console.log(`NEXT Run npm run dev, click "Choose local JSON" in the preview, and select ${target}.`);
+  console.log('Review the loaded config before runtime integration; staging this file does not auto-load it in the browser.');
 }
 
 try {

@@ -12,7 +12,7 @@ The public repository also had an initial foundation before the official Submiss
 
 ## New public Build Week work
 
-The final in-period extension begins on 2026-07-14 and is intentionally more than a documentation pass. It includes:
+The meaningful in-period extension begins on 2026-07-14 and is intentionally more than a documentation pass. It includes:
 
 - a GitHub Pages deployment workflow and no-rebuild judge path;
 - project-subpath-safe browser routing and sample loading for `github.io/zerokit-ai-control-plane/`;
@@ -22,7 +22,7 @@ The final in-period extension begins on 2026-07-14 and is intentionally more tha
 - official-rules-aligned English audio/voiceover, Devpost, `/feedback`, Pages, and judge guidance;
 - the final fresh GPT-5.6 Codex generation, review, manifest, video, and Session ID steps documented below as operator evidence gates.
 
-The meaningful in-period extension is timestamped by commit [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**.
+The first timestamped commit in this in-period extension is [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**. It proves the start of the extension; it is not labeled as the final evidence commit. The final submission/evidence SHA remains pending until the fresh GPT-5.6 artifact, review, manifest, and final gates are complete.
 
 ## Codex/GPT-5.6 contribution
 
@@ -39,7 +39,8 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 
 ## Evidence checklist
 
-- [x] Final in-period feature commit SHA is recorded above.
+- [x] First in-period extension commit SHA is recorded above.
+- [ ] Final submission/evidence commit SHA is recorded after the fresh artifact, manifest, and gates are complete.
 - [x] GitHub Pages is enabled; build/deploy succeeded and the live URL was verified anonymously and with real Chrome.
 - [ ] GPT-5.6 Sol and the selected reasoning level are visible in Codex.
 - [ ] Fresh School SaaS target is generated from the prepared task.

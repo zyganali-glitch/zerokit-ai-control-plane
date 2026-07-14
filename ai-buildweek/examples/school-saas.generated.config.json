@@ -99,7 +99,7 @@
     "appName": "Northstar School Control",
     "colors": { "primary": "#2563eb", "accent": "#14b8a6" },
     "i18n": { "defaultLocale": "tr", "supportedLocales": ["tr", "en"] },
-    "features": { "billingEnabled": false, "multiTenancy": false }
+    "features": { "billingEnabled": true, "multiTenancy": false }
   },
   "privacy_notes": [
     "GPT-5.6 receives synthetic role, field, and endpoint metadata only.",
