@@ -22,7 +22,7 @@ The final in-period extension begins on 2026-07-14 and is intentionally more tha
 - official-rules-aligned English audio/voiceover, Devpost, `/feedback`, Pages, and judge guidance;
 - the final fresh GPT-5.6 Codex generation, review, manifest, video, and Session ID steps documented below as operator evidence gates.
 
-The commit SHA for this in-period extension must be inserted here after the final commit: `PENDING_FINAL_IN_PERIOD_COMMIT`.
+The meaningful in-period extension is timestamped by commit [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**.
 
 ## Codex/GPT-5.6 contribution
 
@@ -39,7 +39,7 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 
 ## Evidence checklist
 
-- [ ] Final in-period commit SHA replaces the placeholder above.
+- [x] Final in-period feature commit SHA is recorded above.
 - [ ] GitHub Pages is enabled and the anonymous live URL is verified.
 - [ ] GPT-5.6 Sol and the selected reasoning level are visible in Codex.
 - [ ] Fresh School SaaS target is generated from the prepared task.
