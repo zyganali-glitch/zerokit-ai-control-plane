@@ -1,3 +1,3 @@
-const target = new URL('/frontend/pages/ai-config-preview.html', window.location.origin);
-target.search = window.location.search;
-window.location.replace(target);
+import { buildPreviewUrl } from './static-paths.js';
+
+window.location.replace(buildPreviewUrl(window.location.href));

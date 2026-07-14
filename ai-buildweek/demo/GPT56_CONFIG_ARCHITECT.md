@@ -1,6 +1,6 @@
 # GPT-5.6/Codex config mimarı çalışma akışı
 
-> Bu belge teknik ayrıntı kaynağıdır. İlk kez video hazırlayan kullanıcı doğrudan [tıklama tıklama sessiz demo kılavuzunu](DEMO_VIDEO_ROADMAP.md) izlemelidir.
+> Bu belge teknik ayrıntı kaynağıdır. İlk kez video hazırlayan kullanıcı doğrudan [İngilizce seslendirmeli, tıklama tıklama demo kılavuzunu](DEMO_VIDEO_ROADMAP.md) izlemelidir.
 
 > Windows PowerShell kullanıyorsan aşağıdaki `npm.cmd` komutlarını aynen kullan. `npm` yazıldığında `npm.ps1 cannot be loaded because running scripts is disabled` hatası oluşabilir. Sistem güvenlik politikasını değiştirmek gerekmez.
 

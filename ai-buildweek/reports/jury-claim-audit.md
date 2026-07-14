@@ -1,6 +1,6 @@
 # OpenAI Build Week judging and claim audit
 
-- Audit date: 2026-07-13
+- Audit date: 2026-07-14
 - Scope: public `zerokit-ai-control-plane` repository
 - Review perspective: senior product engineer and proxy Build Week judge
 - Note: the scores below are evidence-based estimates, not official OpenAI scores.
@@ -30,17 +30,17 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 
 | Judging dimension | Current score | Why it is not higher |
 | --- | ---: | --- |
-| Technical implementation | 7.6/10 | The bounded Codex task, privacy guard, strict output gate, manifest, preview, and PocketBase adapter are implemented; the final visible GPT-5.6 operator run and video are not yet recorded. |
-| Design / UX | 8.1/10 | The bilingual responsive preview is coherent; prepare → Codex → preview still spans two applications. |
+| Technical implementation | 8.3/10 conditional | The bounded task, privacy guard, strict gate, manifest, preview, adapter, Pages portability tests, and deploy workflow are implemented; final operator evidence remains. |
+| Design / UX | 8.2/10 conditional | The bilingual responsive preview and visible evidence chain are coherent; prepare → Codex → preview still spans two applications. |
 | Potential impact | 7.7/10 | SaaS customization is a credible problem demonstrated across three sectors; there is no customer interview, timing study, or pilot evidence. |
 | Idea quality | 8.5/10 | Positioning GPT-5.6 as a config/contract/test co-designer rather than a chatbot is distinctive and privacy-aware. |
-| **Equal-weight proxy total** | **8.0/10** | Competitive and credible; a visible GPT-5.6 run, strong video, and optional live preview would improve placement. |
+| **Equal-weight proxy total** | **8.1/10 conditional** | Competitive and credible if the visible GPT-5.6 run, English-audio video, Session ID, and verified Pages URL are completed. |
 
 ## Claim-by-claim result
 
 | Claim | Result | Evidence | Boundary |
 | --- | --- | --- | --- |
-| GPT-5.6/Codex is central | **Code path ready; final operator evidence pending** | Four prompts, task generator, model-selection attestation, output validator | The video must show GPT-5.6 Sol or the documented High selection and the manifest from that run. |
+| GPT-5.6/Codex is central | **Code path ready; final operator evidence pending** | Four prompts, task generator, model-selection attestation, output validator | The video must show GPT-5.6 Sol as the model, the chosen reasoning level, and the manifest from that run. |
 | Generates config from sanitized requirements | **Ready** | School input, prepared task, target path, validation command | Do not present the checked-in baseline config as a fresh Codex run; write new output to the evidence path. |
 | Privacy-preserving AI workflow | **Supported as a workflow control** | Local guard, `.env`/secret denylist, synthetic fixtures, zero external preview requests | Pattern matching cannot guarantee complete sanitization; human review is mandatory. |
 | Production data stays outside the model | **True for the repository and supported workflow** | Checked-in inputs are synthetic; task rules prohibit private sources | A developer could bypass process rules; operational discipline is still required. |
@@ -53,7 +53,7 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 
 | Command | Final recorded result |
 | --- | --- |
-| `npm run test:unit` | PASS, 18/18 |
+| `npm run test:unit` | PASS, 20/20 |
 | `npm run test:privacy` | PASS, 8/8 |
 | `npm run test:browser` | PASS, 16/16 |
 | `npm run demo:pocketbase` | PASS, 2 synthetic items → 2 users |
@@ -83,12 +83,12 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 - a prepared `school-saas.codex-task.md` task;
 - local config, unit, privacy, browser, and adapter tests.
 
-One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol** or the documented **High** reasoning selection in Codex, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. This is a controlled recording-day step, not a missing code feature.
+One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol** as the model and **High** or a higher available reasoning level in Codex, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. A `High` label alone is not proof of the model. This is a controlled recording-day step, not a missing code feature.
 
 ## Pre-submission P0 steps
 
 1. Open this repository as a project in the Codex app.
-2. Select **GPT-5.6 Sol** or the documented **High** reasoning selection and make it visible in the recording.
+2. Select **GPT-5.6 Sol** as the model and **High** or a higher available reasoning level; make both visible in the recording.
 3. Start a new task and paste:
 
    ```text
@@ -97,12 +97,12 @@ One competition artifact is still manual: the operator must visibly select **GPT
 
 4. Review `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json` manually.
 5. After validator PASS, run the manifest command.
-6. Show the model picker, prepared task, generated target, validator PASS, and manifest hash in the silent video.
+6. Show the model picker, prepared task, generated target, validator PASS, and manifest hash in the English-audio video.
 
 ## Recommendations that could strengthen placement
 
-- Optionally deploy the static `dist/` output over HTTPS and place the real URL near the top of README/Devpost; do not claim a URL until it exists.
-- Use no narration or audio. Keep the application and short embedded captions in English; keep Turkish only in the operator guide.
+- Enable the checked-in GitHub Pages workflow, verify the live URL anonymously, then place the verified URL in README/Devpost; do not claim it before that check.
+- Use simple English voiceover or English text-to-speech plus readable English captions. Captions alone do not satisfy the official audio requirement.
 - Do not show the private donor admin panel as competition evidence. Show the reproducible public preview.
 - Measure manual first-draft time against Codex-assisted first-draft time as one internal experiment; do not generalize it into an unsupported productivity claim.
 - Keep PocketBase evidence to roughly 10–15 seconds so the main story remains GPT-5.6/Codex and ZeroKit.

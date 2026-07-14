@@ -10,7 +10,7 @@ Ekran görüntülerinde konuşma olmadığı için bütün açıklama metinleri 
 
 ## 2. Codex model ve görev kanıtı
 
-- Codex uygulamasında `zerokit-ai-control-plane` proje adı, görünür GPT-5.6 Sol/High seçimi ve İngilizce okul görevi aynı karede olsun.
+- Codex uygulamasında `zerokit-ai-control-plane` proje adı, model olarak görünür GPT-5.6 Sol, reasoning olarak High ve İngilizce okul görevi aynı karede olsun.
 - `.env`, özel task veya donör repo görünmesin.
 - İngilizce açıklama: `A bounded Codex task after a local privacy preflight.`
 

@@ -1,16 +1,16 @@
-# Three-minute Build Week demo with English voiceover
+# English voiceover and caption script
 
-The final video must be public on YouTube, shorter than three minutes, and include English audio. The lines below are intentionally short enough for clear human speech or English text-to-speech. Use captions for accessibility; do not use copyrighted music. The separate private commercial codebase must not appear.
+Use this as the single source for the final audio and captions. The planned runtime is **2:57**, leaving three seconds of safety below Devpost's three-minute limit. Speak the English lines or generate English text-to-speech from them. Captions should match the meaning and remain readable. Do not add copyrighted music.
 
-| Time | Screen | Voiceover | Caption | Evidence |
+| Time | On-screen action | English voiceover line | On-screen caption | Evidence shown |
 | --- | --- | --- | --- | --- |
 | 0:00–0:08 | Hold on the English product hero. | “This is ZeroKit AI Control Plane, a developer tool built with Codex and GPT-5.6.” | `ZeroKit AI Control Plane` | Product name and working UI |
 | 0:08–0:18 | Show the School SaaS sample and preview. | “SaaS teams repeatedly rebuild roles, navigation, fields, endpoints, and release checks.” | `Repeated admin infrastructure becomes one reviewable contract.` | Problem and target user |
 | 0:18–0:29 | Show the proof strip and preview metrics. | “ZeroKit turns a sanitized product brief into one reviewable control-plane configuration.” | `Panels · RBAC · Fields · Endpoints` | Product value and configuration scope |
-| 0:29–0:40 | Run `npm.cmd run codex:prepare -- ai-buildweek/examples/school-saas.input.md --force`. | “Before Codex sees the task, a local privacy preflight blocks sensitive patterns and prepares a bounded file.” | `Local privacy preflight: PASS` | Zero blockers and generated task path |
+| 0:29–0:40 | Run the PowerShell `codex:prepare` command. | “Before Codex sees the task, a local privacy preflight blocks sensitive patterns and prepares a bounded file.” | `Local privacy preflight: PASS` | Zero blockers and generated task path |
 | 0:40–0:50 | Open the Codex model selector; show **GPT-5.6 Sol** and High reasoning. | “I explicitly selected GPT-5.6 Sol with high reasoning in the Codex app.” | `GPT-5.6 Sol · High reasoning` | Visible model and reasoning selection |
 | 0:50–1:00 | Open `ai-buildweek/runs/school-saas.codex-task.md`. | “The prepared task limits Codex to synthetic requirements, the public schema, and a specific output path.” | `Bounded task · Synthetic inputs only` | Allowed files, prohibited sources, target path |
-| 1:00–1:11 | Show the English task sent to Codex, then the finished target file. | “Codex uses GPT-5.6 to generate the target configuration inside the public repository.” | `Codex-generated target config` | `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json` |
+| 1:00–1:11 | Show the English task sent to Codex, then the finished target file. | “Codex uses GPT-5.6 to generate the target configuration inside the public repository.” | `Codex-generated target config` | Fresh generated target path |
 | 1:11–1:21 | Show the validator command and PASS output. | “Deterministic validation rejects missing registries, unsafe values, and incomplete test evidence.” | `Validator: PASS` | Validator PASS and counts |
 | 1:21–1:31 | Show human review, then `codex:record` PASS and the manifest hash. | “After human review, an operator-confirmed manifest records file hashes without claiming cryptographic model proof.” | `Human reviewed · Hash manifest recorded` | Review confirmation, manifest path, hash |
 | 1:31–1:42 | Open the browser-only School SaaS preview. | “The browser preview loads the validated synthetic config and makes no external request.” | `Browser-only preview · No external requests` | Scenario, PASS status, local privacy banner |
@@ -21,12 +21,4 @@ The final video must be public on YouTube, shorter than three minutes, and inclu
 | 2:37–2:52 | Show the GitHub Pages preview, then the public GitHub repository. | “The live preview needs no rebuild, while the public repository contains setup, validation, evidence, and source code.” | `Open demo · Reproducible repository` | Pages URL and public repository URL |
 | 2:52–2:57 | End on the product hero and URL. | “ZeroKit makes AI-generated control-plane decisions visible, testable, and reviewable.” | `github.com/zyganali-glitch/zerokit-ai-control-plane` | Final public URL |
 
-## English task to paste into Codex
-
-```text
-Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Do not read any .env file, private donor file, credential, production log, customer record, or private file outside this repository. Run the required local validator, fix every failure, and report the final validation result and assumptions.
-```
-
-If the real Codex run takes longer than the video allows, remove only the waiting interval and add `Codex run shortened for time`. Never remove the visible model selection, prepared task, generated target, validator PASS, human review, manifest, or final tests.
-
-Exact voiceover source: [VOICEOVER_SCRIPT.md](VOICEOVER_SCRIPT.md). Turkish click-by-click production guide: [DEMO_VIDEO_ROADMAP.md](DEMO_VIDEO_ROADMAP.md).
+Before export, generate the TTS audio once, listen for mispronunciations, and keep the finished video at or below **2:57**. If a line runs long, slightly shorten the pause between lines; do not accelerate speech until it becomes hard to understand.

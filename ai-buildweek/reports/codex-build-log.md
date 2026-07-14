@@ -1,5 +1,7 @@
 # Codex build and validation log
 
+> Historical snapshot from 2026-07-13. The current 2026-07-14 suite is 20/20 after GitHub Pages subpath tests were added; see README and the final submission-readiness report for current evidence.
+
 - Date: 2026-07-13
 - Environment: Windows PowerShell, Node.js v24.13.1
 - Scope: public Build Week judging edition only
@@ -169,4 +171,4 @@ three config validations       PASS, 3/3
 npm run test:browser           PASS, 16/16
 ```
 
-The final competition artifact is an operator step: visibly select GPT-5.6 Sol or the documented High reasoning selection in the Codex app, run the prepared school task, review the output, and record the manifest. The local script cannot read the in-app model, so no cryptographic model verification is claimed.
+The final competition artifact is an operator step: visibly select GPT-5.6 Sol as the model and High or a higher available reasoning level in the Codex app, run the prepared school task, review the output, and record the manifest. A reasoning label alone is not model evidence. The local script cannot read the in-app model, so no cryptographic model verification is claimed.

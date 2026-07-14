@@ -5,7 +5,26 @@
 Judge-facing notes: [Judging notes](ai-buildweek/reports/judging-notes.md) · [Privacy boundary](ai-buildweek/reports/privacy-boundary.md) · [Claim audit](ai-buildweek/reports/jury-claim-audit.md)<br>
 Operator recording guide, Turkish: [Demo video roadmap](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md)
 
-This Build Week edition is a public competition adaptation of a private commercial ZeroKit codebase. The private donor product remains separate; this repository contains the selected and hardened judging/demo surface, GPT-5.6/Codex workflows, synthetic sample configs, local validation tools, and a runnable privacy-preserving control-plane preview.
+This standalone public Build Week judging edition draws on prior private SaaS-control-plane research. The separate private commercial codebase is not included or required for judging. This repository contains the submitted GPT-5.6/Codex workflow, synthetic sample configs, privacy and validation tools, adapter evidence, tests, and runnable control-plane preview.
+
+## Recommended track: Developer Tools
+
+ZeroKit is submitted to **Developer Tools** because its primary user is a developer or technical product team. The School SaaS example is synthetic demo data, not the competition category. The product packages bounded agent tasks, generates and validates configuration contracts, maps adapter gaps, enforces privacy gates, and exposes reproducible test evidence.
+
+## Devpost submission evidence
+
+- Track: **Developer Tools**
+- Demo video: public YouTube URL, under three minutes, with English audio explaining what was built and how Codex/GPT-5.6 were used
+- Codex evidence: enter the `/feedback` Codex Session ID from the primary project task in the Devpost form; do not commit the Session ID publicly
+- Build Week delta: see [build-week-delta.md](ai-buildweek/reports/build-week-delta.md)
+- Testing path: see [LIVE_DEMO.md](LIVE_DEMO.md)
+- Submission form guide: see [DEVPOST_SUBMISSION_GUIDE.md](ai-buildweek/submission/DEVPOST_SUBMISSION_GUIDE.md)
+
+The optional Devpost Hackathons plugin can help prepare a submission, but it is not required, is not integrated into this product, and is not a product dependency. The Devpost website and Official Rules remain the source of truth.
+
+## Live demo / no-rebuild judge path
+
+Live preview target: <https://zyganali-glitch.github.io/zerokit-ai-control-plane/> once GitHub Pages is enabled and anonymously verified for this repository. Until then, judges can run the local preview with `npm ci`, `npm run build`, and `npm run dev`. Do not treat the target URL as active until the verification in [LIVE_DEMO.md](LIVE_DEMO.md) succeeds.
 
 ## The problem
 
@@ -59,7 +78,7 @@ See [privacy-boundary.md](ai-buildweek/reports/privacy-boundary.md) for sanitiza
 
 ## Quick start
 
-Prerequisite: Node.js 20 or newer.
+Prerequisite: Node.js 20 or newer. Supported operator platforms are Windows, macOS, and Linux. The browser smoke requires an installed Chrome or Edge binary; the static Pages preview works in current evergreen browsers.
 
 ```bash
 npm ci
@@ -127,7 +146,9 @@ The checked-in synthetic fixture mirrors PocketBase's documented `items`/`totalI
 7. Generate a Markdown report and show build/test evidence.
 8. Close on the privacy boundary and required human review.
 
-The silent English storyboard is in [DEMO_SCRIPT.md](ai-buildweek/demo/DEMO_SCRIPT.md); the Turkish, click-by-click beginner production, recording, editing, open-source-project, failure-recovery, and submission guide is in [DEMO_VIDEO_ROADMAP.md](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md). The competition video uses no narration or audio.
+The exact English voiceover and caption source is [VOICEOVER_SCRIPT.md](ai-buildweek/demo/VOICEOVER_SCRIPT.md); the matching English shot list is [DEMO_SCRIPT.md](ai-buildweek/demo/DEMO_SCRIPT.md). The Turkish, click-by-click beginner production, text-to-speech, recording, editing, failure-recovery, and submission guide is [DEMO_VIDEO_ROADMAP.md](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md).
+
+The competition video is under three minutes, public on YouTube, and includes English audio explaining what was built and how Codex/GPT-5.6 were used. Captions are included for clarity. English text-to-speech is acceptable for an operator who does not speak English; captions alone are not a substitute for audio.
 
 ## Evidence
 
@@ -137,7 +158,7 @@ Evidence captured on 2026-07-13 is recorded in [codex-build-log.md](ai-buildweek
 | --- | --- | --- |
 | `npm ci` | PASS | 1 package audited, 0 vulnerabilities; lockfile reproduced |
 | `npm run build` | PASS | Static judging demo emitted to `dist/` |
-| `npm run test:unit` | PASS | 18/18 Node tests, including school task synchronization, Codex manifest, strict generated-artifact, privacy, and PocketBase adapter tests |
+| `npm run test:unit` | PASS | 20/20 Node tests, including task/manifest rules, strict artifacts, privacy, PocketBase, and GitHub Pages subpath resolution |
 | `npm run test:privacy` | PASS | 8/8 focused Codex-workflow and privacy-guard tests |
 | School Codex task preflight | PASS | Task file produced, zero blockers/review findings, no model API call |
 | In-app GPT-5.6 run evidence | OPERATOR STEP | Select GPT-5.6 Sol visibly in Codex, execute the prepared task, review output, then record the manifest |
@@ -151,9 +172,9 @@ Evidence captured on 2026-07-13 is recorded in [codex-build-log.md](ai-buildweek
 
 Playwright is intentionally not added to this selected static surface. The dependency-free Chrome DevTools smoke runner uses an installed Chrome/Edge binary (`CHROME_PATH` can override discovery) and does not claim that the private donor product’s broader E2E suite applies to this repository.
 
-## Optional static preview deployment
+## Static preview deployment
 
-The static judging surface is emitted to `dist/` with `npm run build`. It can be deployed to GitHub Pages or any static host. The local workflow remains the source of truth for privacy checks, Codex task preparation, validation, and evidence. No live preview URL is claimed until a deployment actually exists.
+The static judging surface is emitted to `dist/` with `npm run build`. The checked-in GitHub Actions workflow deploys it to GitHub Pages after the owner enables Pages with **GitHub Actions** as its source. The local workflow remains the source of truth for privacy checks, Codex task preparation, validation, and evidence. See [LIVE_DEMO.md](LIVE_DEMO.md); no live URL is claimed until an anonymous check succeeds.
 
 ## Repository structure
 
@@ -162,9 +183,10 @@ ai-buildweek/
   prompts/       GPT-5.6/Codex architecture, adapter, gate, and demo prompts
   examples/      Three synthetic inputs and generated ZeroKit configs
   lib/           Privacy guard, Codex app task/evidence, and adapter modules
-  reports/       Adapter, privacy, judging, claim audit, and build evidence
+  reports/       Adapter, privacy, judging, delta, session, claim, and build evidence
   scripts/       Generation, validation, adapter, safe apply, and report CLIs
-  demo/          Architect guide, recording roadmap, script, and screenshot checklist
+  demo/          Architect guide, voiceover, recording roadmap, script, and screenshots
+  submission/    Devpost field drafts and final operator checklist
 config/          Public config contract schema
 frontend/
   pages/         Isolated local control-plane preview
@@ -178,7 +200,7 @@ tests/unit/      Shared validator and preview projection tests
 
 The AI is used where architectural reasoning creates leverage: translating requirements into a coherent permission/navigation/field contract, comparing backend shapes, exposing uncertainty, and producing a test plan. The supported workflow prepares a local task, runs it in the Codex app with a visibly selected GPT-5.6 model, records provenance hashes after human review, and rejects output that fails the shared local contract. Runtime customer data is deliberately outside that loop. This makes GPT-5.6/Codex a config and verification co-designer, not an agent reading a SaaS database.
 
-The four reusable workflows live in [ai-buildweek/prompts](ai-buildweek/prompts), judge-oriented context lives in [judging-notes.md](ai-buildweek/reports/judging-notes.md), and the claim-by-claim competition assessment lives in [jury-claim-audit.md](ai-buildweek/reports/jury-claim-audit.md).
+The four reusable workflows live in [ai-buildweek/prompts](ai-buildweek/prompts), judge-oriented context lives in [judging-notes.md](ai-buildweek/reports/judging-notes.md), the claim-by-claim assessment lives in [jury-claim-audit.md](ai-buildweek/reports/jury-claim-audit.md), and the official submission-period disclosure lives in [build-week-delta.md](ai-buildweek/reports/build-week-delta.md).
 
 ## Scope and dependency honesty
 

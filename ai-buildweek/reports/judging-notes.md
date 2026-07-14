@@ -1,5 +1,10 @@
 # Build Week judging notes
 
+- Recommended track: **Developer Tools**
+- No-rebuild preview target: `https://zyganali-glitch.github.io/zerokit-ai-control-plane/` after Pages is enabled and anonymously verified
+- Private submission evidence: `/feedback` Session ID from the primary Codex task; never commit it publicly
+- Timing disclosure: [build-week-delta.md](build-week-delta.md)
+
 ## Why this is a Build Week project
 
 This repository is the public, competition-focused adaptation of a separate private commercial ZeroKit codebase. It targets a difficult and repeated part of SaaS delivery: turning product requirements and backend contracts into one coherent control-plane definition. The workflow is intentionally reviewable, runnable, and testable by judges.
@@ -11,14 +16,14 @@ GPT-5.6/Codex acts as an architecture, configuration, and test co-designer:
 1. The config architect turns sanitized product intent into panels, RBAC, fields, endpoints, branding, privacy notes, and test gates.
 2. The adapter mapper compares a sanitized backend contract against a route-flexible, payload-strict expectation and does not invent compatibility.
 3. The gate planner proposes unit, smoke, privacy, i18n, responsive, and evidence checks.
-4. The silent-demo workflow turns real PASS/FAIL evidence into a concise judge-facing story.
+4. The English voiceover workflow turns real PASS/FAIL evidence into a concise judge-facing story and explains how Codex plus GPT-5.6 were used.
 
 This is not a chatbot attached to admin data. Architectural reasoning does not require production customer records.
 
 ## Codex app workflow
 
 - `codex:prepare` scans the synthetic input locally and creates a bounded task file.
-- The operator visibly selects GPT-5.6 Sol, or the documented High reasoning selection, in the Codex app.
+- The operator visibly selects **GPT-5.6 Sol** as the model and **High** or a higher available reasoning level in the Codex app. A reasoning label alone is not model evidence.
 - Codex follows the prepared task and writes the output inside the public repository.
 - A generated artifact is rejected unless the deterministic validator returns PASS.
 - After human review, the operator records a hash manifest.
@@ -54,7 +59,7 @@ The tests do not prove arbitrary customer backend compatibility. Each backend st
 
 | Command | Result |
 | --- | --- |
-| `npm run test:unit` | PASS, 18/18 |
+| `npm run test:unit` | PASS, 20/20 |
 | `npm run test:privacy` | PASS, 8/8 |
 | `npm run test:browser` | PASS, 16/16 |
 | `npm run demo:pocketbase` | PASS |
@@ -73,5 +78,7 @@ npm run dev
 ```
 
 Open `http://127.0.0.1:4173`, switch scenarios/language/theme, and inspect the adapter and privacy evidence. The final GPT-5.6 generation is an operator step performed in the Codex app with the prepared task file.
+
+The public video must be under three minutes and include English voiceover or English text-to-speech explaining both the product and the meaningful Codex/GPT-5.6 contribution. Readable captions support the audio but do not replace it.
 
 Turkish reference: [judging-notes.tr.md](judging-notes.tr.md)

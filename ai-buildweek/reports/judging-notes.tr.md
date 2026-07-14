@@ -1,5 +1,10 @@
 # Build Week jüri notları
 
+- Önerilen track: **Developer Tools**
+- Yeniden build gerektirmeyen hedef: Pages etkinleştirilip gizli pencerede doğrulandıktan sonra `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
+- Özel Devpost kanıtı: ana Codex görevindeki `/feedback` Session ID; repoya yazılmaz
+- Zaman/delta açıklaması: [build-week-delta.md](build-week-delta.md)
+
 ## Neden Build Week projesi?
 
 Bu repo, özel ticari ZeroKit kod tabanının yarışmaya odaklanmış açık uyarlamasıdır. SaaS teslimatının zor ve tekrarlanan bölümünü seçer: gereksinim ve backend sözleşmesini tutarlı bir kontrol düzlemi tanımına dönüştürmek. Akışı jüri için incelenebilir, çalıştırılabilir ve test edilebilir yapar.
@@ -63,3 +68,5 @@ npm run dev
 ```
 
 `http://127.0.0.1:4173` adresini aç; senaryo/dil/tema değiştir ve adaptör/mahremiyet raporlarını incele. Son GPT-5.6 üretimi Codex uygulamasında hazır görev dosyasıyla yürütülür.
+
+Herkese açık video üç dakikadan kısa olmalı; ürünün ne yaptığını ve Codex/GPT-5.6'nın nasıl kullanıldığını açıklayan İngilizce insan sesi veya İngilizce TTS içermelidir. İngilizce altyazılar sesi destekler, sesin yerini tutmaz.

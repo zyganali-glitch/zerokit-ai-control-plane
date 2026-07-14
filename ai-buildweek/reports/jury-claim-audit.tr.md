@@ -1,6 +1,6 @@
 # OpenAI Build Week jüri ve iddia denetimi
 
-- Denetim tarihi: 2026-07-13
+- Denetim tarihi: 2026-07-14
 - Kapsam: herkese açık `zerokit-ai-control-plane` reposu
 - İnceleme bakışı: kıdemli ürün mühendisi + OpenAI Build Week jüri vekili
 - Not: Aşağıdaki puanlar resmî OpenAI puanı değil, kanıta dayalı değerlendirme tahminidir.
@@ -17,11 +17,11 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 
 | Resmî ölçüt | Güncel puan | Neden daha yüksek değil? |
 | --- | ---: | --- |
-| Teknolojik uygulama | 7,6/10 | Codex görev paketi, mahremiyet engeli, katı çıktı kapısı, hash manifesti, preview ve PocketBase adaptörü var; son operatör çalışması ve videosu henüz kaydedilmedi. |
-| Tasarım / UX | 8,1/10 | Bilingual ve responsive preview tutarlı; görev hazırlama → Codex → preview zinciri hâlâ iki uygulama arasında ilerliyor. |
+| Teknolojik uygulama | 8,3/10 koşullu | Görev paketi, mahremiyet engeli, katı çıktı kapısı, manifest, preview, PocketBase, Pages alt-yol testi ve dağıtım akışı var; son operatör kanıtı bekliyor. |
+| Tasarım / UX | 8,2/10 koşullu | İki dilli responsive preview ve kanıt zinciri tutarlı; görev hazırlama → Codex → preview hâlâ iki uygulamada ilerliyor. |
 | Potansiyel etki | 7,7/10 | SaaS özelleştirme problemi gerçek ve üç sektörle anlatılıyor; müşteri görüşmesi, süre ölçümü veya pilot kanıtı yok. |
 | Fikir kalitesi | 8,5/10 | GPT-5.6'yı chatbot yerine config/sözleşme/test eş tasarımcısı olarak konumlamak özgün ve mahremiyet odaklı. |
-| **Eşit ağırlıklı jüri vekili toplamı** | **8,0/10** | Rekabetçi ve inandırıcı; görünür GPT-5.6 çalışması, güçlü video ve mümkünse canlı preview bağlantısı gerekir. |
+| **Eşit ağırlıklı jüri vekili toplamı** | **8,1/10 koşullu** | Rekabetçi ve inandırıcı; görünür GPT-5.6 çalışması, sesli video, Session ID ve doğrulanmış Pages bağlantısı gerekir. |
 
 ## İddia bazında sonuç
 
@@ -38,7 +38,7 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 
 | Komut | Sonuç |
 | --- | --- |
-| `npm run test:unit` | PASS, 18/18 |
+| `npm run test:unit` | PASS, 20/20 |
 | `npm run test:privacy` | PASS, 8/8 |
 | `npm run test:browser` | PASS, 16/16 |
 | `npm run demo:pocketbase` | PASS |
@@ -48,7 +48,7 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 
 **Evet.** Sansürlenmiş okul gereksinimi, baseline config, browser preview, PocketBase sentetik adaptörü, hazır Codex görev paketi ve yerel testler mevcuttur.
 
-Henüz yapılmamış tek yarışma kanıtı: operatörün Codex'te görünür GPT-5.6 seçimiyle hazır görevi çalıştırması, yeni output'u incelemesi, manifest oluşturması ve bunu videoda göstermesidir.
+Kod ve belge tarafı hazırdır; kalan yarışma kapıları operatör işlemleridir: model olarak görünür GPT-5.6 Sol ve reasoning olarak High ile görevi çalıştırmak, yeni output'u incelemek, manifest oluşturmak, Pages'i etkinleştirip anonim doğrulamak, ana Codex görevinde `/feedback` çalıştırmak ve İngilizce sesli videoyu yayımlamak.
 
 ## Jüriye söylenecek tek cümle
 

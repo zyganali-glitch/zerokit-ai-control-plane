@@ -1,10 +1,11 @@
 import { createConfigPreview, resolvePreviewOptions } from './config-preview-model.js';
 import { validateZeroKitConfig } from './config-validator.js';
+import { buildSampleUrl } from './static-paths.js';
 
 const COPY = {
   en: {
     page_title: 'ZeroKit AI Control Plane — Local Preview', skip: 'Skip to config input', controls_nav: 'Preview controls', theme_light: 'Light theme', theme_dark: 'Dark theme',
-    edition: 'Public Build Week judging edition', title: 'Turn a SaaS idea into a reviewable control-plane contract.',
+    edition: 'OpenAI Build Week · Developer Tools entry', title: 'Turn a SaaS idea into a reviewable control-plane contract.',
     tagline: 'Preview panels, roles, fields, and endpoint mappings generated with Codex + GPT-5.6—without sending production customer data to AI.',
     privacy_title: 'Local privacy boundary', privacy_body: ' Pasted configuration stays in this browser tab. This page makes no external request.',
     input_heading: 'Load or paste a generated config', input_help: 'Use a bundled synthetic scenario, choose a local JSON file, or paste JSON. Review before applying.',
@@ -16,11 +17,15 @@ const COPY = {
     summary_label: 'Configuration summary', enabled_panels: 'Enabled panels', hidden_panels: 'Hidden panels', roles: 'Roles', endpoints: 'Endpoint mappings',
     panel_map: 'Panel map', role_model: 'RBAC roles', endpoint_map: 'Endpoint map', field_map: 'Fields and options', warnings: 'Warnings and privacy notes',
     permission_all: 'all permissions', permission_count: 'permissions', option_count: 'entries/options', no_items: 'None configured',
+    proof_preflight: '1 · Local preflight', proof_preflight_body: 'Sensitive patterns are blocked before a bounded Codex task is prepared.',
+    proof_model: '2 · GPT-5.6 in Codex', proof_model_body: 'The selected model turns synthetic requirements into a reviewable JSON contract.',
+    proof_validation: '3 · Deterministic gates', proof_validation_body: 'Schema, privacy, adapter, and browser checks report honest PASS or FAIL evidence.',
+    evidence_boundary: 'Evidence boundary', evidence_boundary_body: 'Bundled scenarios are synthetic examples. Final competition evidence requires a fresh visible GPT-5.6 Codex run, human review, validation, and a hash manifest.',
     footer: 'Configuration is reviewed before use. Runtime data and authorization remain on your infrastructure.', local_file_error: 'The local file could not be read.', sample_error: 'The bundled sample could not be loaded.',
   },
   tr: {
     page_title: 'ZeroKit AI Control Plane — Yerel Önizleme', skip: 'Config girişine geç', controls_nav: 'Önizleme kontrolleri', theme_light: 'Açık tema', theme_dark: 'Koyu tema',
-    edition: 'Herkese açık Build Week jüri sürümü', title: 'SaaS fikrini incelenebilir bir kontrol düzlemi sözleşmesine dönüştür.',
+    edition: 'OpenAI Build Week · Geliştirici Araçları başvurusu', title: 'SaaS fikrini incelenebilir bir kontrol düzlemi sözleşmesine dönüştür.',
     tagline: 'Codex + GPT-5.6 ile üretilen panel, rol, alan ve endpoint eşlemelerini üretim müşteri verisini yapay zekâya göndermeden önizle.',
     privacy_title: 'Yerel gizlilik sınırı', privacy_body: ' Yapıştırılan config bu tarayıcı sekmesinde kalır. Bu sayfa harici istek yapmaz.',
     input_heading: 'Üretilen config’i yükle veya yapıştır', input_help: 'Paketli sentetik bir senaryo, yerel JSON dosyası veya yapıştırılmış JSON kullan. Uygulamadan önce incele.',
@@ -32,6 +37,10 @@ const COPY = {
     summary_label: 'Config özeti', enabled_panels: 'Etkin paneller', hidden_panels: 'Gizli paneller', roles: 'Roller', endpoints: 'Endpoint eşlemeleri',
     panel_map: 'Panel haritası', role_model: 'RBAC rolleri', endpoint_map: 'Endpoint haritası', field_map: 'Alanlar ve seçenekler', warnings: 'Uyarılar ve gizlilik notları',
     permission_all: 'tüm izinler', permission_count: 'izin', option_count: 'kayıt/seçenek', no_items: 'Yapılandırılmadı',
+    proof_preflight: '1 · Yerel ön kontrol', proof_preflight_body: 'Sınırlandırılmış Codex görevi hazırlanmadan önce hassas veri kalıpları engellenir.',
+    proof_model: '2 · Codex içinde GPT-5.6', proof_model_body: 'Seçilen model sentetik gereksinimleri incelenebilir JSON sözleşmesine dönüştürür.',
+    proof_validation: '3 · Belirlenimci kapılar', proof_validation_body: 'Şema, gizlilik, adaptör ve tarayıcı kontrolleri dürüst PASS veya FAIL kanıtı üretir.',
+    evidence_boundary: 'Kanıt sınırı', evidence_boundary_body: 'Paketli senaryolar sentetik örneklerdir. Nihai yarışma kanıtı; görünür, taze bir GPT-5.6 Codex çalışması, insan incelemesi, doğrulama ve hash manifesti gerektirir.',
     footer: 'Config kullanımdan önce incelenir. Runtime verisi ve yetkilendirme kendi altyapınızda kalır.', local_file_error: 'Yerel dosya okunamadı.', sample_error: 'Paketli örnek yüklenemedi.',
   },
 };
@@ -132,7 +141,7 @@ async function loadSample() {
   elements.status.className = 'status idle'; elements.status.textContent = t('status_loading');
   try {
     const scenario = elements.sampleSelect.value;
-    const response = await fetch(`/ai-buildweek/examples/${scenario}.generated.config.json`, { cache: 'no-store' });
+    const response = await fetch(buildSampleUrl(scenario, import.meta.url), { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     elements.configInput.value = JSON.stringify(await response.json(), null, 2);
     validateInput();
