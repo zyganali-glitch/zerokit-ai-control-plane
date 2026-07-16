@@ -1,0 +1,42 @@
+{
+  "evidence_version": 1,
+  "surface": "Codex app",
+  "model_selection": {
+    "label": "GPT-5.6 Sol",
+    "visible_in_app_confirmed_by_operator": true,
+    "cryptographically_verified": false,
+    "evidence_note": "The selection is evidenced by the visible Codex UI and demo recording; the local script cannot read the in-app model."
+  },
+  "thread_reference": null,
+  "recorded_at": "2026-07-16T11:39:35.363Z",
+  "files": {
+    "input": "ai-buildweek/examples/school-saas.input.md",
+    "task": "ai-buildweek/runs/school-saas.codex-task.md",
+    "output": "ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json"
+  },
+  "hashes": {
+    "input_sha256": "399a7ac37cd1d465230476c7457e9e3698a8e4d93a3abdc8c00c7a16b2eed995",
+    "task_sha256": "8562202becb95ba2a32047862133803de528ef2768f8b9e35f007d56f8393dfc",
+    "output_sha256": "af47eb14261d3aca6c76d31e563087070bf7c0856bf4e06a1d7fbfd5faf807e3"
+  },
+  "privacy_guard": {
+    "version": "1.0.0",
+    "blocking_findings": 0,
+    "review_findings": 0
+  },
+  "validation": {
+    "valid": true,
+    "warnings": [],
+    "stats": {
+      "panels": 8,
+      "roles": 5,
+      "fields": 3,
+      "endpoints": 3
+    }
+  },
+  "human_review": {
+    "completed": true,
+    "required_for_application": true
+  },
+  "note": "The manifest stores hashes, not the input, task, output content, private files, or model reasoning."
+}

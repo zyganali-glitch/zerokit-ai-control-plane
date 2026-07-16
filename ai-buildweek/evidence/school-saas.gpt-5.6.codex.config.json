@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "panel_registry": {
+    "users": {
+      "enabled": true,
+      "visible": true,
+      "order": 10,
+      "group": "account"
+    },
+    "roles": {
+      "enabled": false,
+      "visible": false,
+      "order": 20,
+      "group": "account"
+    },
+    "plans": {
+      "enabled": false,
+      "visible": false,
+      "order": 30,
+      "group": "billing"
+    },
+    "invoices": {
+      "enabled": true,
+      "visible": true,
+      "order": 40,
+      "group": "billing"
+    },
+    "notifications": {
+      "enabled": false,
+      "visible": false,
+      "order": 50,
+      "group": "operations"
+    },
+    "help": {
+      "enabled": true,
+      "visible": true,
+      "order": 60,
+      "group": "support"
+    },
+    "audit": {
+      "enabled": false,
+      "visible": false,
+      "order": 70,
+      "group": "governance"
+    },
+    "reports": {
+      "enabled": true,
+      "visible": true,
+      "order": 80,
+      "group": "analytics"
+    }
+  },
+  "rbac_registry": {
+    "permission_catalog": [
+      "users.read",
+      "users.create",
+      "users.update",
+      "users.deactivate",
+      "roles.read",
+      "roles.manage_non_owner",
+      "plans.read",
+      "plans.update",
+      "invoices.read",
+      "notifications.read",
+      "notifications.update",
+      "help.read",
+      "audit.read",
+      "reports.read_aggregate",
+      "reports.configure"
+    ],
+    "roles": [
+      {
+        "slug": "owner",
+        "permissions": [
+          "users.read",
+          "users.create",
+          "users.update",
+          "users.deactivate",
+          "roles.read",
+          "roles.manage_non_owner",
+          "plans.read",
+          "plans.update",
+          "invoices.read",
+          "notifications.read",
+          "notifications.update",
+          "help.read",
+          "audit.read",
+          "reports.read_aggregate",
+          "reports.configure"
+        ]
+      },
+      {
+        "slug": "school_admin",
+        "permissions": [
+          "users.read",
+          "users.create",
+          "users.update",
+          "users.deactivate",
+          "roles.read",
+          "roles.manage_non_owner",
+          "plans.read",
+          "plans.update",
+          "notifications.read",
+          "notifications.update",
+          "help.read",
+          "reports.read_aggregate",
+          "reports.configure"
+        ]
+      },
+      {
+        "slug": "teacher",
+        "permissions": [
+          "users.read",
+          "notifications.read",
+          "notifications.update",
+          "help.read",
+          "reports.read_aggregate"
+        ]
+      },
+      {
+        "slug": "student_support",
+        "permissions": [
+          "users.read",
+          "users.update",
+          "invoices.read",
+          "help.read"
+        ]
+      },
+      {
+        "slug": "readonly",
+        "permissions": [
+          "users.read",
+          "roles.read",
+          "plans.read",
+          "invoices.read",
+          "notifications.read",
+          "help.read",
+          "audit.read",
+          "reports.read_aggregate"
+        ]
+      }
+    ]
+  },
+  "field_registry": {
+    "form_fields": {
+      "users": [
+        {
+          "key": "campus",
+          "type": "text",
+          "label": {
+            "tr": "Kampüs",
+            "en": "Campus"
+          }
+        },
+        {
+          "key": "department",
+          "type": "text",
+          "label": {
+            "tr": "Bölüm",
+            "en": "Department"
+          }
+        },
+        {
+          "key": "support_status",
+          "type": "text",
+          "label": {
+            "tr": "Destek durumu",
+            "en": "Support status"
+          }
+        }
+      ],
+      "billing_settings": [
+        {
+          "key": "currency",
+          "type": "select",
+          "options_ref": "currency",
+          "label": {
+            "tr": "Para birimi",
+            "en": "Currency"
+          }
+        }
+      ]
+    },
+    "dropdown_options": {
+      "currency": [
+        {
+          "value": "TRY",
+          "label": {
+            "tr": "Türk lirası (TRY)",
+            "en": "Turkish lira (TRY)"
+          }
+        },
+        {
+          "value": "EUR",
+          "label": {
+            "tr": "Euro (EUR)",
+            "en": "Euro (EUR)"
+          }
+        }
+      ]
+    },
+    "table_columns": {
+      "users": [
+        {
+          "key": "campus",
+          "label": {
+            "tr": "Kampüs",
+            "en": "Campus"
+          }
+        },
+        {
+          "key": "department",
+          "label": {
+            "tr": "Bölüm",
+            "en": "Department"
+          }
+        },
+        {
+          "key": "support_status",
+          "label": {
+            "tr": "Destek durumu",
+            "en": "Support status"
+          }
+        }
+      ],
+      "invoices": [
+        {
+          "key": "currency",
+          "label": {
+            "tr": "Para birimi",
+            "en": "Currency"
+          }
+        }
+      ],
+      "reports": [
+        {
+          "key": "aggregate_enrollment_summary",
+          "label": {
+            "tr": "Toplu kayıt özeti",
+            "en": "Aggregate enrollment summary"
+          }
+        },
+        {
+          "key": "aggregate_billing_summary",
+          "label": {
+            "tr": "Toplu faturalama özeti",
+            "en": "Aggregate billing summary"
+          }
+        }
+      ]
+    }
+  },
+  "endpoint_map": {
+    "users": "/school-api/v2/admin/users",
+    "invoices": "/school-api/v2/admin/invoices",
+    "reports": "/school-api/v2/admin/reports"
+  },
+  "brand_config": {
+    "product_label": {
+      "tr": "Okul operasyonları",
+      "en": "School operations"
+    },
+    "default_locale": "tr",
+    "supported_locales": [
+      "tr",
+      "en"
+    ],
+    "external_assets_enabled": false
+  },
+  "privacy_notes": [
+    "This configuration is based only on the supplied synthetic school operations scenario and contains no student records or production customer data.",
+    "Reports are restricted to aggregate enrollment and billing summaries; raw classroom activity and student content are outside this workflow.",
+    "Campus, department, and support status are synthetic administrative field names; no option values were invented for them.",
+    "The users, invoices, and reports route suffixes are inferred from the supplied admin base path and resource summaries; HTTP methods, authorization headers, pagination details, error shapes, and write payloads remain unresolved.",
+    "Only the users and invoices response envelopes and the aggregate-only reports behavior were summarized; payload compatibility requires a sanitized contract fixture and tests before integration.",
+    "Roles, plans, notifications, and audit panels remain disabled because no endpoint contract was supplied for them; help is treated as a static local panel.",
+    "RBAC entries express least-privilege design intent and must also be enforced server-side with school-level scoping and default-deny behavior.",
+    "No secret, executable code, external asset URL, network call, or model API call is included in this artifact.",
+    "Brand colors, logos, fonts, and a formal product name were not supplied; the localized product label is a neutral description for human review."
+  ],
+  "test_checklist": [
+    "Run the strict local config validator and require PASS before human review.",
+    "Confirm all eight required top-level sections are present and the panel, field, and endpoint registries are non-empty.",
+    "Human-review every role permission, including the non-owner role-management boundary and the read-only oversight scope.",
+    "Verify disabled panels cannot be opened by direct navigation and that hidden navigation is not treated as authorization.",
+    "Compare each inferred route and every request method and payload with a sanitized backend contract fixture before enabling integration.",
+    "Test the users response as an object with a users array and numeric total.",
+    "Test the invoices response as an object with an invoices array and numeric total.",
+    "Verify reports expose aggregate enrollment and billing summaries only and reject raw classroom activity or student content.",
+    "Verify every visible configurable field and option has both Turkish and English labels.",
+    "Verify the configured currency options are exactly TRY and EUR.",
+    "Test that unknown roles, permissions, panels, and actions are denied by default and that all operations are scoped to the active school.",
+    "Confirm no secrets, private records, external network calls, or executable content are present before recording the reviewed artifact."
+  ]
+}
