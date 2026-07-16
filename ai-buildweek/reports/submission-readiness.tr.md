@@ -17,7 +17,7 @@ Proje iddiasının dar ve dürüst hâli kod tarafından karşılanıyor:
 
 | Şart | Repo durumu | Başvuru öncesi gereken |
 | --- | --- | --- |
-| Codex + GPT-5.6 ile çalışan proje | Kod yolu hazır | Görünür GPT-5.6 Sol ve gerçekten seçili mod/efor ile taze son çalışmayı yap |
+| Codex + GPT-5.6 ile çalışan proje | Kod yolu hazır | Görünür GPT-5.6 Sol ve gerçekten seçili zekâ düzeyi ile taze son çalışmayı yap |
 | Tek track | Hazır | Developer Tools seç |
 | İngilizce açıklama | Taslak hazır | Devpost alanlarına yapıştır ve son kez oku |
 | Üç dakikadan kısa, sesli YouTube | Plan ve 2:54 metin hazır | TTS sesli videoyu üret ve public yükle |
@@ -63,7 +63,7 @@ En büyük ödül riski kod kalitesi değil, anlatıdır: jüri üç dakikada GP
 
 ## Ödül ihtimalini en çok artıracak sıra
 
-1. GPT-5.6 Sol ile gerçekten seçili mod/efor etiketleri görünürken final School SaaS görevini çalıştır; bu tek bounded görevde Max varsa tercih et, Ultra'yı reasoning düzeyi diye sunma.
+1. GPT-5.6 Sol ile gerçekten seçili zekâ düzeyi görünürken final School SaaS görevini çalıştır; Ultra varsa final kayıt için onu seç, yoksa ekranda bulunan en yüksek gerçek düzeyi göster.
 2. Validator PASS sonrası insan incelemesi ve manifesti kaydet.
 3. Son in-period kanıt commit'ini gönder.
 4. 2:54 İngilizce TTS videoda ilk 27 saniyede problem, ürün ve GPT-5.6 değerini kur.

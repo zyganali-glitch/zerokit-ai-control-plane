@@ -85,7 +85,7 @@ The browser preview performs the fast structural gate. The CLI and manifest path
 - a prepared `school-saas.codex-task.md` task;
 - local config, unit, privacy, browser, and adapter tests.
 
-One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol**, show the actual selected mode and effort, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. For this single bounded task, Max is preferred when available; Ultra is a parallel subagent mode, not a reasoning level. A mode or effort label alone is not proof of the model. This is a controlled recording-day step, not a missing code feature.
+One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol**, show the actual selected intelligence level, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. The final recorded run uses Ultra when available; otherwise it shows the highest real level available in the app. An intelligence label alone is not proof of the model. This is a controlled recording-day step, not a missing code feature.
 
 ## Pre-submission P0 steps
 

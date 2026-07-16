@@ -51,7 +51,7 @@ Browser preview hızlı yapısal kapıyı çalıştırır. CLI ve manifest yolu 
 
 **Evet.** Sansürlenmiş okul gereksinimi, baseline config, browser preview, PocketBase sentetik adaptörü, hazır Codex görev paketi ve yerel testler mevcuttur.
 
-Kod, belge ve Pages tarafı hazırdır. Kalan yarışma kapıları: görünür GPT-5.6 Sol ve gerçekten seçili mod/efor etiketleriyle görevi çalıştırmak, yeni output'u incelemek, manifest oluşturmak, ana Codex görevinde `/feedback` çalıştırmak ve İngilizce sesli videoyu yayımlamaktır. Bu tek görevde Max varsa tercih edilir; Ultra reasoning düzeyi değil paralel alt ajan modudur.
+Kod, belge ve Pages tarafı hazırdır. Kalan yarışma kapıları: görünür GPT-5.6 Sol ve gerçekten seçili zekâ düzeyiyle görevi çalıştırmak, yeni output'u incelemek, manifest oluşturmak, ana Codex görevinde `/feedback` çalıştırmak ve İngilizce sesli videoyu yayımlamaktır. Final kayıtta Ultra varsa seçilir; yoksa ekranda bulunan en yüksek gerçek düzey gösterilir.
 
 ## Jüriye söylenecek tek cümle
 

@@ -2,7 +2,7 @@
 
 ## Operator prerequisite
 
-Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. For this single bounded task, use **Max** when it is available; otherwise use the highest visible single-task reasoning effort such as **Extra High** or **High**. Ultra is a parallel subagent mode, not a reasoning level. This script cannot verify the in-app selection, so keep the actual model, mode, and effort visible in the recording.
+Before starting this task, select **GPT-5.6 Sol** in the Codex app model picker. For the final recorded run, select **Ultra** when it is available; current Codex guidance describes Ultra as maximum reasoning with proactive delegation for suitable work. If Ultra is unavailable, select the highest visible intelligence level such as **Max**, **Extra High**, or **High**. This script cannot verify the in-app selection, so keep the actual model and intelligence level visible in the recording.
 
 ## Inputs
 

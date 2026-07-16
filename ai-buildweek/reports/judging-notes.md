@@ -25,7 +25,7 @@ This is not a chatbot attached to admin data. Architectural reasoning does not r
 ## Codex app workflow
 
 - `codex:prepare` scans the synthetic input locally and creates a bounded task file.
-- The operator visibly selects **GPT-5.6 Sol** and shows the actual selected mode and effort in the Codex app. For this single bounded task, use Max when available; Ultra is a parallel subagent mode, not a reasoning level. A mode or effort label alone is not model evidence.
+- The operator visibly selects **GPT-5.6 Sol** and shows the actual selected intelligence level in the Codex app. The final recorded run uses Ultra when available; otherwise it shows the highest real level available. An intelligence label alone is not model evidence.
 - Codex follows the prepared task and writes the output inside the public repository.
 - A generated artifact is rejected unless the strict deterministic CLI gate returns PASS.
 - After human review, the operator records a hash manifest.

@@ -10,7 +10,7 @@ Paketli School SaaS örneği yalnız tanıtım içindir; nihai çalışma kanıt
 | 0:07–0:16 | Ürün çalışma alanı; panel, rol, alan ve endpoint başlıkları | “SaaS teams repeatedly rebuild roles, navigation, fields, endpoints, and release checks.” | Sorun ve hedef kullanıcı |
 | 0:16–0:27 | Kanıt zinciri ve sayaçlar | “ZeroKit turns a sanitized product brief into one reviewable control-plane configuration.” | Ürün değeri |
 | 0:27–0:38 | `codex:prepare` komutu | “Before Codex sees the task, a local privacy preflight blocks sensitive patterns and prepares a bounded file.” | Sıfır engel ve görev yolu |
-| 0:38–0:48 | Codex seçici; GPT-5.6 Sol ile gerçekten seçili mod ve efor görünür | “I selected GPT-5.6 Sol and made the selected mode and effort visible in the Codex app.” | Görünür gerçek model, mod ve efor seçimi |
+| 0:38–0:48 | Codex seçici; GPT-5.6 Sol ve Ultra görünür | “I selected GPT-5.6 Sol with Ultra intelligence in the Codex app.” | Görünür gerçek model ve zekâ düzeyi seçimi |
 | 0:48–0:58 | Hazırlanan görev dosyası | “The prepared task limits Codex to synthetic requirements, the public schema, and a specific output path.” | İzinli dosyalar ve hedef |
 | 0:58–1:08 | Codex görevi ve oluşan hedef | “Codex uses GPT-5.6 to generate the target configuration inside the public repository.” | Taze hedef JSON |
 | 1:08–1:18 | Sıkı validator PASS | “The strict local validator rejects incomplete sections, malformed roles, and missing review evidence.” | Gerçek sıkı PASS ve sayılar |

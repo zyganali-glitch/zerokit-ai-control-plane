@@ -31,14 +31,14 @@ The public project includes a browser-only preview, three synthetic scenarios, a
 ```text
 Codex was the primary development environment for the public Build Week judging edition. GPT-5.6 was used meaningfully for architecture, implementation, testing, evidence design, official-rules compliance, and the final product workflow—not as a decorative chatbot.
 
-For the demonstrated workflow, the operator visibly selects GPT-5.6 Sol and shows the actual selected Codex mode and effort. For this single bounded task, use Max mode when it is available; otherwise show the real available labels without overstating them. Ultra is a parallel subagent mode, not a reasoning level. A dependency-free local privacy check turns a synthetic School SaaS brief into a bounded Codex task. GPT-5.6 generates the target config in the repository, strict deterministic validation must return PASS, a human reviews the result, and a hash manifest records the reviewed files. The video shows that chain and the in-period repository commits document the meaningful extension.
+For the demonstrated workflow, the operator visibly selects GPT-5.6 Sol with the actual selected Codex intelligence level. The final recorded run uses Ultra when available; current Codex guidance describes Ultra as maximum reasoning with proactive delegation for suitable work. If Ultra is unavailable, the operator shows the real highest available level without overstating it. A dependency-free local privacy check turns a synthetic School SaaS brief into a bounded Codex task. GPT-5.6 generates the target config in the repository, strict deterministic validation must return PASS, a human reviews the result, and a hash manifest records the reviewed files. The video shows that chain and the in-period repository commits document the meaningful extension.
 ```
 
 ## 5. Final evidence shown in the video
 
 The bundled School SaaS config is orientation material, not final run evidence. The recording must show this real sequence:
 
-1. visible GPT-5.6 Sol selection and the actual selected mode and effort;
+1. visible GPT-5.6 Sol selection and the actual selected intelligence level;
 2. fresh output at `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json`;
 3. strict validator PASS;
 4. human review;
@@ -107,7 +107,7 @@ After submission, use an incognito/private window to verify the public repositor
 - [x] Pages URL is live; deployment, anonymous HTTP assets, and a real-Chrome scenario smoke are verified.
 - [ ] YouTube video is Public, English, at or below 2:54, and has audible, understandable English narration.
 - [ ] Video explains both what was built and how Codex plus GPT-5.6 were used.
-- [ ] Final visible GPT-5.6 Sol selection, actual selected mode and effort, fresh generated target, strict validator PASS, review, manifest, and tests are real.
+- [ ] Final visible GPT-5.6 Sol selection, actual selected intelligence level, fresh generated target, strict validator PASS, review, manifest, and tests are real.
 - [ ] The preview uses **Choose local JSON** to load the fresh reviewed evidence config and shows PASS; **Load sample** is not used as final proof.
 - [ ] The preview states **No third-party or model requests**.
 - [ ] `/feedback` Session ID is in the private Devpost field and nowhere public.
