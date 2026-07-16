@@ -104,7 +104,7 @@ One competition artifact is still manual: the operator must visibly select **GPT
 ## Recommendations that could strengthen placement
 
 - Keep the verified GitHub Pages URL in README/Devpost and recheck it before final submission.
-- Use simple English voiceover or English text-to-speech plus readable English captions. Captions alone do not satisfy the official audio requirement.
+- Use simple English voiceover or English text-to-speech. Overlay captions are intentionally omitted because the official requirements call for explanatory audio, not captions, and the product evidence should remain unobstructed.
 - Do not show the private donor admin panel as competition evidence. Show the reproducible public preview.
 - Measure manual first-draft time against Codex-assisted first-draft time as one internal experiment; do not generalize it into an unsupported productivity claim.
 - Keep PocketBase evidence to roughly 10–15 seconds so the main story remains GPT-5.6/Codex and ZeroKit.

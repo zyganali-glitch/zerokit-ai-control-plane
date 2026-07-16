@@ -77,11 +77,11 @@ Full disclosure: [build-week-delta.md](../reports/build-week-delta.md).
 
 1. Upload `ZeroKit-Build-Week-Demo-English.mp4` at <https://www.youtube.com/> using **Create → Upload video**.
 2. Keep the final duration at or below **2:54**, safely below three minutes.
-3. The video must contain English explanatory audio and readable English captions. The current official [Build Week FAQ](https://openai.devpost.com/details/faqs) explicitly permits text-to-speech or an AI voice tool.
+3. The video must contain clear English explanatory audio. The current official [Build Week FAQ](https://openai.devpost.com/details/faqs) explicitly permits text-to-speech or an AI voice tool. Overlay captions are intentionally omitted to keep the product evidence unobstructed; captions are not an official requirement.
 4. In **Audience**, select the truthful not-made-for-kids choice for this developer tool.
 5. In **Visibility**, select **Public**—not Private, Unlisted, or Scheduled—and publish.
 6. Copy the final YouTube URL.
-7. Open a new incognito/private window, paste the URL while signed out, and verify that the video plays with audible English narration and readable captions.
+7. Open a new incognito/private window, paste the URL while signed out, and verify that the video plays with audible, understandable English narration.
 8. Reopen YouTube Studio and confirm that visibility still says **Public**.
 
 ## 10. Final Devpost click path
@@ -105,7 +105,7 @@ After submission, use an incognito/private window to verify the public repositor
 - [ ] Title, tagline, description, and Codex/GPT-5.6 explanation are in English.
 - [ ] Repository is public and opens in a private browser window.
 - [x] Pages URL is live; deployment, anonymous HTTP assets, and a real-Chrome scenario smoke are verified.
-- [ ] YouTube video is Public, English, at or below 2:54, and has audible English narration plus readable English captions.
+- [ ] YouTube video is Public, English, at or below 2:54, and has audible, understandable English narration.
 - [ ] Video explains both what was built and how Codex plus GPT-5.6 were used.
 - [ ] Final visible GPT-5.6 Sol selection, actual selected mode and effort, fresh generated target, strict validator PASS, review, manifest, and tests are real.
 - [ ] The preview uses **Choose local JSON** to load the fresh reviewed evidence config and shows PASS; **Load sample** is not used as final proof.

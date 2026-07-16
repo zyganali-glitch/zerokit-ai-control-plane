@@ -1,6 +1,6 @@
 # İngilizce seslendirmeli demo videosu — sıfırdan, tıklama tıklama kılavuz
 
-Bu belge teknik bilgisi ve İngilizcesi olmayan bir kullanıcının bile videoyu tek başına hazırlayabilmesi için yazılmıştır. Senin İngilizce konuşman gerekmiyor: güncel resmî FAQ yapay zekâ destekli seslendirmeye izin veriyor. Hazır İngilizce metni Clipchamp'in **Text to speech / Metinden konuşmaya** özelliğine yapıştırıp İngilizce ses oluşturacağız. Hazırlık açıklamaları Türkçe; jüriye giden ses, uygulama ve okunabilir altyazılar İngilizce olacaktır. Başvuru gününde [Devpost Official Rules](https://openai.devpost.com/rules) ve [FAQ](https://openai.devpost.com/details/faqs) sayfalarını son kez kontrol et; resmî metin her zaman önceliklidir.
+Bu belge teknik bilgisi ve İngilizcesi olmayan bir kullanıcının bile videoyu tek başına hazırlayabilmesi için yazılmıştır. Senin İngilizce konuşman gerekmiyor: güncel resmî FAQ yapay zekâ destekli seslendirmeye izin veriyor. Hazır İngilizce metni Clipchamp'in **Text to speech / Metinden konuşmaya** özelliğine yapıştırıp İngilizce ses oluşturacağız. Hazırlık açıklamaları Türkçe; jüriye giden uygulama ve yapay ses İngilizce olacaktır. Resmî şartlarda altyazı zorunlu değildir; ürün kanıtını kapatmamak için dolgu kutulu altyazı eklenmeyecektir. Başvuru gününde [Devpost Official Rules](https://openai.devpost.com/rules) ve [FAQ](https://openai.devpost.com/details/faqs) sayfalarını son kez kontrol et; resmî metin her zaman önceliklidir.
 
 ## En kısa cevaplar
 
@@ -12,7 +12,7 @@ Bu belge teknik bilgisi ve İngilizcesi olmayan bir kullanıcının bile videoyu
 - Herkese açık adresimiz ücretsiz GitHub Pages'tir: <https://zyganali-glitch.github.io/zerokit-ai-control-plane/>.
 - Demo için ücretli alan adı, ücretli hosting, model API'si veya API anahtarı gerekmez.
 - Codex uygulaması internet ve hesabındaki Codex erişimini kullanır; bu bir API faturası değildir ama hesabının plan/kullanım sınırlarına tabidir.
-- Video İngilizce olacak: ekrandaki uygulama dili, yapay ses ve altyazılar İngilizce olacak. Video üç dakikadan kısa ve **Public / Herkese açık** YouTube videosu olacak.
+- Video İngilizce olacak: ekrandaki uygulama dili ve yapay ses İngilizce olacak. Video üç dakikadan kısa ve **Public / Herkese açık** YouTube videosu olacak. Dolgu kutulu altyazı eklenmeyecek.
 
 ## En önemli kanıt kuralı
 
@@ -44,7 +44,6 @@ Taze evidence dosyası yoksa veya validator/manifest tamamlanmadıysa kayıt dur
 | Evidence JSON | Bu kayıtta GPT-5.6 Sol ile taze üretilen ve incelenen kanıt dosyası |
 | PASS | Kontrol başarıyla geçti |
 | FAIL | Kontrol başarısız; videoya devam etmeden düzeltilmeli |
-| Caption / overlay | Videonun üzerine sonradan eklenen kısa İngilizce yazı |
 | Clip | Videonun küçük bir parçası |
 | Manifest | İncelenen dosyaların özet/hash kanıtı; dosya içeriğini kopyalamaz |
 
@@ -455,18 +454,18 @@ Kısayol çalışmazsa Windows tuşuna bas, `Ekran Alıntısı Aracı` veya `Sni
 
 Codex çalışması uzun sürerse tamamını üç dakikalık videoda bekletme. Başlangıç ve bitişi ayrı kaydet; montajda yalnız bekleme bölümünü kes. Son videoya `Codex run shortened for time` yazısını ekle. Görünür GPT-5.6 Sol seçimini, taze hedefi, validator PASS'i, insan incelemesini, manifesti, **Choose local JSON** adımını ve tarayıcı PASS'ini kesme.
 
-## Bölüm 5 — Üç dakikalık kesin video, ses ve altyazı akışı
+## Bölüm 5 — Üç dakikalık kesin video ve ses akışı
 
-Kesin zaman, görüntü, İngilizce ses cümlesi, altyazı ve kanıt tablosu [VOICEOVER_SCRIPT.md](VOICEOVER_SCRIPT.md) dosyasındadır. O dosya **tek doğru kaynak**tır ve toplam süre 2 dakika 54 saniyedir; üç dakikalık sınırın altında altı saniye güvenlik payı bırakır.
+Kesin zaman, görüntü, İngilizce ses cümlesi ve kanıt tablosu [VOICEOVER_SCRIPT.md](VOICEOVER_SCRIPT.md) dosyasındadır. O dosya **tek doğru kaynak**tır ve toplam süre 2 dakika 54 saniyedir; üç dakikalık sınırın altında altı saniye güvenlik payı bırakır.
 
 1. Dosyayı Codex'te sol taraftaki dosya ağacından aç.
 2. Her satırdaki **English voiceover line** metnini sırayla kullan.
-3. Aynı satırdaki **On-screen caption** metnini ekrana yaz.
-4. Her ses parçasını tablodaki başlangıç zamanına taşı.
-5. Görüntüyü sesin anlattığı kanıtla eşleştir.
-6. Türkçe açıklamaları videoya koyma.
+3. Her ses parçasını tablodaki başlangıç zamanına taşı.
+4. Görüntüyü sesin anlattığı kanıtla eşleştir.
+5. Türkçe açıklamaları videoya koyma.
+6. Ürünün üzerini kapatan altyazı veya dolgu kutusu ekleme.
 
-## Bölüm 6 — Clipchamp'te İngilizce ses ve altyazıları ekle
+## Bölüm 6 — Clipchamp'te İngilizce sesi ekle
 
 ### 6.1 Yeni video oluştur
 
@@ -497,18 +496,12 @@ Beklenen: zaman çizgisinde sekiz video kutusu soldan sağa sıralanır.
 5. Ortadaki oynat düğmesine basıp sonucu izle.
 6. Aynı işlemi bütün kliplere uygula.
 
-### 6.4 İngilizce yazı ekle
+### 6.4 Görüntüyü açık bırak
 
-1. Sol araç çubuğunda **Text / Metin** bölümüne tıkla.
-2. Sade bir başlık seç. Elmas simgesi olan premium seçeneği kullanma.
-3. Seçtiğin metni zaman çizgisinde videonun **üstündeki** satıra sürükle.
-4. Sağ taraftaki metin alanına Bölüm 5'teki ilk İngilizce yazıyı yapıştır.
-5. Metin kutusunun zaman çizgisindeki sağ ve sol kenarlarını sürükleyerek tabloda belirtilen saniyeler boyunca görünmesini sağla.
-6. Yazı rengi beyaz, arka planı koyu ve okunaklı olsun.
-7. Yazıyı uygulamanın önemli düğmelerini kapatmayacak biçimde alt orta veya üst ortaya yerleştir.
-8. Tablodaki bütün İngilizce yazılar için aynı adımları tekrarla.
-
-Kısa ekran kartlarını **Text** aracıyla elle eklemek en kontrollü yoldur. İstersen ses eklendikten sonra **Captions / Altyazılar** bölümünden otomatik altyazı üret; fakat her kelimeyi İngilizce kaynak metinle karşılaştırıp yanlışları düzelt.
+1. **Text / Metin** veya **Captions / Altyazılar** aracından dolgu kutulu yazı ekleme.
+2. Arayüzün kendi İngilizce metinleri, düğmeleri, PASS sonuçları ve dosya yolları kanıt olarak açık kalmalı.
+3. Yalnız gerçek Codex bekleme süresi kesilmişse, görüntüyü kapatmayacak küçük ve sade `Codex run shortened for time` notunu kısa süreli ekleyebilirsin.
+4. Bu teknik kurgu notu gerekmiyorsa videoya sonradan hiçbir yazı ekleme.
 
 ### 6.5 İngilizce yapay ses oluştur
 
@@ -631,7 +624,7 @@ Live demo: https://zyganali-glitch.github.io/zerokit-ai-control-plane/
 4. Video açılmıyorsa veya “private” uyarısı varsa YouTube Studio'ya dön ve görünürlüğü **Public** yap.
 5. Videonun süresinin üç dakikadan kısa olduğunu kontrol et.
 6. Hoparlör simgesinin kapalı olmadığını kontrol et ve videoyu baştan sona dinle.
-7. İngilizce sesin duyulduğunu ve ekrana gömülü İngilizce altyazıların okunabildiğini doğrula.
+7. İngilizce sesin açık, anlaşılır ve görüntüyle uyumlu olduğunu doğrula.
 8. Görüntüde Session ID, kişisel bilgi, bildirim, credential veya `.env` olmadığını son kez kontrol et.
 
 ## Bölüm 9 — Devpost başvurusunu doldur ve gönder
@@ -702,7 +695,7 @@ Sonra şu listeyi tamamla:
 - Videoda GPT-5.6 Sol ile gerçekten seçili mod/efor etiketleri görünür; Max yalnız gerçekten seçildiyse söylenir ve Ultra reasoning düzeyi diye sunulmaz.
 - Videoda taze evidence dosyası **Choose local JSON** ile seçiliyor ve PASS oluyor.
 - Videoda paketli örnek nihai kanıt gibi sunulmuyor.
-- İngilizce ses duyuluyor; okunabilir İngilizce altyazılar görüntüyle uyumlu.
+- İngilizce ses açık, anlaşılır ve görüntüyle uyumlu; ürün kanıtını kapatan altyazı yok.
 - Video üç dakikadan kısa ve YouTube görünürlüğü Public.
 - Ücretli domain, model API'si veya API anahtarı iddia edilmiyor ya da gerekmiyor.
 - `/feedback` Session ID yalnız Devpost'un özel alanında; repo, video ve ekran görüntülerinde yok.

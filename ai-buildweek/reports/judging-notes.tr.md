@@ -76,4 +76,4 @@ npm run dev
 
 `http://127.0.0.1:4173` adresini aç; senaryo/dil/tema değiştir ve adaptör/mahremiyet raporlarını incele. Son GPT-5.6 üretimi Codex uygulamasında hazır görev dosyasıyla yürütülür.
 
-Herkese açık video üç dakikadan kısa olmalı; ürünün ne yaptığını ve Codex/GPT-5.6'nın nasıl kullanıldığını açıklayan İngilizce insan sesi veya İngilizce TTS içermelidir. İngilizce altyazılar sesi destekler, sesin yerini tutmaz.
+Herkese açık video üç dakikadan kısa olmalı; ürünün ne yaptığını ve Codex/GPT-5.6'nın nasıl kullanıldığını açıklayan İngilizce insan sesi veya İngilizce TTS içermelidir. Resmî şartlarda altyazı zorunlu değildir; ürün kanıtını kapatmamak için dolgu kutulu altyazı eklenmeyecektir.

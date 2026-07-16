@@ -166,9 +166,9 @@ The checked-in synthetic fixture mirrors PocketBase's documented `items`/`totalI
 7. Generate a Markdown report and show build/test evidence.
 8. Close on the privacy boundary and required human review.
 
-The exact English voiceover and caption source is [VOICEOVER_SCRIPT.md](ai-buildweek/demo/VOICEOVER_SCRIPT.md); the matching English shot list is [DEMO_SCRIPT.md](ai-buildweek/demo/DEMO_SCRIPT.md). The Turkish, click-by-click beginner production, text-to-speech, recording, editing, failure-recovery, and submission guide is [DEMO_VIDEO_ROADMAP.md](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md).
+The exact English voiceover source is [VOICEOVER_SCRIPT.md](ai-buildweek/demo/VOICEOVER_SCRIPT.md); the matching English shot list is [DEMO_SCRIPT.md](ai-buildweek/demo/DEMO_SCRIPT.md). The Turkish, click-by-click beginner production, text-to-speech, recording, editing, failure-recovery, and submission guide is [DEMO_VIDEO_ROADMAP.md](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md).
 
-The competition video is under three minutes, public on YouTube, and includes English audio explaining what was built and how Codex/GPT-5.6 were used. Captions are included for clarity. The [official FAQ](https://openai.devpost.com/details/faqs) permits text-to-speech or an AI voice tool; captions alone are not a substitute for audio.
+The competition video is under three minutes, public on YouTube, and includes English audio explaining what was built and how Codex/GPT-5.6 were used. The [official FAQ](https://openai.devpost.com/details/faqs) permits text-to-speech or an AI voice tool. Overlay captions are intentionally omitted so the recorded product evidence remains unobstructed; the official rules require explanatory audio, not captions.
 
 ## Evidence
 
