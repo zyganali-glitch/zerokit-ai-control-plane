@@ -1,6 +1,6 @@
 # Codex build and validation log
 
-> Historical snapshot from 2026-07-13. The current 2026-07-14 suite is 20/20 after GitHub Pages subpath tests were added; see README and the final submission-readiness report for current evidence.
+> Historical snapshot from 2026-07-13, with a final evidence addendum from 2026-07-16. The current suite is 20/20 after GitHub Pages subpath tests were added; see README and the final submission-readiness report for current evidence.
 
 - Date: 2026-07-13
 - Environment: Windows PowerShell, Node.js v24.13.1
@@ -188,4 +188,6 @@ The complete submission gate was rerun on Windows with Node.js v24.13.1 after th
 
 The browser run also proved nine neutral evidence points, preserved PASS across theme and language changes, no 375 px horizontal overflow, no short controls, no third-party requests, and no runtime exceptions. The Pages workflow now runs unit, privacy, PocketBase, all three strict config validations, build, and the real-browser smoke before deployment.
 
-The final competition artifact is an operator step: visibly select GPT-5.6 Sol, show the actual selected intelligence level in the Codex app, run the prepared school task, review the output, and record the manifest. The final recorded run uses Ultra when available; otherwise it shows the highest real level available. An intelligence label alone is not model evidence. The local script cannot read the in-app model, so no cryptographic model verification is claimed.
+## Final evidence addendum — 2026-07-16
+
+The final operator sequence was completed in Codex with **GPT-5.6 Sol** and **Ultra** visible. The prepared School SaaS task produced a fresh target; strict validation returned PASS with 8 panels, 5 roles, 3 field groups, and 3 endpoints; human review completed; and the operator-confirmed manifest recorded output SHA-256 `af47eb14261d3aca6c76d31e563087070bf7c0856bf4e06a1d7fbfd5faf807e3`. The config and manifest were recorded in evidence commit [`15439ab567efaf76eeda48bcbfad82769042ea38`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/15439ab567efaf76eeda48bcbfad82769042ea38). The local script cannot read the in-app model, so the manifest explicitly does not claim cryptographic model verification.

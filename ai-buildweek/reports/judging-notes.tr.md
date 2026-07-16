@@ -74,6 +74,6 @@ npm run test:browser
 npm run dev
 ```
 
-`http://127.0.0.1:4173` adresini aç; senaryo/dil/tema değiştir ve adaptör/mahremiyet raporlarını incele. Son GPT-5.6 üretimi Codex uygulamasında hazır görev dosyasıyla yürütülür.
+`http://127.0.0.1:4173` adresini aç; senaryo/dil/tema değiştir ve adaptör/mahremiyet raporlarını incele. Son GPT-5.6 üretimi Codex uygulamasında hazır görevle tamamlandı; incelenmiş [config](../evidence/school-saas.gpt-5.6.codex.config.json) ve operatör onaylı [manifest](../evidence/school-saas.gpt-5.6.codex.config.manifest.json) `ai-buildweek/evidence` altında commit'lendi.
 
 Herkese açık video üç dakikadan kısa olmalı; ürünün ne yaptığını ve Codex/GPT-5.6'nın nasıl kullanıldığını açıklayan İngilizce insan sesi veya İngilizce TTS içermelidir. Resmî şartlarda altyazı zorunlu değildir; ürün kanıtını kapatmamak için dolgu kutulu altyazı eklenmeyecektir.

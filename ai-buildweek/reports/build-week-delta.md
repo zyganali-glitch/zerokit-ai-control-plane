@@ -20,11 +20,13 @@ The meaningful in-period extension begins on 2026-07-14 and is intentionally mor
 - a new visible evidence chain in the product UI: local preflight, GPT-5.6/Codex generation, and deterministic gates;
 - a visible boundary between bundled synthetic examples and final competition evidence;
 - official-rules-aligned English audio/voiceover, Devpost, `/feedback`, Pages, and judge guidance;
-- the final fresh GPT-5.6 Codex generation, review, manifest, video, and Session ID steps documented below as operator evidence gates.
+- the final fresh GPT-5.6 Codex generation, review, manifest, and completion gates, with video publication and the private Session ID documented below as the remaining submission gates.
 
-The first timestamped commit in this in-period extension is [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**. It proves the start of the extension; it is not labeled as the final evidence commit. The final submission/evidence SHA remains pending until the fresh GPT-5.6 artifact, review, manifest, and final gates are complete.
+The first timestamped commit in this in-period extension is [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**. It proves the start of the extension; it is not labeled as the final evidence commit.
 
-The later technical-hardening commit [`f870814b274bd554a9218715caa98cbe650fe1a7`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/f870814b274bd554a9218715caa98cbe650fe1a7), created on **2026-07-14 11:39:57 UTC+03:00**, records the strict eight-section generated-artifact gate, schema alignment, Node 22 completion-gate CI, validator and adapter boundary reports, the nine-point browser evidence map, the theme/language status fix, and the final beginner recording/submission workflow. This is the code-ready submission baseline, not a substitute for the still-pending fresh GPT-5.6 output and manifest.
+The later technical-hardening commit [`f870814b274bd554a9218715caa98cbe650fe1a7`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/f870814b274bd554a9218715caa98cbe650fe1a7), created on **2026-07-14 11:39:57 UTC+03:00**, records the strict eight-section generated-artifact gate, schema alignment, Node 22 completion-gate CI, validator and adapter boundary reports, the nine-point browser evidence map, the theme/language status fix, and the final beginner recording/submission workflow.
+
+The final evidence commit [`15439ab567efaf76eeda48bcbfad82769042ea38`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/15439ab567efaf76eeda48bcbfad82769042ea38), created on **2026-07-16 16:50:39 UTC+03:00**, records the fresh [School SaaS config](../evidence/school-saas.gpt-5.6.codex.config.json) and [hash manifest](../evidence/school-saas.gpt-5.6.codex.config.manifest.json). The manifest records GPT-5.6 Sol as visible and operator-confirmed—not cryptographically verified—plus completed human review, zero privacy findings, strict validation PASS, and the reviewed output hash.
 
 ## Codex/GPT-5.6 contribution
 
@@ -43,13 +45,13 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 
 - [x] First in-period extension commit SHA is recorded above.
 - [x] Technical-hardening baseline commit SHA is recorded above.
-- [ ] Final submission/evidence commit SHA is recorded after the fresh artifact, manifest, and gates are complete.
+- [x] Final submission/evidence commit SHA is recorded after the fresh artifact, manifest, and gates are complete.
 - [x] GitHub Pages is enabled; build/deploy succeeded and the live URL was verified anonymously and with real Chrome.
-- [ ] GPT-5.6 Sol and the selected reasoning level are visible in Codex.
-- [ ] Fresh School SaaS target is generated from the prepared task.
-- [ ] Validator returns PASS.
-- [ ] Human review is completed and the manifest is recorded.
-- [ ] Completion gates return their real results.
+- [x] GPT-5.6 Sol and Ultra are visible in the recorded Codex run.
+- [x] Fresh School SaaS target is generated from the prepared task.
+- [x] Validator returns PASS.
+- [x] Human review is completed and the manifest is recorded.
+- [x] Completion gates return their real results: unit 20/20, privacy 8/8, browser 16/16, PocketBase PASS, and three config validations PASS.
 - [ ] `/feedback` Session ID is placed only in Devpost.
 - [ ] Public YouTube video is under three minutes with English audio.
 

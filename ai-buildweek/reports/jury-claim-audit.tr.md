@@ -1,6 +1,6 @@
 # OpenAI Build Week jüri ve iddia denetimi
 
-- Denetim tarihi: 2026-07-14
+- Denetim tarihi: 2026-07-16
 - Kapsam: herkese açık `zerokit-ai-control-plane` reposu
 - İnceleme bakışı: kıdemli ürün mühendisi + OpenAI Build Week jüri vekili
 - Not: Aşağıdaki puanlar resmî OpenAI puanı değil, kanıta dayalı değerlendirme tahminidir.
@@ -17,18 +17,18 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 
 | Resmî ölçüt | Güncel puan | Neden daha yüksek değil? |
 | --- | ---: | --- |
-| Teknolojik uygulama | 8,3/10 koşullu | Görev paketi, mahremiyet engeli, katı çıktı kapısı, manifest, preview, PocketBase, Pages alt-yol testi ve dağıtım akışı var; son operatör kanıtı bekliyor. |
-| Tasarım / UX | 8,2/10 koşullu | İki dilli responsive preview ve kanıt zinciri tutarlı; görev hazırlama → Codex → preview hâlâ iki uygulamada ilerliyor. |
+| Teknolojik uygulama | 8,5/10 | Görev paketi, mahremiyet engeli, taze GPT-5.6 kanıtı, katı çıktı kapısı, manifest, preview, PocketBase, Pages alt-yol testi ve dağıtım akışı var; production entegrasyonu ve tam JSON Schema motoru bilinçli olarak kapsam dışı. |
+| Tasarım / UX | 8,2/10 | İki dilli responsive preview ve kanıt zinciri tutarlı; görev hazırlama → Codex → preview hâlâ iki uygulamada ilerliyor. |
 | Potansiyel etki | 7,7/10 | SaaS özelleştirme problemi gerçek ve üç sektörle anlatılıyor; müşteri görüşmesi, süre ölçümü veya pilot kanıtı yok. |
 | Fikir kalitesi | 8,5/10 | GPT-5.6'yı chatbot yerine config/sözleşme/test eş tasarımcısı olarak konumlamak özgün ve mahremiyet odaklı. |
-| **Eşit ağırlıklı jüri vekili toplamı** | **8,1/10 koşullu** | Pages doğrulandı; kalan koşullar görünür GPT-5.6 çalışması, sesli video ve özel Session ID'dir. |
+| **Eşit ağırlıklı jüri vekili toplamı** | **8,2/10** | Pages ve taze GPT-5.6 kanıt zinciri doğrulandı; İngilizce sesli videonun yayımlanması ve özel Session ID başvuru işlemi olarak kalıyor. |
 
 ## İddia bazında sonuç
 
 | İddia | Sonuç | Kanıt | Sınır |
 | --- | --- | --- | --- |
-| GPT-5.6/Codex merkezde | **Kod düzeyinde hazır; son operatör kanıtı bekliyor** | Dört prompt, Codex görev üreticisi, model-seçim beyanı, çıktı doğrulayıcı | Videoda görünür model seçimi ve bu çalışmaya ait manifest gösterilmeli. |
-| Sansürlenmiş gereksinimden config üretir | **Hazır** | Okul girdisi, hazır görev paketi, hedef dosya ve doğrulama komutu | Mevcut örnek config'i yeni Codex çalışmasıymış gibi sunma. |
+| GPT-5.6/Codex merkezde | **Taze operatör kanıtıyla destekleniyor** | Dört prompt, görev üreticisi, görünür GPT-5.6 Sol + Ultra kaydı, [taze config](../evidence/school-saas.gpt-5.6.codex.config.json) ve [manifest](../evidence/school-saas.gpt-5.6.codex.config.manifest.json) | Model seçimi görünür ve operatör onaylıdır; kriptografik olarak doğrulandığı iddia edilmez. |
+| Sansürlenmiş gereksinimden config üretir | **Taze çalışmada PASS** | Okul girdisi, hazır görev paketi, commit'lenmiş taze hedef ve sıkı validator PASS | Paketli baseline yalnız tanıtım içindir; yarışma çalışması evidence yolundadır. |
 | Mahremiyet kontrollü AI akışı | **İş akışı kontrolü olarak destekleniyor** | Yerel engel, `.env`/secret denylist, sentetik fixture, preview'da üçüncü taraf/model isteği yok | İnsan onayı zorunlu. |
 | Production verisi modele gitmez | **Repo ve desteklenen akış için doğru** | Dahil girdiler sentetik, görev dosyası özel dosyaları yasaklıyor | Süreç disiplini yine gerekir. |
 | Backend adaptör uyumluluğu | **Bir gerçek sınırda kanıtlı** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed testler | [Adaptör matrisi](adapter-compatibility-matrix.md) her backend'in otomatik uyumlu olmadığını açıklar. |
@@ -44,6 +44,7 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 | `npm run test:browser` | PASS, 16/16 |
 | `npm run demo:pocketbase` | PASS |
 | Üç config doğrulaması | PASS, 3/3 |
+| Taze GPT-5.6 School SaaS kanıtı | PASS, 8 panel / 5 rol / 3 alan grubu / 3 endpoint; insan incelemesi tamam; çıktı SHA-256 `af47eb14261d3aca6c76d31e563087070bf7c0856bf4e06a1d7fbfd5faf807e3` |
 
 Browser preview hızlı yapısal kapıyı çalıştırır. CLI ve manifest yolu daha katı generated-artifact gereksinimlerini uygular; iki kapı da backend payload uyumunu veya iş doğruluğunu tek başına kanıtlamaz.
 
@@ -51,7 +52,7 @@ Browser preview hızlı yapısal kapıyı çalıştırır. CLI ve manifest yolu 
 
 **Evet.** Sansürlenmiş okul gereksinimi, baseline config, browser preview, PocketBase sentetik adaptörü, hazır Codex görev paketi ve yerel testler mevcuttur.
 
-Kod, belge ve Pages tarafı hazırdır. Kalan yarışma kapıları: görünür GPT-5.6 Sol ve gerçekten seçili zekâ düzeyiyle görevi çalıştırmak, yeni output'u incelemek, manifest oluşturmak, ana Codex görevinde `/feedback` çalıştırmak ve İngilizce sesli videoyu yayımlamaktır. Final kayıtta Ultra varsa seçilir; yoksa ekranda bulunan en yüksek gerçek düzey gösterilir.
+Final operatör kanıtı tamamlandı: Codex'te **GPT-5.6 Sol** ve **Ultra** görünürken hazır görev çalıştırıldı, taze hedef üretildi, sıkı validator PASS verdi, insan incelemesi yapıldı ve operatör onaylı manifest kaydedildi. Manifest kriptografik model doğrulaması iddia etmez. Kalan yarışma kapıları; ham görüntüleri İngilizce sesli final videoda birleştirip yayımlamak ve ana Codex görevinde `/feedback` çalıştırarak Session ID'yi yalnız özel Devpost alanına koymaktır.
 
 ## Jüriye söylenecek tek cümle
 

@@ -1,6 +1,6 @@
 # OpenAI Build Week judging and claim audit
 
-- Audit date: 2026-07-14
+- Audit date: 2026-07-16
 - Scope: public `zerokit-ai-control-plane` repository
 - Review perspective: senior product engineer and proxy Build Week judge
 - Note: the scores below are evidence-based estimates, not official OpenAI scores.
@@ -30,18 +30,18 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 
 | Judging dimension | Current score | Why it is not higher |
 | --- | ---: | --- |
-| Technical implementation | 8.3/10 conditional | The bounded task, privacy guard, strict gate, manifest, preview, adapter, Pages portability tests, and deploy workflow are implemented; final operator evidence remains. |
-| Design / UX | 8.2/10 conditional | The bilingual responsive preview and visible evidence chain are coherent; prepare → Codex → preview still spans two applications. |
+| Technical implementation | 8.5/10 | The bounded task, privacy guard, fresh GPT-5.6 evidence, strict gate, manifest, preview, adapter, Pages portability tests, and deploy workflow are implemented; production integration and a complete JSON Schema engine are intentionally out of scope. |
+| Design / UX | 8.2/10 | The bilingual responsive preview and visible evidence chain are coherent; prepare → Codex → preview still spans two applications. |
 | Potential impact | 7.7/10 | SaaS customization is a credible problem demonstrated across three sectors; there is no customer interview, timing study, or pilot evidence. |
 | Idea quality | 8.5/10 | Positioning GPT-5.6 as a config/contract/test co-designer rather than a chatbot is distinctive and privacy-aware. |
-| **Equal-weight proxy total** | **8.1/10 conditional** | Pages is verified; the remaining conditions are the visible GPT-5.6 run, English-audio video, and private Session ID. |
+| **Equal-weight proxy total** | **8.2/10** | Pages and the fresh GPT-5.6 evidence chain are verified; English-audio video publication and the private Session ID remain submission operations. |
 
 ## Claim-by-claim result
 
 | Claim | Result | Evidence | Boundary |
 | --- | --- | --- | --- |
-| GPT-5.6/Codex is central | **Code path ready; final operator evidence pending** | Four prompts, task generator, model-selection attestation, output validator | The video must show GPT-5.6 Sol as the model, the chosen reasoning level, and the manifest from that run. |
-| Generates config from sanitized requirements | **Ready** | School input, prepared task, target path, validation command | Do not present the checked-in baseline config as a fresh Codex run; write new output to the evidence path. |
+| GPT-5.6/Codex is central | **Supported by fresh operator evidence** | Four prompts, task generator, visible GPT-5.6 Sol + Ultra recording, [fresh config](../evidence/school-saas.gpt-5.6.codex.config.json), and [manifest](../evidence/school-saas.gpt-5.6.codex.config.manifest.json) | Model selection is operator-confirmed and visible, not cryptographically verified. |
+| Generates config from sanitized requirements | **PASS on the fresh run** | School input, prepared task, committed fresh target, strict validator PASS | The bundled baseline remains orientation material; the evidence path contains the recorded competition run. |
 | Privacy-controlled AI workflow | **Supported as a workflow control** | Local guard, `.env`/secret denylist, synthetic fixtures, zero third-party/model preview requests | Pattern matching cannot guarantee complete sanitization; human review is mandatory. |
 | Production data stays outside the model | **True for the repository and supported workflow** | Checked-in inputs are synthetic; task rules prohibit private sources | A developer could bypass process rules; operational discipline is still required. |
 | Backend adapter compatibility | **Proved at one concrete boundary** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed tests | See the [adapter matrix](adapter-compatibility-matrix.md); this does not prove every PocketBase collection or arbitrary backend is compatible. |
@@ -58,6 +58,7 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 | `npm run test:browser` | PASS, 16/16 |
 | `npm run demo:pocketbase` | PASS, 2 synthetic items → 2 users |
 | Three required config validations | PASS, 3/3 |
+| Fresh GPT-5.6 School SaaS evidence | PASS, 8 panels / 5 roles / 3 field groups / 3 endpoints; human review complete; output SHA-256 `af47eb14261d3aca6c76d31e563087070bf7c0856bf4e06a1d7fbfd5faf807e3` |
 
 The browser preview performs the fast structural gate. The CLI and manifest path enforce the stricter generated-artifact requirements; neither gate proves backend payload compatibility or business correctness.
 
@@ -85,21 +86,13 @@ The browser preview performs the fast structural gate. The CLI and manifest path
 - a prepared `school-saas.codex-task.md` task;
 - local config, unit, privacy, browser, and adapter tests.
 
-One competition artifact is still manual: the operator must visibly select **GPT-5.6 Sol**, show the actual selected intelligence level, run the prepared task, review the fresh output, record its manifest, and capture those steps in the video. The final recorded run uses Ultra when available; otherwise it shows the highest real level available in the app. An intelligence label alone is not proof of the model. This is a controlled recording-day step, not a missing code feature.
+The final operator evidence is complete: **GPT-5.6 Sol** and **Ultra** were visible in Codex, the prepared task generated a fresh target, the strict validator returned PASS, a human reviewed the artifact, and the operator-confirmed manifest was recorded. The committed manifest does not claim cryptographic model verification. Raw video clips capture this chain; final English-audio assembly and publication remain submission operations, not missing product features.
 
-## Pre-submission P0 steps
+## Remaining pre-submission P0 steps
 
-1. Open this repository as a project in the Codex app.
-2. Select **GPT-5.6 Sol**, choose the actual single-task mode/effort available to the account, and make the model plus those real labels visible in the recording.
-3. Start a new task and paste:
-
-   ```text
-   Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Run the required validator, fix every failure, and report the final result and assumptions.
-   ```
-
-4. Review `ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json` manually.
-5. After validator PASS, run the manifest command.
-6. Show the model picker, prepared task, generated target, validator PASS, and manifest hash in the English-audio video.
+1. Assemble the recorded clips, add the documented English audio, export below three minutes, and publish the video publicly on YouTube.
+2. Run `/feedback` in the primary Codex task and paste the Session ID only into the private Devpost field.
+3. Verify the public repository, Pages URL, and YouTube URL in a private browser window, then submit under Developer Tools.
 
 ## Recommendations that could strengthen placement
 

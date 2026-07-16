@@ -107,11 +107,11 @@ After submission, use an incognito/private window to verify the public repositor
 - [x] Pages URL is live; deployment, anonymous HTTP assets, and a real-Chrome scenario smoke are verified.
 - [ ] YouTube video is Public, English, at or below 2:54, and has audible, understandable English narration.
 - [ ] Video explains both what was built and how Codex plus GPT-5.6 were used.
-- [ ] Final visible GPT-5.6 Sol selection, actual selected intelligence level, fresh generated target, strict validator PASS, review, manifest, and tests are real.
-- [ ] The preview uses **Choose local JSON** to load the fresh reviewed evidence config and shows PASS; **Load sample** is not used as final proof.
-- [ ] The preview states **No third-party or model requests**.
+- [x] Final visible GPT-5.6 Sol selection, actual selected intelligence level, fresh generated target, strict validator PASS, review, manifest, and tests are real.
+- [x] The preview uses **Choose local JSON** to load the fresh reviewed evidence config and shows PASS; **Load sample** is not used as final proof.
+- [x] The preview states **No third-party or model requests**.
 - [ ] `/feedback` Session ID is in the private Devpost field and nowhere public.
-- [ ] Build Week delta contains the final in-period commit SHA.
+- [x] Build Week delta contains the final in-period evidence commit SHA.
 - [ ] No personal data, credential, `.env`, Session ID, unrelated private screen, notification, or unlicensed music appears.
 - [ ] Test access remains free and unrestricted through judging.
 - [ ] Submit before **2026-07-21 5:00 PM Pacific Time**.

@@ -84,7 +84,7 @@ npm run test:browser
 npm run dev
 ```
 
-Open `http://127.0.0.1:4173`, switch scenarios/language/theme, and inspect the adapter and privacy evidence. The final GPT-5.6 generation is an operator step performed in the Codex app with the prepared task file.
+Open `http://127.0.0.1:4173`, switch scenarios/language/theme, and inspect the adapter and privacy evidence. The final GPT-5.6 generation was performed in the Codex app with the prepared task; the reviewed [config](../evidence/school-saas.gpt-5.6.codex.config.json) and operator-confirmed [manifest](../evidence/school-saas.gpt-5.6.codex.config.manifest.json) are committed under `ai-buildweek/evidence`.
 
 The public video must be under three minutes and include English voiceover or English text-to-speech explaining both the product and the meaningful Codex/GPT-5.6 contribution. Overlay captions are intentionally omitted so the recorded evidence remains unobstructed; captions are not an official requirement.
 

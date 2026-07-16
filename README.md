@@ -172,7 +172,7 @@ The competition video is under three minutes, public on YouTube, and includes En
 
 ## Evidence
 
-Historical and refreshed evidence through 2026-07-14 is recorded in [codex-build-log.md](ai-buildweek/reports/codex-build-log.md).
+Historical and refreshed evidence through 2026-07-16 is recorded in [codex-build-log.md](ai-buildweek/reports/codex-build-log.md).
 
 | Check | Result | Evidence |
 | --- | --- | --- |
@@ -181,8 +181,8 @@ Historical and refreshed evidence through 2026-07-14 is recorded in [codex-build
 | `npm run test:unit` | PASS | 20/20 Node tests, including task/manifest rules, strict artifacts, privacy, PocketBase, and GitHub Pages subpath resolution |
 | `npm run test:privacy` | PASS | 8/8 focused Codex-workflow and privacy-guard tests |
 | School Codex task preflight | PASS | Task file produced, zero blockers/review findings, no model API call |
-| In-app GPT-5.6 run evidence | OPERATOR STEP | Select GPT-5.6 Sol visibly in Codex, execute the prepared task, review output, then record the manifest |
-| School config validation | PASS | 9 panels, 5 roles, 5 field groups, 8 endpoints |
+| In-app GPT-5.6 run evidence | PASS | Fresh [School SaaS config](ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json) and [operator-confirmed manifest](ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.manifest.json): GPT-5.6 Sol visible in Codex with Ultra selected, strict validation PASS, human review complete, 8 panels / 5 roles / 3 field groups / 3 endpoints |
+| Bundled School baseline config validation | PASS | 9 panels, 5 roles, 5 field groups, 8 endpoints; orientation fixture, not the fresh run |
 | Healthcare config validation | PASS | 10 panels, 4 roles, 5 field groups, 8 endpoints |
 | Agency config validation | PASS | 8 panels, 4 roles, 7 field groups, 7 endpoints |
 | School Markdown report generation | PASS | `ai-buildweek/reports/generated-demo-report.md` generated locally |
@@ -226,7 +226,7 @@ The four reusable workflows live in [ai-buildweek/prompts](ai-buildweek/prompts)
 
 ## Scope and dependency honesty
 
-This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The school task package is ready; the final competition evidence requires the operator to select GPT-5.6 Sol visibly in Codex, run that task, review the result, and record its manifest. This repository does not claim that every panel in the private commercial donor product is part of this public edition or production-ready here.
+This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The remaining submission-only steps are publishing the English-audio video and placing the private `/feedback` Session ID in Devpost. This repository does not claim that every panel in the private commercial donor product is part of this public edition or production-ready here.
 
 The preview has **zero frontend runtime npm dependencies**. Development/test/build commands also use Node built-ins only in this edition. A customer backend, deployment stack, or the separate private donor product may have its own disclosed dependencies.
 
