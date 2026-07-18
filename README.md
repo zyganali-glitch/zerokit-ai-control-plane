@@ -21,6 +21,10 @@ Operator recording guide, Turkish: [Demo video roadmap](ai-buildweek/demo/DEMO_V
 
 This standalone ZeroKit submission contains the complete public judging path: the GPT-5.6/Codex workflow, synthetic sample configs, privacy and validation tools, adapter evidence, tests, and runnable control-plane preview.
 
+## Build Week scope disclosure
+
+ZeroKit is treated as a **pre-existing project** under the Official Rules. Its public foundation predates the Submission Period and is not presented as new competition work. The meaningful in-period extension adds the no-rebuild Pages deployment and project-subpath support, URL tests, visible evidence and synthetic-data boundaries, strict generated-artifact validation, official-rules-aligned submission materials, and the fresh GPT-5.6/Codex generation, review, and manifest workflow. Timestamped commits and the exact prior/new-work boundary are documented in [build-week-delta.md](ai-buildweek/reports/build-week-delta.md).
+
 ## Recommended track: Developer Tools
 
 ZeroKit is submitted to **Developer Tools** because its primary user is a developer or technical product team. The School SaaS example is synthetic demo data, not the competition category. The product packages bounded agent tasks, generates and validates configuration contracts, maps adapter gaps, enforces privacy gates, and exposes reproducible test evidence.
@@ -252,7 +256,7 @@ ai-buildweek/
   reports/       Adapter, privacy, judging, delta, session, claim, and build evidence
   scripts/       Generation, validation, adapter, safe apply, and report CLIs
   demo/          Architect guide, voiceover, recording roadmap, script, and screenshots
-  submission/    Devpost field drafts and final operator checklist
+  submission/    Devpost field guide and final operator checklist
 config/          Public config contract schema
 frontend/
   pages/         Isolated local control-plane preview
@@ -270,7 +274,7 @@ The four reusable workflows live in [ai-buildweek/prompts](ai-buildweek/prompts)
 
 ## Scope and dependency honesty
 
-This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The English-audio video is public; the remaining private submission operation is placing the already-obtained `/feedback` Session ID directly into Devpost and confirming final submission. ZeroKit does not claim production readiness.
+This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The English-audio video is public. The operator confirmed that the private `/feedback` Session ID field in Devpost is complete; the value was never read, stored, printed, or committed here. Final submission remains a separate explicit operator action. ZeroKit does not claim production readiness.
 
 The preview has **zero frontend runtime npm dependencies**. Development/test/build commands also use Node built-ins only in this edition. Any real integration still requires its own adapter, authorization review, deployment controls, and tests.
 

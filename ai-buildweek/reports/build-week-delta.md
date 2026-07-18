@@ -6,7 +6,7 @@ ZeroKit AI Control Plane is a standalone public Build Week judging edition. Judg
 
 ## Prior public foundation
 
-The public repository also had an initial foundation before the official Submission Period. Git records show that foundation ending at commit `74605f7` on **2026-07-13 16:42:28 UTC+03:00**. The official Submission Period began on **2026-07-13 09:00 PDT**, which was **19:00 UTC+03:00**. This timing is disclosed so judges can distinguish prior public context from in-period work.
+ZeroKit is disclosed as a **pre-existing project** under the Official Rules. Its concept and public repository foundation existed before the official Submission Period; that prior work is not presented as new competition work. Git records show the public foundation ending at commit `74605f7` on **2026-07-13 16:42:28 UTC+03:00**. The official Submission Period began on **2026-07-13 09:00 PDT**, which was **19:00 UTC+03:00**. This timing is disclosed so judges can distinguish prior work from the meaningful in-period extension.
 
 ## New public Build Week work
 
@@ -18,7 +18,8 @@ The meaningful in-period extension begins on 2026-07-14 and is intentionally mor
 - a new visible evidence chain in the product UI: local preflight, GPT-5.6/Codex generation, and deterministic gates;
 - a visible boundary between bundled synthetic examples and final competition evidence;
 - official-rules-aligned English audio/voiceover, Devpost, `/feedback`, Pages, and judge guidance;
-- the final fresh GPT-5.6 Codex generation, review, manifest, completion gates, and published 2:38 English-audio YouTube demo, with only the private Devpost Session ID operation left outside the public repository.
+- the final fresh GPT-5.6 Codex generation, review, manifest, completion gates, and published 2:38 English-audio YouTube demo;
+- the completed private Devpost Session ID field, confirmed by the operator without placing its value in this repository.
 
 The first timestamped commit in this in-period extension is [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**. It proves the start of the extension; it is not labeled as the final evidence commit.
 
@@ -49,7 +50,7 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 - [x] Validator returns PASS.
 - [x] Human review is completed and the manifest is recorded.
 - [x] Completion gates return their real results: unit 20/20, privacy 8/8, browser 16/16, PocketBase PASS, and three config validations PASS.
-- [ ] `/feedback` Session ID is placed only in Devpost.
+- [x] Operator confirmed that the `/feedback` Session ID is placed only in Devpost; its value was never read, stored, printed, or committed.
 - [x] Public YouTube video is verified signed out at `https://www.youtube.com/watch?v=vGYXv_pltRE`, with English audio and a 2:38 runtime.
 
 ## Judge evaluation boundary

@@ -45,6 +45,10 @@ The hardest part was keeping AI generation useful without turning it into an uns
 
 The fresh reviewed artifact passes with 8 panels, 5 roles, 3 field groups, and 3 endpoints. The final gates pass with unit 20/20, privacy 8/8, browser 16/16, three bundled config validations, and the synthetic PocketBase adapter fixture. The main lesson is that AI-generated architecture becomes more useful when uncertainty, privacy boundaries, deterministic validation, and human approval are visible parts of the product.
 
+## Build Week extension
+
+ZeroKit is a pre-existing project under the Official Rules. Its public foundation predates the Submission Period and is not presented as new competition work. During the Submission Period, it was meaningfully extended with the no-rebuild Pages deployment and project-subpath support, URL tests, a visible evidence chain and synthetic-data boundary, strict generated-artifact validation, official-rules-aligned submission materials, and the fresh GPT-5.6/Codex generation, review, and manifest workflow. Timestamped commits and the exact prior/new-work boundary are documented at https://github.com/zyganali-glitch/zerokit-ai-control-plane/blob/main/ai-buildweek/reports/build-week-delta.md.
+
 ## What is next
 
 ZeroKit remains a judging-ready developer workflow, not a production-ready authorization system or a universal backend adapter. A real deployment would require a backend-specific fixture and adapter, authorization review, integration tests, and normal deployment controls. The browser preview intentionally runs no Codex task or shell command and makes no model API request.
@@ -188,19 +192,19 @@ After submission, use an incognito/private window to verify the public repositor
 
 ## 13. Final checklist before Submit
 
-- [ ] Developer Tools is the only selected track for this project.
-- [ ] Title, tagline, description, and Codex/GPT-5.6 explanation are in English.
-- [ ] Repository is public and opens in a private browser window.
+- [x] Developer Tools is the only selected track for this project.
+- [x] Title, tagline, description, and Codex/GPT-5.6 explanation are in English.
+- [x] Repository is public and opens in a private browser window.
 - [x] Pages URL is live; deployment, anonymous HTTP assets, and a real-Chrome scenario smoke are verified.
 - [x] YouTube video is Public, English, and 2:38—strictly below three minutes.
 - [x] Video explains both what was built and how Codex plus GPT-5.6 were used.
 - [x] Final visible GPT-5.6 Sol selection, actual selected intelligence level, fresh generated target, strict validator PASS, review, manifest, and tests are real.
 - [x] The preview uses **Choose local JSON** to load the fresh reviewed evidence config and shows PASS; **Load sample** is not used as final proof.
 - [x] The preview states **No third-party or model requests**.
-- [ ] `/feedback` Session ID is in the private Devpost field and nowhere public.
+- [x] Operator confirmed that the `/feedback` Session ID is in the private Devpost field and nowhere public; its value was never exposed to this task.
 - [x] Build Week delta contains the final in-period evidence commit SHA.
-- [ ] No personal data, credential, `.env`, Session ID, unrelated private screen, notification, or unlicensed music appears.
-- [ ] Test access remains free and unrestricted through judging.
+- [x] No personal data, credential, `.env`, Session ID, unrelated private screen, notification, or unlicensed music appears.
+- [x] Test access remains free and unrestricted through judging.
 - [ ] Submit before **2026-07-21 5:00 PM Pacific Time**.
 
 ## Optional Devpost plugin

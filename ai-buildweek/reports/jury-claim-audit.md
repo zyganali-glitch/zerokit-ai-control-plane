@@ -34,7 +34,7 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 | Design / UX | 8.2/10 | The bilingual responsive preview and visible evidence chain are coherent; prepare → Codex → preview still spans two applications. |
 | Potential impact | 7.7/10 | SaaS customization is a credible problem demonstrated across three sectors; there is no customer interview, timing study, or pilot evidence. |
 | Idea quality | 8.5/10 | Positioning GPT-5.6 as a config/contract/test co-designer rather than a chatbot is distinctive and privacy-aware. |
-| **Equal-weight proxy total** | **8.2/10** | Pages, the fresh GPT-5.6 evidence chain, and the public 2:38 English-audio video are verified; the private Session ID remains a Devpost-only operation. |
+| **Equal-weight proxy total** | **8.2/10** | Pages, the fresh GPT-5.6 evidence chain, the public 2:38 English-audio video, and the private Devpost Session ID field are complete; the Session ID value was never exposed to this task. |
 
 ## Claim-by-claim result
 
@@ -88,11 +88,11 @@ The browser preview performs the fast structural gate. The CLI and manifest path
 
 The final operator evidence is complete: **GPT-5.6 Sol** and **Ultra** were visible in Codex, the prepared task generated a fresh target, the strict validator returned PASS, a human reviewed the artifact, and the operator-confirmed manifest was recorded. The committed manifest does not claim cryptographic model verification. The final 2:38 English-audio video is public at <https://www.youtube.com/watch?v=vGYXv_pltRE> and plays while signed out.
 
-## Remaining pre-submission P0 steps
+## Final submission state
 
-1. Paste the already-obtained `/feedback` Session ID only into the private Devpost field.
-2. Preview the completed English submission and verify Developer Tools is the only selected track.
-3. Submit and confirm the green Submitted status.
+1. **COMPLETE:** the operator confirmed that the `/feedback` Session ID is only in the private Devpost field; the value was never exposed to this task.
+2. **COMPLETE:** the English submission was previewed, including media, links, and Developer Tools as the only category.
+3. **OPEN:** after the final repository integrity audit and renewed explicit approval, submit and confirm the green **Submitted** status.
 
 ## Recommendations that could strengthen placement
 

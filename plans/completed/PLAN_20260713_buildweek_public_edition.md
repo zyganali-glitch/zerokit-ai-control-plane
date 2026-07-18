@@ -40,7 +40,7 @@ Denylist: files outside this repository, auth or billing activation, telemetry, 
 | P4 Verification and closure | Reproducible checks pass; plan archived after publication | P3 | COMPLETE |
 | P5 Publication | Commit and direct initial push to `main` | P4 and Git Credential Manager | COMPLETE |
 
-Discovered work must be added here; required failures cannot be deferred as “later”. Browser work found and closed two issues: query parameters were lost by root redirect, and mobile top controls/privacy copy needed wrapping. Remaining discovered item: GitHub CLI is not on PATH; search/install decision is required before P5.
+Discovered work must be added here; required failures cannot be deferred as “later”. Browser work found and closed two issues: query parameters were lost by root redirect, and mobile top controls/privacy copy needed wrapping. GitHub CLI was not on PATH, so P5 used the documented native Git fallback and completed successfully.
 
 ## Modular design
 

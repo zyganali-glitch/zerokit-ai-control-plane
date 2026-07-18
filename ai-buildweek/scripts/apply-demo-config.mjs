@@ -37,9 +37,9 @@ async function main() {
     process.exitCode = 1;
     return;
   }
-  const privateDonorPath = resolve('config', 'zerokit.config.json');
-  if (target === privateDonorPath && !process.argv.includes('--allow-private-donor-overwrite')) {
-    console.error('FAIL Refusing to overwrite config/zerokit.config.json without --allow-private-donor-overwrite.');
+  const protectedConfigPath = resolve('config', 'zerokit.config.json');
+  if (target === protectedConfigPath && !process.argv.includes('--allow-protected-config-overwrite')) {
+    console.error('FAIL Refusing to overwrite config/zerokit.config.json without --allow-protected-config-overwrite.');
     process.exitCode = 1;
     return;
   }

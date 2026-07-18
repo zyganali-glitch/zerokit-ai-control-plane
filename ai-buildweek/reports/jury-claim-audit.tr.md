@@ -21,7 +21,7 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 | Tasarım / UX | 8,2/10 | İki dilli responsive preview ve kanıt zinciri tutarlı; görev hazırlama → Codex → preview hâlâ iki uygulamada ilerliyor. |
 | Potansiyel etki | 7,7/10 | SaaS özelleştirme problemi gerçek ve üç sektörle anlatılıyor; müşteri görüşmesi, süre ölçümü veya pilot kanıtı yok. |
 | Fikir kalitesi | 8,5/10 | GPT-5.6'yı chatbot yerine config/sözleşme/test eş tasarımcısı olarak konumlamak özgün ve mahremiyet odaklı. |
-| **Eşit ağırlıklı jüri vekili toplamı** | **8,2/10** | Pages, taze GPT-5.6 kanıt zinciri ve public 2:38 İngilizce sesli video doğrulandı; özel Session ID yalnız Devpost işlemi olarak kalıyor. |
+| **Eşit ağırlıklı jüri vekili toplamı** | **8,2/10** | Pages, taze GPT-5.6 kanıt zinciri, public 2:38 İngilizce sesli video ve özel Devpost Session ID alanı tamamlandı; Session ID değeri bu göreve hiç gösterilmedi. |
 
 ## İddia bazında sonuç
 
@@ -52,7 +52,7 @@ Browser preview hızlı yapısal kapıyı çalıştırır. CLI ve manifest yolu 
 
 **Evet.** Sansürlenmiş okul gereksinimi, baseline config, browser preview, PocketBase sentetik adaptörü, hazır Codex görev paketi ve yerel testler mevcuttur.
 
-Final operatör kanıtı tamamlandı: Codex'te **GPT-5.6 Sol** ve **Ultra** görünürken hazır görev çalıştırıldı, taze hedef üretildi, sıkı validator PASS verdi, insan incelemesi yapıldı ve operatör onaylı manifest kaydedildi. Manifest kriptografik model doğrulaması iddia etmez. Public 2:38 İngilizce sesli video gizli oturumda oynatılarak doğrulandı. Kalan yarışma kapısı, daha önce alınan Session ID'nin yalnız özel Devpost alanına operatör tarafından yapıştırılması ve başvurunun gönderilmesidir.
+Final operatör kanıtı tamamlandı: Codex'te **GPT-5.6 Sol** ve **Ultra** görünürken hazır görev çalıştırıldı, taze hedef üretildi, sıkı validator PASS verdi, insan incelemesi yapıldı ve operatör onaylı manifest kaydedildi. Manifest kriptografik model doğrulaması iddia etmez. Public 2:38 İngilizce sesli video gizli oturumda oynatılarak doğrulandı. Operatör Session ID'yi yalnız özel Devpost alanına yapıştırdığını onayladı; değer bu görev tarafından okunmadı veya kaydedilmedi. Devpost Preview kontrolü tamamlandı. Tek açık yarışma kapısı, son repo bütünlük denetiminden sonra gönderim ve yeşil **Submitted** durumunun doğrulanmasıdır.
 
 ## Jüriye söylenecek tek cümle
 
