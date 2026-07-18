@@ -192,6 +192,7 @@ After submission, use an incognito/private window to verify the public repositor
 
 ## 13. Final checklist before Submit
 
+- Submission result: **Submitted**; operator confirmed the green status in My Projects on 2026-07-18.
 - [x] Developer Tools is the only selected track for this project.
 - [x] Title, tagline, description, and Codex/GPT-5.6 explanation are in English.
 - [x] Repository is public and opens in a private browser window.
@@ -205,7 +206,7 @@ After submission, use an incognito/private window to verify the public repositor
 - [x] Build Week delta contains the final in-period evidence commit SHA.
 - [x] No personal data, credential, `.env`, Session ID, unrelated private screen, notification, or unlicensed music appears.
 - [x] Test access remains free and unrestricted through judging.
-- [ ] Submit before **2026-07-21 5:00 PM Pacific Time**.
+- [x] Submitted before **2026-07-21 5:00 PM Pacific Time**.
 
 ## Optional Devpost plugin
 

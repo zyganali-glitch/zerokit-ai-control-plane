@@ -52,7 +52,7 @@ Browser preview hızlı yapısal kapıyı çalıştırır. CLI ve manifest yolu 
 
 **Evet.** Sansürlenmiş okul gereksinimi, baseline config, browser preview, PocketBase sentetik adaptörü, hazır Codex görev paketi ve yerel testler mevcuttur.
 
-Final operatör kanıtı tamamlandı: Codex'te **GPT-5.6 Sol** ve **Ultra** görünürken hazır görev çalıştırıldı, taze hedef üretildi, sıkı validator PASS verdi, insan incelemesi yapıldı ve operatör onaylı manifest kaydedildi. Manifest kriptografik model doğrulaması iddia etmez. Public 2:38 İngilizce sesli video gizli oturumda oynatılarak doğrulandı. Operatör Session ID'yi yalnız özel Devpost alanına yapıştırdığını onayladı; değer bu görev tarafından okunmadı veya kaydedilmedi. Devpost Preview kontrolü tamamlandı. Tek açık yarışma kapısı, son repo bütünlük denetiminden sonra gönderim ve yeşil **Submitted** durumunun doğrulanmasıdır.
+Final operatör kanıtı tamamlandı: Codex'te **GPT-5.6 Sol** ve **Ultra** görünürken hazır görev çalıştırıldı, taze hedef üretildi, sıkı validator PASS verdi, insan incelemesi yapıldı ve operatör onaylı manifest kaydedildi. Manifest kriptografik model doğrulaması iddia etmez. Public 2:38 İngilizce sesli video gizli oturumda oynatılarak doğrulandı. Operatör Session ID'yi yalnız özel Devpost alanına yapıştırdığını onayladı; değer bu görev tarafından okunmadı veya kaydedilmedi. Devpost Preview kontrolü tamamlandı ve My Projects ekranında ZeroKit için yeşil **Submitted** durumu doğrulandı.
 
 ## Jüriye söylenecek tek cümle
 

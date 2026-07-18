@@ -34,6 +34,7 @@ ZeroKit is submitted to **Developer Tools** because its primary user is a develo
 - Track: **Developer Tools**
 - Repository: <https://github.com/zyganali-glitch/zerokit-ai-control-plane>
 - Demo video: [Watch the public YouTube demo](https://www.youtube.com/watch?v=vGYXv_pltRE) — **2:38** (158.221 seconds), Public, with English audio explaining what was built and how Codex/GPT-5.6 were used
+- Devpost status: **Submitted** — confirmed by the operator in My Projects on 2026-07-18; no public project URL is recorded until one is independently verified
 - Codex evidence: enter the `/feedback` Codex Session ID from the primary project task in the Devpost form; do not commit the Session ID publicly
 - Build Week delta: see [build-week-delta.md](ai-buildweek/reports/build-week-delta.md)
 - Testing path: see [LIVE_DEMO.md](LIVE_DEMO.md)
@@ -274,7 +275,7 @@ The four reusable workflows live in [ai-buildweek/prompts](ai-buildweek/prompts)
 
 ## Scope and dependency honesty
 
-This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The English-audio video is public. The operator confirmed that the private `/feedback` Session ID field in Devpost is complete; the value was never read, stored, printed, or committed here. Final submission remains a separate explicit operator action. ZeroKit does not claim production readiness.
+This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The English-audio video is public. The operator confirmed that the private `/feedback` Session ID field in Devpost is complete; the value was never read, stored, printed, or committed here. Devpost My Projects shows the ZeroKit submission as **Submitted**. ZeroKit does not claim production readiness.
 
 The preview has **zero frontend runtime npm dependencies**. Development/test/build commands also use Node built-ins only in this edition. Any real integration still requires its own adapter, authorization review, deployment controls, and tests.
 

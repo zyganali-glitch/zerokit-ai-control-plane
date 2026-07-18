@@ -92,7 +92,7 @@ The final operator evidence is complete: **GPT-5.6 Sol** and **Ultra** were visi
 
 1. **COMPLETE:** the operator confirmed that the `/feedback` Session ID is only in the private Devpost field; the value was never exposed to this task.
 2. **COMPLETE:** the English submission was previewed, including media, links, and Developer Tools as the only category.
-3. **OPEN:** after the final repository integrity audit and renewed explicit approval, submit and confirm the green **Submitted** status.
+3. **COMPLETE:** after the final repository integrity audit and renewed explicit approval, the operator submitted the project and confirmed the green **Submitted** status in My Projects.
 
 ## Recommendations that could strengthen placement
 

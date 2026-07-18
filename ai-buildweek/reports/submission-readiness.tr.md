@@ -15,7 +15,7 @@ Proje iddiasının dar ve dürüst hâli kod tarafından karşılanıyor:
 
 ## Resmî uygunluk durumu
 
-| Şart | Repo durumu | Başvuru öncesi gereken |
+| Şart | Repo durumu | Kanıt / final durum |
 | --- | --- | --- |
 | Codex + GPT-5.6 ile çalışan proje | **Tamamlandı** | Görünür GPT-5.6 Sol + Ultra, taze hedef, validator PASS, insan incelemesi ve manifest `15439ab` kanıt commit'inde |
 | Tek track | **Tamamlandı** | Devpost Preview'da yalnız Developer Tools doğrulandı |
@@ -27,7 +27,7 @@ Proje iddiasının dar ve dürüst hâli kod tarafından karşılanıyor:
 | Başvuru dönemi içi anlamlı geliştirme | **Tamamlandı** | Final kanıt SHA'sı delta belgesine işlendi |
 | Çalıştığı gibi gösterme | **Tamamlandı** | Public video gerçek PASS, taze config ve görünür GPT-5.6 Sol + Ultra kanıtını gösteriyor |
 
-Public İngilizce sesli video, submission-period delta, final kanıt commit'i, Devpost alanları, özel Session ID alanı ve Preview kontrolü tamamlanmıştır. Session ID değeri okunmamış, kaydedilmemiş veya public kanıta eklenmemiştir. Tek açık işlem, güncel repo denetimi sonrasında operatörün yeniden açık onayıyla **Submit project** işlemini tamamlamak ve yeşil **Submitted** durumunu doğrulamaktır.
+Public İngilizce sesli video, submission-period delta, final kanıt commit'i, Devpost alanları, özel Session ID alanı, Preview kontrolü ve final gönderim tamamlanmıştır. Session ID değeri okunmamış, kaydedilmemiş veya public kanıta eklenmemiştir. Operatör My Projects ekranında ZeroKit kartının yeşil **Submitted** durumunu doğrulamıştır.
 
 ## En kritik tarih bulgusu
 
@@ -37,7 +37,7 @@ Bu yüzden son tur yalnız belge düzeltmesi değildir: Pages alt-yol taşınabi
 
 ## Dört eşit kriterde koşullu puan
 
-| Kriter | Manuel kapılar tamamlanırsa | Neden |
+| Kriter | Gönderilmiş başvuru için | Neden |
 | --- | ---: | --- |
 | Technical Implementation | 8.5/10 | Gerçek validator, privacy guard, fail-closed adaptör, Pages testleri ve taze GPT-5.6 final çalışması güçlü; model seçimi dürüstçe operatör onaylı ve kriptografik olmayan kanıt olarak kaydedildi. |
 | Design | 8.2/10 | Responsive ve iki dilli preview anlaşılır; Codex ile preview hâlâ iki ayrı yüzeydir. |
@@ -65,4 +65,4 @@ En büyük ödül riski kod kalitesi değil, anlatıdır: jüri üç dakikada GP
 
 1. **Tamamlandı:** `/feedback` Session ID yalnız Devpost formunun private alanına kondu.
 2. **Tamamlandı:** İngilizce Devpost metni, repo, Pages, görseller ve YouTube bağlantısı Preview ekranında kontrol edildi.
-3. **Açık:** Güncel bütünlük denetimi sonrasında son açık onayı al, gönder ve yeşil **Submitted** durumunu doğrula.
+3. **Tamamlandı:** Güncel bütünlük denetimi ve yenilenmiş açık onay sonrasında proje gönderildi; yeşil **Submitted** durumu doğrulandı.

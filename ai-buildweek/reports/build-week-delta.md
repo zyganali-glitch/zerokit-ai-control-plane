@@ -52,6 +52,7 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 - [x] Completion gates return their real results: unit 20/20, privacy 8/8, browser 16/16, PocketBase PASS, and three config validations PASS.
 - [x] Operator confirmed that the `/feedback` Session ID is placed only in Devpost; its value was never read, stored, printed, or committed.
 - [x] Public YouTube video is verified signed out at `https://www.youtube.com/watch?v=vGYXv_pltRE`, with English audio and a 2:38 runtime.
+- [x] Operator confirmed that Devpost My Projects shows ZeroKit as **Submitted** on 2026-07-18.
 
 ## Judge evaluation boundary
 
