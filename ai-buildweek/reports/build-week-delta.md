@@ -20,7 +20,7 @@ The meaningful in-period extension begins on 2026-07-14 and is intentionally mor
 - a new visible evidence chain in the product UI: local preflight, GPT-5.6/Codex generation, and deterministic gates;
 - a visible boundary between bundled synthetic examples and final competition evidence;
 - official-rules-aligned English audio/voiceover, Devpost, `/feedback`, Pages, and judge guidance;
-- the final fresh GPT-5.6 Codex generation, review, manifest, and completion gates, with video publication and the private Session ID documented below as the remaining submission gates.
+- the final fresh GPT-5.6 Codex generation, review, manifest, completion gates, and published 2:38 English-audio YouTube demo, with only the private Devpost Session ID operation left outside the public repository.
 
 The first timestamped commit in this in-period extension is [`31ea6498ecf8124f483da097750da02454392526`](https://github.com/zyganali-glitch/zerokit-ai-control-plane/commit/31ea6498ecf8124f483da097750da02454392526), created on **2026-07-14 08:55:56 UTC+03:00**. It proves the start of the extension; it is not labeled as the final evidence commit.
 
@@ -53,7 +53,7 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 - [x] Human review is completed and the manifest is recorded.
 - [x] Completion gates return their real results: unit 20/20, privacy 8/8, browser 16/16, PocketBase PASS, and three config validations PASS.
 - [ ] `/feedback` Session ID is placed only in Devpost.
-- [ ] Public YouTube video is under three minutes with English audio.
+- [x] Public YouTube video is verified signed out at `https://www.youtube.com/watch?v=vGYXv_pltRE`, with English audio and a 2:38 runtime.
 
 ## Judge evaluation boundary
 

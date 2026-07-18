@@ -1,6 +1,6 @@
 # English voiceover script
 
-Use this as the single source for the final English audio. The planned runtime is **2:54**, leaving six seconds of safety below Devpost's three-minute limit. Speak the English lines or generate English text-to-speech from them; the current official FAQ explicitly permits text-to-speech or an AI voice tool. Overlay captions are intentionally omitted so the recorded product evidence remains unobstructed; the official requirements call for explanatory audio, not captions. Do not add copyrighted music.
+This was the single production source for the final English audio. The timing table below records the original **2:54 pre-export plan**; the verified published video is **2:38** (158.221 seconds): <https://www.youtube.com/watch?v=vGYXv_pltRE>. The current official FAQ explicitly permits text-to-speech or an AI voice tool. Do not add copyrighted music.
 
 The bundled School SaaS sample is orientation material, not final run evidence. Record the browser segment only after the fresh GPT-5.6 Sol output has passed the strict CLI validator, completed human review, and received its hash manifest. In the browser, use **Choose local JSON** to load that exact fresh evidence file. Do not replace this shot with **Load sample**.
 
@@ -23,4 +23,4 @@ The bundled School SaaS sample is orientation material, not final run evidence. 
 | 2:38–2:49 | Show the GitHub Pages preview, then the public GitHub repository. | “The free live preview needs no rebuild, paid domain, or model API, while the repository contains reproducible evidence.” | Pages URL and public repository URL |
 | 2:49–2:54 | End on the product hero and URL. | “ZeroKit makes AI-generated control-plane decisions visible, testable, and reviewable.” | Final public URL |
 
-Before export, generate the TTS audio once, listen for mispronunciations, and keep the finished video at or below **2:54**. If a line runs long, shorten pauses or trim a transition first; do not accelerate speech until it becomes hard to understand.
+Published result: Public, signed-out playback PASS, **2:38**. The original timing plan is retained above as production history rather than a claim about the final runtime.

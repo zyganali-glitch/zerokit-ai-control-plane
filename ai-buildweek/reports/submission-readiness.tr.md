@@ -20,14 +20,14 @@ Proje iddiasının dar ve dürüst hâli kod tarafından karşılanıyor:
 | Codex + GPT-5.6 ile çalışan proje | **Tamamlandı** | Görünür GPT-5.6 Sol + Ultra, taze hedef, validator PASS, insan incelemesi ve manifest `15439ab` kanıt commit'inde |
 | Tek track | Hazır | Developer Tools seç |
 | İngilizce açıklama | Taslak hazır | Devpost alanlarına yapıştır ve son kez oku |
-| Üç dakikadan kısa, sesli YouTube | Plan ve 2:54 metin hazır | TTS sesli videoyu üret ve public yükle |
+| Üç dakikadan kısa, sesli YouTube | **Tamamlandı** | Public video gizli oturumda oynatıldı; gerçek süre 2:38 |
 | Açık repo ve kurulum | Hazır | Gizli pencerede doğrula |
 | `/feedback` Session ID | Rehber hazır | Ana Codex görevinde üret, yalnız Devpost'a yapıştır |
 | Yeniden build gerektirmeyen test | **Tamamlandı** | Pages build/deploy başarılı; canlı URL anonim HTTP ve gerçek Chrome ile doğrulandı |
 | Başvuru dönemi içi anlamlı geliştirme | **Tamamlandı** | Final kanıt SHA'sı delta belgesine işlendi |
-| Çalıştığı gibi gösterme | Ham kayıtlar tamamlandı | Gerçek PASS görüntülerini İngilizce sesli final videoda birleştir |
+| Çalıştığı gibi gösterme | **Tamamlandı** | Public video gerçek PASS, taze config ve görünür GPT-5.6 Sol + Ultra kanıtını gösteriyor |
 
-Başvuru paketi henüz yalnız iki manuel kapı nedeniyle tamamlanmış değildir: herkese açık İngilizce sesli video ve yalnız Devpost'a konacak özel `/feedback` Session ID. Submission-period delta ve final kanıt commit'i tamamlanmıştır.
+Public İngilizce sesli video, submission-period delta ve final kanıt commit'i tamamlanmıştır. Kalan özel işlem, operatörün daha önce aldığı `/feedback` Session ID'yi yalnız Devpost'un private alanına kişisel olarak yapıştırması ve başvuruyu göndermesidir.
 
 ## En kritik tarih bulgusu
 
@@ -63,8 +63,6 @@ En büyük ödül riski kod kalitesi değil, anlatıdır: jüri üç dakikada GP
 
 ## Kalan ödül odaklı sıra
 
-1. Tamamlanan ham görüntüleri 2:54 İngilizce TTS videoda birleştir; ilk 27 saniyede problem, ürün ve GPT-5.6 değerini kur.
-2. Teknik kanıtı gerçek PASS sonuçlarıyla göster; yalnız bekleme sürelerini kes ve sonucu kurgu ile üretme.
-3. Videoyu herkese açık YouTube bağlantısıyla yayımla.
-4. `/feedback` Session ID'yi yalnız Devpost formuna koy.
-5. İngilizce Devpost metni, repo, Pages ve YouTube bağlantılarını gizli pencerede son kez aç ve Developer Tools altında gönder.
+1. `/feedback` Session ID'yi yalnız Devpost formunun private alanına koy.
+2. İngilizce Devpost metni, repo, Pages ve YouTube bağlantılarını Preview ekranında son kez kontrol et.
+3. Developer Tools altında son açık onaydan sonra gönder ve yeşil Submitted durumunu doğrula.

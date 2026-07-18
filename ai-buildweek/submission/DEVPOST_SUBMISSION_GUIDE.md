@@ -52,7 +52,7 @@ Do not use **Load sample** as a substitute for the final evidence-file shot. The
 
 - **Repository:** <https://github.com/zyganali-glitch/zerokit-ai-control-plane>
 - **Live demo:** <https://zyganali-glitch.github.io/zerokit-ai-control-plane/> — verified live
-- **YouTube:** `PASTE_PUBLIC_YOUTUBE_URL_HERE`
+- **YouTube:** <https://www.youtube.com/watch?v=vGYXv_pltRE> — Public, verified signed out, **2:38** (158.221 seconds)
 - **Codex Session ID:** Paste the Session ID produced by `/feedback` in the primary Codex task only into Devpost's private Session ID field. Never paste it into the public description, README, video, screenshot, issue, commit, or repository.
 
 GitHub Pages supplies the public demo for free. ZeroKit does not require a paid domain, paid hosting, a model API, or an API key. Codex itself uses the operator's signed-in account and remains subject to that account's access and usage limits.
@@ -73,16 +73,14 @@ ZeroKit had a public foundation before the official Submission Period. The submi
 
 Full disclosure: [build-week-delta.md](../reports/build-week-delta.md).
 
-## 9. YouTube upload and public verification
+## 9. Verified public YouTube video
 
-1. Upload `ZeroKit-Build-Week-Demo-English.mp4` at <https://www.youtube.com/> using **Create → Upload video**.
-2. Keep the final duration at or below **2:54**, safely below three minutes.
-3. The video must contain clear English explanatory audio. The current official [Build Week FAQ](https://openai.devpost.com/details/faqs) explicitly permits text-to-speech or an AI voice tool. Overlay captions are intentionally omitted to keep the product evidence unobstructed; captions are not an official requirement.
-4. In **Audience**, select the truthful not-made-for-kids choice for this developer tool.
-5. In **Visibility**, select **Public**—not Private, Unlisted, or Scheduled—and publish.
-6. Copy the final YouTube URL.
-7. Open a new incognito/private window, paste the URL while signed out, and verify that the video plays with audible, understandable English narration.
-8. Reopen YouTube Studio and confirm that visibility still says **Public**.
+- URL: <https://www.youtube.com/watch?v=vGYXv_pltRE>
+- Actual duration: **2:38** (158.221 seconds)
+- Visibility: **Public**; metadata reports neither Private nor Unlisted
+- Signed-out playback: **PASS**
+- Audio: English explanation of ZeroKit, Codex, and GPT-5.6
+- Evidence shown: working preview, visible GPT-5.6 Sol with Ultra, strict PASS, reviewed fresh config, adapter boundary, and repeatable gates
 
 ## 10. Final Devpost click path
 
@@ -105,8 +103,8 @@ After submission, use an incognito/private window to verify the public repositor
 - [ ] Title, tagline, description, and Codex/GPT-5.6 explanation are in English.
 - [ ] Repository is public and opens in a private browser window.
 - [x] Pages URL is live; deployment, anonymous HTTP assets, and a real-Chrome scenario smoke are verified.
-- [ ] YouTube video is Public, English, at or below 2:54, and has audible, understandable English narration.
-- [ ] Video explains both what was built and how Codex plus GPT-5.6 were used.
+- [x] YouTube video is Public, English, and 2:38—strictly below three minutes.
+- [x] Video explains both what was built and how Codex plus GPT-5.6 were used.
 - [x] Final visible GPT-5.6 Sol selection, actual selected intelligence level, fresh generated target, strict validator PASS, review, manifest, and tests are real.
 - [x] The preview uses **Choose local JSON** to load the fresh reviewed evidence config and shows PASS; **Load sample** is not used as final proof.
 - [x] The preview states **No third-party or model requests**.

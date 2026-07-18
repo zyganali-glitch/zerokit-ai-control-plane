@@ -81,7 +81,7 @@ Beklenen sonuç: ekranda yalnız yarışma projesi, Terminal ve preview bulunaca
 Kullanacağımız klasör aşağıdadır. `%USERPROFILE%`, Windows'un senin kullanıcı klasörünü kendiliğinden bulması anlamına gelir; bunu değiştirmen gerekmez.
 
 ```text
-%USERPROFILE%\.gemini\antigravity\scratch\zerokit-ai-control-plane
+%USERPROFILE%\Desktop\zerokit\zerokit-ai-control-plane
 ```
 
 1. Klavyede Windows logolu tuşa bas.
@@ -163,7 +163,7 @@ Resmî başvuru öncesi kontrol bağlantısı: <https://help.openai.com/en/artic
 6. `Enter` tuşuna bas.
 
 ```powershell
-cd "$env:USERPROFILE\.gemini\antigravity\scratch\zerokit-ai-control-plane"
+cd "$env:USERPROFILE\Desktop\zerokit\zerokit-ai-control-plane"
 ```
 
 Beklenen sonuç: komut satırının solunda veya başında `zerokit-ai-control-plane` klasörü görünür. Kırmızı hata görürsen klasör yolunu tekrar kopyala; tırnak işaretlerini silme.
@@ -342,7 +342,7 @@ Hazırlık Terminalini kapatma. İkinci bir Terminal aç:
 2. Şu klasör komutunu yapıştır ve `Enter` tuşuna bas:
 
 ```powershell
-cd "$env:USERPROFILE\.gemini\antigravity\scratch\zerokit-ai-control-plane"
+cd "$env:USERPROFILE\Desktop\zerokit\zerokit-ai-control-plane"
 ```
 
 3. Şu komutu çalıştır:
@@ -395,7 +395,7 @@ Bu bölüm final videonun tarayıcıdaki gerçek kanıtıdır. Önce Bölüm 2'd
 6. Şu klasör yolunu yapıştır ve `Enter` tuşuna bas:
 
 ```text
-%USERPROFILE%\.gemini\antigravity\scratch\zerokit-ai-control-plane\ai-buildweek\evidence
+%USERPROFILE%\Desktop\zerokit\zerokit-ai-control-plane\ai-buildweek\evidence
 ```
 
 7. Listede `school-saas.gpt-5.6.codex.config.json` dosyasını bul. Adında `.manifest` geçen dosyayı seçme; tarayıcıya config JSON'u yüklenir.
@@ -456,7 +456,7 @@ Codex çalışması uzun sürerse tamamını üç dakikalık videoda bekletme. B
 
 ## Bölüm 5 — Üç dakikalık kesin video ve ses akışı
 
-Kesin zaman, görüntü, İngilizce ses cümlesi ve kanıt tablosu [VOICEOVER_SCRIPT.md](VOICEOVER_SCRIPT.md) dosyasındadır. O dosya **tek doğru kaynak**tır ve toplam süre 2 dakika 54 saniyedir; üç dakikalık sınırın altında altı saniye güvenlik payı bırakır.
+İngilizce ses cümlelerinin üretim kaynağı [VOICEOVER_SCRIPT.md](VOICEOVER_SCRIPT.md) dosyasıdır. Oradaki 2:54 tablosu yayımlama öncesi zaman planıdır; doğrulanmış Public videonun gerçek süresi **2:38**'dir.
 
 1. Dosyayı Codex'te sol taraftaki dosya ağacından aç.
 2. Her satırdaki **English voiceover line** metnini sırayla kullan.

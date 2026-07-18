@@ -34,7 +34,7 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 | Design / UX | 8.2/10 | The bilingual responsive preview and visible evidence chain are coherent; prepare → Codex → preview still spans two applications. |
 | Potential impact | 7.7/10 | SaaS customization is a credible problem demonstrated across three sectors; there is no customer interview, timing study, or pilot evidence. |
 | Idea quality | 8.5/10 | Positioning GPT-5.6 as a config/contract/test co-designer rather than a chatbot is distinctive and privacy-aware. |
-| **Equal-weight proxy total** | **8.2/10** | Pages and the fresh GPT-5.6 evidence chain are verified; English-audio video publication and the private Session ID remain submission operations. |
+| **Equal-weight proxy total** | **8.2/10** | Pages, the fresh GPT-5.6 evidence chain, and the public 2:38 English-audio video are verified; the private Session ID remains a Devpost-only operation. |
 
 ## Claim-by-claim result
 
@@ -86,13 +86,13 @@ The browser preview performs the fast structural gate. The CLI and manifest path
 - a prepared `school-saas.codex-task.md` task;
 - local config, unit, privacy, browser, and adapter tests.
 
-The final operator evidence is complete: **GPT-5.6 Sol** and **Ultra** were visible in Codex, the prepared task generated a fresh target, the strict validator returned PASS, a human reviewed the artifact, and the operator-confirmed manifest was recorded. The committed manifest does not claim cryptographic model verification. Raw video clips capture this chain; final English-audio assembly and publication remain submission operations, not missing product features.
+The final operator evidence is complete: **GPT-5.6 Sol** and **Ultra** were visible in Codex, the prepared task generated a fresh target, the strict validator returned PASS, a human reviewed the artifact, and the operator-confirmed manifest was recorded. The committed manifest does not claim cryptographic model verification. The final 2:38 English-audio video is public at <https://www.youtube.com/watch?v=vGYXv_pltRE> and plays while signed out.
 
 ## Remaining pre-submission P0 steps
 
-1. Assemble the recorded clips, add the documented English audio, export below three minutes, and publish the video publicly on YouTube.
-2. Run `/feedback` in the primary Codex task and paste the Session ID only into the private Devpost field.
-3. Verify the public repository, Pages URL, and YouTube URL in a private browser window, then submit under Developer Tools.
+1. Paste the already-obtained `/feedback` Session ID only into the private Devpost field.
+2. Preview the completed English submission and verify Developer Tools is the only selected track.
+3. Submit and confirm the green Submitted status.
 
 ## Recommendations that could strengthen placement
 

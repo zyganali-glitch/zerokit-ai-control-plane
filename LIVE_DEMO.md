@@ -6,6 +6,10 @@ Verified live URL:
 
 <https://zyganali-glitch.github.io/zerokit-ai-control-plane/>
 
+Public 2:38 demo video:
+
+<https://www.youtube.com/watch?v=vGYXv_pltRE>
+
 The repository workflow at `.github/workflows/pages.yml` builds and deploys `dist/` on every push to `main`. The [Pages workflow history](https://github.com/zyganali-glitch/zerokit-ai-control-plane/actions/workflows/pages.yml) records successful `build` and `deploy` jobs. Anonymous checks returned HTTP 200 for the root, preview page, browser module, and School SaaS JSON; a real-Chrome live smoke returned 16/16 PASS with no third-party or model requests and no runtime exceptions.
 
 ## Owner setup — completed one-time GitHub click path

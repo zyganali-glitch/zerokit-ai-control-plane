@@ -1,6 +1,6 @@
 # Three-minute Build Week demo with English voiceover
 
-The final video must be public on YouTube, shorter than three minutes, and include English audio. The lines below are intentionally short enough for clear human speech or English text-to-speech; the current official FAQ permits AI-assisted narration. Overlay captions are intentionally omitted so the recorded product evidence remains unobstructed. Do not use copyrighted music.
+The final video is public on YouTube at <https://www.youtube.com/watch?v=vGYXv_pltRE>, runs **2:38**, and includes English audio. The timing table below is the original pre-export production plan and is retained as historical recording guidance.
 
 The bundled School SaaS sample is orientation material, not final run evidence. Record the browser segment only after the fresh GPT-5.6 Sol output has passed the strict CLI validator, completed human review, and received its hash manifest. Use **Choose local JSON** to load that exact evidence file. Never substitute **Load sample** for this final proof.
 

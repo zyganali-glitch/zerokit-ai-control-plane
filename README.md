@@ -15,7 +15,7 @@ ZeroKit is submitted to **Developer Tools** because its primary user is a develo
 
 - Track: **Developer Tools**
 - Repository: <https://github.com/zyganali-glitch/zerokit-ai-control-plane>
-- Demo video: public YouTube URL, under three minutes, with English audio explaining what was built and how Codex/GPT-5.6 were used
+- Demo video: [Watch the public YouTube demo](https://www.youtube.com/watch?v=vGYXv_pltRE) — **2:38** (158.221 seconds), Public, with English audio explaining what was built and how Codex/GPT-5.6 were used
 - Codex evidence: enter the `/feedback` Codex Session ID from the primary project task in the Devpost form; do not commit the Session ID publicly
 - Build Week delta: see [build-week-delta.md](ai-buildweek/reports/build-week-delta.md)
 - Testing path: see [LIVE_DEMO.md](LIVE_DEMO.md)
@@ -26,6 +26,40 @@ The optional Devpost Hackathons plugin can help prepare a submission, but it is 
 ## Live demo / no-rebuild judge path
 
 **Live preview:** <https://zyganali-glitch.github.io/zerokit-ai-control-plane/>. The deployed project-subpath build was verified with anonymous HTTP checks and the repository's real-Chrome smoke suite. Judges can use it without cloning or rebuilding the repository.
+
+## Public demo and evidence gallery
+
+[Watch the 2:38 public demo on YouTube](https://www.youtube.com/watch?v=vGYXv_pltRE).
+
+![ZeroKit AI Control Plane — public dark-theme Developer Tools preview](devpost-thumbnail.png)
+
+*ZeroKit turns synthetic SaaS requirements into a reviewable, locally validated control-plane contract before runtime.*
+
+### Codex evidence
+
+![GPT-5.6 Sol Ultra and final strict validation PASS](devpost-gallery-codex-proof.png)
+
+*GPT-5.6 Sol with Ultra intelligence executes a bounded, synthetic-only Codex task.*
+
+### Fresh config validation
+
+![Fresh reviewed config with local PASS and projected evidence counts](devpost-gallery-fresh-config-pass.png)
+
+*The fresh reviewed config passes local validation and exposes panels, roles, fields, and endpoint mappings.*
+
+### Nine-step Evidence Chain
+
+![Nine-step evidence chain and synthetic privacy boundary](devpost-gallery-evidence-chain.png)
+
+*A nine-step evidence chain connects privacy preflight, Codex generation, validation, human review, adapter proof, and repeatable tests.*
+
+### Projected Control Plane
+
+![Projected panel map, RBAC roles, and endpoint mappings](devpost-gallery-projected-control-plane.png)
+
+*The projected control plane makes enabled and hidden panels, least-privilege roles, fields, and routes reviewable before runtime.*
+
+The Devpost-ready filenames, order, and English captions are also listed in [DEVPOST_MEDIA_CAPTIONS.md](DEVPOST_MEDIA_CAPTIONS.md).
 
 ## The problem
 
@@ -168,7 +202,7 @@ The checked-in synthetic fixture mirrors PocketBase's documented `items`/`totalI
 
 The exact English voiceover source is [VOICEOVER_SCRIPT.md](ai-buildweek/demo/VOICEOVER_SCRIPT.md); the matching English shot list is [DEMO_SCRIPT.md](ai-buildweek/demo/DEMO_SCRIPT.md). The Turkish, click-by-click beginner production, text-to-speech, recording, editing, failure-recovery, and submission guide is [DEMO_VIDEO_ROADMAP.md](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md).
 
-The competition video is under three minutes, public on YouTube, and includes English audio explaining what was built and how Codex/GPT-5.6 were used. The [official FAQ](https://openai.devpost.com/details/faqs) permits text-to-speech or an AI voice tool. Overlay captions are intentionally omitted so the recorded product evidence remains unobstructed; the official rules require explanatory audio, not captions.
+The [competition video](https://www.youtube.com/watch?v=vGYXv_pltRE) is Public, runs **2:38** (158.221 seconds), plays while signed out, and includes English audio explaining what was built and how Codex/GPT-5.6 were used. The [official FAQ](https://openai.devpost.com/details/faqs) permits text-to-speech or an AI voice tool.
 
 ## Evidence
 
@@ -226,7 +260,7 @@ The four reusable workflows live in [ai-buildweek/prompts](ai-buildweek/prompts)
 
 ## Scope and dependency honesty
 
-This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The remaining submission-only steps are publishing the English-audio video and placing the private `/feedback` Session ID in Devpost. This repository does not claim that every panel in the private commercial donor product is part of this public edition or production-ready here.
+This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The English-audio video is now public; the remaining private submission operation is placing the already-obtained `/feedback` Session ID directly into Devpost and confirming final submission. This repository does not claim that every panel in the private commercial donor product is part of this public edition or production-ready here.
 
 The preview has **zero frontend runtime npm dependencies**. Development/test/build commands also use Node built-ins only in this edition. A customer backend, deployment stack, or the separate private donor product may have its own disclosed dependencies.
 

@@ -1,6 +1,6 @@
 # İngilizce seslendirmeli üç dakikalık Build Week demo metni
 
-Bu belge Türkçe kullanım açıklamasıdır; jüriye sunulan videoda anlaşılır İngilizce ses bulunmalıdır. İngilizce konuşmak zorunda değilsin: güncel resmî FAQ yapay zekâ destekli seslendirmeye izin veriyor; [VOICEOVER_SCRIPT.md](VOICEOVER_SCRIPT.md) içindeki satırları İngilizce metinden sese dönüştürebilirsin. Resmî şartlarda altyazı zorunlu değildir; ürün kanıtını kapatmamak için dolgu kutulu altyazı eklenmeyecektir. Video herkese açık YouTube bağlantısı olmalı, üç dakikadan kısa kalmalı ve telifli müzik içermemelidir.
+Bu belge, yayımlama öncesi Türkçe üretim rehberidir. Final video <https://www.youtube.com/watch?v=vGYXv_pltRE> adresinde Public olarak yayımlandı; gerçek süresi **2:38** ve İngilizce ses içeriyor. Aşağıdaki zaman tablosu, tarihsel 2:54 çekim planını gösterir; final süre iddiası değildir.
 
 Paketli School SaaS örneği yalnız tanıtım içindir; nihai çalışma kanıtı değildir. Tarayıcı bölümünü ancak taze GPT-5.6 Sol çıktısı sıkı CLI validator’dan geçtikten, insan tarafından incelendikten ve hash manifesti kaydedildikten sonra çek. Tarayıcıda **Choose local JSON** düğmesiyle tam olarak bu evidence dosyasını seç. Nihai kanıt çekiminde **Load sample** kullanma.
 

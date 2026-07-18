@@ -2,6 +2,7 @@
 
 - Önerilen track: **Developer Tools**
 - Doğrulanmış, yeniden build gerektirmeyen preview: `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
+- Doğrulanmış public video: `https://www.youtube.com/watch?v=vGYXv_pltRE` — 2:38, İngilizce ses, gizli oturumda oynatma PASS
 - Özel Devpost kanıtı: ana Codex görevindeki `/feedback` Session ID; repoya yazılmaz
 - Zaman/delta açıklaması: [build-week-delta.md](build-week-delta.md)
 - Validator kapsamı: [validator-coverage.md](validator-coverage.md)
@@ -76,4 +77,4 @@ npm run dev
 
 `http://127.0.0.1:4173` adresini aç; senaryo/dil/tema değiştir ve adaptör/mahremiyet raporlarını incele. Son GPT-5.6 üretimi Codex uygulamasında hazır görevle tamamlandı; incelenmiş [config](../evidence/school-saas.gpt-5.6.codex.config.json) ve operatör onaylı [manifest](../evidence/school-saas.gpt-5.6.codex.config.manifest.json) `ai-buildweek/evidence` altında commit'lendi.
 
-Herkese açık video üç dakikadan kısa olmalı; ürünün ne yaptığını ve Codex/GPT-5.6'nın nasıl kullanıldığını açıklayan İngilizce insan sesi veya İngilizce TTS içermelidir. Resmî şartlarda altyazı zorunlu değildir; ürün kanıtını kapatmamak için dolgu kutulu altyazı eklenmeyecektir.
+Herkese açık video 2:38 süresiyle doğrulandı ve ürünün ne yaptığını, Codex ile GPT-5.6'nın nasıl kullanıldığını açıklayan İngilizce ses içeriyor: <https://www.youtube.com/watch?v=vGYXv_pltRE>.
