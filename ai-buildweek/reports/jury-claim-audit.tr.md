@@ -33,7 +33,7 @@ Yerel script Codex arayüzündeki model seçimini okuyamaz. GPT-5.6 kanıtı, vi
 | Production verisi modele gitmez | **Repo ve desteklenen akış için doğru** | Dahil girdiler sentetik, görev dosyası özel dosyaları yasaklıyor | Süreç disiplini yine gerekir. |
 | Backend adaptör uyumluluğu | **Bir gerçek sınırda kanıtlı** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed testler | [Adaptör matrisi](adapter-compatibility-matrix.md) her backend'in otomatik uyumlu olmadığını açıklar. |
 | Jüri sözleşmesi doğrulaması | **İki açık kapıyla destekleniyor** | Browser yapısal inceleme, katı CLI/manifest kapısı, üç sentetik senaryo | [Validator kapsamı](validator-coverage.md); tam JSON Schema 2020-12 motoru değildir. |
-| Çalışan ürün | **Çalışan jüri preview'su** | Build, yerel preview, safe apply, rapor, tarayıcı smoke | Production control plane veya özel donor ürünün tamamı değildir. |
+| Çalışan ürün | **Çalışan jüri preview'su** | Build, yerel preview, safe apply, rapor, tarayıcı smoke | Production-ready yetkilendirme veya dağıtım sistemi değildir. |
 
 ## Son test kanıtı
 

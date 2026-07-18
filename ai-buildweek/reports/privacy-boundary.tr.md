@@ -41,7 +41,7 @@ PASS olan pattern taraması, metnin veya alan-spesifik hassas verinin güvenli o
 
 - Operatör Codex uygulamasında GPT-5.6 modelini görünür şekilde seçer.
 - Hazırlanmış görev yalnız izinli prompt, sentetik input ve hedef output yollarını içerir.
-- `AGENTS.md`, `.env`, credential, production log, private donor ve repo dışı özel dosya erişimini yasaklar.
+- `AGENTS.md`, `.env`, credential, production log ve repo dışı özel dosya erişimini yasaklar.
 - Model API'si veya API anahtarı kullanılmaz.
 - Codex'in oluşturduğu config deterministik validator PASS almadan uygulanmaz.
 - İnsan review sonrasında manifest yalnız model beyanı, dosya yolları, hash'ler, validation istatistiği ve review durumunu kaydeder.

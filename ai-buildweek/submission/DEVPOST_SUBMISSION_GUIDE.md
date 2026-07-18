@@ -13,17 +13,41 @@ This is an operator checklist. Devpost and the Official Rules remain the source 
 ## 2. Project identity
 
 - **Track/category:** Developer Tools
-- **Title:** `ZeroKit AI Control Plane — GPT-5.6/Codex SaaS Architect`
-- **Tagline:** `A privacy-controlled developer workflow that turns sanitized SaaS requirements into validated control-plane configs, RBAC, endpoint maps, adapter checks, and test evidence with Codex + GPT-5.6.`
+- **Project name (24/60 characters):** `ZeroKit AI Control Plane`
+- **Elevator pitch (152/200 characters):** `Turn sanitized SaaS requirements into validated control-plane configs, least-privilege RBAC, endpoint maps, and auditable evidence with Codex + GPT-5.6.`
 
-## 3. Project description draft
+## 3. Project Story — About the project
 
 ```text
-SaaS teams repeatedly rebuild the same administration infrastructure: navigation, roles and permissions, configurable fields, backend routes, and release gates. Those decisions quickly become scattered code and hard-to-review integration assumptions.
+## Inspiration
 
-ZeroKit AI Control Plane turns a sanitized SaaS brief into one reviewable control-plane contract. Inside the Codex app, GPT-5.6 reasons across panel visibility, least-privilege RBAC, field registries, endpoint mappings, privacy notes, and test gates. A local preflight blocks high-confidence sensitive patterns before the task is prepared. Deterministic code then validates the generated JSON, a human reviews it, and an operator-confirmed manifest records hashes for the evidence chain.
+SaaS teams repeatedly rebuild the same administration infrastructure: navigation, roles and permissions, configurable fields, backend routes, and release gates. Those decisions quickly become scattered code and hard-to-review integration assumptions. We wanted one developer workflow that makes those choices visible before runtime without putting production customer data into the model loop.
 
-The public project includes a browser-only preview, three synthetic scenarios, a fail-closed PocketBase adapter proof, unit/privacy/browser gates, and a GitHub Pages demo. Production customer records and runtime authorization remain outside the model loop. The project does not claim universal backend compatibility: each payload shape still requires a fixture, adapter, authorization review, and tests.
+## What it does
+
+ZeroKit AI Control Plane turns a sanitized SaaS brief into one reviewable configuration contract. The result covers enabled and hidden panels, least-privilege RBAC, configurable fields, endpoint mappings, brand settings, privacy notes, and test gates.
+
+The public GitHub Pages preview gives judges a no-rebuild path for inspecting the projected control plane. The repository also includes three synthetic scenarios, a fresh reviewed GPT-5.6 evidence artifact, deterministic validators, a fail-closed PocketBase response-envelope fixture, and repeatable unit, privacy, browser, and build checks.
+
+## How we built it
+
+A dependency-free local privacy preflight first blocks high-confidence secret patterns and non-reserved email addresses. It then prepares a bounded Codex task that allows only synthetic requirements, public contracts, and a specific output path. Codex with GPT-5.6 generates the JSON inside the repository. A stricter local gate rejects incomplete generated artifacts; a human reviews the result; and an operator-confirmed manifest records hashes and validation counts. The browser preview re-validates a chosen JSON file locally and makes panels, roles, fields, routes, warnings, and the evidence chain reviewable.
+
+## How we used Codex and GPT-5.6
+
+Codex was the primary development environment for the Build Week extension, and GPT-5.6 contributed to architecture, implementation, tests, evidence design, official-rules alignment, and the demonstrated config-generation workflow. In the final recorded run, GPT-5.6 Sol with Ultra intelligence handled a bounded synthetic task, wrote the fresh School SaaS config, and returned strict validation PASS. Model selection is operator-confirmed from the visible Codex interface, not cryptographically verified.
+
+## Challenges
+
+The hardest part was keeping AI generation useful without turning it into an unsupported trust claim. We separated model reasoning from deterministic acceptance, made human review mandatory, kept production records and runtime authorization outside the workflow, and documented validator limits. We also made GitHub Pages work correctly under a project subpath and built a browser smoke runner without adding a frontend runtime dependency.
+
+## Accomplishments and lessons
+
+The fresh reviewed artifact passes with 8 panels, 5 roles, 3 field groups, and 3 endpoints. The final gates pass with unit 20/20, privacy 8/8, browser 16/16, three bundled config validations, and the synthetic PocketBase adapter fixture. The main lesson is that AI-generated architecture becomes more useful when uncertainty, privacy boundaries, deterministic validation, and human approval are visible parts of the product.
+
+## What is next
+
+ZeroKit remains a judging-ready developer workflow, not a production-ready authorization system or a universal backend adapter. A real deployment would require a backend-specific fixture and adapter, authorization review, integration tests, and normal deployment controls. The browser preview intentionally runs no Codex task or shell command and makes no model API request.
 ```
 
 ## 4. How we used Codex and GPT-5.6
@@ -31,10 +55,16 @@ The public project includes a browser-only preview, three synthetic scenarios, a
 ```text
 Codex was the primary development environment for the public Build Week judging edition. GPT-5.6 was used meaningfully for architecture, implementation, testing, evidence design, official-rules compliance, and the final product workflow—not as a decorative chatbot.
 
-For the demonstrated workflow, the operator visibly selects GPT-5.6 Sol with the actual selected Codex intelligence level. The final recorded run uses Ultra when available; current Codex guidance describes Ultra as maximum reasoning with proactive delegation for suitable work. If Ultra is unavailable, the operator shows the real highest available level without overstating it. A dependency-free local privacy check turns a synthetic School SaaS brief into a bounded Codex task. GPT-5.6 generates the target config in the repository, strict deterministic validation must return PASS, a human reviews the result, and a hash manifest records the reviewed files. The video shows that chain and the in-period repository commits document the meaningful extension.
+For the demonstrated workflow, the operator visibly selected GPT-5.6 Sol with Ultra intelligence. A dependency-free local privacy check turned a synthetic School SaaS brief into a bounded Codex task. GPT-5.6 generated the target config in the repository, strict deterministic validation returned PASS, a human reviewed the result, and a hash manifest recorded the reviewed files. Model selection is operator-confirmed from the visible Codex interface, not cryptographically verified. The video shows that chain, and the in-period repository commits document the meaningful extension.
 ```
 
-## 5. Final evidence shown in the video
+## 5. Built with
+
+Add these as separate Devpost tags:
+
+`Codex` · `GPT-5.6` · `JavaScript` · `Node.js 22+` · `HTML` · `CSS` · `GitHub Actions` · `GitHub Pages`
+
+## 6. Final evidence shown in the video
 
 The bundled School SaaS config is orientation material, not final run evidence. The recording must show this real sequence:
 
@@ -48,7 +78,7 @@ The bundled School SaaS config is orientation material, not final run evidence. 
 
 Do not use **Load sample** as a substitute for the final evidence-file shot. The preview must state **No third-party or model requests**.
 
-## 6. URLs and private Codex evidence
+## 7. URLs and private Codex evidence
 
 - **Repository:** <https://github.com/zyganali-glitch/zerokit-ai-control-plane>
 - **Live demo:** <https://zyganali-glitch.github.io/zerokit-ai-control-plane/> — verified live
@@ -57,7 +87,35 @@ Do not use **Load sample** as a substitute for the final evidence-file shot. The
 
 GitHub Pages supplies the public demo for free. ZeroKit does not require a paid domain, paid hosting, a model API, or an API key. Codex itself uses the operator's signed-in account and remains subject to that account's access and usage limits.
 
-## 7. Judge testing instructions
+For **Try it out links**, add these in this order:
+
+1. `https://zyganali-glitch.github.io/zerokit-ai-control-plane/`
+2. `https://github.com/zyganali-glitch/zerokit-ai-control-plane`
+
+For **URL to your public or private code repo**, paste:
+
+`https://github.com/zyganali-glitch/zerokit-ai-control-plane`
+
+## 8. Project media
+
+Upload these files in this order. The first 3:2 image is the project thumbnail; the other four are 16:9 evidence images.
+
+1. `devpost-thumbnail.png`
+   - Caption: `ZeroKit turns synthetic SaaS requirements into a reviewable, locally validated control-plane contract before runtime.`
+2. `devpost-gallery-codex-proof.png`
+   - Caption: `GPT-5.6 Sol with Ultra intelligence executes a bounded, synthetic-only Codex task.`
+3. `devpost-gallery-fresh-config-pass.png`
+   - Caption: `The fresh reviewed config passes local validation and exposes panels, roles, fields, and endpoint mappings.`
+4. `devpost-gallery-evidence-chain.png`
+   - Caption: `A nine-step evidence chain connects privacy preflight, Codex generation, validation, human review, adapter proof, and repeatable tests.`
+5. `devpost-gallery-projected-control-plane.png`
+   - Caption: `The projected control plane makes enabled and hidden panels, least-privilege roles, fields, and routes reviewable before runtime.`
+
+For **Video demo link**, paste:
+
+`https://www.youtube.com/watch?v=vGYXv_pltRE`
+
+## 9. Judge testing instructions
 
 ```text
 No-rebuild path: open the GitHub Pages URL. The School SaaS synthetic scenario loads automatically; switch scenario, language, or theme and inspect panels, RBAC, fields, endpoints, warnings, and the local validation state.
@@ -65,7 +123,38 @@ No-rebuild path: open the GitHub Pages URL. The School SaaS synthetic scenario l
 Reproducible local path: Node.js 22+ on Windows, macOS, or Linux. Run npm ci, npm run build, npm run test:unit, npm run test:privacy, npm run demo:pocketbase, npm run test:browser, and npm run dev. Open http://127.0.0.1:4173. Chrome or Edge is required only for the browser smoke test. In Windows PowerShell, use npm.cmd instead of npm if script execution is blocked.
 ```
 
-## 8. Build Week delta summary
+For **If applicable, link to your project for judges to check and test & any necessary instructions**, paste:
+
+```text
+No-rebuild judge path: https://zyganali-glitch.github.io/zerokit-ai-control-plane/
+
+The synthetic School SaaS scenario loads automatically. Switch scenario, language, or theme and inspect the local PASS state, enabled and hidden panels, RBAC, fields, endpoints, warnings, and the nine-step evidence chain. No login, API key, paid account, model API, or rebuild is required.
+
+Source and reproducible evidence: https://github.com/zyganali-glitch/zerokit-ai-control-plane
+```
+
+For **If your project is a plugin or dev tool, provide installation instructions, supported platforms, instructions for testing, etc**, paste:
+
+```text
+Supported platforms: Windows, macOS, and Linux.
+
+No-rebuild test: open https://zyganali-glitch.github.io/zerokit-ai-control-plane/
+
+Local test prerequisite: Node.js 22+; Chrome or Edge is required only for the browser smoke test.
+
+Run:
+npm ci
+npm run build
+npm run test:unit
+npm run test:privacy
+npm run demo:pocketbase
+npm run test:browser
+npm run dev
+
+Then open http://127.0.0.1:4173. On Windows PowerShell, use npm.cmd instead of npm if script execution is blocked. The workflow uses synthetic data only and requires no model API or API key.
+```
+
+## 10. Build Week delta summary
 
 ```text
 ZeroKit had a public foundation before the official Submission Period. The submission-period extension adds Pages deployment and project-subpath portability, URL tests, a visible evidence chain and synthetic boundary in the product, strict generated-artifact validation, official-rules-aligned submission/video/session evidence, and the final fresh GPT-5.6 Codex generation and manifest workflow. Timestamped commits and the Build Week Delta document distinguish the foundation from submitted in-period work.
@@ -73,7 +162,7 @@ ZeroKit had a public foundation before the official Submission Period. The submi
 
 Full disclosure: [build-week-delta.md](../reports/build-week-delta.md).
 
-## 9. Verified public YouTube video
+## 11. Verified public YouTube video
 
 - URL: <https://www.youtube.com/watch?v=vGYXv_pltRE>
 - Actual duration: **2:38** (158.221 seconds)
@@ -82,7 +171,7 @@ Full disclosure: [build-week-delta.md](../reports/build-week-delta.md).
 - Audio: English explanation of ZeroKit, Codex, and GPT-5.6
 - Evidence shown: working preview, visible GPT-5.6 Sol with Ultra, strict PASS, reviewed fresh config, adapter boundary, and repeatable gates
 
-## 10. Final Devpost click path
+## 12. Final Devpost click path
 
 1. Sign in at <https://openai.devpost.com/> and open the ZeroKit draft.
 2. Confirm that **Developer Tools** is the only selected track.
@@ -97,7 +186,7 @@ Full disclosure: [build-week-delta.md](../reports/build-week-delta.md).
 
 After submission, use an incognito/private window to verify the public repository, free Pages URL, and public YouTube URL. The Session ID must never appear in this public check.
 
-## 11. Final checklist before Submit
+## 13. Final checklist before Submit
 
 - [ ] Developer Tools is the only selected track for this project.
 - [ ] Title, tagline, description, and Codex/GPT-5.6 explanation are in English.

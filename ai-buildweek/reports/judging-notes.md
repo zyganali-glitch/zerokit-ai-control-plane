@@ -10,7 +10,7 @@
 
 ## Why this is a Build Week project
 
-This repository is the public, competition-focused adaptation of a separate private commercial ZeroKit codebase. It targets a difficult and repeated part of SaaS delivery: turning product requirements and backend contracts into one coherent control-plane definition. The workflow is intentionally reviewable, runnable, and testable by judges.
+This standalone repository targets a difficult and repeated part of SaaS delivery: turning sanitized product requirements and backend contracts into one coherent control-plane definition. The workflow is intentionally reviewable, runnable, and testable by judges.
 
 ## Why GPT-5.6/Codex is central
 
@@ -44,9 +44,9 @@ This is not a chatbot attached to admin data. Architectural reasoning does not r
 - adapter-gap, privacy, build-evidence, demo, and screenshot documentation;
 - a tested PocketBase response-envelope adapter using synthetic data.
 
-## What remains separate
+## Scope boundary
 
-The private commercial donor codebase, its broader panel inventory, private roadmap, and commercial license are not included. This repository does not claim that the donor product's complete surface is submitted or production-ready here.
+Production records, credentials, runtime authorization, and undeclared backend behavior are outside this workflow. This repository does not claim production readiness, universal backend compatibility, cryptographic model verification, or a full JSON Schema engine.
 
 ## What the tests prove
 

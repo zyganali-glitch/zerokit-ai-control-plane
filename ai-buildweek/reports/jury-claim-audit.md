@@ -46,7 +46,7 @@ OpenAI's [GPT-5.6 announcement](https://openai.com/index/gpt-5-6/) describes GPT
 | Production data stays outside the model | **True for the repository and supported workflow** | Checked-in inputs are synthetic; task rules prohibit private sources | A developer could bypass process rules; operational discipline is still required. |
 | Backend adapter compatibility | **Proved at one concrete boundary** | PocketBase `items/totalItems` → ZeroKit `users/total`, fail-closed tests | See the [adapter matrix](adapter-compatibility-matrix.md); this does not prove every PocketBase collection or arbitrary backend is compatible. |
 | Judging-contract validation | **Supported with two explicit gates** | Browser structural review, strict CLI/manifest gate, JSON Schema reference, three scenarios | See [validator coverage](validator-coverage.md); the validator is not a complete JSON Schema 2020-12 engine. |
-| Working product | **Working judging preview** | Build, local preview, safe apply, report, browser smoke | It is not the full production control plane or private donor product. |
+| Working product | **Working judging preview** | Build, local preview, safe apply, report, browser smoke | It is not a production-ready authorization or deployment system. |
 | Zero dependency | **False if unqualified** | Node/npm and a browser are prerequisites | “Zero frontend runtime npm dependencies” is accurate. |
 
 ## Final evidence snapshot
@@ -98,7 +98,7 @@ The final operator evidence is complete: **GPT-5.6 Sol** and **Ultra** were visi
 
 - Keep the verified GitHub Pages URL in README/Devpost and recheck it before final submission.
 - Use simple English voiceover or English text-to-speech. Overlay captions are intentionally omitted because the official requirements call for explanatory audio, not captions, and the product evidence should remain unobstructed.
-- Do not show the private donor admin panel as competition evidence. Show the reproducible public preview.
+- Show only the reproducible ZeroKit preview and evidence committed in this repository.
 - Measure manual first-draft time against Codex-assisted first-draft time as one internal experiment; do not generalize it into an unsupported productivity claim.
 - Keep PocketBase evidence to roughly 10–15 seconds so the main story remains GPT-5.6/Codex and ZeroKit.
 - After submission, consider merging input → preflight → Codex task → validation → preview into one interface.

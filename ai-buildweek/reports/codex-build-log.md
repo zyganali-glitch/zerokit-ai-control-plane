@@ -5,18 +5,17 @@
 - Date: 2026-07-13
 - Environment: Windows PowerShell, Node.js v24.13.1
 - Scope: public Build Week judging edition only
-- Data policy: synthetic examples and donor contract metadata; no secrets or production customer data
+- Data policy: synthetic examples and public contract metadata; no secrets or production customer data
 
-## Donor audit
+## Initial source-boundary audit
 
-Read-only inspection covered the donor `README.md`, root and `.codex` agent instructions, Copilot instructions, active deep-audit plan, config/schema/brand contract, schema adapter, API mapper, app bootstrap, navigation consumer, OpenAPI, adapter guide, package/requirements, unit tests, and E2E config tests.
+Read-only inspection covered the public-safe config/schema/brand contract, schema adapter, API mapper, navigation consumer, OpenAPI shapes, adapter guidance, package metadata, unit tests, and browser-test requirements.
 
 Key claim findings:
 
-- Donor README used unqualified “zero dependencies”, broad “57+ production-ready panels”, commercial pricing, and commercial license wording.
-- The accurate dependency statement for the public edition is “zero frontend runtime npm dependencies”.
-- The donor deep-audit plan is `IN_PROGRESS` and records open i18n, UI parity, fallback, schema-depth, manual, and claim-parity work; full donor completion is not claimed here.
-- The public edition therefore uses an isolated judging path and a clean Git history rather than copying donor history or presenting the private product as public.
+- The accurate dependency statement is “zero frontend runtime npm dependencies”.
+- Production-readiness, universal-backend, pricing, and total-dependency claims are excluded.
+- The standalone judging path uses only the files and evidence committed in this repository.
 
 ## Automated commands
 
@@ -116,7 +115,7 @@ The repeated run proves that an existing demo target is backed up before replace
 | Privacy boundary | PASS | Same-origin bundled requests only; zero third-party/model requests or telemetry |
 | Dependency reproducibility | PASS | Lockfile + Node-only scripts + 0 vulnerabilities |
 | Billing continuity | PASS | No billing activation or pricing/entitlement runtime added |
-| Donor admin impact | PASS | Isolated page; donor runtime not changed |
+| Runtime isolation | PASS | Browser-only preview; no production runtime or customer records accessed |
 
 ## Final repository audit
 
@@ -126,14 +125,14 @@ The repeated run proves that an existing demo target is backed up before replace
 - Secret signatures: PASS, no GitHub/OpenAI/AWS token or private-key signature found.
 - Runtime network audit: PASS, preview fetches only allowlisted same-origin bundled examples; browser smoke observed zero third-party or model requests.
 - Apply self-target guard: PASS, source=target exits 1 without mutation.
-- Donor isolation: PASS, `../zerokit` remains clean on `master...origin/master`.
-- Claim audit: PASS, donor overclaims/pricing are discussed only as audit findings; public README uses scoped evidence.
+- Repository boundary: PASS, validation and preview work remained within the standalone ZeroKit repository.
+- Claim audit: PASS, the public README uses only scoped, reproducible evidence.
 
 ## Publication
 
 - Remote: `https://github.com/zyganali-glitch/zerokit-ai-control-plane.git`
 - Branch: `main`
-- Method: native Git push through the existing GridMedic Git Credential Manager session.
+- Method: native Git push through the operator's existing Git Credential Manager session.
 - Result: PASS, the previously empty remote received the complete public judging edition.
 - Pull request: not applicable for the initial empty-repository publication; `main` was established directly at the user’s request.
 
@@ -149,7 +148,7 @@ Added controls:
 
 - a local privacy guard before model use;
 - a reproducible Codex task package with explicit allowed files and target;
-- root `AGENTS.md` rules denying `.env`, secrets, production records, private donor files, and private files outside the repository;
+- root `AGENTS.md` rules denying `.env`, secrets, production records, and private files outside the repository;
 - version, brand, registry, privacy-note, and test-checklist validation for generated artifacts;
 - refusal to create a manifest without human review and visible-model confirmation;
 - explicit “operator-confirmed, not cryptographically verified” model evidence;

@@ -45,4 +45,4 @@ API anahtarı, API kotası ve Responses API çağrısını tamamen kaldır; GPT-
 
 ## Kontrol noktası
 
-Kapanış: model API dosyaları kaldırıldı; Codex task/manifest akışı ve kök AGENTS sınırı eklendi; Türkçe jüri/video/demo/mahremiyet belgeleri tamamlandı. `npm ci` ve build PASS; unit 18/18; focused privacy/Codex 8/8; okul task/input sync PASS; config 3/3; PocketBase PASS; gerçek browser 16/16; demo report/apply PASS; JSON/MJS/Markdown link/secret/model-network/diff bütünlük denetimleri PASS. Uygulama commit'i `b2fe750` doğrudan `origin/main` dalına GridMedic Git Credential Manager ile gönderildi; yerel ve uzak SHA eşleşti.
+Kapanış: model API dosyaları kaldırıldı; Codex task/manifest akışı ve kök AGENTS sınırı eklendi; Türkçe jüri/video/demo/mahremiyet belgeleri tamamlandı. `npm ci` ve build PASS; unit 18/18; focused privacy/Codex 8/8; okul task/input sync PASS; config 3/3; PocketBase PASS; gerçek browser 16/16; demo report/apply PASS; JSON/MJS/Markdown link/secret/model-network/diff bütünlük denetimleri PASS. Uygulama commit'i `b2fe750` doğrudan `origin/main` dalına operatörün Git Credential Manager oturumuyla gönderildi; yerel ve uzak SHA eşleşti.

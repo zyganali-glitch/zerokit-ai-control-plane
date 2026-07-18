@@ -39,10 +39,10 @@ Komut gizli anahtar ve gerçek görünümlü kimlik sinyallerini kontrol eder; a
 Yeni Codex görevinde şu **İngilizce** komutu aynen yapıştır:
 
 ```text
-Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Do not read any .env file, private donor file, credential, production log, customer record, or private file outside this repository. Run the required local validator, fix every failure, and report the final validation result and assumptions.
+Follow AGENTS.md. Read ai-buildweek/runs/school-saas.codex-task.md and complete the task. Use only the synthetic files allowed by that task. Do not read any .env file, credential, production log, customer record, or private file outside this repository. Run the required local validator, fix every failure, and report the final validation result and assumptions.
 ```
 
-Codex hedef config'i `ai-buildweek/evidence/` altında üretir ve katı CLI validator'ını çalıştırır. Browser preview hızlı yapısal inceleme içindir; final artifact onayı değildir. Kesin kapsam için [validator coverage](../reports/validator-coverage.md), backend sınırı için [adapter compatibility matrix](../reports/adapter-compatibility-matrix.md) belgelerine bak. Codex'in `.env`, private donor, üretim logu veya repo dışındaki dosyaları okumasına izin verme.
+Codex hedef config'i `ai-buildweek/evidence/` altında üretir ve katı CLI validator'ını çalıştırır. Browser preview hızlı yapısal inceleme içindir; final artifact onayı değildir. Kesin kapsam için [validator coverage](../reports/validator-coverage.md), backend sınırı için [adapter compatibility matrix](../reports/adapter-compatibility-matrix.md) belgelerine bak. Codex'in `.env`, üretim logu veya repo dışındaki özel dosyaları okumasına izin verme.
 
 ## İnsan review ve manifest
 
@@ -79,4 +79,4 @@ node ai-buildweek/scripts/generate-demo-report.mjs ai-buildweek/evidence/school-
 npm.cmd run dev
 ```
 
-Apply aracı varsayılan olarak `ai-buildweek/demo-config/` kullanır, mevcut hedefi yedekler ve açık override olmadan donor config hedefini reddeder. Bu staging işlemi preview'yu otomatik değiştirmez; preview içinde **Choose local JSON** düğmesine basıp incelenecek evidence veya demo-config dosyasını seç.
+Apply aracı varsayılan olarak `ai-buildweek/demo-config/` kullanır, mevcut hedefi yedekler ve açık override olmadan korunan ana config hedefini reddeder. Bu staging işlemi preview'yu otomatik değiştirmez; preview içinde **Choose local JSON** düğmesine basıp incelenecek evidence veya demo-config dosyasını seç.

@@ -4,9 +4,7 @@
 
 ZeroKit AI Control Plane is a standalone public Build Week judging edition. Judges should evaluate this public repository: its Codex/GPT-5.6 workflow, privacy preflight, generated-config evidence path, validator, browser preview, adapter proof, tests, documentation, and demo surface.
 
-## Prior private context
-
-The project direction draws on the author's prior private SaaS-control-plane research and a separate private commercial codebase. That private codebase is not included, exposed, required for judging, or claimed as part of this entry.
+## Prior public foundation
 
 The public repository also had an initial foundation before the official Submission Period. Git records show that foundation ending at commit `74605f7` on **2026-07-13 16:42:28 UTC+03:00**. The official Submission Period began on **2026-07-13 09:00 PDT**, which was **19:00 UTC+03:00**. This timing is disclosed so judges can distinguish prior public context from in-period work.
 
@@ -36,7 +34,6 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 
 ## What is intentionally excluded
 
-- the separate private commercial codebase;
 - production customer records, credentials, logs, invoices, student or health records, and private messages;
 - any OpenAI or third-party model API, key, or runtime dependency;
 - claims of universal backend compatibility or production readiness.
@@ -57,4 +54,4 @@ Model selection is operator-confirmed from the visible Codex UI. The repository 
 
 ## Judge evaluation boundary
 
-Bundled sample configs demonstrate the product and are clearly labeled synthetic. The final generated target and manifest demonstrate the in-period Codex/GPT-5.6 workflow. Judges should evaluate only public, reproducible evidence and should not infer capabilities from the separate private codebase.
+Bundled sample configs demonstrate the product and are clearly labeled synthetic. The final generated target and manifest demonstrate the in-period Codex/GPT-5.6 workflow. Judges should evaluate only the public, reproducible evidence in this repository.

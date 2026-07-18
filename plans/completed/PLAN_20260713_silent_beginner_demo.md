@@ -17,7 +17,7 @@ Bu tarihsel turda demo yalnız İngilizce ekran yazılarına dayalı ve acemi ku
 | --- | --- | --- | --- |
 | R1 | Önceki yalnız-görsel İngilizce demo | Tarihsel ekran kartı planı | GEÇERSİZ KILINDI |
 | R2 | Aşırı detaylı acemi rehberi | Tıklama, beklenen ekran, sonraki adım, hata kurtarma | TAMAM |
-| R3 | Donör admin paneli kararı | Public preview ile private donor farkı açık karar | TAMAM |
+| R3 | Ürün kapsamı kararı | Public preview ile üretim sınırı açık karar | TAMAM |
 | R4 | Codex komutlarını İngilizce yap | Görev paketi, repo kuralları, terminal çıktıları ve kopyala-yapıştır prompt İngilizce | TAMAM |
 | R5 | Localhost/maliyet açıklaması | Local adres, domain/API/ücret gereksinimleri net | TAMAM |
 | R6 | Test ve uzak yayın | Tüm kapılar PASS; `be63721` uzak `main` dalına gönderildi | TAMAM |
@@ -40,7 +40,7 @@ Bu tarihsel turda demo yalnız İngilizce ekran yazılarına dayalı ve acemi ku
 - Video içi bütün açıklamalar İngilizcedir; hazırlık ve kullanım rehberi Türkçedir.
 - `127.0.0.1` yalnız kullanıcının bilgisayarında çalışan ücretsiz local adrestir; jüri uzaktan açamaz.
 - Ücretli domain, hosting veya model API'si zorunlu değildir.
-- Private donor admin paneli public yarışma ürünüymüş gibi gösterilmez.
+- Yalnız bu repodaki public preview ve kanıtlar yarışma ürünü olarak gösterilir.
 - Model seçici ve Codex UI sürüme göre değişebileceği için rehber görünür etikete göre yönlendirir; olmayan düğme uydurmaz.
 
 ## Fazlar

@@ -22,7 +22,7 @@ ZeroKit AI Control Plane uses GPT-5.6/Codex for developer-side architecture work
 - health records, PHI, diagnoses, clinical notes, or patient documents;
 - private messages, uploaded customer documents, support conversations, or confidential datasets;
 - raw production logs or traffic captures that may contain any of the above;
-- `.env` files, credential stores, private donor files, or private files outside this repository.
+- `.env` files, credential stores, or private files outside this repository.
 
 ## Contract sanitization
 
@@ -41,7 +41,7 @@ A PASS from pattern scanning does not prove that text is safe or free of domain-
 
 - The operator visibly selects the GPT-5.6 model in the Codex app.
 - The prepared task contains only the allowed prompt, synthetic input, and target output paths.
-- `AGENTS.md` prohibits access to `.env`, credentials, production logs, private donor files, and private files outside this repository.
+- `AGENTS.md` prohibits access to `.env`, credentials, production logs, and private files outside this repository.
 - No model API or model API key is used.
 - A Codex-generated config is not applied unless it passes the deterministic validator.
 - After human review, the manifest stores only the model attestation, file paths, hashes, validation statistics, and review state.

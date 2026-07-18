@@ -2,10 +2,24 @@
 
 > Generate a privacy-bounded SaaS control-plane config, RBAC model, endpoint map, and adapter report with Codex + GPT-5.6.
 
+**Developer Tools submission.** ZeroKit turns sanitized SaaS requirements into one reviewable configuration contract covering panel visibility, least-privilege roles, fields, routes, privacy notes, and test gates.
+
+[▶ Watch the 2:38 public demo](https://www.youtube.com/watch?v=vGYXv_pltRE) · [Try the no-rebuild live preview](https://zyganali-glitch.github.io/zerokit-ai-control-plane/) · [Inspect the fresh GPT-5.6 evidence](ai-buildweek/evidence/school-saas.gpt-5.6.codex.config.json)
+
+![ZeroKit AI Control Plane — public dark-theme Developer Tools preview](devpost-thumbnail.png)
+
+## Judge in 30 seconds
+
+1. **Problem:** SaaS teams repeatedly rebuild admin navigation, permissions, configurable fields, backend routes, and release checks.
+2. **Workflow:** a local privacy preflight prepares a bounded synthetic task; Codex with GPT-5.6 generates the config; deterministic validation and human review gate the result.
+3. **Working proof:** the live Pages preview needs no rebuild, and the fresh reviewed artifact passes with **8 panels, 5 roles, 3 field groups, and 3 endpoints**.
+4. **Repeatable gates:** build PASS, unit **20/20**, privacy **8/8**, browser **16/16**, bundled configs **3/3**, and PocketBase adapter fixture PASS.
+5. **Honest boundary:** synthetic data only; no model API or API key; runtime customer data stays outside the model loop; PocketBase proves one adapter boundary, not universal compatibility.
+
 Judge-facing notes: [Judging notes](ai-buildweek/reports/judging-notes.md) · [Privacy boundary](ai-buildweek/reports/privacy-boundary.md) · [Claim audit](ai-buildweek/reports/jury-claim-audit.md)<br>
 Operator recording guide, Turkish: [Demo video roadmap](ai-buildweek/demo/DEMO_VIDEO_ROADMAP.md)
 
-This standalone public Build Week judging edition draws on prior private SaaS-control-plane research. The separate private commercial codebase is not included or required for judging. This repository contains the submitted GPT-5.6/Codex workflow, synthetic sample configs, privacy and validation tools, adapter evidence, tests, and runnable control-plane preview.
+This standalone ZeroKit submission contains the complete public judging path: the GPT-5.6/Codex workflow, synthetic sample configs, privacy and validation tools, adapter evidence, tests, and runnable control-plane preview.
 
 ## Recommended track: Developer Tools
 
@@ -30,10 +44,6 @@ The optional Devpost Hackathons plugin can help prepare a submission, but it is 
 ## Public demo and evidence gallery
 
 [Watch the 2:38 public demo on YouTube](https://www.youtube.com/watch?v=vGYXv_pltRE).
-
-![ZeroKit AI Control Plane — public dark-theme Developer Tools preview](devpost-thumbnail.png)
-
-*ZeroKit turns synthetic SaaS requirements into a reviewable, locally validated control-plane contract before runtime.*
 
 ### Codex evidence
 
@@ -226,7 +236,7 @@ Historical and refreshed evidence through 2026-07-16 is recorded in [codex-build
 | GitHub Pages deployment | PASS | GitHub Actions `build` and `deploy` jobs completed successfully |
 | Live Pages browser smoke | PASS | 16/16 real-Chrome assertions against the project-subpath URL; no third-party/model requests or runtime exceptions |
 
-Playwright is intentionally not added to this selected static surface. The dependency-free Chrome DevTools smoke runner uses an installed Chrome/Edge binary (`CHROME_PATH` can override discovery) and does not claim that the private donor product’s broader E2E suite applies to this repository.
+Playwright is intentionally not added to this selected static surface. The dependency-free Chrome DevTools smoke runner uses an installed Chrome/Edge binary (`CHROME_PATH` can override discovery); its PASS applies only to the browser checks documented in this repository.
 
 ## Static preview deployment
 
@@ -260,10 +270,10 @@ The four reusable workflows live in [ai-buildweek/prompts](ai-buildweek/prompts)
 
 ## Scope and dependency honesty
 
-This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The English-audio video is now public; the remaining private submission operation is placing the already-obtained `/feedback` Session ID directly into Devpost and confirming final submission. This repository does not claim that every panel in the private commercial donor product is part of this public edition or production-ready here.
+This repository demonstrates a working, validated AI-assisted control-plane configuration workflow and an isolated preview. The final recorded School SaaS run is committed under [`ai-buildweek/evidence`](ai-buildweek/evidence): the operator visibly selected GPT-5.6 Sol with Ultra, Codex generated a fresh target, the strict validator returned PASS, a human reviewed the result, and the manifest recorded operator-confirmed hashes without claiming cryptographic model proof. The English-audio video is public; the remaining private submission operation is placing the already-obtained `/feedback` Session ID directly into Devpost and confirming final submission. ZeroKit does not claim production readiness.
 
-The preview has **zero frontend runtime npm dependencies**. Development/test/build commands also use Node built-ins only in this edition. A customer backend, deployment stack, or the separate private donor product may have its own disclosed dependencies.
+The preview has **zero frontend runtime npm dependencies**. Development/test/build commands also use Node built-ins only in this edition. Any real integration still requires its own adapter, authorization review, deployment controls, and tests.
 
-## License and private donor note
+## License
 
-This public Build Week judging edition is licensed under the [MIT License](LICENSE). The separate private commercial donor codebase is not included and retains its own commercial terms. This license does not relicense or expose that private product.
+This standalone ZeroKit Build Week submission is licensed under the [MIT License](LICENSE).

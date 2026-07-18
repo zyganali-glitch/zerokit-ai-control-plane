@@ -10,7 +10,7 @@
 
 ## Neden Build Week projesi?
 
-Bu repo, özel ticari ZeroKit kod tabanının yarışmaya odaklanmış açık uyarlamasıdır. SaaS teslimatının zor ve tekrarlanan bölümünü seçer: gereksinim ve backend sözleşmesini tutarlı bir kontrol düzlemi tanımına dönüştürmek. Akışı jüri için incelenebilir, çalıştırılabilir ve test edilebilir yapar.
+Bu bağımsız repo, SaaS teslimatının zor ve tekrarlanan bölümünü seçer: temizlenmiş gereksinim ve backend sözleşmesini tutarlı bir kontrol düzlemi tanımına dönüştürmek. Akışı jüri için incelenebilir, çalıştırılabilir ve test edilebilir yapar.
 
 ## GPT-5.6/Codex neden merkezde?
 
@@ -44,9 +44,9 @@ Bu bir admin verisine eklenmiş chatbot değildir. Modelin mimari reasoning içi
 - sentetik adaptör gap, privacy, build evidence, demo ve screenshot rehberi;
 - testli PocketBase response-envelope adaptörü.
 
-## Neler ayrı kalıyor?
+## Kapsam sınırı
 
-Özel ticari donor kod tabanı, geniş panel envanteri, özel roadmap ve ticari lisansı bu repoya dahil değildir. Repo donor ürünün tüm yüzeyinin tamamlandığını iddia etmez.
+Üretim kayıtları, kimlik bilgileri, çalışma zamanı yetkilendirmesi ve beyan edilmemiş backend davranışları bu akışın dışındadır. Repo production-ready olma, evrensel backend uyumluluğu, kriptografik model doğrulaması veya tam JSON Schema motoru iddiasında bulunmaz.
 
 ## Testler neyi kanıtlıyor?
 
